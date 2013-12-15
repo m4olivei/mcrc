@@ -876,7 +876,7 @@ function _wise_ip_install_menu_block_settings() {
   variable_set('menu_block_1_parent', 'main-menu:0');
   variable_set('menu_block_1_sort', 0);
   variable_set('menu_block_1_title_link', 0);
-  variable_set('wise_tweaks_1_nav_style', 'navbar');
+  variable_set('wise_tweaks_1_nav_style', 'menu-navbar');
 
   // Set the suppression of Drupal's standard menu blocks
   variable_set('menu_block_suppress_core', 1);
