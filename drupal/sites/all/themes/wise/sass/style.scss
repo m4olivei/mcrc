@@ -1,0 +1,27 @@
+//
+// @file
+// Site styles
+//
+// This single style.scss file is the compiled styles specific to this theme in addition to Bootstrap.  Everything starts
+// here and brings in partials.  _base.scss defines variables, mixins and partials from Compass.
+//
+
+// Base SASS variables and Compass config/partials
+@import 'base';
+
+// Standard Drupal/Bootstrap style overrides
+@import 'modules_default';
+
+// Site styles - these are styles unique to this site - all site styles should be entered in
+// these files.
+@import 'type';
+@import 'forms';
+
+@import 'modules';
+
+@import 'page';
+@import 'navigation';
+@import 'blocks';
+@import 'nodes';
+
+@import 'flexslider';

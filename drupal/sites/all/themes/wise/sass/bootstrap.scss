@@ -1,0 +1,59 @@
+//
+// @file
+// Copied from the Boostrap library: library/boostrap/sass/bootstrap/bootstrap.scss
+// Edit this file to only include the bootstrap partials that are necessary
+//
+@import 'base';
+
+// CSS Reset
+@import '../library/bootstrap/sass/bootstrap/reset';
+
+// Grid system and page structure
+@import '../library/bootstrap/sass/bootstrap/scaffolding';
+@import '../library/bootstrap/sass/bootstrap/grid';
+@import '../library/bootstrap/sass/bootstrap/layouts';
+
+// Base CSS
+@import '../library/bootstrap/sass/bootstrap/type';
+@import '../library/bootstrap/sass/bootstrap/code';
+@import '../library/bootstrap/sass/bootstrap/forms';
+@import '../library/bootstrap/sass/bootstrap/tables';
+
+// Components: common
+// @import '../library/bootstrap/sass/bootstrap/sprites';
+// @import '../library/bootstrap/sass/bootstrap/dropdowns';
+@import '../library/bootstrap/sass/bootstrap/wells';
+@import '../library/bootstrap/sass/bootstrap/component-animations';
+@import '../library/bootstrap/sass/bootstrap/close';
+
+// Components: Buttons & Alerts
+@import '../library/bootstrap/sass/bootstrap/buttons';
+// @import '../library/bootstrap/sass/bootstrap/button-groups';
+@import '../library/bootstrap/sass/bootstrap/alerts'; // Note: alerts share common CSS with buttons and thus have styles in buttons
+
+// Components: Nav
+@import '../library/bootstrap/sass/bootstrap/navs';
+@import '../library/bootstrap/sass/bootstrap/navbar';
+@import '../library/bootstrap/sass/bootstrap/breadcrumbs';
+@import '../library/bootstrap/sass/bootstrap/pagination';
+@import '../library/bootstrap/sass/bootstrap/pager';
+
+// Components: Popovers
+// @import '../library/bootstrap/sass/bootstrap/modals';
+// @import '../library/bootstrap/sass/bootstrap/tooltip';
+// @import '../library/bootstrap/sass/bootstrap/popovers';
+
+// Components: Misc
+// @import '../library/bootstrap/sass/bootstrap/thumbnails';
+// @import '../library/bootstrap/sass/bootstrap/media';
+// @import '../library/bootstrap/sass/bootstrap/labels-badges';
+// @import '../library/bootstrap/sass/bootstrap/progress-bars';
+// @import '../library/bootstrap/sass/bootstrap/accordion';
+// @import '../library/bootstrap/sass/bootstrap/carousel';
+@import '../library/bootstrap/sass/bootstrap/hero-unit';
+
+// Utility classes
+@import '../library/bootstrap/sass/bootstrap/utilities'; // Has to be last to override when necessary
+
+// Responsive
+@import 'bootstrap_responsive';

@@ -1,0 +1,153 @@
+//
+// @file
+// Custom sass mixins
+//
+
+// element-invisible as defined by http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+@mixin element-invisible {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    clip: rect(1px 1px 1px 1px); // IE6 and IE7 use the wrong syntax.
+  }
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+// Turns off the element-invisible effect.
+@mixin element-invisible-off {
+  position: static !important;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: auto;
+}
+
+@mixin element-focusable {
+  @include element-invisible;
+
+  &:active,
+  &:focus {
+    @include element-invisible-off;
+  }
+}
+
+// The word 'Unpublished' displayed underneath unpublished nodes and comments.
+@mixin unpublished-div {
+  height: 0;
+  overflow: visible;
+  color: #d8d8d8;
+  font-size: 75px;
+  line-height: 1;
+  font-family: Impact, 'Arial Narrow', Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  word-wrap: break-word; // A very nice CSS3 property
+
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    .lt-ie8 &>* {
+      position: relative; // Otherwise these elements will appear below the 'Unpublished' text.
+    }
+  }
+}
+
+// Standard image replacement technique.
+@mixin hide-text-indent($w, $h) {
+  width: $w;
+  height: $h;
+  overflow: hidden;
+  text-indent: -9999em;
+}
+
+// Applies styles to all inputs (and textarea) except submit
+@mixin apply-to-inputs {
+  input[type='text'],
+  input[type='password'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='date'],
+  input[type='month'],
+  input[type='time'],
+  input[type='week'],
+  input[type='number'],
+  input[type='email'],
+  input[type='url'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='color'],
+  textarea {
+    @content;
+  }
+}
+
+@mixin reset-box {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+@mixin reset-list-box {
+  list-style: none;
+  list-style-image: none;
+  @include reset-box;
+}
+
+//
+// Proportional pixels.  What we aim to do here is provide a proportional pixel value as $baseFontSize changes
+// with an intentional target during build relative to $bb-fs.
+//
+@mixin pro-px($target, $prop: 'font-size', $from-size: $bb-fs) {
+  #{$prop}: 1em * ($target / $from-size);
+}
+
+//
+// Media queries
+//
+@mixin lg-desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 979px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin portrait-mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin animation($value) {
+  -webkit-animation: $value;
+  -moz-animation: $value;
+  -ms-animation: $value;
+  -o-animation: $value;
+  animation: $value;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}

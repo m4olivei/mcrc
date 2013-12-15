@@ -1,0 +1,1078 @@
+<?php
+/**
+ * @file
+ * Install hooks for the Wise & Hammer install profile.  This is where most of the configuration happens, as per
+ * the suggested structuring of an install profile laid out in the Drupal core standard install profile.
+ *
+ * @todo incorporate SPAM protections wise and hammer feature
+ * @todo incorporate full config for logintobaggan
+ * @todo consider including the open aid blog feature (at least a fork of it)
+ * @todo consider including the open aid captcha feature (at least a fork of it)
+ * @todo consider including the open aid contact feature (at least a fork of it)
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to setup the site for this profile.  Each grouping of stuff is set off in its own function
+ * for some kind of organization.
+ */
+function wise_ip_install() {
+
+  _wise_ip_install_text_formats();
+
+  _wise_ip_install_blocks();
+
+  _wise_ip_install_content_types();
+
+  _wise_ip_install_account_settings();
+
+  _wise_ip_install_create_fields();
+
+  _wise_ip_install_setup_roles_permissions();
+
+  _wise_ip_install_setup_menus();
+
+  _wise_ip_install_theme_settings();
+
+  // Other core related settings that are nice to set and get out the way
+  _wise_ip_install_core_settings();
+
+  _wise_ip_install_contrib_settings();
+
+  _wise_ip_install_content();
+}
+
+/**
+ * Install text formats that we want
+ */
+function _wise_ip_install_text_formats() {
+  // Add text formats.
+  // WYSIWYG
+  $wysiwyg_format = array(
+    'format' => 'wysiwyg',
+    'name' => 'WYSIWYG',
+    'weight' => 0,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $wysiwyg_format = (object)$wysiwyg_format;
+  filter_format_save($wysiwyg_format);
+
+  // Full HTML
+  $full_html_format = array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'weight' => 1,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object)$full_html_format;
+  filter_format_save($full_html_format);
+
+  // Limited WYSIWYG
+  $limited_wysiwyg = array(
+    'format' => 'limited_wysiwyg',
+    'name' => st('Limited WYSIWYG'),
+    'weight' => 2,
+    'filters' => array(
+      // HTML filter.
+      'filter_html' => array(
+        'weight' => 0,
+        'status' => 1,
+        'settings' => array(
+          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <br> <p> <b>',
+        ),
+      ),
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 2,
+        'status' => 1,
+      ),
+    ),
+  );
+  $limited_wysiwyg = (object)$limited_wysiwyg;
+  filter_format_save($limited_wysiwyg);
+
+  // Filtered HTML
+  $filtered_html_format = array(
+    'format' => 'filtered_html',
+    'name' => 'Filtered HTML',
+    'weight' => 3,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // HTML filter.
+      'filter_html' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 2,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $filtered_html_format = (object)$filtered_html_format;
+  filter_format_save($filtered_html_format);
+}
+
+/**
+ * Add some standard blocks that we like and stuff.
+ */
+function _wise_ip_install_blocks() {
+  // Enable some standard blocks.
+  $default_theme = variable_get('theme_default', 'bartik');
+  $admin_theme = 'seven';
+  $blocks = array(
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'navigation',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'sidebar_first',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'help',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'help',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'search',
+      'delta' => 'form',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => -100,
+      'region' => 'dashboard_sidebar',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'user',
+      'delta' => 'new',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => -10,
+      'region' => 'dashboard_sidebar',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'user',
+      'delta' => 'online',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => -10,
+      'region' => 'dashboard_sidebar',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'node',
+      'delta' => 'recent',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'dashboard_main',
+      'pages' => '',
+      'cache' => -1,
+    ),
+  );
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
+  foreach ($blocks as $block) {
+    $query->values($block);
+  }
+  $query->execute();
+}
+
+/**
+ * Install default content types that we will support.
+ */
+function _wise_ip_install_content_types() {
+  // Insert default pre-defined node types into the database. For a complete
+  // list of available node type attributes, refer to the node type API
+  // documentation at: http://api.drupal.org/api/HEAD/function/hook_node_info.
+  $types = array(
+    array(
+      'type' => 'page',
+      'name' => st('Basic page'),
+      'base' => 'node_content',
+      'description' => st("Use <em>basic pages</em> for your static content, such as an 'About us' page."),
+      'custom' => 1,
+      'modified' => 1,
+      'locked' => 0,
+    ),
+  );
+
+  foreach ($types as $type) {
+    $type = node_type_set_defaults($type);
+    node_type_save($type);
+    node_add_body_field($type);
+  }
+
+  // Insert default pre-defined RDF mapping into the database.
+  if (module_exists('rdf')) {
+    $rdf_mappings = array(
+      array(
+        'type' => 'node',
+        'bundle' => 'page',
+        'mapping' => array(
+          'rdftype' => array('foaf:Document'),
+        ),
+      ),
+    );
+    foreach ($rdf_mappings as $rdf_mapping) {
+      rdf_mapping_save($rdf_mapping);
+    }
+  }
+
+  // Default "Basic page" to not be promoted and have comments disabled.
+  variable_set('node_options_page', array('status'));
+  variable_set('comment_page', COMMENT_NODE_HIDDEN);
+
+  // Don't display date and author information for "Basic page" nodes by default.
+  variable_set('node_submitted_page', FALSE);
+}
+
+/**
+ * Set account settings found at
+ * -Configuration > Account Settings
+ */
+function _wise_ip_install_account_settings() {
+  // Enable user picture support and set the default to a square thumbnail option.
+  variable_set('user_pictures', '1');
+  variable_set('user_picture_dimensions', '1024x1024');
+  variable_set('user_picture_file_size', '800');
+  variable_set('user_picture_style', 'thumbnail');
+
+  // Allow visitor account creation with administrative approval.
+  variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
+}
+
+/**
+ * Add any handy fields to have, namely an image field.
+ */
+function _wise_ip_install_create_fields() {
+  // Create an image field named "Image", enabled for the 'article' content type.
+  // Many of the following values will be defaulted, they're included here as an illustrative examples.
+  // See http://api.drupal.org/api/function/field_create_field/7
+  $field = array(
+    'field_name' => 'field_image',
+    'type' => 'image',
+    'cardinality' => 1,
+    'locked' => FALSE,
+    'indexes' => array('fid' => array('fid')),
+    'settings' => array(
+      'uri_scheme' => 'public',
+      'default_image' => FALSE,
+    ),
+    'storage' => array(
+      'type' => 'field_sql_storage',
+      'settings' => array(),
+    ),
+  );
+  field_create_field($field);
+
+  // Many of the following values will be defaulted, they're included here as an illustrative examples.
+  // See http://api.drupal.org/api/function/field_create_instance/7
+  $instance = array(
+    'field_name' => 'field_image',
+    'entity_type' => 'node',
+    'label' => 'Image',
+    'bundle' => 'page',
+    'description' => st('Upload an image to go with this page.'),
+    'required' => FALSE,
+
+    'settings' => array(
+      'file_directory' => 'images',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'alt_field' => TRUE,
+      'title_field' => '',
+    ),
+
+    'widget' => array(
+      'type' => 'image_image',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+        'preview_image_style' => 'thumbnail',
+        'filefield_sources' => array(
+          'filefield_sources' => array(
+            'imce' => 'imce',
+            'remote' => 0,
+            'clipboard' => 0,
+            'reference' => 0,
+            'attach' => 0,
+          ),
+          'source_attach' => array(
+            'path' => 'file_attach',
+            'absolute' => 0,
+            'attach_mode' => 'move',
+          ),
+          'source_imce' => array(
+            'imce_mode' => 1,
+          ),
+          'source_reference' => array(
+            'autocomplete' => 0,
+          ),
+        ),
+      ),
+      'weight' => -1,
+    ),
+
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'image',
+        'settings' => array('image_style' => 'large', 'image_link' => ''),
+        'weight' => -1,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'image',
+        'settings' => array('image_style' => 'medium', 'image_link' => 'content'),
+        'weight' => -1,
+      ),
+    ),
+  );
+  field_create_instance($instance);
+}
+
+/**
+ * Setup roles and permissions as we here at Wise & Hammer like it.
+ */
+function _wise_ip_install_setup_roles_permissions() {
+  // Enable default permissions for system roles.
+  $filtered_html_permission = filter_permission_name((object)array('format' => 'filtered_html'));
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', $filtered_html_permission));
+
+  // Content administrator role
+  $content_admin = new stdClass();
+  $content_admin->name = st('Content Administrator');
+  $content_admin->weight = 2;
+  user_role_save($content_admin);
+  $ca_perms = array(
+    'access administration pages',
+    'access content overview',
+    'access contextual links',
+    'access dashboard',
+    'access overlay',
+    'access toolbar',
+    'administer blocks',
+    'administer menu',
+    'administer nodes',
+    'create page content',
+    'administer shortcuts',
+    'administer taxonomy',
+    'customize shortcut links',
+    'delete revisions',
+    'revert revisions',
+    'switch shortcut sets',
+    'use text format full_html',
+    'use text format limited_wysiwyg',
+    'use text format wysiwyg',
+    'view own unpublished content',
+    'view revisions',
+    'view the administration theme',
+  );
+  // Filter permissions in case a permission from a module was not enabled
+  $modules = user_permission_get_modules();
+  foreach ($ca_perms as $key => $permission) {
+    if (!isset($modules[$permission])) {
+      unset($ca_perms[$key]);
+    }
+  }
+  user_role_grant_permissions($content_admin->rid, $ca_perms);
+
+  // Create a new user of type Content Administrator
+  $account = new stdClass();
+  $account->is_new = TRUE;
+  user_save($account, array(
+    'roles' => array (
+      DRUPAL_AUTHENTICATED_RID => DRUPAL_AUTHENTICATED_RID,
+      $content_admin->rid => $content_admin->rid,
+    ),
+    'name' => 'content_admin',
+    'mail' => 'content-admin@test.com',
+    'pass' => 'm08YwrVopWjo',
+    'status' => 1,
+    'notify' => 0,
+    'timezone' => 'America/Toronto',
+  ));
+
+  // Create a default role for site administrators, with all available permissions assigned.
+  $admin_role = new stdClass();
+  $admin_role->name = st('Site Administrator');
+  $admin_role->weight = 3;
+  user_role_save($admin_role);
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
+
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')
+    ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
+    ->execute();
+}
+
+/**
+ * Tweak the default menus in Drupal
+ */
+function _wise_ip_install_setup_menus() {
+  // Create any links that are required in the main menu.
+  // A link to the home page is created along with the node.
+  // @see _wise_ip_install_content().
+  $item = array(
+    'link_title' => st('My Account'),
+    'link_path' => 'user',
+    'menu_name' => 'main-menu',
+    'weight' => 100,
+  );
+  menu_link_save($item);
+
+  $item = array(
+    'link_title' => st('Logout'),
+    'link_path' => 'user/logout',
+    'menu_name' => 'main-menu',
+    'weight' => 200,
+  );
+  menu_link_save($item);
+
+  // Update the menu router information.
+  menu_rebuild();
+}
+
+/**
+ * Change some default theme settings.
+ */
+function _wise_ip_install_theme_settings() {
+  // Enable and set the main site theme to wise (if present)
+  $themes = system_rebuild_theme_data();
+  if (isset($themes['zen']) && isset($themes['wise'])) {
+    $or = db_or()
+      ->condition('name', 'zen')
+      ->condition('name', 'wise');
+    db_update('system')
+      ->fields(array('status' => 1))
+      ->condition('type', 'theme')
+      ->condition($or)
+      ->execute();
+    variable_set('theme_default', 'wise');
+
+    // Set settings for wise
+    variable_set('theme_wise_settings', array(
+      'toggle_node_user_picture' => 0,
+      'toggle_comment_user_picture' => 0,
+      'toggle_main_menu' => 0,
+      'toggle_secondary_menu' => 0,
+    ));
+  }
+
+  // Enable the admin theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'seven')
+    ->execute();
+  variable_set('admin_theme', 'seven');
+  variable_set('node_admin_theme', '1');
+}
+
+/**
+ * Set some typical core settings.
+ */
+function _wise_ip_install_core_settings() {
+
+  // Set the site email addresss
+  variable_set('site_mail', 'dev@wiseandhammer.com');
+}
+
+/**
+ * Setup a bunch of contrib modules just the way we like them.
+ */
+function _wise_ip_install_contrib_settings() {
+
+  _wise_ip_install_pathauto_settings();
+
+  _wise_ip_install_wysiwyg_settings();
+
+  _wise_ip_install_imce_settings();
+
+  _wise_ip_install_logintoboggan_settings();
+
+  _wise_ip_install_xmlsitemap_settings();
+
+  _wise_ip_install_devel_settings();
+
+  _wise_ip_install_menu_block_settings();
+
+  _wise_ip_install_webform_settings();
+}
+
+/**
+ * Pathauto settings
+ */
+function _wise_ip_install_pathauto_settings() {
+  variable_set('pathauto_node_pattern', '[node:content-type:machine-name]/[node:title]');
+  variable_set('pathauto_node_page_pattern', '[node:menu-link:parents:join-path]/[node:title]');
+  variable_set('pathauto_punctuation_underscore', 1);
+  variable_set('pathauto_transliterate', 1);
+}
+
+/**
+ * Setup WYSIWYG settings
+ */
+function _wise_ip_install_wysiwyg_settings() {
+  $wysiwyg_wysiwyg_options = array(
+    'default' => 1,
+    'user_choose' => 0,
+    'show_toggle' => 1,
+    'theme' => 'advanced',
+    'language' => 'en',
+    'buttons' => array(
+      'default' => array(
+        'bold' => 1,
+        'italic' => 1,
+        'underline' => 1,
+        'strikethrough' => 1,
+        'justifyleft' => 1,
+        'justifycenter' => 1,
+        'justifyright' => 1,
+        'justifyfull' => 1,
+        'bullist' => 1,
+        'numlist' => 1,
+        'outdent' => 1,
+        'indent' => 1,
+        'undo' => 1,
+        'redo' => 1,
+        'link' => 1,
+        'unlink' => 1,
+        'image' => 1,
+        'formatselect' => 1,
+        'styleselect' => 1,
+        'blockquote' => 1,
+        'hr' => 1,
+        'removeformat' => 1,
+        'charmap' => 1,
+      ),
+      'advimage' => array(
+        'advimage' => 1,
+      ),
+      'inlinepopups' => array(
+        'inlinepopups' => 1,
+      ),
+      'paste' => array(
+        'pastetext' => 1,
+        'pasteword' => 1,
+      ),
+      'imce' => array(
+        'imce' => 1,
+      ),
+    ),
+    'toolbar_loc' => 'top',
+    'toolbar_align' => 'left',
+    'path_loc' => 'bottom',
+    'resizing' => 1,
+    'verify_html' => 1,
+    'preformatted' => 0,
+    'convert_fonts_to_spans' => 1,
+    'remove_linebreaks' => 1,
+    'apply_source_formatting' => 1,
+    'paste_auto_cleanup_on_paste' => 1,
+    'block_formats' => 'p,pre,h2,h3,h4,h5,h6',
+    'css_setting' => 'self',
+    'css_path' => '%bsites/all/themes/wise/css/style.css',
+    'css_classes' => '',
+  );
+  db_query('INSERT INTO {wysiwyg} (format, editor, settings) VALUES (\'wysiwyg\', \'tinymce\', :serial)', array(':serial' => serialize($wysiwyg_wysiwyg_options)));
+
+  $wysiwyg_lim_wysiwyg_options = array(
+    'default' => 1,
+    'user_choose' => 0,
+    'show_toggle' => 1,
+    'theme' => 'advanced',
+    'language' => 'en',
+    'buttons' => array(
+      'default' => array(
+        'bold' => 1,
+        'italic' => 1,
+        'underline' => 1,
+        'bullist' => 1,
+        'numlist' => 1,
+        'indent' => 1,
+        'link' => 1,
+        'unlink' => 1,
+        'removeformat' => 1,
+      ),
+      'paste' => array(
+        'pastetext' => 1,
+        'pasteword' => 1,
+      ),
+      'inlinepopups' => array(
+        'inlinepopups' => 1,
+      ),
+    ),
+    'toolbar_loc' => 'top',
+    'toolbar_align' => 'left',
+    'path_loc' => 'bottom',
+    'resizing' => 1,
+    'verify_html' => 1,
+    'preformatted' => 0,
+    'convert_fonts_to_spans' => 1,
+    'remove_linebreaks' => 1,
+    'apply_source_formatting' => 0,
+    'paste_auto_cleanup_on_paste' => 0,
+    'block_formats' => 'p,pre,h2,h3,h4,h5,h6',
+    'css_setting' => 'theme',
+    'css_path' => '',
+    'css_classes' => '',
+  );
+  db_query('INSERT INTO {wysiwyg} (format, editor, settings) VALUES (\'limited_wysiwyg\', \'tinymce\', :serial)', array(':serial' => serialize($wysiwyg_lim_wysiwyg_options)));
+}
+
+/**
+ * Setup the default IMCE profiles with their options.
+ */
+function _wise_ip_install_imce_settings() {
+  $imce_profiles = array(
+    1 => array(
+      'name' => 'User-1',
+      'usertab' => 1,
+      'filesize' => '0',
+      'quota' => '0',
+      'tuquota' => '0',
+      'extensions' => '*',
+      'dimensions' => '1024x1024',
+      'filenum' => '0',
+      'directories' => array(
+        0 => array(
+          'name' => '.',
+          'subnav' => 1,
+          'browse' => 1,
+          'upload' => 1,
+          'thumb' => 1,
+          'delete' => 1,
+          'resize' => 1,
+          'mkdir' => 1,
+          'rmdir' => 1,
+        ),
+      ),
+      'thumbnails' => array(
+        0 => array(
+          'name' => 'Small',
+          'dimensions' => '90x90',
+          'prefix' => 'small_',
+          'suffix' => '',
+        ),
+        1 => array(
+          'name' => 'Medium',
+          'dimensions' => '120x120',
+          'prefix' => 'medium_',
+          'suffix' => '',
+        ),
+        2 => array(
+          'name' => 'Large',
+          'dimensions' => '180x180',
+          'prefix' => 'large_',
+          'suffix' => '',
+        ),
+      ),
+      'mkdirnum' => '0',
+    ),
+    2 => array(
+      'name' => 'Standard IMCE',
+      'usertab' => 0,
+      'filesize' => '8',
+      'quota' => '0',
+      'tuquota' => '0',
+      'extensions' => '*',
+      'dimensions' => '1024x1024',
+      'filenum' => '1',
+      'directories' => array(
+        0 => array(
+          'name' => 'php: return \'users/\'.$user->name;',
+          'subnav' => 1,
+          'browse' => 1,
+          'upload' => 1,
+          'thumb' => 1,
+          'delete' => 1,
+          'resize' => 1,
+          'mkdir' => 1,
+          'rmdir' => 1,
+        ),
+        1 => array(
+          'name' => 'files',
+          'subnav' => 1,
+          'browse' => 1,
+          'upload' => 1,
+          'thumb' => 1,
+          'delete' => 1,
+          'resize' => 1,
+          'mkdir' => 1,
+          'rmdir' => 1,
+        ),
+      ),
+      'thumbnails' => array(
+        0 => array(
+          'name' => 'Thumb',
+          'dimensions' => '90x90',
+          'prefix' => 'thumb_',
+          'suffix' => '',
+        ),
+      ),
+      'mkdirnum' => '2',
+    ),
+  );
+
+  variable_set('imce_profiles', $imce_profiles);
+}
+
+/**
+ * Logintoboggan settings
+ * -Set it so that users get a login form on access denied.
+ */
+function _wise_ip_install_logintoboggan_settings() {
+  variable_set('site_403', 'toboggan/denied');
+}
+
+/**
+ * XMLSiteMap settings
+ * -Set the main menu to be included in the XML site map.
+ */
+function _wise_ip_install_xmlsitemap_settings() {
+  variable_set('xmlsitemap_settings_menu_link_main-menu', array('status' => 1, 'priority' => 0.5));
+}
+
+/**
+ * Devel module settings
+ * -Set the Switch User block to the dashboard right sidebar.
+ */
+function _wise_ip_install_devel_settings() {
+  // Enable the switch user block on the sidebar of seven
+  $switch_user = array(
+    'module' => 'devel',
+    'delta' => 'switch_user',
+    'theme' => 'seven',
+    'status' => 1,
+    'weight' => 100,
+    'region' => 'dashboard_sidebar',
+    'pages' => '',
+    'cache' => -1,
+  );
+  db_insert('block')
+    ->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'))
+    ->values($switch_user)
+    ->execute();
+}
+
+/**
+ * Menu Block setup.
+ * -Create a block for the main menu and set it in the navigation region of the wise theme
+ */
+function _wise_ip_install_menu_block_settings() {
+  $default_theme = variable_get('theme_default', 'bartik');
+  $menu_block = array(
+    'module' => 'menu_block',
+    'delta' => 1,
+    'theme' => $default_theme,
+    'status' => 1,
+    'weight' => 0,
+    'region' => 'navigation',
+    'pages' => '',
+    'title' => '<none>',
+    'cache' => -1,
+  );
+  db_insert('block')
+    ->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'title', 'cache'))
+    ->values($menu_block)
+    ->execute();
+
+  // Add in variables for the menu_block
+  variable_set('menu_block_1_admin_title', st('Main Menu Navigation'));
+  variable_set('menu_block_1_depth', '1');
+  variable_set('menu_block_1_expanded', 0);
+  variable_set('menu_block_1_follow', 0);
+  variable_set('menu_block_1_level', '1');
+  variable_set('menu_block_1_parent', 'main-menu:0');
+  variable_set('menu_block_1_sort', 0);
+  variable_set('menu_block_1_title_link', 0);
+  variable_set('wise_tweaks_1_nav_style', 'navbar');
+
+  // Set the suppression of Drupal's standard menu blocks
+  variable_set('menu_block_suppress_core', 1);
+}
+
+/**
+ * Webform settings tweaks.
+ */
+function _wise_ip_install_webform_settings() {
+
+  // Default to not promoted.
+  variable_set('node_options_webform', array('status'));
+
+  // Turn off Display of author and date information
+  variable_set('node_submitted_webform', 0);
+}
+
+/**
+ * Add some default content to the site.
+ */
+function _wise_ip_install_content() {
+
+  // Save a basic page with a full range of markup to use for styling
+  $node = new stdClass();
+  $node->title = st('HTML Base');
+  $node->status = 1;
+  $node->comment = 0;
+  $node->promote = 0;
+  $node->sticky = 0;
+  $node->type = 'page';
+  $node->language = LANGUAGE_NONE;
+  $node->body = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => file_get_contents(drupal_get_path('profile', 'wise_ip') . '/html_base.html'),
+        'format' => 'wysiwyg',
+      ),
+    ),
+  );
+  $node->menu = array(
+    'enabled' => 1,
+    'menu_name' => 'main-menu',
+    'link_title' => st('HTML Base'),
+    'plid' => 0,
+    'parent' => 'main-menu:0',
+    'weight' => 100,
+  );
+  $node->uid = 1;
+  node_save($node);
+
+  // Save a basic page to serve as the homepage of the site.  Need to set it in settings as well
+  $node = new stdClass();
+  $node->title = st('Welcome to @site-name', array('@site-name' => variable_get('site_name', 'Drupal')));
+  $node->status = 1;
+  $node->comment = 0;
+  $node->promote = 0;
+  $node->sticky = 0;
+  $node->type = 'page';
+  $node->language = LANGUAGE_NONE;
+  $node->body = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => file_get_contents(drupal_get_path('profile', 'wise_ip') . '/welcome.html'),
+        'format' => 'wysiwyg',
+      ),
+    ),
+  );
+  $node->menu = array(
+    'enabled' => 1,
+    'menu_name' => 'main-menu',
+    'link_title' => st('Home'),
+    'plid' => 0,
+    'parent' => 'main-menu:0',
+    'weight' => 0,
+  );
+  $node->uid = 1;
+  node_save($node);
+  // Set the frontpage to the page we just created
+  if ($node->nid) {
+    variable_set('site_frontpage', 'node/' . $node->nid);
+  }
+
+  // Save a 404 page and set it in settings
+  $node = new stdClass();
+  $node->title = st('Page Not Found');
+  $node->status = 1;
+  $node->comment = 0;
+  $node->promote = 0;
+  $node->sticky = 0;
+  $node->type = 'page';
+  $node->language = LANGUAGE_NONE;
+  $node->body = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => file_get_contents(drupal_get_path('profile', 'wise_ip') . '/404.html'),
+        'format' => 'wysiwyg',
+      ),
+    ),
+  );
+  $node->uid = 1;
+  node_save($node);
+  if ($node->nid) {
+    variable_set('site_404', 'node/' . $node->nid);
+  }
+
+  // Save a Webform contact form
+  $node = (object)array(
+    'exported_path' => 'contact',
+    'webform' => array(
+      'confirmation' => '',
+      'confirmation_format' => NULL,
+      'redirect_url' => '<confirmation>',
+      'status' => '1',
+      'block' => '0',
+      'teaser' => '0',
+      'allow_draft' => '0',
+      'auto_save' => '0',
+      'submit_notice' => '1',
+      'submit_text' => '',
+      'submit_limit' => '-1',
+      'submit_interval' => '-1',
+      'total_submit_limit' => '-1',
+      'total_submit_interval' => '-1',
+      'record_exists' => TRUE,
+      'roles' => array(
+        0 => '1',
+        1 => '2',
+      ),
+      'emails' => array(),
+      'components' => array(
+        0 => array(
+          'pid' => '0',
+          'form_key' => 'from',
+          'name' => 'From',
+          'type' => 'email',
+          'value' => '%useremail',
+          'extra' => array(
+            'title_display' => 'before',
+            'private' => 0,
+            'disabled' => 0,
+            'unique' => 0,
+            'conditional_operator' => '=',
+            'width' => '',
+            'description' => '',
+            'attributes' => array(),
+            'conditional_component' => '',
+            'conditional_values' => '',
+          ),
+          'mandatory' => '1',
+          'weight' => '0',
+          'page_num' => 1,
+        ),
+        1 => array(
+          'pid' => '0',
+          'form_key' => 'message',
+          'name' => 'Message',
+          'type' => 'textarea',
+          'value' => '',
+          'extra' => array(
+            'title_display' => 0,
+            'private' => 0,
+            'resizable' => 1,
+            'disabled' => 0,
+            'conditional_operator' => '=',
+            'cols' => '',
+            'rows' => '',
+            'description' => '',
+            'attributes' => array(),
+            'conditional_component' => '',
+            'conditional_values' => '',
+          ),
+          'mandatory' => '1',
+          'weight' => '1',
+          'page_num' => 1,
+        ),
+      ),
+    ),
+    'menu' => array(
+      'enabled' => 1,
+      'menu_name' => 'main-menu',
+      'link_title' => st('Contact Us'),
+      'plid' => 0,
+      'parent' => 'main-menu:0',
+      'weight' => 50,
+    ),
+    'title' => st('Contact Us'),
+    'status' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'type' => 'webform',
+    'language' => 'und',
+    'comment' => '1',
+    'translate' => '0',
+    'machine_name' => 'contact',
+    'body' => array(),
+    'uid' => 1,
+  );
+  node_save($node);
+}

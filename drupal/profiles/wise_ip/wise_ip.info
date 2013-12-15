@@ -1,0 +1,61 @@
+name = Wise & Hammer Install Profile
+description = Wise & Hammer default installation profile to speed the process of setting up a base Drupal 7 site
+core = 7.x
+
+; Modules
+; Core
+dependencies[] = block
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = dblog
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = node
+dependencies[] = number
+dependencies[] = options
+dependencies[] = overlay
+dependencies[] = path
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = system
+dependencies[] = taxonomy
+dependencies[] = toolbar
+dependencies[] = user
+dependencies[] = webform
+
+; Contrib
+dependencies[] = ctools
+dependencies[] = date
+dependencies[] = devel
+dependencies[] = entity
+dependencies[] = features
+dependencies[] = filefield_sources
+dependencies[] = globalredirect
+dependencies[] = imce
+dependencies[] = imce_wysiwyg
+dependencies[] = imce_mkdir
+dependencies[] = link
+dependencies[] = logintoboggan
+dependencies[] = menu_block
+dependencies[] = oembed
+dependencies[] = pathauto
+dependencies[] = redirect
+dependencies[] = smart_trim
+dependencies[] = strongarm
+dependencies[] = token
+dependencies[] = twitter
+dependencies[] = transliteration
+dependencies[] = views
+dependencies[] = views_ui
+dependencies[] = wise_og
+dependencies[] = wise_theme
+dependencies[] = wise_slider
+dependencies[] = wise_tweaks
+dependencies[] = wysiwyg
+dependencies[] = xmlsitemap
+dependencies[] = xmlsitemap_menu

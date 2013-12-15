@@ -1,0 +1,144 @@
+<?php
+/**
+ * @file
+ * Theming adjustments for the wise theme.
+ */
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function wise_theme_preprocess_block(&$vars, $hook) {
+  $block = $vars['block'];
+
+  if ($block->module === 'menu_block') {
+    $menu_block_config = menu_block_get_config($block->delta);
+
+    $vars['classes_array'][] = 'block-menu-block-' . $menu_block_config['menu_name'];
+  }
+}
+
+/**
+ * Implements hook_preprocess_button().  Applies a Twitter Bootstrap button class
+ * to buttons based on their values.
+ *
+ * Taken from d.o/projct/bootstrap
+ */
+function wise_theme_preprocess_button(&$vars) {
+  $vars['element']['#attributes']['class'][] = 'btn';
+
+  if (isset($vars['element']['#value'])) {
+    $classes = array(
+      // Specifics
+      t('Save and add') => 'btn-info',
+      t('Add another item') => 'btn-info',
+      t('Add effect') => 'btn-primary',
+      t('Add and configure') => 'btn-primary',
+      t('Update style') => 'btn-primary',
+      t('Download feature') => 'btn-primary',
+
+      // General
+      t('Save') => 'btn-primary',
+      t('Apply') => 'btn-primary',
+      t('Create') => 'btn-primary',
+      t('Confirm') => 'btn-primary',
+      t('Submit') => 'btn-primary',
+      t('Export') => 'btn-primary',
+      t('Import') => 'btn-primary',
+      t('Restore') => 'btn-primary',
+      t('Rebuild') => 'btn-primary',
+      t('Search') => 'btn-primary',
+      t('Add') => 'btn-info',
+      t('Update') => 'btn-info',
+      t('Delete') => 'btn-danger',
+      t('Remove') => 'btn-danger',
+    );
+
+    foreach ($classes as $search => $class) {
+      if (strpos($vars['element']['#value'], $search) !== FALSE) {
+        if ($class) {
+          $vars['element']['#attributes']['class'][] = $class;
+        }
+        else {
+          $vars['element']['#attributes']['class'] = array();
+        }
+        break;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function wise_theme_preprocess_page(&$vars) {
+  $node = (!empty($vars['node'])) ? $vars['node'] : null;
+
+  // Hide right sidebar when looking at slides/banners
+  if ($node && $node->type == 'slide') {
+    $vars['page']['sidebar_first']['#access'] = FALSE;
+  }
+
+  // Include a variable for 404 error
+  $status = drupal_get_http_header('status');
+  if ($status == '404 Not Found') {
+    $vars['is_404'] = TRUE;
+  }
+  else {
+    $vars['is_404'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_preprocess_region().
+ */
+function wise_theme_preprocess_region(&$vars) {
+
+  // Remove zen themes unfortunate addition of a 'column' class which is just not needed.
+  foreach($vars['classes_array'] as $key => $value) {
+    if ($value === 'column') {
+      unset($vars['classes_array'][$key]);
+    }
+  }
+}
+
+/**
+ * Implement hook_preprocess_search_result().
+ */
+function wise_theme_preprocess_search_result(&$vars) {
+  $vars['info'] = NULL;
+}
+
+/**
+ * Implements hook_preprocess_table().
+ */
+function wise_theme_preprocess_table(&$variables) {
+  $variables['attributes']['class'][] = 'table';
+  $variables['attributes']['class'][] = 'table-striped';
+}
+
+/**
+ * Implements hook_process_page().
+ */
+function wise_theme_process_page(&$vars) {
+  // Tokenize site slogan
+  $vars['site_slogan'] = token_replace($vars['site_slogan']);
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Taken from d.o/project/bootstrap
+ */
+function wise_theme_form_alter(&$form, &$form_state, $form_id) {
+  // Id's of forms that should be ignored
+  $form_ids = array(
+    'node_form',
+    'system_site_information_settings',
+    'user_profile_form',
+  );
+
+  // Only wrap in container for certain form
+  if(isset($form['#form_id']) && !in_array($form['#form_id'], $form_ids) && !isset($form['#node_edit_form'])) {
+    $form['actions']['#theme_wrappers'] = array();
+  }
+}

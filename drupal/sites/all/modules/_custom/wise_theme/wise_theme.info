@@ -1,0 +1,5 @@
+name = Wise & Hammer Theme
+description = Meant to couple with the wise base theme to provide default and transferable (project to project) theme adjustments.  Incorporates adjustments where appropriate to conform to Bootstrap classing.
+core = 7.x
+version = 7.x-1.0
+package = Wise & Hammer

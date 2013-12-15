@@ -1,0 +1,7 @@
+name = Wise & Hammer Tweaks
+description = Add Facebook OG data
+core = 7.x
+version = 7.x-1.0
+package = Wise & Hammer
+
+dependencies[] = smart_trim

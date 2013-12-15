@@ -1,0 +1,7 @@
+name = Wise & Hammer Tweaks
+description = Standard module based tweaks/additions that all sites end up needing
+core = 7.x
+version = 7.x-1.0
+package = Wise & Hammer
+
+dependencies[] = menu_block

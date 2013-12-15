@@ -1,0 +1,50 @@
+<?php
+/**
+ * @file
+ * Code for the Wise and Hammer Slider feature.
+ */
+
+// Include the features stuff
+include_once 'wise_slider.features.inc';
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function wise_slider_preprocess_views_view(&$vars) {
+  $view = $vars['view'];
+
+  if ($view->name == 'wise_slider') {
+    drupal_add_js(drupal_get_path('module', 'wise_slider') . '/js/jquery.flexslider-min.js');
+    drupal_add_js(drupal_get_path('module', 'wise_slider') . '/js/flexslider_init.js');
+    drupal_add_css(drupal_get_path('module', 'wise_slider') . '/css/flexslider.css');
+  }
+}
+
+
+/**
+ * Implements hook_theme_registry_alter()
+ */
+function wise_slider_theme_registry_alter(&$theme_registry) {
+  $mod_path = drupal_get_path('module', 'wise_slider');
+  // Munge on a copy
+  $theme_registry_copy = $theme_registry;
+  $themes = array_keys(list_themes());
+  foreach ($themes as $theme) {
+    _theme_process_registry($theme_registry_copy, 'phptemplate', 'theme_engine', $theme, $mod_path);
+  }
+  $theme_registry += array_diff_key($theme_registry_copy, $theme_registry);
+  $hooks = array('node', 'field', 'bean');
+  foreach ($hooks as $h) {
+    _wise_slider_insert_after_first_element($theme_registry[$h]['theme paths'], $mod_path);
+  }
+}
+
+/**
+ * Helper function for re-ordering arrays (needed by theme_registry_alter)
+*/
+function _wise_slider_insert_after_first_element(&$a, $element) {
+  if (is_array($a)) {
+    $first_element = array_shift($a);
+    array_unshift($a, $first_element, $element);
+  }
+}

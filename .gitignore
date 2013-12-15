@@ -1,0 +1,16 @@
+/logs
+/db_files
+/db
+/drupal/sites/default/civicrm.settings.php
+/.idea
+/.htaccess
+/drupal/error_log
+/.ftpquota
+.htaccess
+drupal/.htaccess
+drupal/robots.txt
+php.ini
+FirePHPCore
+/drupal/google1e6b834761e3f131.html
+/drupal/sites/all/modules/civicrm/packages/dompdf/lib/fonts/log.htm
+/drupal/sites/all/modules/civicrm_extensions/cache

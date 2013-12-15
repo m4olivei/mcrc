@@ -1,0 +1,12 @@
+//
+// @file
+// Structural styles that give the site it's overall shape.  Styles in this file are generally specified using id
+// selectors and as such are very specific and narrow in their application.  Before adding styles here, think whether
+// the style could be used more broadly and consider putting your style into the _module.scss file using a class.
+//
+
+@import 'base';
+
+#logo img {
+  width: 200px;
+}

@@ -1,0 +1,29 @@
+<?php
+/**
+ * @file
+ * Install hooks.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function wise_slider_install() {
+  // Install our taxonomy and term
+  $vocab = (object)array(
+    'name' => 'Slider',
+    'machine_name' => 'slider',
+    'description' => 'Groupings of slides to create a slider',
+    'hierarchy' => '0',
+    'module' => 'wise_slider',
+    'weight' => '0',
+  );
+  taxonomy_vocabulary_save($vocab);
+  $vid = $vocab->vid;
+
+  if ($vid) {
+    taxonomy_term_save((object)array(
+      'name' => 'Homepage',
+      'vid' => $vid,
+    ));
+  }
+}

@@ -1,0 +1,185 @@
+<?php
+/**
+ * @file
+ * Various tweaks that end up being needed on all client sites that we'd rather not repeat
+ * over and over.
+ * -Enable menu blocks to be able to change classing to Twitter Bootstrap classes
+ * -Using Twitter Pull module, provide a default Twitter block.
+ *
+ * @todo build simple admin interface for twitter_pull
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wise_tweaks_form_block_admin_configure_alter(&$form, &$form_state, $form_id) {
+  wise_tweaks_block_settings_alter($form);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wise_tweaks_form_menu_block_add_block_form_alter(&$form, &$form_state, $form_id) {
+  wise_tweaks_block_settings_alter($form);
+}
+
+/**
+ * Alter block settings form.  For menu_block's, add a setting for
+ * the navigation style.  For Twitter pull block's allow user to configure the Twitter handle
+ */
+function wise_tweaks_block_settings_alter(&$form) {
+  $module = isset($form['module']['#value']) ? $form['module']['#value'] : NULL;
+  $delta = isset($form['delta']['#value']) ? $form['delta']['#value'] : FALSE;
+
+  if ($module == 'menu_block') {
+    $form['settings']['nav_style'] = array(
+      '#type' => 'select',
+      '#title' => t('Navigation style'),
+      '#options' => array(
+        '' => t('- None -'),
+        'menu-drop-down' => t('Navigation bar'),
+        'menu-list' => t('Navigation list'),
+      ),
+      '#default_value' => $delta ? variable_get('wise_tweaks_' . $delta . '_nav_style', '') : '',
+      '#description' => t('Choose a navigation style.'),
+      '#weight' => 10,
+    );
+    $form['settings']['menu-block-wrapper-close']['#weight'] = 20;
+
+    $form['#submit'][] = 'wise_tweaks_menu_block_save';
+  }
+  else if ($module == 'twitter_pull') {
+    $form['settings']['handle'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Twitter handle'),
+      '#required' => TRUE,
+      '#default_value' => variable_get('wise_tweaks_' . $delta . '_handle'),
+      '#field_prefix' => '@',
+      '#description' => t('Enter your Twitter handle.'),
+    );
+
+    $form['#submit'][] = 'wise_tweaks_twitter_pull_save';
+  }
+}
+
+/**
+ * Save function for the block admin configure form for Menu Block blocks
+ */
+function wise_tweaks_menu_block_save($form, &$form_state) {
+  $values = $form_state['values'];
+
+  if (isset($form['settings']['nav_style']['#value']) && isset($values['delta'])) {
+    variable_set('wise_tweaks_' . $values['delta'] . '_nav_style', $form['settings']['nav_style']['#value']);
+  }
+}
+
+/**
+ * Save function for the block admin configure form for Twitter Pull blocks.
+ */
+function wise_tweaks_twitter_pull_save(&$form, &$form_state) {
+  $values = $form_state['values'];
+
+  if (isset($form['settings']['handle']['#value']) && isset($values['delta'])) {
+    variable_set('wise_tweaks_' . $values['delta'] . '_handle', $form['settings']['handle']['#value']);
+  }
+}
+/**
+ * Implement hook_preprocess_block().
+ * Add a template suggestion for for the navigation style, if there is one
+ */
+function wise_tweaks_preprocess_block(&$variables) {
+  $block = $variables['block'];
+
+  if ($block->module === 'menu_block') {
+    $nav_style = variable_get('wise_tweaks_' . $block->delta . '_nav_style');
+    if ($nav_style) {
+      $variables['theme_hook_suggestions'][] = 'block__menu_block__' . str_replace('-', '_', $nav_style);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu_block_wrapper().
+ */
+function wise_tweaks_preprocess_menu_block_wrapper(&$variables) {
+
+  $nav_style = variable_get('wise_tweaks_' . $variables['delta'] . '_nav_style');
+  if ($nav_style) {
+    $variables['classes_array'][] = $nav_style;
+    $variables['classes_array'][] = 'clearfix';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function wise_tweaks_theme() {
+  return array(
+    'wise_tweaks_twitter_pull_list' => array(
+      'variables' => array('tweets' => NULL, 'twitkey' => NULL, 'title' => NULL, 'lazy_load' => NULL),
+      'template' => 'wise-tweaks-twitter-pull-list',
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_view_alter().
+ * Add a theme suggestion to the list wrapper for the menu.  The suggestion is for theme_menu_tree
+ * and should be implemented in the theme.
+ */
+function wise_tweaks_block_view_alter(&$data, $block) {
+
+  if ($block->module == 'menu_block') {
+    $nav_style = variable_get('wise_tweaks_' . $block->delta . '_nav_style');
+    if ($nav_style && isset($data['content']['#content'])) {
+      array_unshift($data['content']['#content']['#theme_wrappers'][0], 'menu_tree__menu_block__' . str_replace('-', '_', $nav_style));
+    }
+  }
+}
+
+/**
+ * Implements hook_twitter_pull_blocks().
+ */
+function wise_tweaks_twitter_pull_blocks() {
+
+  return array(
+    'wise_tweaks_0' => (object)array(
+      'delta' => 'wise_tweaks_0',
+      'tweetkey' => 'wiseNhammer',
+      'title' => FALSE,
+      'name'  => t('Twitter Feed'),
+      'number_of_items' => 5,
+      'theme_key' => 'wise_tweaks_twitter_pull_list',
+      'lazy_load' => TRUE,
+    ),
+  );
+}
+
+/**
+ * Implements hook_twitter_pull_data_alter().
+ * @param $data
+ */
+function wise_tweaks_twitter_pull_data_alter(&$data) {
+  // What we want to do here is to add in the configure Twitter screen name that was configured
+  // in the block settings
+  foreach ($data as $key => $value) {
+    $handle = variable_get($value->delta . '_handle', 'wiseNhammer');
+    $data[$key]->tweetkey = $handle;
+  }
+}
+
+/**
+ * Preprocessor for the twitter_pull listing.  Add in the time_ago key to each tweet as
+ * the twitter_pull module does for it's default theme function.
+ * 
+ * @param $variables
+ */
+function template_preprocess_wise_tweaks_twitter_pull_list(&$variables) {
+
+  if (is_array($variables['tweets'])) {
+    foreach ($variables['tweets'] as $key => $tweet) {
+      $tweet->time_ago = t('!time ago.', array('!time' => format_interval(time() - $tweet->timestamp)));
+      $variables['tweets'][$key] = $tweet;
+    }
+  }
+}

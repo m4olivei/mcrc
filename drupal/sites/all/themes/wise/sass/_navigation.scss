@@ -1,0 +1,178 @@
+//
+// @file
+// Main navigation elements
+//
+
+@import 'base';
+
+.menu-drop-down {
+  background-color: #ddd;
+  margin-bottom: $baseLineHeight;
+
+  > ul.menu {
+    @include reset-list-box;
+
+    a {
+      text-decoration: none;
+      display: block;
+    }
+
+    > li {
+      float: left;
+      position: relative;
+
+      > a {
+        padding: ($baseLineHeight / 2) 38px;
+        color: $textColor;
+
+        i {
+          padding-right: 6px;
+        }
+      }
+
+      > a:focus,
+      &:hover > a,
+      &.open > a {
+        background-color: #ccc;
+        outline: none;
+      }
+
+      // Open L2
+      &:hover > ul,
+      &.open > ul  {
+        left: 0;
+      }
+
+      // L2
+      > ul {
+        @include reset-list-box;
+
+        position: absolute;
+        z-index: $zindexDropdown;
+        top: $baseLineHeight * 2;
+        left: -9999em;
+        background-color: $white;
+        border: 1px solid #dedede;
+        @include border-radius(0 0 $baseBorderRadius $baseBorderRadius);
+        // width is important to get iOS Safari like browsers to do the first click as a hover action.
+        width: 160px;
+
+        > li {
+
+          a {
+            color: $navbarLinkColor;
+            border-bottom: 1px solid #dedede;
+            padding: 6px 2px;
+            margin: 0 16px;
+            white-space: nowrap;
+          }
+
+          &.last {
+
+            a {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Main menu mobile
+  .menu-mobile-wrapper h2 {
+    color: $white;
+    @include pro-px(22px);
+    font-weight: bold;
+    margin: 0;
+    line-height: 56px;
+    padding: 0 $mobileOuterGutter / 2;
+    text-transform: uppercase;
+
+    &:before {
+      content: $reorder;
+      font-family: 'FontAwesome';
+      padding-right: 14px;
+    }
+
+    &.nav-toggle {
+      cursor: pointer;
+    }
+  }
+
+  ul.menu-mobile {
+    background-color: $navbarBackground;
+
+    &,
+    ul {
+      @include reset-list-box;
+    }
+
+    &.closed,
+    ul.closed {
+      display: none;
+    }
+
+    // L1
+    // Common L1
+    li {
+
+      a {
+        color: $navbarLinkColor;
+        @include pro-px(18px);
+        display: block;
+        padding-right: 76px;
+        padding: 8px 18px 8px 18px;
+        margin: 0 18px;
+        border-bottom: 1px solid darken($navbarBackground, 15%);
+        text-transform: uppercase;
+        font-weight: bold;
+        line-height: 40px;
+
+        i {
+          display: none;
+        }
+      }
+
+      a.nav-toggle {
+        float: right;
+        width: 56px;
+        height: 56px;
+        overflow: hidden;
+        text-indent: -99999em;
+
+        border-bottom: none;
+        margin: 0 18px 0 0;
+        padding: 0;
+        background: transparent url('../images/mobile_menu_icons.png') no-repeat 19px 23px;
+      }
+
+      &.nav-expanded {
+
+        a.nav-toggle {
+          background-position: 19px -57px;
+        }
+      }
+
+      // L2
+      // Common L2
+      ul {
+
+        li {
+          a {
+            padding-left: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  // Mobile menu interaction styles
+  .collapsible-content-collapsed {
+    display: none;
+  }
+
+  .collapsible-heading-status {
+    position: absolute;
+    left: -99999em;
+  }
+}

@@ -1,0 +1,85 @@
+<?php
+/**
+ * @file
+ * Add OG data for Fabebook sharing.
+ */
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function wise_og_preprocess_node(&$vars) {
+  $node = $vars['node'];
+  
+  // Add OG meta
+  if ($vars['view_mode'] == 'full') {
+    wise_og_add_node_og_meta($node, $vars['content']);
+  }
+}
+
+/**
+ * Add Facebook OG meta tags based on the $node.
+ * @param $node
+ */
+function wise_og_add_node_og_meta($node, $content) {
+
+  // Construct page title.
+  if (drupal_get_title()) {
+    $head_title = array(
+      'title' => strip_tags(drupal_get_title()),
+      'name' => check_plain(variable_get('site_name', 'Drupal')),
+    );
+  }
+  else {
+    $head_title = array('name' => check_plain(variable_get('site_name', 'Drupal')));
+    if (variable_get('site_slogan', '')) {
+      $head_title['slogan'] = filter_xss_admin(variable_get('site_slogan', ''));
+    }
+  }
+  $head_title = implode(' | ', $head_title);
+  drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:title" content="' . $head_title . '" />' . "\n"), 'og:title');
+
+  // Site name
+  drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:site_name" content="' . check_plain(variable_get('site_name', 'Drupal')) . '" />' . "\n"), 'og:site_name');
+
+  // Publisher and type
+  if (in_array($node->type, array('blog', 'article'))) {
+    drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:type" content="article" />' . "\n"), 'og:type');
+    // @todo add a setting for Facebook publisher.
+    // drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="article:publisher" content="https://www.facebook.com/broadbentinst" />' . "\n"), 'article:publisher');
+  }
+  else {
+    drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:type" content="website" />' . "\n"), 'og:type');
+  }
+
+  // Image - try to use featured image if one is set
+  if (!empty($content['field_image'])) {
+    drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:image" content="' . image_style_url($content['field_image'][0]['#image_style'], $content['field_image'][0]['#item']['uri']) . '" />' . "\n"), 'og:image');
+  }
+
+  // Description - use the teaser text as configured for the teaser view mode
+  if (!empty($node->body)) {
+    $description = field_view_field('node', $node, 'body', array(
+      'label' => 'hidden',
+      'type' => 'smart_trim_format',
+      'settings' => array(
+        'trim_length' => 600,
+        'trim_type' => 'chars',
+        'trim_suffix' => '...',
+        'more_link' => 0,
+        'summary_handler' => 'trim',
+        'trim_options' => array(
+          'text' => 1,
+        ),
+      ),
+    ));
+    if (!empty($description[0])) {
+      $description = render($description[0]);
+      drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:description" content="' . check_plain($description) . '" />' . "\n"), 'og:description');
+    }
+  }
+
+  // URL
+  $uri = entity_uri('node', $node);
+  $uri['options']['absolute'] = TRUE;
+  drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:url" content="' . check_plain(url($uri['path'], $uri['options'])) . '" />' . "\n"), 'og:url');
+}
