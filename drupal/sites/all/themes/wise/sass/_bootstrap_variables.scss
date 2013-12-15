@@ -15,12 +15,12 @@
 // Grays
 // -------------------------
 // $black:                 #000 !default;
-// $grayDarker:            #222 !default;
-// $grayDark:              #333 !default;
-// $gray:                  #555 !default;
-// $grayLight:             #999 !default;
-// $grayLighter:           #eee !default;
-// $white:                 #fff !default;
+$grayDarker:            #484848;
+$grayDark:              #685b67;
+$gray:                  #7e7e7e;
+$grayLight:             #b4b4b4;
+$grayLighter:           #cd89ae;
+$white:                 #fff;
 
 
 // Accent colors
@@ -31,36 +31,37 @@
 // $red:                   #9d261d !default;
 // $yellow:                #ffc40d !default;
 // $orange:                #f89406 !default;
-// $pink:                  #c3325f !default;
-// $purple:                #7a43b6 !default;
+$pink:                  #b24a82;
+$purple:                #662664;
+$beige:                 #dcd9c8;
 
 
 // Scaffolding
 // -------------------------
-// $bodyBackground:        $white !default;
-// $textColor:             $grayDark !default;
+$bodyBackground:        $white;
+$textColor:             $gray;
 
 
 // Links
 // -------------------------
-// $linkColor:             #08c !default;
-// $linkColorHover:        darken($linkColor, 15%) !default;
+$linkColor:             $pink;
+$linkColorHover:        darken($linkColor, 15%);
 
 
 // Typography
 // -------------------------
-// $sansFontFamily:        'Helvetica Neue', Helvetica, Arial, sans-serif !default;
-// $serifFontFamily:       Georgia, 'Times New Roman', Times, serif !default;
+$sansFontFamily:        'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$serifFontFamily:       'Lora', Georgia, 'Times New Roman', Times, serif;
 // $monoFontFamily:        Monaco, Menlo, Consolas, 'Courier New', monospace !default;
 
-// $baseFontSize:          14px !default;
-// $baseFontFamily:        $sansFontFamily !default;
-// $baseLineHeight:        20px !default;
-// $altFontFamily:         $serifFontFamily !default;
+$baseFontSize:          16px;
+$baseFontFamily:        $serifFontFamily;
+$baseLineHeight:        20px;
+$altFontFamily:         $sansFontFamily;
 
-// $headingsFontFamily:    inherit !default; // empty to use BS default, $baseFontFamily
-// $headingsFontWeight:    bold !default;    // instead of browser default, bold
-// $headingsColor:         inherit !default; // empty to use BS default, $textColor
+$headingsFontFamily:    $altFontFamily;
+$headingsFontWeight:    normal;
+$headingsColor:         $grayDarker;
 
 
 // Component sizing

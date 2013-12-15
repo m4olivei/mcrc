@@ -77,36 +77,20 @@
   <header id="header" role="banner">
 
     <?php if ($logo): ?>
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" onerror="this.onerror=null; this.src='/<?php echo drupal_get_path('theme', 'wise'); ?>/logo.png';" /></a>
+      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" onerror="this.onerror=null; this.src='/<?php echo drupal_get_path('theme', 'wise'); ?>/logo.png';" /><?php print $site_name; ?></a>
     <?php endif; ?>
 
-    <?php if ($site_name || $site_slogan): ?>
-      <hgroup id="name-and-slogan">
-        <?php if ($site_name): ?>
-          <h1 id="site-name">
-            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-          </h1>
-        <?php endif; ?>
-
-        <?php if ($site_slogan): ?>
-          <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
-        <?php endif; ?>
-      </hgroup><!-- /#name-and-slogan -->
-    <?php endif; ?>
-
-    <?php print render($page['header']); ?>
+    <nav id="main-menu" role="navigation">
+      <?php print render($page['navigation']); ?>
+    </nav>
 
   </header>
 
   <div id="main">
 
-    <div id="navigation">
-
-      <nav id="main-menu" role="navigation">
-        <?php print render($page['navigation']); ?>
-      </nav>
-
-    </div><!-- /#navigation -->
+    <nav id="secondary-navigatiom" role="navigation">
+      <?php print render($page['secondary_navigation']); ?>
+    </nav>
 
     <?php print render($page['main_top']); ?>
 
