@@ -41,7 +41,7 @@ function wise_is_environment($test) {
  * @return bool
  */
 function wise_is_live_reload() {
-  return (wise_is_environment('development') && wise_get_live_reload());
+  return FALSE && (wise_is_environment('development') && wise_get_live_reload());
 }
 
 /**

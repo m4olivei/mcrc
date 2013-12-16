@@ -72,12 +72,12 @@
  */
 ?>
 
-<div id="page" class="container">
+<div id="page">
 
-  <header id="header" role="banner">
+  <header id="header" class="container clearfix" role="banner">
 
     <?php if ($logo): ?>
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" onerror="this.onerror=null; this.src='/<?php echo drupal_get_path('theme', 'wise'); ?>/logo.png';" /><?php print $site_name; ?></a>
+      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print $site_name; ?>" onerror="this.onerror=null; this.src='/<?php echo drupal_get_path('theme', 'wise'); ?>/logo.png';" /></a>
     <?php endif; ?>
 
     <nav id="main-menu" role="navigation">
@@ -86,11 +86,13 @@
 
   </header>
 
-  <div id="main">
-
-    <nav id="secondary-navigatiom" role="navigation">
+  <div id="secondary-navigation-wrapper">
+    <nav id="secondary-navigation" class="container" role="navigation">
       <?php print render($page['secondary_navigation']); ?>
     </nav>
+  </div>
+
+  <div id="main" class="container">
 
     <?php print render($page['main_top']); ?>
 
@@ -137,7 +139,22 @@
 
   </div><!-- /#main -->
 
-  <?php print render($page['footer']); ?>
+  <footer id="footer" role="complementary">
+    <div class="container">
+      <div class="row">
+        <div id="footer-left" class="span4">
+          <?php if ($logo): ?>
+            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="logo"><img src="<?php print drupal_get_path('theme', 'wise'); ?>/images/logo_white.png" alt="<?php print $site_name; ?>" /></a>
+          <?php endif; ?>
+          <?php print render($page['footer']); ?>
+        </div>
+        <nav class="span8">
+          <?php print render($page['footer_right']); ?>
+        </nav>
+      </div>
+    </div>
+
+  </footer>
 
 </div><!-- /#page -->
 

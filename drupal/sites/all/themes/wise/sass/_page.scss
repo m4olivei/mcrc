@@ -7,6 +7,86 @@
 
 @import 'base';
 
-#logo img {
-  width: 200px;
+#page {
+  margin-top: $baseLineHeight;
+}
+
+#logo {
+  float: left;
+}
+
+#main-menu {
+  float: right;
+  margin-top: $baseLineHeight * 1.5;
+}
+
+#secondary-navigation-wrapper {
+  background-color: $purple;
+
+  .block {
+    margin-bottom: 0;
+  }
+
+  .menu-drop-down {
+
+    > ul.menu {
+
+      > li {
+
+        > a {
+          padding: 10px;
+          border-left: 1px solid #846583;
+          color: #fff;
+          text-transform: uppercase;
+          @include pro-px(14px);
+          @include border-radius(0);
+        }
+
+        > a:focus,
+        &:hover > a,
+        &.open > a {
+          background-color: transparent;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  background-color: $purple;
+  color: $white;
+  padding-top: $baseLineHeight * 2;
+  @include pro-px(14px);
+
+  .logo img {
+    margin-bottom: $baseLineHeight * 2;
+  }
+}
+
+#footer-left {
+  text-align: center;
+}
+
+.region-footer-right {
+
+  .menu-list {
+
+    > ul.menu {
+      @include reset-list-box;
+
+      > li {
+        float: left;
+        width: 20%;
+        text-align: center;
+
+        > a {
+          font-family: $altFontFamily;
+          font-weight: bold;
+          color: $white;
+          @include pro-px(22px);
+        }
+      }
+    }
+  }
 }

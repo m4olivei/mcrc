@@ -5,14 +5,18 @@
 
 @import 'base';
 
+.block-menu-block h2 {
+  @include element-focusable;
+}
+
 .menu-drop-down {
-  background-color: #ddd;
-  margin-bottom: $baseLineHeight;
+  margin-bottom: 0;
 
   > ul.menu {
     @include reset-list-box;
 
     a {
+      font-family: $altFontFamily;
       text-decoration: none;
       display: block;
     }
@@ -22,8 +26,11 @@
       position: relative;
 
       > a {
-        padding: ($baseLineHeight / 2) 38px;
-        color: $textColor;
+        padding: ($baseLineHeight / 2) 15px;;
+        color: $grayDark;
+        @include border-radius($baseBorderRadius);
+        @include pro-px(18px);
+        line-height: 1em;
 
         i {
           padding-right: 6px;
@@ -33,7 +40,7 @@
       > a:focus,
       &:hover > a,
       &.open > a {
-        background-color: #ccc;
+        background-color: $yellow;
         outline: none;
       }
 
@@ -174,5 +181,12 @@
   .collapsible-heading-status {
     position: absolute;
     left: -99999em;
+  }
+}
+
+.menu-list {
+
+  ul.menu {
+    @include reset-list-box;
   }
 }
