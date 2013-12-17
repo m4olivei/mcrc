@@ -6,3 +6,27 @@
 //
 
 @import 'base';
+
+.region-slider {
+  background: $beige url('../images/texture_beige_bg.jpg') repeat 50% 0;
+}
+
+.slide-text {
+  position: absolute;
+  top: $baseLineHeight * 1.5;
+  left: 80px;
+  color: $white;
+  margin-left: 0;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+  @include pro-px(18px);
+}
+
+.slide-title {
+  @include pro-px(84px, 'font-size', 18px);
+  @include pro-px(92px, 'line-height', 84px);
+  margin-bottom: $baseLineHeight * 0.5;
+}
+
+.slide-tagline {
+  margin-bottom: $baseLineHeight;
+}

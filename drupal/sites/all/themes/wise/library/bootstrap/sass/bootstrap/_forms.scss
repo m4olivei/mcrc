@@ -470,6 +470,11 @@ select:focus:invalid {
     background-color: lighten($green, 30);
     border-color: $green;
   }
+
+  .btn {
+    padding: 5px 12px;
+    font-size: $baseFontSize;
+  }
 }
 
 .input-prepend {

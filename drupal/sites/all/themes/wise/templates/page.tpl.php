@@ -92,6 +92,8 @@
     </nav>
   </div>
 
+  <?php print render($page['slider']); ?>
+
   <div id="main" class="container">
 
     <?php print render($page['main_top']); ?>
@@ -144,7 +146,7 @@
       <div class="row">
         <div id="footer-left" class="span4">
           <?php if ($logo): ?>
-            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="logo"><img src="<?php print drupal_get_path('theme', 'wise'); ?>/images/logo_white.png" alt="<?php print $site_name; ?>" /></a>
+            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="logo"><img src="/<?php print drupal_get_path('theme', 'wise'); ?>/images/logo_white.png" alt="<?php print $site_name; ?>" /></a>
           <?php endif; ?>
           <?php print render($page['footer']); ?>
         </div>

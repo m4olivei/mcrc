@@ -1867,13 +1867,19 @@ select:focus:invalid:focus {
   background-color: #a9dba9;
   border-color: #46a546;
 }
+/* line 474, ../library/bootstrap/sass/bootstrap/_forms.scss */
+.input-append .btn,
+.input-prepend .btn {
+  padding: 5px 12px;
+  font-size: 16px;
+}
 
-/* line 477, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 482, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .input-prepend .add-on,
 .input-prepend .btn {
   margin-right: -1px;
 }
-/* line 481, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 486, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .input-prepend .add-on:first-child,
 .input-prepend .btn:first-child {
   -webkit-border-radius: 4px 0 0 4px;
@@ -1883,7 +1889,7 @@ select:focus:invalid:focus {
   border-radius: 4px 0 0 4px;
 }
 
-/* line 490, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 495, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .input-append input,
 .input-append select,
 .input-append .uneditable-input {
@@ -1893,7 +1899,7 @@ select:focus:invalid:focus {
   -o-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px;
 }
-/* line 492, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 497, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .input-append input + .btn-group .btn:last-child,
 .input-append select + .btn-group .btn:last-child,
 .input-append .uneditable-input + .btn-group .btn:last-child {
@@ -1903,13 +1909,13 @@ select:focus:invalid:focus {
   -o-border-radius: 0 4px 4px 0;
   border-radius: 0 4px 4px 0;
 }
-/* line 498, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 503, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .input-append .add-on,
 .input-append .btn,
 .input-append .btn-group {
   margin-left: -1px;
 }
-/* line 503, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 508, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .input-append .add-on:last-child,
 .input-append .btn:last-child,
 .input-append .btn-group:last-child > .dropdown-toggle {
@@ -1920,7 +1926,7 @@ select:focus:invalid:focus {
   border-radius: 0 4px 4px 0;
 }
 
-/* line 512, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 517, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .input-prepend.input-append input,
 .input-prepend.input-append select,
 .input-prepend.input-append .uneditable-input {
@@ -1930,7 +1936,7 @@ select:focus:invalid:focus {
   -o-border-radius: 0;
   border-radius: 0;
 }
-/* line 514, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 519, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .input-prepend.input-append input + .btn-group .btn,
 .input-prepend.input-append select + .btn-group .btn,
 .input-prepend.input-append .uneditable-input + .btn-group .btn {
@@ -1940,7 +1946,7 @@ select:focus:invalid:focus {
   -o-border-radius: 0 4px 4px 0;
   border-radius: 0 4px 4px 0;
 }
-/* line 519, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 524, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .input-prepend.input-append .add-on:first-child,
 .input-prepend.input-append .btn:first-child {
   margin-right: -1px;
@@ -1950,7 +1956,7 @@ select:focus:invalid:focus {
   -o-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px;
 }
-/* line 524, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 529, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .input-prepend.input-append .add-on:last-child,
 .input-prepend.input-append .btn:last-child {
   margin-left: -1px;
@@ -1960,12 +1966,12 @@ select:focus:invalid:focus {
   -o-border-radius: 0 4px 4px 0;
   border-radius: 0 4px 4px 0;
 }
-/* line 528, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 533, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .input-prepend.input-append .btn-group:first-child {
   margin-left: 0;
 }
 
-/* line 539, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 544, ../library/bootstrap/sass/bootstrap/_forms.scss */
 input.search-query {
   padding-right: 14px;
   padding-right: 4px \9;
@@ -1981,7 +1987,7 @@ input.search-query {
 }
 
 /* Allow for input prepend/append in search forms */
-/* line 550, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 555, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-search .input-append .search-query,
 .form-search .input-prepend .search-query {
   -webkit-border-radius: 0;
@@ -1991,7 +1997,7 @@ input.search-query {
   border-radius: 0;
 }
 
-/* line 553, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 558, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-search .input-append .search-query {
   -webkit-border-radius: 14px 0 0 14px;
   -moz-border-radius: 14px 0 0 14px;
@@ -2000,7 +2006,7 @@ input.search-query {
   border-radius: 14px 0 0 14px;
 }
 
-/* line 556, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 561, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-search .input-append .btn {
   -webkit-border-radius: 0 14px 14px 0;
   -moz-border-radius: 0 14px 14px 0;
@@ -2009,7 +2015,7 @@ input.search-query {
   border-radius: 0 14px 14px 0;
 }
 
-/* line 559, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 564, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-search .input-prepend .search-query {
   -webkit-border-radius: 0 14px 14px 0;
   -moz-border-radius: 0 14px 14px 0;
@@ -2018,7 +2024,7 @@ input.search-query {
   border-radius: 0 14px 14px 0;
 }
 
-/* line 562, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 567, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-search .input-prepend .btn {
   -webkit-border-radius: 14px 0 0 14px;
   -moz-border-radius: 14px 0 0 14px;
@@ -2027,7 +2033,7 @@ input.search-query {
   border-radius: 14px 0 0 14px;
 }
 
-/* line 584, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 589, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-search input,
 .form-search textarea,
 .form-search select,
@@ -2056,14 +2062,14 @@ input.search-query {
   margin-bottom: 0;
   vertical-align: middle;
 }
-/* line 591, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 596, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-search .hide,
 .form-inline .hide,
 .form-horizontal .hide {
   display: none;
 }
 
-/* line 598, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 603, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-search label,
 .form-inline label,
 .form-search .btn-group,
@@ -2071,7 +2077,7 @@ input.search-query {
   display: inline-block;
 }
 
-/* line 605, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 610, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-search .input-append,
 .form-inline .input-append,
 .form-search .input-prepend,
@@ -2079,7 +2085,7 @@ input.search-query {
   margin-bottom: 0;
 }
 
-/* line 612, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 617, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-search .radio,
 .form-search .checkbox,
 .form-inline .radio,
@@ -2089,7 +2095,7 @@ input.search-query {
   vertical-align: middle;
 }
 
-/* line 621, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 626, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-search .radio input[type="radio"],
 .form-search .checkbox input[type="checkbox"],
 .form-inline .radio input[type="radio"],
@@ -2099,18 +2105,18 @@ input.search-query {
   margin-left: 0;
 }
 
-/* line 629, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 634, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .control-group {
   margin-bottom: 10px;
 }
 
-/* line 634, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 639, ../library/bootstrap/sass/bootstrap/_forms.scss */
 legend + .control-group {
   margin-top: 20px;
   -webkit-margin-top-collapse: separate;
 }
 
-/* line 644, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 649, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-horizontal .control-group {
   margin-bottom: 20px;
   *zoom: 1;
@@ -2125,29 +2131,29 @@ legend + .control-group {
 .form-horizontal .control-group:after {
   clear: both;
 }
-/* line 649, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 654, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-horizontal .control-label {
   float: left;
   width: 160px;
   padding-top: 5px;
   text-align: right;
 }
-/* line 656, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 661, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-horizontal .controls {
   *display: inline-block;
   *padding-left: 20px;
   margin-left: 180px;
   *margin-left: 0;
 }
-/* line 663, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 668, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-horizontal .controls:first-child {
   *padding-left: 180px;
 }
-/* line 668, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 673, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-horizontal .help-block {
   margin-bottom: 0;
 }
-/* line 678, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 683, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-horizontal input + .help-block,
 .form-horizontal select + .help-block,
 .form-horizontal textarea + .help-block,
@@ -2156,7 +2162,7 @@ legend + .control-group {
 .form-horizontal .input-append + .help-block {
   margin-top: 10px;
 }
-/* line 683, ../library/bootstrap/sass/bootstrap/_forms.scss */
+/* line 688, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .form-horizontal .form-actions {
   padding-left: 180px;
 }
@@ -2551,72 +2557,54 @@ button.close {
   *display: inline;
   /* IE7 inline-block hack */
   *zoom: 1;
-  padding: 4px 12px;
+  padding: 6px 30px;
   margin-bottom: 0;
   font-size: 16px;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 20px;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  color: #685b67;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-  background-color: whitesmoke;
-  background-image: -moz-linear-gradient(top, white, #e6e6e6);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#e6e6e6));
-  background-image: -webkit-linear-gradient(top, white, #e6e6e6);
-  background-image: -o-linear-gradient(top, white, #e6e6e6);
-  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFE6E6E6', GradientType=0);
-  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #e6e6e6;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-  border: 1px solid #bbbbbb;
-  *border: 0;
-  border-bottom-color: #a2a2a2;
+  border: 0;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #b24a82;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border-radius: 4px;
   *margin-left: .3em;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 /* line 496, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
-  color: #685b67;
-  background-color: #e6e6e6;
-  *background-color: #d9d9d9;
+  color: white;
+  background-color: #8e3b68;
+  *background-color: #7c345b;
 }
 /* line 504, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn:active, .btn.active {
-  background-color: #cccccc \9;
+  background-color: #6a2c4d \9;
 }
 /* line 61, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn:first-child {
   *margin-left: 0;
 }
-/* line 29, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 28, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn:hover {
-  color: #685b67;
   text-decoration: none;
-  background-position: 0 -15px;
   -webkit-transition: background-position 0.1s linear;
   -moz-transition: background-position 0.1s linear;
   -o-transition: background-position 0.1s linear;
   transition: background-position 0.1s linear;
 }
-/* line 40, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 37, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-/* line 46, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 43, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn.active, .btn:active {
   background-image: none;
   outline: 0;
@@ -2624,7 +2612,7 @@ button.close {
   -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-/* line 54, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 51, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn.disabled, .btn[disabled] {
   cursor: default;
   background-image: none;
@@ -2635,7 +2623,7 @@ button.close {
   box-shadow: none;
 }
 
-/* line 69, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 66, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-large {
   padding: 11px 19px;
   font-size: 20px;
@@ -2646,13 +2634,13 @@ button.close {
   border-radius: 6px;
 }
 
-/* line 75, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 72, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-large [class^="icon-"],
 .btn-large [class*=" icon-"] {
   margin-top: 4px;
 }
 
-/* line 80, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 77, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-small {
   padding: 2px 10px;
   font-size: 13.6px;
@@ -2663,19 +2651,19 @@ button.close {
   border-radius: 3px;
 }
 
-/* line 86, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 83, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-small [class^="icon-"],
 .btn-small [class*=" icon-"] {
   margin-top: 0;
 }
 
-/* line 90, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 87, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-mini [class^="icon-"],
 .btn-mini [class*=" icon-"] {
   margin-top: -1px;
 }
 
-/* line 95, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 92, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-mini {
   padding: 0px 6px;
   font-size: 12px;
@@ -2686,7 +2674,7 @@ button.close {
   border-radius: 3px;
 }
 
-/* line 105, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 102, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-block {
   display: block;
   width: 100%;
@@ -2697,19 +2685,19 @@ button.close {
   box-sizing: border-box;
 }
 
-/* line 114, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 111, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-block + .btn-block {
   margin-top: 5px;
 }
 
-/* line 122, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 119, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 input[type="submit"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
 }
 
-/* line 138, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 135, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-primary.active,
 .btn-warning.active,
 .btn-danger.active,
@@ -2719,58 +2707,34 @@ input[type="button"].btn-block {
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* line 144, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 141, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn {
   border-color: #c5c5c5;
   border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
 }
 
-/* line 149, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 146, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-primary {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #b24a74;
-  background-image: -moz-linear-gradient(top, #b24a82, #b24a5f);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b24a82), to(#b24a5f));
-  background-image: -webkit-linear-gradient(top, #b24a82, #b24a5f);
-  background-image: -o-linear-gradient(top, #b24a82, #b24a5f);
-  background-image: linear-gradient(to bottom, #b24a82, #b24a5f);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFB24A82', endColorstr='#FFB24A5F', GradientType=0);
-  border-color: #b24a5f #b24a5f #7c3442;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #b24a5f;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-color: #b24a82;
 }
 /* line 496, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
   color: white;
-  background-color: #b24a5f;
-  *background-color: #a04356;
+  background-color: #8e3b68;
+  *background-color: #7c345b;
 }
 /* line 504, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn-primary:active, .btn-primary.active {
-  background-color: #8e3b4c \9;
+  background-color: #6a2c4d \9;
 }
 
-/* line 153, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 150, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-warning {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #f9a732;
-  background-image: -moz-linear-gradient(top, #fbb450, #f89406);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fbb450), to(#f89406));
-  background-image: -webkit-linear-gradient(top, #fbb450, #f89406);
-  background-image: -o-linear-gradient(top, #fbb450, #f89406);
-  background-image: linear-gradient(to bottom, #fbb450, #f89406);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFBB450', endColorstr='#FFF89406', GradientType=0);
-  border-color: #f89406 #f89406 #ad6704;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #f89406;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-color: #fbb450;
 }
 /* line 496, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn-warning:hover, .btn-warning:active, .btn-warning.active, .btn-warning.disabled, .btn-warning[disabled] {
@@ -2783,23 +2747,11 @@ input[type="button"].btn-block {
   background-color: #c67605 \9;
 }
 
-/* line 157, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 154, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-danger {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #da4e49;
-  background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
-  background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
-  background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
-  background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEE5F5B', endColorstr='#FFBD362F', GradientType=0);
-  border-color: #bd362f #bd362f #802420;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #bd362f;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-color: #ee5f5b;
 }
 /* line 496, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn-danger:hover, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled] {
@@ -2812,23 +2764,11 @@ input[type="button"].btn-block {
   background-color: #942a25 \9;
 }
 
-/* line 161, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 158, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-success {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #5bb65b;
-  background-image: -moz-linear-gradient(top, #62c462, #51a351);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
-  background-image: -webkit-linear-gradient(top, #62c462, #51a351);
-  background-image: -o-linear-gradient(top, #62c462, #51a351);
-  background-image: linear-gradient(to bottom, #62c462, #51a351);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF62C462', endColorstr='#FF51A351', GradientType=0);
-  border-color: #51a351 #51a351 #387038;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #51a351;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-color: #62c462;
 }
 /* line 496, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn-success:hover, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled] {
@@ -2841,23 +2781,11 @@ input[type="button"].btn-block {
   background-color: #408140 \9;
 }
 
-/* line 165, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 162, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-info {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #49afcd;
-  background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#2f96b4));
-  background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
-  background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
-  background-image: linear-gradient(to bottom, #5bc0de, #2f96b4);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF5BC0DE', endColorstr='#FF2F96B4', GradientType=0);
-  border-color: #2f96b4 #2f96b4 #1f6377;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #2f96b4;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-color: #5bc0de;
 }
 /* line 496, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn-info:hover, .btn-info:active, .btn-info.active, .btn-info.disabled, .btn-info[disabled] {
@@ -2870,23 +2798,11 @@ input[type="button"].btn-block {
   background-color: #24748c \9;
 }
 
-/* line 169, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 166, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-inverse {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #454545;
-  background-image: -moz-linear-gradient(top, #444444, #484848);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#484848));
-  background-image: -webkit-linear-gradient(top, #444444, #484848);
-  background-image: -o-linear-gradient(top, #444444, #484848);
-  background-image: linear-gradient(to bottom, #444444, #484848);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF444444', endColorstr='#FF484848', GradientType=0);
-  border-color: #484848 #484848 #222222;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #484848;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-color: #444444;
 }
 /* line 496, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn-inverse:hover, .btn-inverse:active, .btn-inverse.active, .btn-inverse.disabled, .btn-inverse[disabled] {
@@ -2899,38 +2815,38 @@ input[type="button"].btn-block {
   background-color: #2f2f2f \9;
 }
 
-/* line 178, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 175, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 button.btn,
 input[type="submit"].btn {
   *padding-top: 3px;
   *padding-bottom: 3px;
 }
-/* line 181, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 178, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 button.btn::-moz-focus-inner,
 input[type="submit"].btn::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
-/* line 190, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 187, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 button.btn.btn-large,
 input[type="submit"].btn.btn-large {
   *padding-top: 7px;
   *padding-bottom: 7px;
 }
-/* line 194, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 191, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 button.btn.btn-small,
 input[type="submit"].btn.btn-small {
   *padding-top: 3px;
   *padding-bottom: 3px;
 }
-/* line 198, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 195, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 button.btn.btn-mini,
 input[type="submit"].btn.btn-mini {
   *padding-top: 1px;
   *padding-bottom: 1px;
 }
 
-/* line 211, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 208, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-link,
 .btn-link:active,
 .btn-link[disabled] {
@@ -2941,7 +2857,7 @@ input[type="submit"].btn.btn-mini {
   box-shadow: none;
 }
 
-/* line 216, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 213, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-link {
   border-color: transparent;
   cursor: pointer;
@@ -2953,14 +2869,14 @@ input[type="submit"].btn.btn-mini {
   border-radius: 0;
 }
 
-/* line 222, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 219, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-link:hover {
   color: #7c345b;
   text-decoration: underline;
   background-color: transparent;
 }
 
-/* line 227, ../library/bootstrap/sass/bootstrap/_buttons.scss */
+/* line 224, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-link[disabled]:hover {
   color: #685b67;
   text-decoration: none;
@@ -3845,19 +3761,7 @@ input[type="submit"].btn.btn-mini {
   margin-right: 5px;
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #ededed;
-  background-image: -moz-linear-gradient(top, #f2f2f2, #e6e6e6);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2f2f2), to(#e6e6e6));
-  background-image: -webkit-linear-gradient(top, #f2f2f2, #e6e6e6);
-  background-image: -o-linear-gradient(top, #f2f2f2, #e6e6e6);
-  background-image: linear-gradient(to bottom, #f2f2f2, #e6e6e6);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF2F2F2', endColorstr='#FFE6E6E6', GradientType=0);
-  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #e6e6e6;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-color: #f2f2f2;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.075);
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.075);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.075);
@@ -4116,19 +4020,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-inverse .btn-navbar {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #0e0e0e;
-  background-image: -moz-linear-gradient(top, #151515, #040404);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#151515), to(#040404));
-  background-image: -webkit-linear-gradient(top, #151515, #040404);
-  background-image: -o-linear-gradient(top, #151515, #040404);
-  background-image: linear-gradient(to bottom, #151515, #040404);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF151515', endColorstr='#FF040404', GradientType=0);
-  border-color: #040404 #040404 black;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #040404;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-color: #151515;
 }
 /* line 496, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .navbar-inverse .btn-navbar:hover, .navbar-inverse .btn-navbar:active, .navbar-inverse .btn-navbar.active, .navbar-inverse .btn-navbar.disabled, .navbar-inverse .btn-navbar[disabled] {

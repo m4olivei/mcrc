@@ -30,7 +30,9 @@
             useCSS: false,
             animationLoop: true,
             smoothHeight: true,
-            video: true
+            video: true,
+            prevText: '<i class="icon-caret-left"></i>',
+            nextText: '<i class="icon-caret-right"></i>'
           });
       }
     }

@@ -32,6 +32,7 @@ $white:                 #fff;
 $yellow:                #d9d2a2;
 // $orange:                #f89406 !default;
 $pink:                  #b24a82;
+$deepPink:              #b85585;
 $purple:                #662664;
 $beige:                 #dcd9c8;
 
@@ -90,12 +91,12 @@ $headingsColor:         $grayDarker;
 
 // Buttons
 // -------------------------
-// $btnBackground:                     $white !default;
-// $btnBackgroundHighlight:            darken($white, 10%) !default;
+$btnBackground:                     $linkColor;
+$btnBackgroundHighlight:            darken($linkColor, 10%);
 // $btnBorder:                         #bbb !default;
 
-// $btnPrimaryBackground:              $linkColor !default;
-// $btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 20%) !default;
+$btnPrimaryBackground:              $linkColor;
+$btnPrimaryBackgroundHighlight:     darken($linkColor, 10%);
 
 // $btnInfoBackground:                 #5bc0de !default;
 // $btnInfoBackgroundHighlight:        #2f96b4 !default;

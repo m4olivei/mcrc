@@ -17,6 +17,7 @@ scripts[] = js/script.js
 regions[navigation]           = Navigation
 regions[secondary_navigation] = Secondary navigation
 regions[help]                 = Help
+regions[slider]               = Slider
 regions[main_top]             = Main Top
 regions[content_top]          = Content Top
 regions[content]              = Content
@@ -89,3 +90,5 @@ exclude[css][] = 'modules/taxonomy/taxonomy.css'
 exclude[css][] = 'modules/tracker/tracker.css'
 exclude[css][] = 'modules/update/update.css'
 exclude[css][] = 'modules/user/user.css'
+
+exclude[css][] = 'sites/all/modules/_custom/wise_slider/css/flexslider.css'
