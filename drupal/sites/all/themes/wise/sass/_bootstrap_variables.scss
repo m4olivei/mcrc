@@ -22,6 +22,9 @@ $grayLight:             #b4b4b4;
 $grayLighter:           #cd89ae;
 $white:                 #fff;
 
+// Block bgs
+// -------------------------
+$smallGroups:           #837781;
 
 // Accent colors
 // -------------------------
@@ -31,8 +34,9 @@ $white:                 #fff;
 // $red:                   #9d261d !default;
 $yellow:                #d9d2a2;
 // $orange:                #f89406 !default;
-$pink:                  #b24a82;
-$deepPink:              #b85585;
+$lightPink:             #cf88ab;
+$pink:                  #b5487f;
+$deepPink:              #b8467d;
 $purple:                #662664;
 $beige:                 #dcd9c8;
 
@@ -53,6 +57,7 @@ $linkColorHover:        darken($linkColor, 15%);
 // -------------------------
 $sansFontFamily:        'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $serifFontFamily:       'Lora', Georgia, 'Times New Roman', Times, serif;
+$altSerifFontFamily:    'Rokkitt', Georgia, 'Times New Roman', Times, serif;
 // $monoFontFamily:        Monaco, Menlo, Consolas, 'Courier New', monospace !default;
 
 $baseFontSize:          16px;
@@ -91,12 +96,12 @@ $headingsColor:         $grayDarker;
 
 // Buttons
 // -------------------------
-$btnBackground:                     $linkColor;
-$btnBackgroundHighlight:            darken($linkColor, 10%);
+$btnBackground:                     $deepPink;
+$btnBackgroundHighlight:            darken($deepPink, 10%);
 // $btnBorder:                         #bbb !default;
 
-$btnPrimaryBackground:              $linkColor;
-$btnPrimaryBackgroundHighlight:     darken($linkColor, 10%);
+$btnPrimaryBackground:              $deepPink;
+$btnPrimaryBackgroundHighlight:     darken($deepPink, 10%);
 
 // $btnInfoBackground:                 #5bc0de !default;
 // $btnInfoBackgroundHighlight:        #2f96b4 !default;

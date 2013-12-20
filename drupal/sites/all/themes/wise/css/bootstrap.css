@@ -235,13 +235,13 @@ body {
 
 /* line 22, ../library/bootstrap/sass/bootstrap/_scaffolding.scss */
 a {
-  color: #b24a82;
+  color: #b5487f;
   text-decoration: none;
 }
 
 /* line 26, ../library/bootstrap/sass/bootstrap/_scaffolding.scss */
 a:hover {
-  color: #7c345b;
+  color: #7e3259;
   text-decoration: underline;
 }
 
@@ -2568,7 +2568,7 @@ button.close {
   border: 0;
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #b24a82;
+  background-color: #b8467d;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -2579,12 +2579,12 @@ button.close {
 /* line 496, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
   color: white;
-  background-color: #8e3b68;
-  *background-color: #7c345b;
+  background-color: #933864;
+  *background-color: #813157;
 }
 /* line 504, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn:active, .btn.active {
-  background-color: #6a2c4d \9;
+  background-color: #6e2a4b \9;
 }
 /* line 61, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn:first-child {
@@ -2717,17 +2717,17 @@ input[type="button"].btn-block {
 .btn-primary {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #b24a82;
+  background-color: #b8467d;
 }
 /* line 496, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
   color: white;
-  background-color: #8e3b68;
-  *background-color: #7c345b;
+  background-color: #933864;
+  *background-color: #813157;
 }
 /* line 504, ../library/bootstrap/sass/bootstrap/_mixins.scss */
 .btn-primary:active, .btn-primary.active {
-  background-color: #6a2c4d \9;
+  background-color: #6e2a4b \9;
 }
 
 /* line 150, ../library/bootstrap/sass/bootstrap/_buttons.scss */
@@ -2861,7 +2861,7 @@ input[type="submit"].btn.btn-mini {
 .btn-link {
   border-color: transparent;
   cursor: pointer;
-  color: #b24a82;
+  color: #b5487f;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -2871,7 +2871,7 @@ input[type="submit"].btn.btn-mini {
 
 /* line 219, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-link:hover {
-  color: #7c345b;
+  color: #7e3259;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -3040,7 +3040,7 @@ input[type="submit"].btn.btn-mini {
 .nav-list > .active > a:hover {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #b24a82;
+  background-color: #b5487f;
 }
 
 /* line 77, ../library/bootstrap/sass/bootstrap/_navs.scss */
@@ -3148,7 +3148,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover {
   color: white;
-  background-color: #b24a82;
+  background-color: #b5487f;
 }
 
 /* line 165, ../library/bootstrap/sass/bootstrap/_navs.scss */
@@ -3232,15 +3232,15 @@ input[type="submit"].btn.btn-mini {
 
 /* line 214, ../library/bootstrap/sass/bootstrap/_navs.scss */
 .nav .dropdown-toggle .caret {
-  border-top-color: #b24a82;
-  border-bottom-color: #b24a82;
+  border-top-color: #b5487f;
+  border-bottom-color: #b5487f;
   margin-top: 6px;
 }
 
 /* line 219, ../library/bootstrap/sass/bootstrap/_navs.scss */
 .nav .dropdown-toggle:hover .caret {
-  border-top-color: #7c345b;
-  border-bottom-color: #7c345b;
+  border-top-color: #7e3259;
+  border-bottom-color: #7e3259;
 }
 
 /* move down carets for tabs */

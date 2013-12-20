@@ -24,6 +24,7 @@
 .slide-title {
   @include pro-px(84px, 'font-size', 18px);
   @include pro-px(92px, 'line-height', 84px);
+  font-family: $altSerifFontFamily;
   margin-bottom: $baseLineHeight * 0.5;
 }
 

@@ -24,7 +24,7 @@
   <?php endif; ?>
   <meta http-equiv="cleartype" content="on">
 
-  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Lora:400,700,400italic,700italic|Rokkitt:400,700" rel="stylesheet" type="text/css" />
 
   <?php print $styles; ?>
   <?php print $scripts; ?>

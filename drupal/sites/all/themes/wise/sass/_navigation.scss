@@ -190,3 +190,58 @@
     @include reset-list-box;
   }
 }
+
+.sidebar {
+
+  .menu-list {
+
+    // Visibility for sidebar menu - only show the active branch
+    > ul.menu {
+
+      > li {
+        display: none;
+
+        > a {
+          @include pro-px(32px);
+          @include pro-px(36px, 'line-height', 32px);
+          font-family: $altSerifFontFamily;
+          color: $pink;
+          font-weight: bold;
+        }
+
+        &.active-trail {
+          display: block;
+        }
+
+        // L2
+        > ul.menu {
+          margin-top: 6px;
+
+          > li {
+            padding: 2px 0;
+
+            a {
+              font-family: $sansFontFamily;
+              @include pro-px(18px);
+              @include pro-px(26px, 'line-height', 18px);
+              color: $grayDark;
+
+              &.active {
+                color: $pink;
+              }
+
+              &.active:before {
+                content: $play-sign;
+                font-family: 'FontAwesome';
+                font-size: 20px;
+                padding-right: 4px;
+                display: inline-block;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

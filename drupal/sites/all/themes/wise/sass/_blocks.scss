@@ -4,3 +4,38 @@
 //
 
 @import 'base';
+
+//
+// Texture blocks
+//
+.texture {
+  background-color: #bdb89a;
+  @include border-radius($borderRadiusLarge);
+  color: $white;
+  padding: $baseLineHeight * 1.5 $baseLineHeight * 2;
+  font-family: $altFontFamily;
+  text-align: center;
+
+  .block-title {
+    display: none;
+  }
+
+  h2 {
+    @include pro-px(24px);
+    @include pro-px(32px, 'line-height', 24px);
+    color: $white;
+    margin: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.texture-gray {
+  background: $smallGroups url('../images/texture_dark_gray.png');
+}
+
+.texture-purple {
+  background: url('../images/texture_purple.png');
+}

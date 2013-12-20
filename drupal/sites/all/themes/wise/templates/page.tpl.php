@@ -96,23 +96,17 @@
 
   <div id="main" class="container">
 
+    <?php print $breadcrumb; ?>
+
     <?php print render($page['main_top']); ?>
 
     <div class="row">
       <?php
         // Render the sidebars to see if there's anything in them.
         $sidebar_first = render($page['sidebar_first']);
-        $sidebar_second = render($page['sidebar_second']);
       ?>
 
-      <?php if ($sidebar_first): ?>
-        <div class="span3">
-          <?php print $sidebar_first; ?>
-        </div>
-      <?php endif; ?>
-
-      <div id="content" class="<?php print wise_ns('span12', $sidebar_first, 3, $sidebar_second, 3); ?>" role="main">
-        <?php print $breadcrumb; ?>
+      <div id="content" class="<?php print wise_ns('span12', $sidebar_first, 3); ?>" role="main">
         <a id="main-content"></a>
         <?php print render($page['content_top']); ?>
         <?php print render($title_prefix); ?>
@@ -131,9 +125,9 @@
         <?php print $feed_icons; ?>
       </div><!-- /#content -->
 
-      <?php if ($sidebar_second): ?>
+      <?php if ($sidebar_first): ?>
         <div class="span3">
-          <?php print $sidebar_second; ?>
+          <?php print $sidebar_first; ?>
         </div>
       <?php endif; ?>
 

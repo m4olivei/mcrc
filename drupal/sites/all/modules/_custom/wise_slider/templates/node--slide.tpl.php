@@ -14,7 +14,7 @@ hide($content['links']);
     <div class="slide-image">
       <?php print render($content['field_slide_image']); ?>
       <?php if (isset($node->field_slide_tagline['und'][0]['value'])): ?>
-        <div class="slide-text span5">
+        <div class="slide-text span6">
           <div class="slide-title"><?php print $title; ?></div>
           <div class="slide-tagline"><?php print render($content['field_slide_tagline'][0]); ?></div>
           <?php if (isset($node->field_slide_link['und'][0]['url'])): ?>

@@ -53,6 +53,18 @@
   }
 }
 
+#content {
+
+  img {
+    @include border-radius($borderRadiusLarge);
+  }
+}
+
+#page-title {
+  margin-bottom: $baseLineHeight;
+  margin-top: 0;
+}
+
 #footer {
   background-color: $purple;
   color: $white;
@@ -62,13 +74,10 @@
   .logo img {
     margin-bottom: $baseLineHeight * 2;
   }
-}
 
-#footer-left {
-  text-align: center;
-}
-
-.region-footer-right {
+  a {
+    color: $lightPink;
+  }
 
   .menu-list {
 
@@ -89,4 +98,8 @@
       }
     }
   }
+}
+
+#footer-left {
+  text-align: center;
 }
