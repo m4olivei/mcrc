@@ -53,7 +53,8 @@
   }
 }
 
-#content {
+#content,
+#tinymce {
 
   img {
     @include border-radius($borderRadiusLarge);

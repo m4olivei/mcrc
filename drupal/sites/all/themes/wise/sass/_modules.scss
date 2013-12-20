@@ -31,3 +31,81 @@
 .slide-tagline {
   margin-bottom: $baseLineHeight;
 }
+
+//
+// Image captions
+//
+.caption,
+.caption-width-container {
+  max-width: 100%;
+}
+
+.caption {
+  max-width: 60%;
+}
+
+.caption-inner {
+  background: #f0eee7;
+  @include border-radius($borderRadiusLarge);
+  @include pro-px(14px);
+  text-align: center;
+  max-width: 100%;
+  width: auto;
+  padding-bottom: 10px;
+  font-style: italic;
+}
+
+.caption p.caption-text {
+
+}
+
+.caption img,
+.caption object {
+  margin-bottom: 5px;
+  display: block;
+}
+
+// Aligned captions
+.caption-left {
+  float: left;
+  margin: 0 $gridGutterWidth $baseLineHeight * 2 0;
+}
+
+.caption-right {
+  float: right;
+  margin: 0 0 $baseLineHeight * 2 $gridGutterWidth;
+}
+
+.caption-center {
+  display: block;
+  text-align: center;
+}
+
+.caption-center .caption-width-container {
+  display: inline-block;
+}
+
+//
+// Responsive
+//
+@include lg-desktop {
+  // Aligned captions
+  .caption-left {
+    margin: 0 $gridGutterWidth1200 $baseLineHeight * 2 0;
+  }
+
+  .caption-right {
+    margin: 0 0 $baseLineHeight * 2 $gridGutterWidth1200;
+  }
+}
+
+@include tablet {
+  // Aligned captions
+  .caption-left {
+    margin: 0 $gridGutterWidth768 $baseLineHeight * 2 0;
+  }
+
+  .caption-right {
+    margin: 0 0 $baseLineHeight * 2 $gridGutterWidth768;
+  }
+}
