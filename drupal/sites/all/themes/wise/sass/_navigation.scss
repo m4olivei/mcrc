@@ -239,6 +239,25 @@
                 text-decoration: none;
               }
             }
+
+            &.active-trail ul.menu {
+              display: block;
+            }
+
+            // L3
+            ul.menu {
+              display: none;
+              margin-left: $baseLineHeight;
+
+              a {
+                font-size: $baseFontSize;
+                line-height: $baseLineHeight;
+
+                &.active:before {
+                  font-size: $baseFontSize;
+                }
+              }
+            }
           }
         }
       }

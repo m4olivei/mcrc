@@ -609,6 +609,24 @@ body {
   display: inline-block;
   text-decoration: none;
 }
+/* line 243, ../sass/_navigation.scss */
+.sidebar .menu-list > ul.menu > li > ul.menu > li.active-trail ul.menu {
+  display: block;
+}
+/* line 248, ../sass/_navigation.scss */
+.sidebar .menu-list > ul.menu > li > ul.menu > li ul.menu {
+  display: none;
+  margin-left: 20px;
+}
+/* line 252, ../sass/_navigation.scss */
+.sidebar .menu-list > ul.menu > li > ul.menu > li ul.menu a {
+  font-size: 16px;
+  line-height: 20px;
+}
+/* line 256, ../sass/_navigation.scss */
+.sidebar .menu-list > ul.menu > li > ul.menu > li ul.menu a.active:before {
+  font-size: 16px;
+}
 
 /* line 11, ../sass/_blocks.scss */
 .texture {
