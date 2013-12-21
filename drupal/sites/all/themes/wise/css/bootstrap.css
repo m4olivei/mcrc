@@ -689,7 +689,7 @@ a:hover {
 
 /* line 9, ../library/bootstrap/sass/bootstrap/_type.scss */
 p {
-  margin: 0 0 10px;
+  margin: 0 0 20px;
 }
 
 /* line 12, ../library/bootstrap/sass/bootstrap/_type.scss */
@@ -963,28 +963,33 @@ abbr.initialism {
 
 /* line 182, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote {
-  padding: 0 0 0 15px;
+  padding: 0 0 0 25px;
   margin: 0 0 20px;
-  border-left: 5px solid #cd89ae;
+  border-left: 5px solid #b5487f;
 }
-/* line 186, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 187, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote p {
   margin-bottom: 0;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 25px;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.375em;
+  line-height: 1.18182em;
+  font-weight: 700;
 }
-/* line 190, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 194, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote small {
+  text-transform: uppercase;
+  font-size: 13.6px;
+  line-height: 20px;
+  font-weight: normal;
   display: block;
   line-height: 20px;
   color: #b4b4b4;
 }
-/* line 194, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 202, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote small:before {
   content: '\2014 \00A0';
 }
-/* line 200, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 208, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote.pull-right {
   float: right;
   padding-right: 15px;
@@ -992,21 +997,21 @@ blockquote.pull-right {
   border-right: 5px solid #cd89ae;
   border-left: 0;
 }
-/* line 207, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 215, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote.pull-right p,
 blockquote.pull-right small {
   text-align: right;
 }
-/* line 211, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 219, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote.pull-right small:before {
   content: '';
 }
-/* line 214, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 222, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote.pull-right small:after {
   content: '\00A0 \2014';
 }
 
-/* line 225, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 233, ../library/bootstrap/sass/bootstrap/_type.scss */
 q:before,
 q:after,
 blockquote:before,
@@ -1014,7 +1019,7 @@ blockquote:after {
   content: "";
 }
 
-/* line 230, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 238, ../library/bootstrap/sass/bootstrap/_type.scss */
 address {
   display: block;
   margin-bottom: 20px;
