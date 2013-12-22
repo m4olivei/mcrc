@@ -39,6 +39,10 @@
     border-top: 0;
   }
 
+  .row-last .node {
+    margin-bottom: 0;
+  }
+
   &.view-display-id-block > .view-content {
     font-size: 0.8em;
 
@@ -53,14 +57,14 @@
 
   .attachment {
     position: relative;
-    overflow: hidden;
+    margin-bottom: $baseLineHeight * 1.5;
 
     &:after {
       content: '';
       width: 1px;
       height: 100%;
       position: absolute;
-      top: $baseLineHeight * -1.5;
+      top: 0;
       left: 50%;
       background-color: $grayLighter;
     }

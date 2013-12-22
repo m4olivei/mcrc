@@ -349,24 +349,29 @@ body {
   font-weight: bold;
 }
 
+/* line 104, ../sass/_modules.scss */
+.more-link {
+  margin: 20px 0;
+}
+
 @media (min-width: 1200px) {
-  /* line 109, ../sass/_modules.scss */
+  /* line 113, ../sass/_modules.scss */
   .caption-left {
     margin: 0 30px 40px 0;
   }
 
-  /* line 113, ../sass/_modules.scss */
+  /* line 117, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 40px 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 120, ../sass/_modules.scss */
+  /* line 124, ../sass/_modules.scss */
   .caption-left {
     margin: 0 20px 40px 0;
   }
 
-  /* line 124, ../sass/_modules.scss */
+  /* line 128, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 40px 20px;
   }
@@ -820,43 +825,47 @@ body.front #page-title {
   border-top: 0;
 }
 /* line 42, ../sass/_nodes.scss */
+.view-activity .row-last .node {
+  margin-bottom: 0;
+}
+/* line 46, ../sass/_nodes.scss */
 .view-activity.view-display-id-block > .view-content {
   font-size: 0.8em;
 }
-/* line 45, ../sass/_nodes.scss */
+/* line 49, ../sass/_nodes.scss */
 .view-activity.view-display-id-block > .view-content .submitted {
   margin-bottom: 0;
 }
-/* line 49, ../sass/_nodes.scss */
+/* line 53, ../sass/_nodes.scss */
 .view-activity.view-display-id-block > .view-content h2 {
   margin-top: 0;
 }
-/* line 54, ../sass/_nodes.scss */
+/* line 58, ../sass/_nodes.scss */
 .view-activity .attachment {
   position: relative;
-  overflow: hidden;
+  margin-bottom: 30px;
 }
-/* line 58, ../sass/_nodes.scss */
+/* line 62, ../sass/_nodes.scss */
 .view-activity .attachment:after {
   content: '';
   width: 1px;
   height: 100%;
   position: absolute;
-  top: -30px;
+  top: 0;
   left: 50%;
   background-color: #cd89ae;
 }
-/* line 70, ../sass/_nodes.scss */
+/* line 74, ../sass/_nodes.scss */
 .view-activity .row-fluid .span6 {
   width: 46.5%;
   margin-left: 7%;
 }
-/* line 75, ../sass/_nodes.scss */
+/* line 79, ../sass/_nodes.scss */
 .view-activity .row-fluid .span6:first-child {
   margin-left: 0;
 }
 
-/* line 80, ../sass/_nodes.scss */
+/* line 84, ../sass/_nodes.scss */
 .node-readmore:after {
   content: ' ...';
 }
