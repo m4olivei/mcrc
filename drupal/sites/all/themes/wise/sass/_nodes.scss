@@ -27,6 +27,9 @@
   }
 }
 
+//
+// Activity stream
+//
 .view-activity {
 
   .cell {
@@ -43,21 +46,12 @@
     margin-bottom: 0;
   }
 
-  &.view-display-id-block > .view-content {
-    font-size: 0.8em;
-
-    .submitted {
-      margin-bottom: 0;
-    }
-
-    h2 {
-      margin-top: 0;
-    }
+  .row-set {
+    margin-bottom: $baseLineHeight * 1.5;
   }
 
-  .attachment {
+  .row-set-featured {
     position: relative;
-    margin-bottom: $baseLineHeight * 1.5;
 
     &:after {
       content: '';
@@ -67,6 +61,18 @@
       top: 0;
       left: 50%;
       background-color: $grayLighter;
+    }
+  }
+
+  .row-set-other {
+    font-size: 0.8em;
+
+    .submitted {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin-top: 0;
     }
   }
 

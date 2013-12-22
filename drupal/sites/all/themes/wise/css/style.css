@@ -351,7 +351,7 @@ body {
 
 /* line 104, ../sass/_modules.scss */
 .more-link {
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 1200px) {
@@ -814,39 +814,30 @@ body.front #page-title {
   margin-bottom: 10px;
 }
 
-/* line 32, ../sass/_nodes.scss */
+/* line 35, ../sass/_nodes.scss */
 .view-activity .cell {
   padding-top: 30px;
   border-top: 1px solid #cd89ae;
 }
-/* line 37, ../sass/_nodes.scss */
+/* line 40, ../sass/_nodes.scss */
 .view-activity .row-first .cell {
   padding-top: 0;
   border-top: 0;
 }
-/* line 42, ../sass/_nodes.scss */
+/* line 45, ../sass/_nodes.scss */
 .view-activity .row-last .node {
   margin-bottom: 0;
 }
-/* line 46, ../sass/_nodes.scss */
-.view-activity.view-display-id-block > .view-content {
-  font-size: 0.8em;
-}
 /* line 49, ../sass/_nodes.scss */
-.view-activity.view-display-id-block > .view-content .submitted {
-  margin-bottom: 0;
-}
-/* line 53, ../sass/_nodes.scss */
-.view-activity.view-display-id-block > .view-content h2 {
-  margin-top: 0;
-}
-/* line 58, ../sass/_nodes.scss */
-.view-activity .attachment {
-  position: relative;
+.view-activity .row-set {
   margin-bottom: 30px;
 }
-/* line 62, ../sass/_nodes.scss */
-.view-activity .attachment:after {
+/* line 53, ../sass/_nodes.scss */
+.view-activity .row-set-featured {
+  position: relative;
+}
+/* line 56, ../sass/_nodes.scss */
+.view-activity .row-set-featured:after {
   content: '';
   width: 1px;
   height: 100%;
@@ -855,17 +846,29 @@ body.front #page-title {
   left: 50%;
   background-color: #cd89ae;
 }
+/* line 67, ../sass/_nodes.scss */
+.view-activity .row-set-other {
+  font-size: 0.8em;
+}
+/* line 70, ../sass/_nodes.scss */
+.view-activity .row-set-other .submitted {
+  margin-bottom: 0;
+}
 /* line 74, ../sass/_nodes.scss */
+.view-activity .row-set-other h2 {
+  margin-top: 0;
+}
+/* line 80, ../sass/_nodes.scss */
 .view-activity .row-fluid .span6 {
   width: 46.5%;
   margin-left: 7%;
 }
-/* line 79, ../sass/_nodes.scss */
+/* line 85, ../sass/_nodes.scss */
 .view-activity .row-fluid .span6:first-child {
   margin-left: 0;
 }
 
-/* line 84, ../sass/_nodes.scss */
+/* line 90, ../sass/_nodes.scss */
 .node-readmore:after {
   content: ' ...';
 }
