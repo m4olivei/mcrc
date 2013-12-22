@@ -11,7 +11,7 @@
 $num_cols = isset($view->style_options['columns']) ? $view->style_options['columns'] : 4;
 
 // Take the first row and lay it out in half the number of columns as configured.
-$featured_rows = array_shift($rows);
+$featured_rows = array_pop($rows);
 $featured_rows = array_chunk($featured_rows, floor($num_cols / 2));
 $first = TRUE;
 $count = 0;
