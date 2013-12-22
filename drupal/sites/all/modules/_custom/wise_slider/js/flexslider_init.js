@@ -29,7 +29,7 @@
             animation: 'fade',
             useCSS: false,
             animationLoop: true,
-            smoothHeight: true,
+            smoothHeight: false,
             video: true,
             prevText: '<i class="icon-caret-left"></i>',
             nextText: '<i class="icon-caret-right"></i>'

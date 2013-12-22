@@ -66,6 +66,25 @@
   margin-top: 0;
 }
 
+body.front {
+
+  .title-wrapper {
+    text-align: center;
+  }
+
+  #page-title {
+    color: #fff;
+    background-color: $yellow;
+    display: inline-block;
+    margin-top: $baseLineHeight * -1.5;
+    padding: 10px 60px;
+    @include pro-px(40px);
+    font-weight: bold;
+    @include border-bottom-right-radius($borderRadiusLarge);
+    @include border-bottom-left-radius($borderRadiusLarge);
+  }
+}
+
 #footer {
   background-color: $purple;
   color: $white;

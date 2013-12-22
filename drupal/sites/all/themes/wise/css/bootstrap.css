@@ -229,7 +229,7 @@ body {
   font-family: "Lora", Georgia, "Times New Roman", Times, serif;
   font-size: 16px;
   line-height: 20px;
-  color: #7e7e7e;
+  color: #7f7f7f;
   background-color: white;
 }
 
@@ -790,7 +790,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 h1,
 h2,
 h3 {
-  line-height: 40px;
+  line-height: 50px;
 }
 
 /* line 68, ../library/bootstrap/sass/bootstrap/_type.scss */
@@ -1169,7 +1169,7 @@ input[type="color"],
   margin-bottom: 10px;
   font-size: 16px;
   line-height: 20px;
-  color: #7e7e7e;
+  color: #7f7f7f;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -1773,7 +1773,7 @@ select:focus:invalid:focus {
 /* line 400, ../library/bootstrap/sass/bootstrap/_forms.scss */
 .help-block,
 .help-inline {
-  color: #a4a4a4;
+  color: #a5a5a5;
 }
 
 /* line 404, ../library/bootstrap/sass/bootstrap/_forms.scss */
@@ -3129,7 +3129,7 @@ input[type="submit"].btn.btn-mini {
 /* line 131, ../library/bootstrap/sass/bootstrap/_navs.scss */
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
-  color: #7e7e7e;
+  color: #7f7f7f;
   background-color: white;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
@@ -3262,8 +3262,8 @@ input[type="submit"].btn.btn-mini {
 
 /* line 234, ../library/bootstrap/sass/bootstrap/_navs.scss */
 .nav-tabs .active .dropdown-toggle .caret {
-  border-top-color: #7e7e7e;
-  border-bottom-color: #7e7e7e;
+  border-top-color: #7f7f7f;
+  border-bottom-color: #7f7f7f;
 }
 
 /* line 241, ../library/bootstrap/sass/bootstrap/_navs.scss */
@@ -3749,7 +3749,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > .active > a,
 .navbar .nav > .active > a:hover,
 .navbar .nav > .active > a:focus {
-  color: #7e7e7e;
+  color: #7f7f7f;
   text-decoration: none;
   background-color: #e6e6e6;
   -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
@@ -3845,8 +3845,8 @@ input[type="submit"].btn.btn-mini {
 
 /* line 339, ../library/bootstrap/sass/bootstrap/_navbar.scss */
 .navbar .nav li.dropdown > a:hover .caret {
-  border-top-color: #7e7e7e;
-  border-bottom-color: #7e7e7e;
+  border-top-color: #7f7f7f;
+  border-bottom-color: #7f7f7f;
 }
 
 /* line 347, ../library/bootstrap/sass/bootstrap/_navbar.scss */
@@ -3854,7 +3854,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav li.dropdown.active > .dropdown-toggle,
 .navbar .nav li.dropdown.open.active > .dropdown-toggle {
   background-color: #e6e6e6;
-  color: #7e7e7e;
+  color: #7f7f7f;
 }
 
 /* line 351, ../library/bootstrap/sass/bootstrap/_navbar.scss */
@@ -3867,8 +3867,8 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav li.dropdown.open > .dropdown-toggle .caret,
 .navbar .nav li.dropdown.active > .dropdown-toggle .caret,
 .navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
-  border-top-color: #7e7e7e;
-  border-bottom-color: #7e7e7e;
+  border-top-color: #7f7f7f;
+  border-bottom-color: #7f7f7f;
 }
 
 /* line 364, ../library/bootstrap/sass/bootstrap/_navbar.scss */

@@ -8,3 +8,75 @@
 .field-name-field-image {
   margin-bottom: $baseLineHeight;
 }
+
+.node {
+  margin-bottom: $baseLineHeight * 1.5;
+}
+
+.node-teaser {
+
+  h2 {
+    @include pro-px(26px);
+    @include pro-px(30px, 'line-height', 26px);
+    font-weight: bold;
+  }
+
+  p,
+  .field-name-body {
+    margin-bottom: $baseLineHeight / 2;
+  }
+}
+
+.view-activity {
+
+  .cell {
+    padding-top: $baseLineHeight * 1.5;
+    border-top: 1px solid $grayLighter;
+  }
+
+  .row-first .cell {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  &.view-display-id-block > .view-content {
+    font-size: 0.8em;
+
+    .submitted {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+
+  .attachment {
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+      content: '';
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      top: $baseLineHeight * -1.5;
+      left: 50%;
+      background-color: $grayLighter;
+    }
+  }
+
+  // Adjust the grid
+  .row-fluid .span6 {
+    width: 46.5%;
+    margin-left: 7%;
+  }
+
+  .row-fluid .span6:first-child {
+    margin-left: 0;
+  }
+}
+
+.node-readmore:after {
+  content: ' ...';
+}
