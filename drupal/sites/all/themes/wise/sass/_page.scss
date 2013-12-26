@@ -13,6 +13,7 @@
 
 #logo {
   float: left;
+  margin-bottom: $baseLineHeight;
 }
 
 #main-menu-desktop {
@@ -23,13 +24,10 @@
 #secondary-navigation-wrapper {
   background-color: $purple;
 
-  .block {
-    margin-bottom: 0;
-  }
-
   .menu-drop-down {
+    margin-bottom: 0;
 
-    > ul.menu {
+    > .menu-block-wrapper > ul.menu {
 
       > li {
 

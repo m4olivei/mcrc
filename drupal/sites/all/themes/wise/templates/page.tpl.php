@@ -81,18 +81,18 @@
     <?php endif; ?>
 
     <nav id="main-menu-desktop" role="navigation" class="visible-desktop visible-tablet">
-      <?php print render($page['navigation']); ?>
+      <?php print wise_get_desktop_menu(); ?>
     </nav>
 
     <nav id="main-menu-mobile" role="navigation" class="hidden-desktop hidden-tablet">
-      <?php print render($page['navigation']); ?>
+      <?php print wise_get_mobile_menu(); ?>
     </nav>
 
   </header>
 
   <div id="secondary-navigation-wrapper">
     <nav id="secondary-navigation" class="container" role="navigation">
-      <?php print render($page['secondary_navigation']); ?>
+      <?php print wise_get_secondary_navigation(); ?>
     </nav>
   </div>
 

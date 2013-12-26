@@ -10,9 +10,13 @@
 }
 
 .menu-drop-down {
-  margin-bottom: 0;
+  margin-bottom: $baseLineHeight;
 
-  > ul.menu {
+  h2 {
+    @include element-focusable;
+  }
+
+  > .menu-block-wrapper > ul.menu {
     @include reset-list-box;
 
     a {
@@ -87,8 +91,9 @@
 }
 
 // Main menu mobile
-#main-menu-mobile {
+.mobile-menu {
   margin-top: $baseLineHeight;
+  margin-bottom: $baseLineHeight;
   text-align: left;
 
   h2 {
@@ -140,6 +145,7 @@
       a {
         @include border-radius(0);
         color: $white;
+        font-family: $altFontFamily;
         @include pro-px(18px);
         display: block;
         padding-right: 76px;
@@ -155,6 +161,7 @@
 
         &:hover,
         &:focus {
+          text-decoration: none;
           background-color: $deepPink;
         }
       }
@@ -301,7 +308,7 @@
 //
 @include tablet {
 
-  .menu-drop-down > ul.menu > li > a {
+  .menu-drop-down > .menu-block-wrapper > ul.menu > li > a {
     padding-left: 10px;
     padding-right: 10px;
   }

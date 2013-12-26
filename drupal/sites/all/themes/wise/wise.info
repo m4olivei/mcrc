@@ -14,8 +14,6 @@ stylesheets[all][] = library/font-awesome/css/font-awesome.min.css
 scripts[] = library/fitvids/jquery.fitvids.min.js
 scripts[] = js/script.js
 
-regions[navigation]           = Navigation
-regions[secondary_navigation] = Secondary navigation
 regions[help]                 = Help
 regions[slider]               = Slider
 regions[main_top]             = Main Top

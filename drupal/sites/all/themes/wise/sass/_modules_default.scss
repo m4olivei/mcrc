@@ -216,3 +216,11 @@ div.control-group.error, table tr.control-group.error,
 div.control-group.warning, table tr.control-group.warning {
   background: transparent none;
 }
+
+.element-focusable {
+  @include element-focusable;
+}
+
+.element-invisible {
+  @include element-invisible;
+}
