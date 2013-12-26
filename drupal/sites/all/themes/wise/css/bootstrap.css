@@ -5431,13 +5431,7 @@ input[type="submit"].btn.btn-mini {
   }
 }
 @media (max-width: 767px) {
-  /* line 9, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
-  body {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  /* line 16, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 11, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .navbar-fixed-top,
   .navbar-fixed-bottom,
   .navbar-static-top {
@@ -5445,46 +5439,46 @@ input[type="submit"].btn.btn-mini {
     margin-right: -20px;
   }
 
-  /* line 21, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 16, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .container-fluid {
     padding: 0;
   }
 
-  /* line 29, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 24, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .dl-horizontal dt {
     float: none;
     clear: none;
     width: auto;
     text-align: left;
   }
-  /* line 35, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 30, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .dl-horizontal dd {
     margin-left: 0;
   }
 
-  /* line 43, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 38, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .container {
     width: auto;
   }
 
-  /* line 47, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 42, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .row-fluid {
     width: 100%;
   }
 
-  /* line 52, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 47, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .row,
   .thumbnails {
     margin-left: 0;
   }
 
-  /* line 55, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 50, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .thumbnails > li {
     float: none;
     margin-left: 0;
   }
 
-  /* line 62, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 57, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   [class*="span"],
   .uneditable-input[class*="span"],
   .row-fluid [class*="span"] {
@@ -5497,7 +5491,7 @@ input[type="submit"].btn.btn-mini {
     box-sizing: border-box;
   }
 
-  /* line 70, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 65, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .span12,
   .row-fluid .span12 {
     width: 100%;
@@ -5506,12 +5500,12 @@ input[type="submit"].btn.btn-mini {
     box-sizing: border-box;
   }
 
-  /* line 74, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 69, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .row-fluid [class*="offset"]:first-child {
     margin-left: 0;
   }
 
-  /* line 87, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 82, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .input-large,
   .input-xlarge,
   .input-xxlarge,
@@ -5527,7 +5521,7 @@ input[type="submit"].btn.btn-mini {
     box-sizing: border-box;
   }
 
-  /* line 94, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 89, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .input-prepend input,
   .input-append input,
   .input-prepend input[class*="span"],
@@ -5536,12 +5530,12 @@ input[type="submit"].btn.btn-mini {
     width: auto;
   }
 
-  /* line 98, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 93, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .controls-row [class*="span"] + [class*="span"] {
     margin-left: 0;
   }
 
-  /* line 103, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 98, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .modal {
     position: fixed;
     top: 20px;
@@ -5550,55 +5544,55 @@ input[type="submit"].btn.btn-mini {
     width: auto;
     margin: 0;
   }
-  /* line 110, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 105, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .modal.fade {
     top: -100px;
   }
-  /* line 111, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 106, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .modal.fade.in {
     top: 20px;
   }
 }
 @media (max-width: 480px) {
-  /* line 124, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 119, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .nav-collapse {
     -webkit-transform: translate3d(0, 0, 0);
   }
 
-  /* line 129, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 124, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .page-header h1 small {
     display: block;
     line-height: 20px;
   }
 
-  /* line 136, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 131, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   input[type="checkbox"],
   input[type="radio"] {
     border: 1px solid #ccc;
   }
 
-  /* line 142, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 137, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .form-horizontal .control-label {
     float: none;
     width: auto;
     padding-top: 0;
     text-align: left;
   }
-  /* line 149, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 144, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .form-horizontal .controls {
     margin-left: 0;
   }
-  /* line 153, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 148, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .form-horizontal .control-list {
     padding-top: 0;
   }
-  /* line 157, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 152, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .form-horizontal .form-actions {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  /* line 166, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 161, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .media .pull-left,
   .media .pull-right {
     float: none;
@@ -5606,26 +5600,26 @@ input[type="submit"].btn.btn-mini {
     margin-bottom: 10px;
   }
 
-  /* line 172, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 167, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .media-object {
     margin-right: 0;
     margin-left: 0;
   }
 
-  /* line 178, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 173, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .modal {
     top: 10px;
     left: 10px;
     right: 10px;
   }
 
-  /* line 183, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 178, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .modal-header .close {
     padding: 10px;
     margin: -10px;
   }
 
-  /* line 189, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
+  /* line 184, ../library/bootstrap/sass/bootstrap/_responsive-767px-max.scss */
   .carousel-caption {
     position: static;
   }

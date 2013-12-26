@@ -127,11 +127,34 @@ body.front {
 //
 @include mobile {
 
+  #header,
+  #main {
+    margin-left: $mobileOuterGutter;
+    margin-right: $mobileOuterGutter;
+  }
+
   #header {
     text-align: center;
   }
 
   #logo {
     float: none;
+  }
+
+  body.front {
+
+    #page-title {
+      margin-top: 0;
+      padding: 15px 26px;
+      @include pro-px(18px);
+      @include pro-px(26px, 'line-height', 18px);
+    }
+  }
+
+  #footer {
+
+    .logo img {
+      margin-bottom: $baseLineHeight;
+    }
   }
 }

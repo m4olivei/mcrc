@@ -90,3 +90,26 @@
 .node-readmore:after {
   content: ' ...';
 }
+
+//
+// Responsive styles
+//
+@include mobile {
+
+  .view-activity {
+
+    .cell {
+      border-top: 0;
+    }
+
+    // Adjust the grid
+    .row-fluid .span6 {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .row-set-featured:after {
+      display: none;
+    }
+  }
+}

@@ -90,13 +90,15 @@
 
   </header>
 
-  <div id="secondary-navigation-wrapper">
+  <div id="secondary-navigation-wrapper" class="visible-desktop visible-tablet">
     <nav id="secondary-navigation" class="container" role="navigation">
       <?php print wise_get_secondary_navigation(); ?>
     </nav>
   </div>
 
-  <?php print render($page['slider']); ?>
+  <div class="visible-desktop visible-tablet">
+    <?php print render($page['slider']); ?>
+  </div>
 
   <div id="main" class="container">
 
@@ -154,7 +156,7 @@
           <?php endif; ?>
           <?php print render($page['footer']); ?>
         </div>
-        <nav class="span8">
+        <nav class="span8 visible-desktop visible-tablet">
           <?php print render($page['footer_right']); ?>
         </nav>
       </div>
