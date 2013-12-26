@@ -5,6 +5,7 @@
  */
 hide($content['comments']);
 hide($content['links']);
+hide($content['field_slide_image']);
 ?>
 <article class="slide-image node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
@@ -12,7 +13,7 @@ hide($content['links']);
     <?php print render($content['field_slide_video']); ?>
   <?php else: ?>
     <div class="slide-image">
-      <?php print render($content['field_slide_image']); ?>
+      <?php print render($content['field_slide_image'][0]); ?>
       <?php if (isset($node->field_slide_tagline['und'][0]['value'])): ?>
         <div class="slide-text span6">
           <div class="slide-title"><?php print $title; ?></div>

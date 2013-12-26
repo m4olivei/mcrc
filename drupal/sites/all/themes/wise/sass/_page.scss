@@ -15,7 +15,7 @@
   float: left;
 }
 
-#main-menu {
+#main-menu-desktop {
   float: right;
   margin-top: $baseLineHeight * 1.5;
 }
@@ -122,4 +122,18 @@ body.front {
 
 #footer-left {
   text-align: center;
+}
+
+//
+// Responsive styles
+//
+@include mobile {
+
+  #header {
+    text-align: center;
+  }
+
+  #logo {
+    float: none;
+  }
 }

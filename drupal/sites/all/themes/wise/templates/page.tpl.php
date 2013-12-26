@@ -80,7 +80,11 @@
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print $site_name; ?>" onerror="this.onerror=null; this.src='/<?php echo drupal_get_path('theme', 'wise'); ?>/logo.png';" /></a>
     <?php endif; ?>
 
-    <nav id="main-menu" role="navigation">
+    <nav id="main-menu-desktop" role="navigation" class="visible-desktop visible-tablet">
+      <?php print render($page['navigation']); ?>
+    </nav>
+
+    <nav id="main-menu-mobile" role="navigation" class="hidden-desktop hidden-tablet">
       <?php print render($page['navigation']); ?>
     </nav>
 
