@@ -686,14 +686,33 @@ body.front #page-title {
 .mobile-menu h2:after {
   content: "\f0c9";
   font-family: 'FontAwesome';
-  padding-right: 14px;
   float: right;
+  color: #b8467d;
+  font-size: 25px;
+  border: 1px solid #fff;
+  line-height: 1em;
+  margin-top: 11px;
+  padding: 4px 6px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
 }
-/* line 120, ../sass/_navigation.scss */
+/* line 127, ../sass/_navigation.scss */
 .mobile-menu h2.nav-toggle {
   cursor: pointer;
 }
-/* line 125, ../sass/_navigation.scss */
+/* line 131, ../sass/_navigation.scss */
+.mobile-menu h2.nav-toggle-closed {
+  -moz-border-radius-bottomleft: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+/* line 137, ../sass/_navigation.scss */
 .mobile-menu ul.menu {
   background-color: #682561;
   -moz-border-radius-bottomleft: 6px;
@@ -703,7 +722,7 @@ body.front #page-title {
   -webkit-border-bottom-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
-/* line 131, ../sass/_navigation.scss */
+/* line 143, ../sass/_navigation.scss */
 .mobile-menu ul.menu,
 .mobile-menu ul.menu ul {
   list-style: none;
@@ -712,16 +731,16 @@ body.front #page-title {
   padding: 0;
   border: none;
 }
-/* line 136, ../sass/_navigation.scss */
+/* line 148, ../sass/_navigation.scss */
 .mobile-menu ul.menu.closed,
 .mobile-menu ul.menu ul.closed {
   display: none;
 }
-/* line 142, ../sass/_navigation.scss */
+/* line 154, ../sass/_navigation.scss */
 .mobile-menu ul.menu li {
   float: none;
 }
-/* line 145, ../sass/_navigation.scss */
+/* line 157, ../sass/_navigation.scss */
 .mobile-menu ul.menu li a {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -739,16 +758,16 @@ body.front #page-title {
   font-weight: bold;
   line-height: 40px;
 }
-/* line 158, ../sass/_navigation.scss */
+/* line 170, ../sass/_navigation.scss */
 .mobile-menu ul.menu li a i {
   display: none;
 }
-/* line 163, ../sass/_navigation.scss */
+/* line 175, ../sass/_navigation.scss */
 .mobile-menu ul.menu li a:hover, .mobile-menu ul.menu li a:focus {
   text-decoration: none;
   background-color: #b8467d;
 }
-/* line 169, ../sass/_navigation.scss */
+/* line 181, ../sass/_navigation.scss */
 .mobile-menu ul.menu li a.nav-toggle {
   float: right;
   width: 56px;
@@ -760,15 +779,15 @@ body.front #page-title {
   padding: 0;
   background: transparent url("../images/mobile_menu_icons.png") no-repeat 19px 23px;
 }
-/* line 184, ../sass/_navigation.scss */
+/* line 196, ../sass/_navigation.scss */
 .mobile-menu ul.menu li.nav-expanded a.nav-toggle {
   background-position: 19px -57px;
 }
-/* line 194, ../sass/_navigation.scss */
+/* line 206, ../sass/_navigation.scss */
 .mobile-menu ul.menu li ul li a {
   padding-left: 32px;
 }
-/* line 206, ../sass/_navigation.scss */
+/* line 218, ../sass/_navigation.scss */
 .mobile-menu ul.menu > li.last > a:hover, .mobile-menu ul.menu > li.last > a:focus {
   -moz-border-radius-bottomleft: 6px;
   -webkit-border-bottom-left-radius: 6px;
@@ -778,18 +797,18 @@ body.front #page-title {
   border-bottom-right-radius: 6px;
 }
 
-/* line 216, ../sass/_navigation.scss */
+/* line 228, ../sass/_navigation.scss */
 .collapsible-content-collapsed {
   display: none;
 }
 
-/* line 220, ../sass/_navigation.scss */
+/* line 232, ../sass/_navigation.scss */
 .collapsible-heading-status {
   position: absolute;
   left: -99999em;
 }
 
-/* line 227, ../sass/_navigation.scss */
+/* line 239, ../sass/_navigation.scss */
 .menu-list ul.menu {
   list-style: none;
   list-style-image: none;
@@ -798,11 +817,11 @@ body.front #page-title {
   border: none;
 }
 
-/* line 239, ../sass/_navigation.scss */
+/* line 251, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li {
   display: none;
 }
-/* line 242, ../sass/_navigation.scss */
+/* line 254, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > a {
   font-size: 2em;
   line-height: 1.125em;
@@ -810,30 +829,30 @@ body.front #page-title {
   color: #b5487f;
   font-weight: bold;
 }
-/* line 250, ../sass/_navigation.scss */
+/* line 262, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li.active-trail {
   display: block;
 }
-/* line 255, ../sass/_navigation.scss */
+/* line 267, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > ul.menu {
   margin-top: 6px;
 }
-/* line 258, ../sass/_navigation.scss */
+/* line 270, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > ul.menu > li {
   padding: 2px 0;
 }
-/* line 261, ../sass/_navigation.scss */
+/* line 273, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > ul.menu > li a {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.125em;
   line-height: 1.44444em;
   color: #685b67;
 }
-/* line 267, ../sass/_navigation.scss */
+/* line 279, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > ul.menu > li a.active {
   color: #b5487f;
 }
-/* line 271, ../sass/_navigation.scss */
+/* line 283, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > ul.menu > li a.active:before {
   content: "\f144";
   font-family: 'FontAwesome';
@@ -842,27 +861,27 @@ body.front #page-title {
   display: inline-block;
   text-decoration: none;
 }
-/* line 281, ../sass/_navigation.scss */
+/* line 293, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > ul.menu > li.active-trail ul.menu {
   display: block;
 }
-/* line 286, ../sass/_navigation.scss */
+/* line 298, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > ul.menu > li ul.menu {
   display: none;
   margin-left: 20px;
 }
-/* line 290, ../sass/_navigation.scss */
+/* line 302, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > ul.menu > li ul.menu a {
   font-size: 16px;
   line-height: 20px;
 }
-/* line 294, ../sass/_navigation.scss */
+/* line 306, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > ul.menu > li ul.menu a.active:before {
   font-size: 16px;
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 311, ../sass/_navigation.scss */
+  /* line 323, ../sass/_navigation.scss */
   .menu-drop-down > .menu-block-wrapper > ul.menu > li > a {
     padding-left: 10px;
     padding-right: 10px;

@@ -113,12 +113,24 @@
     &:after {
       content: $reorder;
       font-family: 'FontAwesome';
-      padding-right: 14px;
       float: right;
+      color: $deepPink;
+
+      font-size: 25px;
+      border: 1px solid #fff;
+      line-height: 1em;
+      margin-top: 11px;
+      padding: 4px 6px;
+      @include border-radius($baseBorderRadius);
     }
 
     &.nav-toggle {
       cursor: pointer;
+    }
+
+    &.nav-toggle-closed {
+      @include border-bottom-left-radius($borderRadiusLarge);
+      @include border-bottom-right-radius($borderRadiusLarge);
     }
   }
 
