@@ -14,6 +14,7 @@ function mcrc_migrate_migrate_api() {
     'migrations' => array(
       'MCRCPastorTerm' => array('class_name' => 'MCRCPastorTermMigration'),
       'MCRCService' => array('class_name' => 'MCRCServiceMigration'),
+      'MCRCUser' => array('class_name' => 'MCRCUserMigration'),
     ),
   );
 }

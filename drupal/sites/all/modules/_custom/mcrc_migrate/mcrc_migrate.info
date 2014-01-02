@@ -6,6 +6,7 @@ package = Mountainview CRC
 
 dependencies[] = mcrc_services
 
+files[] = mcrc_migrate_base.inc
 files[] = mcrc_migrate_pastor_term.inc
 files[] = mcrc_migrate_service.inc
-files[] = mcrc_migrate_base.inc
+files[] = mcrc_migrate_user.inc
