@@ -1,6 +1,8 @@
 <?php
 /**
  * @file
+ * Common base class for our migrations.   Take care of all the common stuff and implement
+ * helper functions.
  */
 
 class MCRCMigrateBase extends DynamicMigration {
@@ -13,10 +15,11 @@ class MCRCMigrateBase extends DynamicMigration {
   }
 
   /**
-   * Given a particular spelling of a pastor, return the correct spelling if it's
-   * off, thereby avoiding duplicates.
+   * Map incorrect spellings of pastors that are coming in to their correct version
+   * to void duplicates.
    *
-   * @param $pastor
+   * @param $name
+   *  Name of the pastor being imported.
    */
   protected function duplicatePastorCheck($name) {
     $map = array(
