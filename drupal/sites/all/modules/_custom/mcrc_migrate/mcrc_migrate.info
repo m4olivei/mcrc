@@ -1,0 +1,11 @@
+name = MCRC Migration
+description = Migrate old Mountainview data into new Drupal platform.
+core = 7.x
+version = 7.x-1.0
+package = Mountainview CRC
+
+dependencies[] = mcrc_services
+
+files[] = mcrc_migrate_pastor_term.inc
+files[] = mcrc_migrate_service.inc
+files[] = mcrc_migrate_base.inc

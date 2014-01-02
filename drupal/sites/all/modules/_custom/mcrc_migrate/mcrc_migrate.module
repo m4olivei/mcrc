@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Migrate old MCRC data into the new Drupal platform.  This file is empty cause, we don't need
+ * any general Drupal functionality, all Migrate stuff which is placesd into the migrate_mcrc.migrate.inc
+ * file so that the code only loads up when needed by Migrate module.  All efficent and stuff like.
+ */
