@@ -4,16 +4,22 @@
  * Migrate services into Drupal nodes.
  */
 
-class MCRCServiceMigration extends DynamicMigration {
+class MCRCServiceMigration extends MCRCMigrateBase {
 
   /**
-   *
+   * Init the service migration.  Here we define the migration that will take records in the
+   * tblSermons table of the legacy database and create service nodes.
    */
   function __construct() {
     parent::__construct();
 
     // Human-friendly description of migration process
-    $this->description = t('Migrate Pastor names as taxonomy terms to be used in the Service migration.');
+    $this->description = t('Migrate services as service nodes.');
+
+    // Declare dependencies for our migration - other migrations
+    // which should run first. In this case, terms assigned to our nodes
+    // should be migrated before the nodes themselves.
+    $this->dependencies = array('MCRCPastorTerm');
 
     // Create a map object for tracking the relationships between source rows
     // and their resulting Drupal objects. Pass the machine name
@@ -48,7 +54,46 @@ class MCRCServiceMigration extends DynamicMigration {
 
     // Mappings
     $this->addFieldMapping('title', 'title');
+    $this->addFieldMapping('uid')
+      ->defaultValue(1);
+    $this->addFieldMapping('created', 'date_uploaded');
+    $this->addFieldMapping('changed', 'date_uploaded');
+    $this->addFieldMapping('promote')
+      ->defaultValue(1);
 
-    // @todo finish field mappings - duh.
+    $this->addFieldMapping('field_service_date', 'date_presented');
+    // We'll need to process this in prepareRow to form the correct URL.
+    $this->addFieldMapping('field_service_audio', 'filename');
+    $this->addFieldMapping('field_service_audio:file_replace')
+      ->defaultValue(MigrateFile::FILE_EXISTS_REUSE);
+    $this->addFieldMapping('field_service_audio:preserve_files')
+      ->defaultValue(TRUE);
+
+    // We'll process this mapping in prepareRow to swap for the correct spelling of the pastor name.
+    $this->addFieldMapping('field_service_pastor', 'pastor');
+  }
+
+  /**
+   * Tweak some things before continuing.
+   * @param $row
+   * @return bool|void
+   */
+  public function prepareRow($row) {
+
+    // Adjust timestamps to UNIX timestamps, some early sermons don't have a value for date_uploaded.
+    // In that case, set to date_presented.
+    $row->date_presented = strtotime($row->date_presented);
+    if ($row->date_uploaded) {
+      $row->date_uploaded = strtotime($row->date_uploaded);
+    }
+    else if ($row->date_presented) {
+      $row->date_uploaded = $row->date_presented;
+    }
+
+    // Form a valid URL to the audio file.
+    $row->filename = 'http://mountainviewcrc.org/listentothemessage/messages/' . $row->filename;
+
+    // Check the pastor spelling to get the common spelling of this pastor.
+    $row->pastor = $this->duplicatePastorCheck($row->pastor);
   }
 }
