@@ -61,9 +61,14 @@ class MCRCServiceMigration extends MCRCMigrateBase {
     $this->addFieldMapping('promote')
       ->defaultValue(1);
 
+    // NOTE: for this date field to migrate properly, need to have Date Migration module on.
     $this->addFieldMapping('field_service_date', 'date_presented');
     // We'll need to process this in prepareRow to form the correct URL.
+    // @see https://drupal.org/node/1540106
     $this->addFieldMapping('field_service_audio', 'filename');
+    // These settings makes it so that files are only migrated once, no need to do it every time we rollback.
+    // It just works, which is awesome.  If the file isn't there, it's downloaded according to the file field settings
+    // and an entry is created in the file_managed table.
     $this->addFieldMapping('field_service_audio:file_replace')
       ->defaultValue(MigrateFile::FILE_EXISTS_REUSE);
     $this->addFieldMapping('field_service_audio:preserve_files')
