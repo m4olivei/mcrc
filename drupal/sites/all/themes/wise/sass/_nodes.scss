@@ -92,6 +92,44 @@
 }
 
 //
+// Services
+//
+.node-service {
+
+  &.node-teaser {
+    padding: 20px;
+    background-color: #ecebe3;
+    border-radius: $borderRadiusLarge;
+  }
+
+  .audio {
+    float: left;
+    margin-top: 6px;
+  }
+
+  .meta {
+    margin-left: 100px;
+  }
+
+  .meta {
+    font-family: $altFontFamily;
+    font-weight: bold;
+  }
+
+  header {
+    margin-bottom: $baseLineHeight;
+  }
+
+  h2 {
+    margin: 8px 0;
+  }
+}
+
+.field-name-field-service-date {
+  color: #494949;
+}
+
+//
 // Responsive styles
 //
 @include mobile {

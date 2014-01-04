@@ -35,10 +35,12 @@ function wise_preprocess_page(&$vars) {
 function wise_preprocess_node(&$vars) {
   $node = $vars['node'];
 
-  $vars['image'] = '';
-  if (!empty($vars['content']['field_image'][0])) {
-    hide($vars['content']['field_image']);
-    $vars['image'] = render($vars['content']['field_image'][0]);
+  if (!in_array($node->type, array('service'))) {
+    $vars['image'] = '';
+    if (!empty($vars['content']['field_image'][0])) {
+      hide($vars['content']['field_image']);
+      $vars['image'] = render($vars['content']['field_image'][0]);
+    }
   }
 
   // @todo override date if field is available
