@@ -91,3 +91,4 @@ exclude[css][] = 'modules/user/user.css'
 
 exclude[css][] = 'sites/all/modules/_custom/wise_slider/css/flexslider.css'
 exclude[css][] = 'sites/all/modules/caption_filter/caption-filter.css'
+exclude[css][] = 'sites/all/libraries/soundmanager2/demo/play-mp3-links/css/inlineplayer.css'
