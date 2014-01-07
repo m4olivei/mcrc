@@ -33,6 +33,9 @@
       <?php endif; ?>
 
       <?php print render($content['field_service_pastor']); ?>
+      <?php if (isset($content['field_service_passage'])): ?>
+        <?php print render($content['field_service_passage']); ?>
+      <?php endif; ?>
 
       <?php if ($unpublished): ?>
         <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
