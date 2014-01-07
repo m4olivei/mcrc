@@ -1,0 +1,432 @@
+<?php
+/**
+ * @file
+ * Install hooks.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function svenska_folkbibeln_install() {
+
+  $bible = array(
+    'name' => 'svenska_folkbibeln',
+    'label' => 'Svenska Folkbibeln',
+    'abbreviation' => 'SFB',
+    'weight' => 0,
+    'sections' => array(
+      'nt' => array(
+        'label' => 'Nya Testamentet',
+        'abbreviation' => 'NT',
+        'weight' => 1,
+        'books' => array(
+          'matteus' => array(
+            'label' => 'Matteusevangeliet',
+            'abbreviation' => 'Matt',
+            'weight' => 0,
+            'available_chapters' => 28,
+          ),
+          'markus' => array(
+            'label' => 'Markusevangeliet',
+            'abbreviation' => 'Mark',
+            'weight' => 1,
+            'available_chapters' => 16,
+          ),
+          'lukas' => array(
+            'label' => 'Lukasevangeliet',
+            'abbreviation' => 'Luk',
+            'weight' => 2,
+            'available_chapters' => 24,
+          ),
+          'johannes' => array(
+            'label' => 'Johannesevangeliet',
+            'abbreviation' => 'Joh',
+            'weight' => 3,
+            'available_chapters' => 21,
+          ),
+          'apostlagarningarna' => array(
+            'label' => 'Apostlagärningarna',
+            'abbreviation' => 'Apg',
+            'weight' => 4,
+            'available_chapters' => 28,
+          ),
+          'romarbrevet' => array(
+            'label' => 'Romarbrevet',
+            'abbreviation' => 'Rom',
+            'weight' => 5,
+            'available_chapters' => 16,
+          ),
+          '1_korintierbrevet' => array(
+            'label' => '1 Korintierbrevet',
+            'abbreviation' => '1 Kor',
+            'weight' => 5,
+            'available_chapters' => 16,
+          ),
+          '2_korintierbrevet' => array(
+            'label' => '2 Korintierbrevet',
+            'abbreviation' => '2 Kor',
+            'weight' => 6,
+            'available_chapters' => 13,
+          ),
+          'galaterbrevet' => array(
+            'label' => 'Galaterbrevet',
+            'abbreviation' => 'Gal',
+            'weight' => 7,
+            'available_chapters' => 6,
+          ),
+          'efesierbrevet' => array(
+            'label' => 'Efesierbrevet',
+            'abbreviation' => 'Ef',
+            'weight' => 8,
+            'available_chapters' => 6,
+          ),
+          'filipperbrevet' => array(
+            'label' => 'Filipperbrevet',
+            'abbreviation' => 'Fil',
+            'weight' => 9,
+            'available_chapters' => 4,
+          ),
+          'kolosserbrevet' => array(
+            'label' => 'Kolosserbrevet',
+            'abbreviation' => 'Kol',
+            'weight' => 10,
+            'available_chapters' => 4,
+          ),
+          '1_tessalonikerbrevet' => array(
+            'label' => '1 Tessalonikerbrevet',
+            'abbreviation' => '1 Tes',
+            'weight' => 11,
+            'available_chapters' => 5,
+          ),
+          '2_tessalonikerbrevet' => array(
+            'label' => '2 Tessalonikerbrevet',
+            'abbreviation' => '2 Tes',
+            'weight' => 12,
+            'available_chapters' => 3,
+          ),
+          '1_timoteusbrevet' => array(
+            'label' => '1 Timoteusbrevet',
+            'abbreviation' => '1 Tim',
+            'weight' => 13,
+            'available_chapters' => 6,
+          ),
+          '2_timoteusbrevet' => array(
+            'label' => '2 Timoteusbrevet',
+            'abbreviation' => '2 Tim',
+            'weight' => 14,
+            'available_chapters' => 4,
+          ),
+          'titus' => array(
+            'label' => 'Titus',
+            'abbreviation' => 'Tit',
+            'weight' => 15,
+            'available_chapters' => 3,
+          ),
+          'filemon' => array(
+            'label' => 'Filemon',
+            'abbreviation' => 'Filem',
+            'weight' => 16,
+            'available_chapters' => 1,
+          ),
+          'hebreebrevet' => array(
+            'label' => 'Hebreebrevet',
+            'abbreviation' => 'Hebr',
+            'weight' => 17,
+            'available_chapters' => 13,
+          ),
+          'jakobs_brev' => array(
+            'label' => 'Jakobs brev',
+            'abbreviation' => 'Jak',
+            'weight' => 18,
+            'available_chapters' => 5,
+          ),
+          '1_petrusbrevet' => array(
+            'label' => '1 Petrusbrevet',
+            'abbreviation' => '1 Petr',
+            'weight' => 19,
+            'available_chapters' => 5,
+          ),
+          '2_petrusbrevet' => array(
+            'label' => '2 Petrusbrevet',
+            'abbreviation' => '2 Petr',
+            'weight' => 20,
+            'available_chapters' => 3,
+          ),
+          '1_johannerbrevet' => array(
+            'label' => '1 Johannesbrevet',
+            'abbreviation' => '1 Joh',
+            'weight' => 21,
+            'available_chapters' => 5,
+          ),
+          '2_johannerbrevet' => array(
+            'label' => '2 Johannesbrevet',
+            'abbreviation' => '2 Joh',
+            'weight' => 22,
+            'available_chapters' => 1,
+          ),
+          '3_johannerbrevet' => array(
+            'label' => '3 Johannesbrevet',
+            'abbreviation' => '3 Joh',
+            'weight' => 23,
+            'available_chapters' => 1,
+          ),
+          'judas_brev' => array(
+            'label' => 'Judas brev',
+            'abbreviation' => 'Jud',
+            'weight' => 24,
+            'available_chapters' => 1,
+          ),
+          'uppenbarelseboken' => array(
+            'label' => 'Uppenbarelseboken',
+            'abbreviation' => 'Upp',
+            'weight' => 25,
+            'available_chapters' => 22,
+          ),
+        ),
+      ),
+      'ot' => array(
+        'label' => 'Gamla Testamentet',
+        'abbreviation' => 'GT',
+        'weight' => 1,
+        'books' => array(
+          'forsta_moseboken' => array(
+            'label' => 'Första Moseboken',
+            'abbreviation' => '1 Mos',
+            'weight' => 0,
+            'available_chapters' => 50,
+          ),
+          'andra_moseboken' => array(
+            'label' => 'Andra Moseboken',
+            'abbreviation' => '2 Mos',
+            'weight' => 1,
+            'available_chapters' => 40,
+          ),
+          'tredje_moseboken' => array(
+            'label' => 'Tredje Moseboken',
+            'abbreviation' => '3 Mos',
+            'weight' => 2,
+            'available_chapters' => 27,
+          ),
+          'fjarde_moseboken' => array(
+            'label' => 'Fjärde Moseboken',
+            'abbreviation' => '4 Mos',
+            'weight' => 3,
+            'available_chapters' => 36,
+          ),
+          'femte_moseboken' => array(
+            'label' => 'Femte Moseboken',
+            'abbreviation' => '5 Mos',
+            'weight' => 4,
+            'available_chapters' => 34,
+          ),
+          'josua' => array(
+            'label' => 'Josua',
+            'abbreviation' => 'Jos',
+            'weight' => 5,
+            'available_chapters' => 24,
+          ),
+          'domarboken' => array(
+            'label' => 'Domarboken',
+            'abbreviation' => 'Dom',
+            'weight' => 6,
+            'available_chapters' => 21,
+          ),
+          'rut' => array(
+            'label' => 'Rut',
+            'abbreviation' => 'Rut',
+            'weight' => 7,
+            'available_chapters' => 4,
+          ),
+          '1_samuelsboken' => array(
+            'label' => '1 Samuelsboken',
+            'abbreviation' => '1 Sam',
+            'weight' => 8,
+            'available_chapters' => 31,
+          ),
+          '2_samuelsboken' => array(
+            'label' => '2 Samuelsboken',
+            'abbreviation' => '2 Sam',
+            'weight' => 9,
+            'available_chapters' => 24,
+          ),
+          '1_kungaboken' => array(
+            'label' => '1 Kungaboken',
+            'abbreviation' => '1 Kung',
+            'weight' => 10,
+            'available_chapters' => 22,
+          ),
+          '2_kungaboken' => array(
+            'label' => '2 Kungaboken',
+            'abbreviation' => '2 Kung',
+            'weight' => 11,
+            'available_chapters' => 25,
+          ),
+          '1_kronikeboken' => array(
+            'label' => '1 Krönikeboken',
+            'abbreviation' => '1 Krön',
+            'weight' => 12,
+            'available_chapters' => 29,
+          ),
+          '2_kronikeboken' => array(
+            'label' => '2 Krönikeboken',
+            'abbreviation' => '2 Krön',
+            'weight' => 13,
+            'available_chapters' => 36,
+          ),
+          'esra' => array(
+            'label' => 'Esra',
+            'abbreviation' => 'Esra',
+            'weight' => 13,
+            'available_chapters' => 10,
+          ),
+          'nehemja' => array(
+            'label' => 'Nehemja',
+            'abbreviation' => 'Neh',
+            'weight' => 14,
+            'available_chapters' => 13,
+          ),
+          'ester' => array(
+            'label' => 'Ester',
+            'abbreviation' => 'Est',
+            'weight' => 15,
+            'available_chapters' => 10,
+          ),
+          'job' => array(
+            'label' => 'Job',
+            'abbreviation' => 'Job',
+            'weight' => 16,
+            'available_chapters' => 42,
+          ),
+          'psaltaren' => array(
+            'label' => 'Psaltaren',
+            'abbreviation' => 'Ps',
+            'weight' => 17,
+            'available_chapters' => 150,
+          ),
+          'ordspraksboken' => array(
+            'label' => 'Ordspråksboken',
+            'abbreviation' => 'Ord',
+            'weight' => 18,
+            'available_chapters' => 31,
+          ),
+          'predikaren' => array(
+            'label' => 'Predikaren',
+            'abbreviation' => 'Pre',
+            'weight' => 19,
+            'available_chapters' => 12,
+          ),
+          'hoga_visan' => array(
+            'label' => 'Höga Visan',
+            'abbreviation' => 'Höga',
+            'weight' => 20,
+            'available_chapters' => 8,
+          ),
+          'jesaja' => array(
+            'label' => 'Jesaja',
+            'abbreviation' => 'Jes',
+            'weight' => 21,
+            'available_chapters' => 66,
+          ),
+          'jeremia' => array(
+            'label' => 'Jeremia',
+            'abbreviation' => 'Jer',
+            'weight' => 22,
+            'available_chapters' => 52,
+          ),
+          'klagovisorna' => array(
+            'label' => 'Klagovisorna',
+            'abbreviation' => 'Klag',
+            'weight' => 23,
+            'available_chapters' => 5,
+          ),
+          'hesekiel' => array(
+            'label' => 'Hesekiel',
+            'abbreviation' => 'Hes',
+            'weight' => 24,
+            'available_chapters' => 48,
+          ),
+          'daniel' => array(
+            'label' => 'Daniel',
+            'abbreviation' => 'Dan',
+            'weight' => 25,
+            'available_chapters' => 12,
+          ),
+          'hosea' => array(
+            'label' => 'Hosea',
+            'abbreviation' => 'Hos',
+            'weight' => 26,
+            'available_chapters' => 14,
+          ),
+          'joel' => array(
+            'label' => 'Joel',
+            'abbreviation' => 'Joel',
+            'weight' => 27,
+            'available_chapters' => 3,
+          ),
+          'amos' => array(
+            'label' => 'Amos',
+            'abbreviation' => 'Amos',
+            'weight' => 28,
+            'available_chapters' => 9,
+          ),
+          'obadja' => array(
+            'label' => 'Obadja',
+            'abbreviation' => 'Ob',
+            'weight' => 29,
+            'available_chapters' => 1,
+          ),
+          'jona' => array(
+            'label' => 'Jona',
+            'abbreviation' => 'Jona',
+            'weight' => 30,
+            'available_chapters' => 5,
+          ),
+          'mika' => array(
+            'label' => 'Mika',
+            'abbreviation' => 'Mika',
+            'weight' => 31,
+            'available_chapters' => 7,
+          ),
+          'nahum' => array(
+            'label' => 'Nahum',
+            'abbreviation' => 'Nah',
+            'weight' => 32,
+            'available_chapters' => 3,
+          ),
+          'habackuk' => array(
+            'label' => 'Habackuk',
+            'abbreviation' => 'Hab',
+            'weight' => 33,
+            'available_chapters' => 3,
+          ),
+          'sefanja' => array(
+            'label' => 'Sefanja',
+            'abbreviation' => 'Sef',
+            'weight' => 34,
+            'available_chapters' => 3,
+          ),
+          'haggai' => array(
+            'label' => 'Haggai',
+            'abbreviation' => 'Hagg',
+            'weight' => 35,
+            'available_chapters' => 2,
+          ),
+          'sakarja' => array(
+            'label' => 'Sakarja',
+            'abbreviation' => 'Sak',
+            'weight' => 36,
+            'available_chapters' => 14,
+          ),
+          'malaki' => array(
+            'label' => 'Malaki',
+            'abbreviation' => 'Mal',
+            'weight' => 37,
+            'available_chapters' => 4,
+          ),
+        ),
+      ),
+    ),
+  );
+  
+  bible_field_install_bible($bible);
+}
