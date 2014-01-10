@@ -26,7 +26,6 @@ table {
     line-height: $baseLineHeight;
     text-align: left;
     vertical-align: top;
-    border-top: 1px solid $tableBorder;
   }
   th {
     font-weight: bold;
@@ -34,6 +33,25 @@ table {
   // Bottom align for column headings
   thead th {
     vertical-align: bottom;
+    background-color: #494949;
+
+    &, a {
+      color: #fff;
+    }
+
+    &:first-child {
+      @include border-top-left-radius($baseBorderRadius);
+      @include border-bottom-left-radius($baseBorderRadius);
+    }
+
+    &:last-child {
+      @include border-top-right-radius($baseBorderRadius);
+      @include border-bottom-right-radius($baseBorderRadius);
+    }
+  }
+  // Change font for tbody .. cause yeah
+  tbody {
+    font-family: $altFontFamily;
   }
   // Remove top border from thead by default
   caption + thead tr:first-child th,
@@ -148,9 +166,19 @@ table {
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 .table-striped {
   tbody {
-    > tr:nth-child(odd) > td,
-    > tr:nth-child(odd) > th {
+    > tr:nth-child(even) > td,
+    > tr:nth-child(even) > th {
       background-color: $tableBackgroundAccent;
+
+      &:first-child {
+        @include border-top-left-radius($baseBorderRadius);
+        @include border-bottom-left-radius($baseBorderRadius);
+      }
+
+      &:last-child {
+        @include border-top-right-radius($baseBorderRadius);
+        @include border-bottom-right-radius($baseBorderRadius);
+      }
     }
   }
 }
@@ -164,6 +192,20 @@ table {
     tr:hover td,
     tr:hover th {
       background-color: $tableBackgroundHover;
+
+      &, a {
+        color: #fff;
+      }
+
+      &:first-child {
+        @include border-top-left-radius($baseBorderRadius);
+        @include border-bottom-left-radius($baseBorderRadius);
+      }
+
+      &:last-child {
+        @include border-top-right-radius($baseBorderRadius);
+        @include border-bottom-right-radius($baseBorderRadius);
+      }
     }
   }
 }

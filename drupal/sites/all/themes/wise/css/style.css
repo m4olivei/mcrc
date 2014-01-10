@@ -1038,7 +1038,7 @@ body.front #page-title {
   margin-top: 6px;
 }
 /* line 110, ../sass/_nodes.scss */
-.node-service .meta {
+.node-service.has-audio .meta {
   margin-left: 100px;
 }
 /* line 114, ../sass/_nodes.scss */
@@ -1060,17 +1060,39 @@ body.front #page-title {
   color: #494949;
 }
 
+/* line 133, ../sass/_nodes.scss */
+.icon-cloud-download {
+  font-size: 22px;
+  color: #662664;
+}
+/* line 137, ../sass/_nodes.scss */
+.icon-cloud-download:hover {
+  text-decoration: none;
+}
+
+/* line 146, ../sass/_nodes.scss */
+.table-hover tbody tr:hover td .icon-cloud-download,
+.table-hover tbody tr:hover th .icon-cloud-download {
+  color: white;
+}
+
+/* line 153, ../sass/_nodes.scss */
+.view-service-list .views-field-title {
+  text-transform: uppercase;
+  max-width: 400px;
+}
+
 @media (max-width: 767px) {
-  /* line 139, ../sass/_nodes.scss */
+  /* line 166, ../sass/_nodes.scss */
   .view-activity .cell {
     border-top: 0;
   }
-  /* line 144, ../sass/_nodes.scss */
+  /* line 171, ../sass/_nodes.scss */
   .view-activity .row-fluid .span6 {
     width: 100%;
     margin-left: 0;
   }
-  /* line 149, ../sass/_nodes.scss */
+  /* line 176, ../sass/_nodes.scss */
   .view-activity .row-set-featured:after {
     display: none;
   }
@@ -3817,7 +3839,45 @@ ul.graphic li a.sm2_playing:before {
   font-size: 34px;
 }
 
-/* line 128, ../sass/_inline_player.scss */
+/* line 131, ../sass/_inline_player.scss */
+.table ul.graphic li a.sm2_link {
+  width: 22px;
+  height: 22px;
+  background-color: #662664;
+  color: white;
+  -webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
+  border-radius: 11px;
+}
+/* line 138, ../sass/_inline_player.scss */
+.table ul.graphic li a.sm2_link:before {
+  font-size: 9px;
+  top: 1px;
+  left: 8px;
+}
+/* line 144, ../sass/_inline_player.scss */
+.table ul.graphic li a.sm2_link:hover {
+  background-color: #411840;
+}
+/* line 151, ../sass/_inline_player.scss */
+.table ul.graphic li a.sm2_playing:before {
+  left: 7px;
+}
+
+/* line 166, ../sass/_inline_player.scss */
+.table-hover tbody tr:hover td ul.graphic li a.sm2_link,
+.table-hover tbody tr:hover th ul.graphic li a.sm2_link {
+  background-color: white;
+  color: #662664;
+}
+/* line 170, ../sass/_inline_player.scss */
+.table-hover tbody tr:hover td ul.graphic li a.sm2_link, .table-hover tbody tr:hover td ul.graphic li a.sm2_link:before,
+.table-hover tbody tr:hover th ul.graphic li a.sm2_link,
+.table-hover tbody tr:hover th ul.graphic li a.sm2_link:before {
+  color: #662664;
+}
+
+/* line 181, ../sass/_inline_player.scss */
 body #sm2-container object,
 body #sm2-container embed {
   /*

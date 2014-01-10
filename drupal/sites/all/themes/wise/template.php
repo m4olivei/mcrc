@@ -43,6 +43,10 @@ function wise_preprocess_node(&$vars) {
     }
   }
 
+  if (!empty($vars['content']['field_service_audio'])) {
+    $vars['classes_array'][] = 'has-audio';
+  }
+
   // @todo override date if field is available
   $vars['date'] = format_date($node->created, 'short');
 
@@ -50,4 +54,13 @@ function wise_preprocess_node(&$vars) {
   if ($node->type == 'blog') {
     $vars['submitted'] = t('Posted on !datetime by !username', array('!datetime' => $vars['date'], '!username' => $vars['name']));
   }
+}
+
+/**
+ * Implements hook_preprocess_views_view_table().
+ */
+function wise_preprocess_views_view_table(&$vars) {
+  $vars['classes_array'][] = 'table';
+  $vars['classes_array'][] = 'table-striped';
+  $vars['classes_array'][] = 'table-hover';
 }

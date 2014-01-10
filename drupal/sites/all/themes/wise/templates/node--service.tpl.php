@@ -10,9 +10,11 @@
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <header class="clearfix">
-    <div class="audio">
-      <?php print render($content['field_service_audio']); ?>
-    </div>
+    <?php if (!empty($content['field_service_audio'])): ?>
+      <div class="audio">
+        <?php print render($content['field_service_audio']); ?>
+      </div>
+    <?php endif; ?>
 
     <div class="meta">
       <?php if ($display_submitted): ?>

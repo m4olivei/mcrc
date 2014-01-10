@@ -107,7 +107,7 @@
     margin-top: 6px;
   }
 
-  .meta {
+  &.has-audio .meta {
     margin-left: 100px;
   }
 
@@ -127,6 +127,33 @@
 
 .field-name-field-service-date {
   color: #494949;
+}
+
+// Service list page
+.icon-cloud-download {
+  font-size: 22px;
+  color: $purple;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.table-hover {
+  tbody {
+    tr:hover td,
+    tr:hover th {
+      .icon-cloud-download { color: $white; }
+    }
+  }
+}
+
+.view-service-list {
+
+  .views-field-title {
+    text-transform: uppercase;
+    max-width: 400px;
+  }
 }
 
 //

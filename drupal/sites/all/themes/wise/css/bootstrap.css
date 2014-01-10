@@ -2192,17 +2192,43 @@ table {
   line-height: 20px;
   text-align: left;
   vertical-align: top;
-  border-top: 1px solid #dddddd;
 }
-/* line 31, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 30, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table th {
   font-weight: bold;
 }
-/* line 35, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 34, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table thead th {
   vertical-align: bottom;
+  background-color: #494949;
 }
-/* line 44, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 38, ../library/bootstrap/sass/bootstrap/_tables.scss */
+.table thead th, .table thead th a {
+  color: #fff;
+}
+/* line 42, ../library/bootstrap/sass/bootstrap/_tables.scss */
+.table thead th:first-child {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+/* line 47, ../library/bootstrap/sass/bootstrap/_tables.scss */
+.table thead th:last-child {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+/* line 53, ../library/bootstrap/sass/bootstrap/_tables.scss */
+.table tbody {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* line 62, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table caption + thead tr:first-child th,
 .table caption + thead tr:first-child td,
 .table colgroup + thead tr:first-child th,
@@ -2211,22 +2237,22 @@ table {
 .table thead:first-child tr:first-child td {
   border-top: 0;
 }
-/* line 48, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 66, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table tbody + tbody {
   border-top: 2px solid #dddddd;
 }
-/* line 53, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 71, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table .table {
   background-color: white;
 }
 
-/* line 65, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 83, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-condensed th,
 .table-condensed td {
   padding: 4px 5px;
 }
 
-/* line 74, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 92, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-bordered {
   border: 1px solid #dddddd;
   border-collapse: separate;
@@ -2238,12 +2264,12 @@ table {
   -o-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 81, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 99, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-bordered th,
 .table-bordered td {
   border-left: 1px solid #dddddd;
 }
-/* line 93, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 111, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-bordered caption + thead tr:first-child th,
 .table-bordered caption + tbody tr:first-child th,
 .table-bordered caption + tbody tr:first-child td,
@@ -2255,21 +2281,21 @@ table {
 .table-bordered tbody:first-child tr:first-child td {
   border-top: 0;
 }
-/* line 98, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 116, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-bordered thead:first-child tr:first-child > th:first-child,
 .table-bordered tbody:first-child tr:first-child > td:first-child {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
 }
-/* line 102, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 120, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-bordered thead:first-child tr:first-child > th:last-child,
 .table-bordered tbody:first-child tr:first-child > td:last-child {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
 }
-/* line 108, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 126, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-bordered thead:last-child tr:last-child > th:first-child,
 .table-bordered tbody:last-child tr:last-child > td:first-child,
 .table-bordered tfoot:last-child tr:last-child > td:first-child {
@@ -2277,7 +2303,7 @@ table {
   -webkit-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
-/* line 113, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 131, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-bordered thead:last-child tr:last-child > th:last-child,
 .table-bordered tbody:last-child tr:last-child > td:last-child,
 .table-bordered tfoot:last-child tr:last-child > td:last-child {
@@ -2285,19 +2311,19 @@ table {
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-/* line 118, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 136, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-bordered tfoot + tbody:last-child tr:last-child td:first-child {
   -moz-border-radius-bottomleft: 0;
   -webkit-border-bottom-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-/* line 121, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 139, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-bordered tfoot + tbody:last-child tr:last-child td:last-child {
   -moz-border-radius-bottomright: 0;
   -webkit-border-bottom-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-/* line 130, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 148, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-bordered caption + thead tr:first-child th:first-child,
 .table-bordered caption + tbody tr:first-child td:first-child,
 .table-bordered colgroup + thead tr:first-child th:first-child,
@@ -2306,7 +2332,7 @@ table {
   -webkit-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
 }
-/* line 136, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 154, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-bordered caption + thead tr:first-child th:last-child,
 .table-bordered caption + tbody tr:first-child td:last-child,
 .table-bordered colgroup + thead tr:first-child th:last-child,
@@ -2316,19 +2342,65 @@ table {
   border-top-right-radius: 4px;
 }
 
-/* line 152, ../library/bootstrap/sass/bootstrap/_tables.scss */
-.table-striped tbody > tr:nth-child(odd) > td,
-.table-striped tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9;
+/* line 170, ../library/bootstrap/sass/bootstrap/_tables.scss */
+.table-striped tbody > tr:nth-child(even) > td,
+.table-striped tbody > tr:nth-child(even) > th {
+  background-color: #e5e2e5;
+}
+/* line 173, ../library/bootstrap/sass/bootstrap/_tables.scss */
+.table-striped tbody > tr:nth-child(even) > td:first-child,
+.table-striped tbody > tr:nth-child(even) > th:first-child {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+/* line 178, ../library/bootstrap/sass/bootstrap/_tables.scss */
+.table-striped tbody > tr:nth-child(even) > td:last-child,
+.table-striped tbody > tr:nth-child(even) > th:last-child {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
-/* line 165, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 193, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
-  background-color: whitesmoke;
+  background-color: #662664;
+}
+/* line 196, ../library/bootstrap/sass/bootstrap/_tables.scss */
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover td a,
+.table-hover tbody tr:hover th,
+.table-hover tbody tr:hover th a {
+  color: #fff;
+}
+/* line 200, ../library/bootstrap/sass/bootstrap/_tables.scss */
+.table-hover tbody tr:hover td:first-child,
+.table-hover tbody tr:hover th:first-child {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+/* line 205, ../library/bootstrap/sass/bootstrap/_tables.scss */
+.table-hover tbody tr:hover td:last-child,
+.table-hover tbody tr:hover th:last-child {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
-/* line 179, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 221, ../library/bootstrap/sass/bootstrap/_tables.scss */
 table td[class*="span"],
 table th[class*="span"],
 .row-fluid table td[class*="span"],
@@ -2338,84 +2410,84 @@ table th[class*="span"],
   margin-left: 0;
 }
 
-/* line 189, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 231, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table td.span1,
 .table th.span1 {
   float: none;
   width: 44px;
   margin-left: 0;
 }
-/* line 189, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 231, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table td.span2,
 .table th.span2 {
   float: none;
   width: 124px;
   margin-left: 0;
 }
-/* line 189, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 231, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table td.span3,
 .table th.span3 {
   float: none;
   width: 204px;
   margin-left: 0;
 }
-/* line 189, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 231, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table td.span4,
 .table th.span4 {
   float: none;
   width: 284px;
   margin-left: 0;
 }
-/* line 189, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 231, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table td.span5,
 .table th.span5 {
   float: none;
   width: 364px;
   margin-left: 0;
 }
-/* line 189, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 231, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table td.span6,
 .table th.span6 {
   float: none;
   width: 444px;
   margin-left: 0;
 }
-/* line 189, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 231, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table td.span7,
 .table th.span7 {
   float: none;
   width: 524px;
   margin-left: 0;
 }
-/* line 189, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 231, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table td.span8,
 .table th.span8 {
   float: none;
   width: 604px;
   margin-left: 0;
 }
-/* line 189, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 231, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table td.span9,
 .table th.span9 {
   float: none;
   width: 684px;
   margin-left: 0;
 }
-/* line 189, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 231, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table td.span10,
 .table th.span10 {
   float: none;
   width: 764px;
   margin-left: 0;
 }
-/* line 189, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 231, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table td.span11,
 .table th.span11 {
   float: none;
   width: 844px;
   margin-left: 0;
 }
-/* line 189, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 231, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table td.span12,
 .table th.span12 {
   float: none;
@@ -2423,36 +2495,36 @@ table th[class*="span"],
   margin-left: 0;
 }
 
-/* line 200, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 242, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table tbody tr.success td {
   background-color: #dff0d8;
 }
-/* line 203, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 245, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table tbody tr.error td {
   background-color: #f2dede;
 }
-/* line 206, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 248, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table tbody tr.warning td {
   background-color: #fcf8e3;
 }
-/* line 209, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 251, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table tbody tr.info td {
   background-color: #d9edf7;
 }
 
-/* line 216, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 258, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-hover tbody tr.success:hover td {
   background-color: #d0e9c6;
 }
-/* line 219, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 261, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-hover tbody tr.error:hover td {
   background-color: #ebcccc;
 }
-/* line 222, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 264, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-hover tbody tr.warning:hover td {
   background-color: #faf2cc;
 }
-/* line 225, ../library/bootstrap/sass/bootstrap/_tables.scss */
+/* line 267, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-hover tbody tr.info:hover td {
   background-color: #c4e3f3;
 }
