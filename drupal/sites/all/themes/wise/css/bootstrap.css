@@ -235,13 +235,13 @@ body {
 
 /* line 22, ../library/bootstrap/sass/bootstrap/_scaffolding.scss */
 a {
-  color: #b5487f;
+  color: #662664;
   text-decoration: none;
 }
 
 /* line 26, ../library/bootstrap/sass/bootstrap/_scaffolding.scss */
 a:hover {
-  color: #7e3259;
+  color: #2e112d;
   text-decoration: underline;
 }
 
@@ -1136,7 +1136,7 @@ input,
 button,
 select,
 textarea {
-  font-family: "Lora", Georgia, "Times New Roman", Times, serif;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /* line 55, ../library/bootstrap/sass/bootstrap/_forms.scss */
@@ -2195,7 +2195,7 @@ table {
 }
 /* line 30, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table th {
-  font-weight: bold;
+  font-weight: normal;
 }
 /* line 34, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table thead th {
@@ -2532,26 +2532,35 @@ table th[class*="span"],
 /* line 7, ../library/bootstrap/sass/bootstrap/_wells.scss */
 .well {
   min-height: 20px;
-  padding: 19px;
+  padding: 20px;
   margin-bottom: 20px;
-  background-color: whitesmoke;
-  border: 1px solid #e3e3e3;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
+  background-color: #c5e6e0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
-/* line 15, ../library/bootstrap/sass/bootstrap/_wells.scss */
+/* line 14, ../library/bootstrap/sass/bootstrap/_wells.scss */
 .well blockquote {
   border-color: #ddd;
   border-color: rgba(0, 0, 0, 0.15);
 }
+/* line 19, ../library/bootstrap/sass/bootstrap/_wells.scss */
+.well h1, .well h2, .well h3, .well h4 {
+  margin-top: 0;
+  font-family: "Rokkitt", Georgia, "Times New Roman", Times, serif;
+  margin-bottom: 2px;
+}
+/* line 25, ../library/bootstrap/sass/bootstrap/_wells.scss */
+.well h3 {
+  line-height: 1em;
+}
 
-/* line 22, ../library/bootstrap/sass/bootstrap/_wells.scss */
+/* line 31, ../library/bootstrap/sass/bootstrap/_wells.scss */
 .well-large {
   padding: 24px;
   -webkit-border-radius: 6px;
@@ -2561,7 +2570,7 @@ table th[class*="span"],
   border-radius: 6px;
 }
 
-/* line 26, ../library/bootstrap/sass/bootstrap/_wells.scss */
+/* line 35, ../library/bootstrap/sass/bootstrap/_wells.scss */
 .well-small {
   padding: 9px;
   -webkit-border-radius: 3px;
@@ -2938,7 +2947,7 @@ input[type="submit"].btn.btn-mini {
 .btn-link {
   border-color: transparent;
   cursor: pointer;
-  color: #b5487f;
+  color: #662664;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -2948,7 +2957,7 @@ input[type="submit"].btn.btn-mini {
 
 /* line 219, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-link:hover {
-  color: #7e3259;
+  color: #2e112d;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -3117,7 +3126,7 @@ input[type="submit"].btn.btn-mini {
 .nav-list > .active > a:hover {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #b5487f;
+  background-color: #662664;
 }
 
 /* line 77, ../library/bootstrap/sass/bootstrap/_navs.scss */
@@ -3225,7 +3234,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover {
   color: white;
-  background-color: #b5487f;
+  background-color: #662664;
 }
 
 /* line 165, ../library/bootstrap/sass/bootstrap/_navs.scss */
@@ -3309,15 +3318,15 @@ input[type="submit"].btn.btn-mini {
 
 /* line 214, ../library/bootstrap/sass/bootstrap/_navs.scss */
 .nav .dropdown-toggle .caret {
-  border-top-color: #b5487f;
-  border-bottom-color: #b5487f;
+  border-top-color: #662664;
+  border-bottom-color: #662664;
   margin-top: 6px;
 }
 
 /* line 219, ../library/bootstrap/sass/bootstrap/_navs.scss */
 .nav .dropdown-toggle:hover .caret {
-  border-top-color: #7e3259;
-  border-bottom-color: #7e3259;
+  border-top-color: #2e112d;
+  border-bottom-color: #2e112d;
 }
 
 /* move down carets for tabs */

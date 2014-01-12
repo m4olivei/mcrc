@@ -36,7 +36,7 @@
         , $input  = (id) ? $('#' + id) : null;
 
       if ($input) {
-        convertLabelToPlaceholder($label, $input);
+        $.convertLabelToPlaceholder($label, $input);
       }
     });
   };
@@ -47,8 +47,8 @@
    * @param $label Object
    * @param $input Object
    */
-  function convertLabelToPlaceholder($label, $input) {
-    var text = $label.text();
+  $.convertLabelToPlaceholder = function ($label, $input) {
+    var text = $.trim($label.text());
 
     // Do not convert the label if the input doesn't support placeholders.
     if (text && elementSupportsPlaceholder($input)) {

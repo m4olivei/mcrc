@@ -4,3 +4,11 @@
 //
 
 @import 'base';
+
+html.js input.form-autocomplete {
+  background:  #fff url('../images/throbber.gif') no-repeat scroll 100% 8px;
+}
+
+html.js input.throbbing {
+  background-position: 100% -119px;
+}

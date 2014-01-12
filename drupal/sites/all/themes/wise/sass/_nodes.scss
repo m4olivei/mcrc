@@ -121,7 +121,7 @@
   }
 
   h2 {
-    margin: 8px 0;
+    margin: 6px 0;
   }
 }
 
@@ -152,7 +152,11 @@
 
   .views-field-title {
     text-transform: uppercase;
-    max-width: 400px;
+    max-width: 360px;
+  }
+
+  th.views-field-title {
+    text-transform: none;
   }
 }
 

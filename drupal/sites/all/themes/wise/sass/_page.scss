@@ -90,7 +90,7 @@ body.front {
   @include pro-px(14px);
 
   .logo img {
-    margin-bottom: $baseLineHeight * 2;
+    margin-bottom: $baseLineHeight / 2;
   }
 
   a {

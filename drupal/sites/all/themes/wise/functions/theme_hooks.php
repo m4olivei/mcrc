@@ -657,3 +657,26 @@ function wise_filter_tips($vars) {
 function wise_filter_tips_more_info($vars) {
   return '';
 }
+
+/**
+ * Overrides theme_tablesort_indicator().
+ */
+function wise_tablesort_indicator($variables) {
+  if ($variables['style'] == 'asc') {
+    return '<i class="icon-caret-down sort-asc"></i>';
+  }
+  else {
+    return '<i class="icon-caret-up sort-desc"></i>';
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function wise_preprocess_views_view(&$vars) {
+  $view = $vars['view'];
+
+  if ($view->name == 'service_list' && $view->current_display == 'page' && !empty($view->exposed_input)) {
+    $vars['attachment_before'] = FALSE;
+  }
+}

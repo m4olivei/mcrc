@@ -105,6 +105,48 @@
   margin-bottom: $baseLineHeight;
 }
 
+.rss {
+  color: #de6d35;
+  font-size: 36px;
+
+  &:hover,
+  &:focus {
+    color: darken(#de6d35, 10%);
+    text-decoration: none;
+  }
+}
+
+.rss-messages {
+  position: absolute;
+  top: 12px;
+  right: 0;
+}
+
+.sort-asc,
+.sort-desc {
+  padding-left: 6px;
+  font-size: 22px;
+  line-height: $baseLineHeight !important;
+  vertical-align: middle !important;
+  text-decoration: none !important;
+}
+
+.view-filters {
+  font-family: $altFontFamily;
+
+  form,
+  .views-exposed-widgets,
+  .control-group,
+  input[type=text],
+  .help-block {
+    margin-bottom: 0;
+  }
+}
+
+.views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: 0;
+}
+
 //
 // Responsive
 //

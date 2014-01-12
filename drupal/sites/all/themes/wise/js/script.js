@@ -18,6 +18,7 @@
     function attach(context, settings) {
       _init_fitvids(context, settings);
       _init_menus(context, settings);
+      _init_placeholderize(context, settings);
     }
 
     /**
@@ -40,6 +41,13 @@
       if ($.fn.stackedNavigation && typeof $.fn.stackedNavigation == 'function') {
         $('.mobile-menu').stackedNavigation({menu_selector: '.menu-block-wrapper > ul.menu', title_selector: 'h2'});
       }
+    }
+
+    function _init_placeholderize(context, settings) {
+
+      $('.view-filters', context).placeholderize();
+      // Special case
+      $.convertLabelToPlaceholder($('.views-widget-filter-date_filter label'), $('.views-widget-filter-date_filter input'));
     }
 
     // Return public interface

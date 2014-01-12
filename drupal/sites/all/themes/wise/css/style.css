@@ -272,6 +272,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* line 8, ../sass/_forms.scss */
+html.js input.form-autocomplete {
+  background: white url("../images/throbber.gif") no-repeat scroll 100% 8px;
+}
+
+/* line 12, ../sass/_forms.scss */
+html.js input.throbbing {
+  background-position: 100% -119px;
+}
+
 /* line 10, ../sass/_modules.scss */
 .region-slider {
   background: #dcd9c8 url("../images/texture_beige_bg.jpg") repeat 50% 0;
@@ -382,24 +392,70 @@ body {
   margin-bottom: 20px;
 }
 
+/* line 108, ../sass/_modules.scss */
+.rss {
+  color: #de6d35;
+  font-size: 36px;
+}
+/* line 113, ../sass/_modules.scss */
+.rss:hover, .rss:focus {
+  color: #c1551f;
+  text-decoration: none;
+}
+
+/* line 119, ../sass/_modules.scss */
+.rss-messages {
+  position: absolute;
+  top: 12px;
+  right: 0;
+}
+
+/* line 126, ../sass/_modules.scss */
+.sort-asc,
+.sort-desc {
+  padding-left: 6px;
+  font-size: 22px;
+  line-height: 20px !important;
+  vertical-align: middle !important;
+  text-decoration: none !important;
+}
+
+/* line 134, ../sass/_modules.scss */
+.view-filters {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* line 141, ../sass/_modules.scss */
+.view-filters form,
+.view-filters .views-exposed-widgets,
+.view-filters .control-group,
+.view-filters input[type=text],
+.view-filters .help-block {
+  margin-bottom: 0;
+}
+
+/* line 146, ../sass/_modules.scss */
+.views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: 0;
+}
+
 @media (min-width: 1200px) {
-  /* line 113, ../sass/_modules.scss */
+  /* line 155, ../sass/_modules.scss */
   .caption-left {
     margin: 0 30px 40px 0;
   }
 
-  /* line 117, ../sass/_modules.scss */
+  /* line 159, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 40px 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 124, ../sass/_modules.scss */
+  /* line 166, ../sass/_modules.scss */
   .caption-left {
     margin: 0 20px 40px 0;
   }
 
-  /* line 128, ../sass/_modules.scss */
+  /* line 170, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 40px 20px;
   }
@@ -494,7 +550,7 @@ body.front #page-title {
 }
 /* line 92, ../sass/_page.scss */
 #footer .logo img {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 /* line 96, ../sass/_page.scss */
 #footer a {
@@ -1052,7 +1108,7 @@ body.front #page-title {
 }
 /* line 123, ../sass/_nodes.scss */
 .node-service h2 {
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
 /* line 128, ../sass/_nodes.scss */
@@ -1079,20 +1135,24 @@ body.front #page-title {
 /* line 153, ../sass/_nodes.scss */
 .view-service-list .views-field-title {
   text-transform: uppercase;
-  max-width: 400px;
+  max-width: 360px;
+}
+/* line 158, ../sass/_nodes.scss */
+.view-service-list th.views-field-title {
+  text-transform: none;
 }
 
 @media (max-width: 767px) {
-  /* line 166, ../sass/_nodes.scss */
+  /* line 170, ../sass/_nodes.scss */
   .view-activity .cell {
     border-top: 0;
   }
-  /* line 171, ../sass/_nodes.scss */
+  /* line 175, ../sass/_nodes.scss */
   .view-activity .row-fluid .span6 {
     width: 100%;
     margin-left: 0;
   }
-  /* line 176, ../sass/_nodes.scss */
+  /* line 180, ../sass/_nodes.scss */
   .view-activity .row-set-featured:after {
     display: none;
   }

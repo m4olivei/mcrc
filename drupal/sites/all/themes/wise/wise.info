@@ -13,6 +13,7 @@ stylesheets[all][] = library/font-awesome/css/font-awesome.min.css
 
 scripts[] = library/fitvids/jquery.fitvids.min.js
 scripts[] = library/wise-stacked-navigation/js/wise-stacked-navigation.js
+scripts[] = library/wise-placeholderize/js/wise-placeholderize.js
 scripts[] = js/script.js
 
 regions[help]                 = Help
