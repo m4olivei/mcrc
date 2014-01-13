@@ -27,6 +27,7 @@ class MCRCUserMigration extends MCRCMigrateBase {
             'length' => 11,
             'not null' => TRUE,
             'description' => 'Service ID',
+            'alias' => 'u',
           ),
         ),
         MigrateDestinationNode::getKeySchema()
@@ -42,6 +43,9 @@ class MCRCUserMigration extends MCRCMigrateBase {
       ->fields('u', array('userID', 'FName', 'LName', 'eMailAddress', 'registeredDT', 'Active'))
       ->fields('s', array('firstLogin', 'isConfirmed'));
     $query->leftJoin('tblSystem', 's', 'u.systemID = s.systemID');
+    $query->leftJoin('tblUsers_Publications', 'p', 'u.userID = p.userID');
+    $query->groupBy('u.userID');
+    $query->addExpression('GROUP_CONCAT(DISTINCT p.publicationID ORDER BY p.publicationID)', 'notifications');
 
     // Create a MigrateSource object, which manages retrieving the input data.
     $this->source = new MigrateSourceSQL($query);
@@ -58,6 +62,7 @@ class MCRCUserMigration extends MCRCMigrateBase {
     $this->addFieldMapping('created', 'registeredDT');
     $this->addFieldMapping('field_first_name', 'FName');
     $this->addFieldMapping('field_last_name', 'LName');
+    $this->addFieldMapping('field_notifications', 'notifications');
   }
 
   /**
@@ -76,5 +81,8 @@ class MCRCUserMigration extends MCRCMigrateBase {
       $row->registeredDT = strtotime($row->registeredDT);
     }
 
+    if (!empty($row->notifications)) {
+      $row->notifications = explode(',', $row->notifications);
+    }
   }
 }
