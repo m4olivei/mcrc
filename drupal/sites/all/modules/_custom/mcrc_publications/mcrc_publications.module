@@ -10,14 +10,6 @@
 include_once 'mcrc_publications.features.inc';
 
 /**
- * Term contants.
- */
-define('MCRC_PUBLICATIONS_TYPE_BULLETIN', 290);
-define('MCRC_PUBLICATIONS_TYPE_NEWSLETTER', 291);
-define('MCRC_PUBLICATIONS_TYPE_CHURCH_FAMILY', 292);
-define('MCRC_PUBLICATIONS_TYPE_NEIGHBORHOOD', 293);
-
-/**
  * Implements hook_file_download().
  */
 function mcrc_publications_file_download($uri) {
