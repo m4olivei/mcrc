@@ -71,6 +71,25 @@ function mcrc_services_field_default_field_bases() {
     'type' => 'datetime',
   );
 
+  // Exported field_base: 'field_service_passage'
+  $field_bases['field_service_passage'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_service_passage',
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'bible_field',
+    'settings' => array(
+      'alphabetical' => 0,
+      'version' => 2,
+    ),
+    'translatable' => 0,
+    'type' => 'bible_field',
+  );
+
   // Exported field_base: 'field_service_pastor'
   $field_bases['field_service_pastor'] = array(
     'active' => 1,
