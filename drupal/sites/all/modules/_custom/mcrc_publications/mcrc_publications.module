@@ -4,4 +4,81 @@
  * Code for the MCRC Publications feature.
  */
 
+/**
+ * Features include
+ */
 include_once 'mcrc_publications.features.inc';
+
+/**
+ * Term contants.
+ */
+define('MCRC_PUBLICATIONS_TYPE_BULLETIN', 290);
+define('MCRC_PUBLICATIONS_TYPE_NEWSLETTER', 291);
+define('MCRC_PUBLICATIONS_TYPE_CHURCH_FAMILY', 292);
+define('MCRC_PUBLICATIONS_TYPE_NEIGHBORHOOD', 293);
+
+/**
+ * Implements hook_file_download().
+ */
+function mcrc_publications_file_download($uri) {
+  $ret = NULL;
+
+  $query = db_select('file_usage', 'fu');
+  $query->addField('fu', 'id');
+  $query->join('file_managed', 'fm', 'fm.fid = fu.fid');
+  $query->condition('fm.uri', $uri, '=');
+  $query->condition('fu.type', 'node', '=');
+  $result = $query->execute();
+
+  foreach ($result as $row) {
+
+    $node_wrapper = entity_metadata_wrapper('node', node_load($row->id));
+    if ($node_wrapper->type->value() == 'publication') {
+      if (user_access('access all publications') || user_access(mcrc_publications_get_permission_by_tid($node_wrapper->field_publication_type->raw()))) {
+        $ret = array('Content-Type' => file_get_mimetype($uri));
+      }
+      else {
+        $ret = -1;
+      }
+      break;
+    }
+  }
+
+  return $ret;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function mcrc_publications_permission() {
+  $ret = array();
+
+  $ret['access all publications'] = array(
+    'title' => t('Access all publications'),
+    'description' => t('Access all publications regardless of type.'),
+  );
+
+  $vocab = taxonomy_vocabulary_machine_name_load('publications');
+  $terms = taxonomy_get_tree($vocab->vid);
+  foreach ($terms as $term) {
+    $ret[mcrc_publications_get_permission_by_tid($term->tid)] = array(
+      'title' => mcrc_publications_get_permission_by_tid($term->tid, TRUE),
+    );
+  }
+
+  return $ret;
+}
+
+/**
+ * Given a tid, load the permission for it.
+ */
+function mcrc_publications_get_permission_by_tid($term, $label = FALSE) {
+
+  if (!is_object($term)) {
+    $term = taxonomy_term_load($term);
+  }
+
+  $title = 'Access ' . check_plain($term->name) . ' publication type';
+
+  return $label ? $title : strtolower($title);
+}
