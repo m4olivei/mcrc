@@ -438,24 +438,30 @@ html.js input.throbbing {
   margin-top: 0;
 }
 
+/* line 154, ../sass/_modules.scss */
+.view-content,
+.more-link {
+  margin-bottom: 20px;
+}
+
 @media (min-width: 1200px) {
-  /* line 155, ../sass/_modules.scss */
+  /* line 163, ../sass/_modules.scss */
   .caption-left {
     margin: 0 30px 40px 0;
   }
 
-  /* line 159, ../sass/_modules.scss */
+  /* line 167, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 40px 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 166, ../sass/_modules.scss */
+  /* line 174, ../sass/_modules.scss */
   .caption-left {
     margin: 0 20px 40px 0;
   }
 
-  /* line 170, ../sass/_modules.scss */
+  /* line 178, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 40px 20px;
   }

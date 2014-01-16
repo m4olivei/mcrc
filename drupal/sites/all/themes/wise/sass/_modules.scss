@@ -148,6 +148,14 @@
 }
 
 //
+// Publications
+//
+.view-content,
+.more-link {
+  margin-bottom: $baseLineHeight;
+}
+
+//
 // Responsive
 //
 @include lg-desktop {
