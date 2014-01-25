@@ -282,6 +282,47 @@ html.js input.throbbing {
   background-position: 100% -119px;
 }
 
+/* line 19, ../sass/_forms.scss */
+fieldset.collapsible legend .fieldset-legend a {
+  text-decoration: none;
+}
+/* line 22, ../sass/_forms.scss */
+fieldset.collapsible legend .fieldset-legend a:before {
+  content: "\f078";
+  display: inline-block;
+  text-decoration: inherit;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  /* sprites.less reset */
+  display: inline;
+  width: auto;
+  height: auto;
+  line-height: normal;
+  vertical-align: baseline;
+  background-image: none;
+  background-position: 0% 0%;
+  background-repeat: repeat;
+  margin-top: 0;
+  padding-right: 8px;
+}
+/* line 50, ../sass/_forms.scss */
+fieldset.collapsible.collapsed legend .fieldset-legend a:before {
+  content: "\f054";
+  padding-right: 10px;
+  margin-top: -3px;
+  vertical-align: middle;
+}
+
+/* line 59, ../sass/_forms.scss */
+.form-type-file input[type=file] {
+  line-height: 1em;
+  margin-bottom: 12px;
+}
+
 /* line 10, ../sass/_modules.scss */
 .region-slider {
   background: #dcd9c8 url("../images/texture_beige_bg.jpg") repeat 50% 0;
