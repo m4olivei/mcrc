@@ -7,7 +7,8 @@
 // --------------------------------------------------
 
 // Core
-.btn {
+.btn,
+.view .pager-load-more li > a {
   display: inline-block;
   @include ie7-inline-block();
   padding: 6px 30px;
