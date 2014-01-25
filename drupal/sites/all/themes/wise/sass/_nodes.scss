@@ -5,7 +5,8 @@
 
 @import 'base';
 
-.field-name-field-image {
+.field-name-field-image,
+.field-name-field-blog-post-image {
   margin-bottom: $baseLineHeight;
 }
 
@@ -22,7 +23,8 @@
   }
 
   p,
-  .field-name-body {
+  .field-name-body,
+  .field-name-field-blog-post-body {
     margin-bottom: $baseLineHeight / 2;
   }
 }

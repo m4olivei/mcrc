@@ -134,7 +134,6 @@
         <?php endif; ?>
         <?php print render($page['content']); ?>
         <?php print render($page['content_bottom']); ?>
-        <?php print $feed_icons; ?>
       </div><!-- /#content -->
 
       <?php if ($sidebar_first): ?>

@@ -1007,51 +1007,53 @@ body.front #page-title {
   background: url("../images/texture_purple.png");
 }
 
-/* line 8, ../sass/_nodes.scss */
-.field-name-field-image {
+/* line 9, ../sass/_nodes.scss */
+.field-name-field-image,
+.field-name-field-blog-post-image {
   margin-bottom: 20px;
 }
 
-/* line 12, ../sass/_nodes.scss */
+/* line 13, ../sass/_nodes.scss */
 .node {
   margin-bottom: 30px;
 }
 
-/* line 18, ../sass/_nodes.scss */
+/* line 19, ../sass/_nodes.scss */
 .node-teaser h2 {
   font-size: 1.625em;
   line-height: 1.15385em;
   font-weight: bold;
 }
-/* line 25, ../sass/_nodes.scss */
+/* line 27, ../sass/_nodes.scss */
 .node-teaser p,
-.node-teaser .field-name-body {
+.node-teaser .field-name-body,
+.node-teaser .field-name-field-blog-post-body {
   margin-bottom: 10px;
 }
 
-/* line 35, ../sass/_nodes.scss */
+/* line 37, ../sass/_nodes.scss */
 .view-activity .cell {
   padding-top: 30px;
   border-top: 1px solid #cd89ae;
 }
-/* line 40, ../sass/_nodes.scss */
+/* line 42, ../sass/_nodes.scss */
 .view-activity .row-first .cell {
   padding-top: 0;
   border-top: 0;
 }
-/* line 45, ../sass/_nodes.scss */
+/* line 47, ../sass/_nodes.scss */
 .view-activity .row-last .node {
   margin-bottom: 0;
 }
-/* line 49, ../sass/_nodes.scss */
+/* line 51, ../sass/_nodes.scss */
 .view-activity .row-set {
   margin-bottom: 30px;
 }
-/* line 53, ../sass/_nodes.scss */
+/* line 55, ../sass/_nodes.scss */
 .view-activity .row-set-featured {
   position: relative;
 }
-/* line 56, ../sass/_nodes.scss */
+/* line 58, ../sass/_nodes.scss */
 .view-activity .row-set-featured:after {
   content: '';
   width: 1px;
@@ -1061,104 +1063,104 @@ body.front #page-title {
   left: 50%;
   background-color: #cd89ae;
 }
-/* line 67, ../sass/_nodes.scss */
+/* line 69, ../sass/_nodes.scss */
 .view-activity .row-set-other {
   font-size: 0.8em;
 }
-/* line 70, ../sass/_nodes.scss */
+/* line 72, ../sass/_nodes.scss */
 .view-activity .row-set-other .submitted {
   margin-bottom: 0;
 }
-/* line 74, ../sass/_nodes.scss */
+/* line 76, ../sass/_nodes.scss */
 .view-activity .row-set-other h2 {
   margin-top: 0;
 }
-/* line 80, ../sass/_nodes.scss */
+/* line 82, ../sass/_nodes.scss */
 .view-activity .row-fluid .span6 {
   width: 46.5%;
   margin-left: 7%;
 }
-/* line 85, ../sass/_nodes.scss */
+/* line 87, ../sass/_nodes.scss */
 .view-activity .row-fluid .span6:first-child {
   margin-left: 0;
 }
 
-/* line 90, ../sass/_nodes.scss */
+/* line 92, ../sass/_nodes.scss */
 .node-readmore:after {
   content: ' ...';
 }
 
-/* line 99, ../sass/_nodes.scss */
+/* line 101, ../sass/_nodes.scss */
 .node-service.node-teaser {
   padding: 20px;
   background-color: #ecebe3;
   border-radius: 6px;
 }
-/* line 105, ../sass/_nodes.scss */
+/* line 107, ../sass/_nodes.scss */
 .node-service .audio {
   float: left;
   margin-top: 6px;
 }
-/* line 110, ../sass/_nodes.scss */
+/* line 112, ../sass/_nodes.scss */
 .node-service.has-audio .meta {
   margin-left: 100px;
 }
-/* line 114, ../sass/_nodes.scss */
+/* line 116, ../sass/_nodes.scss */
 .node-service .meta {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
-/* line 119, ../sass/_nodes.scss */
+/* line 121, ../sass/_nodes.scss */
 .node-service header {
   margin-bottom: 20px;
 }
-/* line 123, ../sass/_nodes.scss */
+/* line 125, ../sass/_nodes.scss */
 .node-service h2 {
   margin: 6px 0;
 }
 
-/* line 128, ../sass/_nodes.scss */
+/* line 130, ../sass/_nodes.scss */
 .field-name-field-service-date {
   color: #494949;
 }
 
-/* line 133, ../sass/_nodes.scss */
+/* line 135, ../sass/_nodes.scss */
 .icon-cloud-download {
   font-size: 22px;
   color: #662664;
 }
-/* line 137, ../sass/_nodes.scss */
+/* line 139, ../sass/_nodes.scss */
 .icon-cloud-download:hover {
   text-decoration: none;
 }
 
-/* line 146, ../sass/_nodes.scss */
+/* line 148, ../sass/_nodes.scss */
 .table-hover tbody tr:hover td .icon-cloud-download,
 .table-hover tbody tr:hover th .icon-cloud-download {
   color: white;
 }
 
-/* line 153, ../sass/_nodes.scss */
+/* line 155, ../sass/_nodes.scss */
 .view-service-list .views-field-title {
   text-transform: uppercase;
   max-width: 360px;
 }
-/* line 158, ../sass/_nodes.scss */
+/* line 160, ../sass/_nodes.scss */
 .view-service-list th.views-field-title {
   text-transform: none;
 }
 
 @media (max-width: 767px) {
-  /* line 170, ../sass/_nodes.scss */
+  /* line 172, ../sass/_nodes.scss */
   .view-activity .cell {
     border-top: 0;
   }
-  /* line 175, ../sass/_nodes.scss */
+  /* line 177, ../sass/_nodes.scss */
   .view-activity .row-fluid .span6 {
     width: 100%;
     margin-left: 0;
   }
-  /* line 180, ../sass/_nodes.scss */
+  /* line 182, ../sass/_nodes.scss */
   .view-activity .row-set-featured:after {
     display: none;
   }
