@@ -81,33 +81,48 @@ function wise_blog_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Unfiltered text */
+  $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
+  $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
+  $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
+  $handler->display->display_options['header']['area_text_custom']['label'] = 'RSS link';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<a href="/blog/rss.xml" class="rss rss-messages" target="_blank"><i class="icon-rss"></i></a>';
   $handler->display->display_options['path'] = 'blog';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Blog';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed');
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
-  $handler->display->display_options['path'] = 'blog_posts.xml';
+  $handler->display->display_options['path'] = 'blog/rss.xml';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'page' => 'page',
   );
 
-  /* Display: Popular Posts */
-  $handler = $view->new_display('block', 'Popular Posts', 'block_1');
+  /* Display: Recent Posts */
+  $handler = $view->new_display('block', 'Recent Posts', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Popular Posts';
+  $handler->display->display_options['title'] = 'Recent Posts';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['class'] = 'unstyled';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['view_mode'] = 'block_summary';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Post date */
@@ -115,28 +130,39 @@ function wise_blog_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  $handler->display->display_options['block_description'] = 'Popular Posts';
+  $handler->display->display_options['block_description'] = 'Recent Blog Posts';
 
   /* Display: Archive Block */
   $handler = $view->new_display('block', 'Archive Block', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Archive';
+  $handler->display->display_options['title'] = 'Archives';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['class'] = 'unstyled';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Created year */
-  $handler->display->display_options['arguments']['created_year']['id'] = 'created_year';
-  $handler->display->display_options['arguments']['created_year']['table'] = 'node';
-  $handler->display->display_options['arguments']['created_year']['field'] = 'created_year';
-  $handler->display->display_options['arguments']['created_year']['default_action'] = 'summary';
-  $handler->display->display_options['arguments']['created_year']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['created_year']['summary']['sort_order'] = 'desc';
-  $handler->display->display_options['arguments']['created_year']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['created_year']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['created_year']['summary_options']['base_path'] = 'blog/archive';
-  $handler->display->display_options['arguments']['created_year']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['block_description'] = 'Posts Archive Summary';
+  /* Contextual filter: Content: Created year + month */
+  $handler->display->display_options['arguments']['created_year_month']['id'] = 'created_year_month';
+  $handler->display->display_options['arguments']['created_year_month']['table'] = 'node';
+  $handler->display->display_options['arguments']['created_year_month']['field'] = 'created_year_month';
+  $handler->display->display_options['arguments']['created_year_month']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['created_year_month']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['created_year_month']['title'] = '%1';
+  $handler->display->display_options['arguments']['created_year_month']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['created_year_month']['summary']['sort_order'] = 'desc';
+  $handler->display->display_options['arguments']['created_year_month']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['created_year_month']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['created_year_month']['summary_options']['base_path'] = 'blog/archive';
+  $handler->display->display_options['arguments']['created_year_month']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['created_year_month']['specify_validation'] = TRUE;
+  $handler->display->display_options['block_description'] = 'Blog Posts Archive Summary';
 
   /* Display: Archive */
   $handler = $view->new_display('page', 'Archive', 'page_1');
@@ -158,16 +184,66 @@ function wise_blog_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Created year */
-  $handler->display->display_options['arguments']['created_year']['id'] = 'created_year';
-  $handler->display->display_options['arguments']['created_year']['table'] = 'node';
-  $handler->display->display_options['arguments']['created_year']['field'] = 'created_year';
-  $handler->display->display_options['arguments']['created_year']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['created_year']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['created_year']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['created_year']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['created_year']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Created year + month */
+  $handler->display->display_options['arguments']['created_year_month']['id'] = 'created_year_month';
+  $handler->display->display_options['arguments']['created_year_month']['table'] = 'node';
+  $handler->display->display_options['arguments']['created_year_month']['field'] = 'created_year_month';
+  $handler->display->display_options['arguments']['created_year_month']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['created_year_month']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['created_year_month']['title'] = 'Archives - %1';
+  $handler->display->display_options['arguments']['created_year_month']['breadcrumb_enable'] = TRUE;
+  $handler->display->display_options['arguments']['created_year_month']['breadcrumb'] = 'Archives - %1';
+  $handler->display->display_options['arguments']['created_year_month']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['created_year_month']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['created_year_month']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['created_year_month']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['path'] = 'blog/archive';
+
+  /* Display: Author Page */
+  $handler = $view->new_display('page', 'Author Page', 'page_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Pastor\'s Keyboard';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'load_more';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['more_button_text'] = 'View more';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Unfiltered text */
+  $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
+  $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
+  $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
+  $handler->display->display_options['header']['area_text_custom']['label'] = 'RSS link';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<a href="/blog/rss.xml" class="rss rss-messages" target="_blank"><i class="icon-rss"></i></a>';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Author uid */
+  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['table'] = 'node';
+  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['uid']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['uid']['title'] = 'Posts by %1';
+  $handler->display->display_options['arguments']['uid']['breadcrumb_enable'] = TRUE;
+  $handler->display->display_options['arguments']['uid']['breadcrumb'] = 'Posts by %1';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['uid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['uid']['validate']['type'] = 'user';
+  $handler->display->display_options['arguments']['uid']['validate_options']['type'] = 'either';
+  $handler->display->display_options['path'] = 'blog/author/%';
   $export['blog_posts'] = $view;
 
   $view = new view();

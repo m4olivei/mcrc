@@ -104,7 +104,7 @@ function wise_blog_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_blog_post_categories',
     'label' => 'Categories',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
