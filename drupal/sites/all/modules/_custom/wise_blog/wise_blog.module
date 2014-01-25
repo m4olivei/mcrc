@@ -1,0 +1,19 @@
+<?php
+/**
+ * @file
+ * Code for the wise_blog feature.
+ */
+
+include_once 'wise_blog.features.inc';
+
+/**
+ * Implements hook_entity_info_alter().
+ *
+ * @param $entity_info
+ */
+function wise_blog_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['block_summary'] = array(
+    'label' => t('Block Summary'),
+    'custom settings' => FALSE,
+  );
+}
