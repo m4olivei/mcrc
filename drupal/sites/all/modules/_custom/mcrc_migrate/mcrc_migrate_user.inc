@@ -75,7 +75,6 @@ class MCRCUserMigration extends MCRCMigrateBase {
     // First, we set up a query for this data. Note that our source data
     // lives in a differnt database, on a connection defined in settings.php.  For this reason, we
     // use Database::getConnection instead of db_select, to specify the legacy DB as the DB to use.
-    // @todo i've included a where clause to exclude in-Active users, do we want to bring them in for some reason?
     $query = Database::getConnection('default', 'mcrc_legacy')
       ->select('tblUsers', 'u')
       ->condition('u.Active', 1)
