@@ -625,6 +625,11 @@ body.front #page-title {
     margin-bottom: 24px;
   }
 }
+/* line 162, ../sass/_page.scss */
+#disqus_thread {
+  margin-top: 48px;
+}
+
 /* line 8, ../sass/_navigation.scss */
 .block-menu-block h2 {
   position: absolute !important;
