@@ -58,7 +58,7 @@
 
     // Add the new content to the page.
     wrapper.find('.pager a').remove();
-    wrapper.find('.pager').parent('.item-list').html(new_content.find('.pager'));
+    wrapper.find('.pager').replaceWith(new_content.find('.pager'));
     wrapper.find(content_query)[method](new_content.find(content_query).children());
 
     // Re-class the loaded content.
@@ -85,11 +85,21 @@
     wrapper.trigger('views_load_more.new_content', new_content.clone());
 
     // Attach all JavaScript behaviors to the new content
-    // Remove the Jquery once Class, TODO: There needs to be a better
-    // way of doing this, look at .removeOnce() :-/
-    var classes = wrapper.attr('class');
-    var onceClass = classes.match(/jquery-once-[0-9]*-[a-z]*/);
-    wrapper.removeClass(onceClass[0]);
+    // Remove the Jquery once classes
+    wrapper.removeClass(function() {
+      var i,
+        remove = '',
+        classes = this.className.split(' ');
+      for (i = 0; i < classes.length; i++) {
+        if (/-processed$/.test(classes[i])) {
+          if (remove != '') {
+            remove += ' ';
+          }
+          remove += classes[i];
+        }
+      }
+      return remove;
+    });
     var settings = response.settings || ajax.settings || Drupal.settings;
     Drupal.attachBehaviors(wrapper, settings);
   }
