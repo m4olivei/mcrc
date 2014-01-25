@@ -156,6 +156,13 @@
 }
 
 //
+// TinyMCE
+//
+body#tinymce {
+  margin: 10px;
+}
+
+//
 // Responsive
 //
 @include lg-desktop {

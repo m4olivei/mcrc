@@ -38,7 +38,7 @@ ul.inline li {
  */
 /* line 45, ../sass/_modules_default.scss */
 .block {
-  margin-bottom: 30px;
+  margin-bottom: 36px;
 }
 
 /**
@@ -290,7 +290,7 @@ html.js input.throbbing {
 /* line 14, ../sass/_modules.scss */
 .slide-text {
   position: absolute;
-  top: 30px;
+  top: 36px;
   left: 80px;
   color: white;
   margin-left: 0;
@@ -303,12 +303,12 @@ html.js input.throbbing {
   font-size: 4.66667em;
   line-height: 1.09524em;
   font-family: "Rokkitt", Georgia, "Times New Roman", Times, serif;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 /* line 31, ../sass/_modules.scss */
 .slide-tagline {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 /* line 39, ../sass/_modules.scss */
@@ -348,13 +348,13 @@ html.js input.throbbing {
 /* line 69, ../sass/_modules.scss */
 .caption-left {
   float: left;
-  margin: 0 20px 40px 0;
+  margin: 0 20px 48px 0;
 }
 
 /* line 74, ../sass/_modules.scss */
 .caption-right {
   float: right;
-  margin: 0 0 40px 20px;
+  margin: 0 0 48px 20px;
 }
 
 /* line 79, ../sass/_modules.scss */
@@ -371,7 +371,7 @@ html.js input.throbbing {
 /* line 89, ../sass/_modules.scss */
 .featured-image,
 .submitted {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 /* line 93, ../sass/_modules.scss */
@@ -389,7 +389,7 @@ html.js input.throbbing {
 
 /* line 104, ../sass/_modules.scss */
 .more-link {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 /* line 108, ../sass/_modules.scss */
@@ -415,7 +415,7 @@ html.js input.throbbing {
 .sort-desc {
   padding-left: 6px;
   font-size: 22px;
-  line-height: 20px !important;
+  line-height: 24px !important;
   vertical-align: middle !important;
   text-decoration: none !important;
 }
@@ -441,46 +441,51 @@ html.js input.throbbing {
 /* line 154, ../sass/_modules.scss */
 .view-content,
 .more-link {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+}
+
+/* line 161, ../sass/_modules.scss */
+body#tinymce {
+  margin: 10px;
 }
 
 @media (min-width: 1200px) {
-  /* line 163, ../sass/_modules.scss */
+  /* line 170, ../sass/_modules.scss */
   .caption-left {
-    margin: 0 30px 40px 0;
+    margin: 0 30px 48px 0;
   }
 
-  /* line 167, ../sass/_modules.scss */
+  /* line 174, ../sass/_modules.scss */
   .caption-right {
-    margin: 0 0 40px 30px;
+    margin: 0 0 48px 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 174, ../sass/_modules.scss */
+  /* line 181, ../sass/_modules.scss */
   .caption-left {
-    margin: 0 20px 40px 0;
+    margin: 0 20px 48px 0;
   }
 
-  /* line 178, ../sass/_modules.scss */
+  /* line 185, ../sass/_modules.scss */
   .caption-right {
-    margin: 0 0 40px 20px;
+    margin: 0 0 48px 20px;
   }
 }
 /* line 10, ../sass/_page.scss */
 #page {
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 /* line 14, ../sass/_page.scss */
 #logo {
   float: left;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 /* line 19, ../sass/_page.scss */
 #main-menu-desktop {
   float: right;
-  margin-top: 30px;
+  margin-top: 36px;
 }
 
 /* line 24, ../sass/_page.scss */
@@ -522,7 +527,7 @@ html.js input.throbbing {
 
 /* line 62, ../sass/_page.scss */
 #page-title {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   margin-top: 0;
 }
 
@@ -535,7 +540,7 @@ body.front #page-title {
   color: #fff;
   background-color: #cbc288;
   display: inline-block;
-  margin-top: -30px;
+  margin-top: -36px;
   padding: 10px 60px;
   font-size: 2.5em;
   font-weight: bold;
@@ -551,12 +556,12 @@ body.front #page-title {
 #footer {
   background-color: #662664;
   color: white;
-  padding-top: 40px;
+  padding-top: 48px;
   font-size: 0.875em;
 }
 /* line 92, ../sass/_page.scss */
 #footer .logo img {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 /* line 96, ../sass/_page.scss */
 #footer a {
@@ -617,7 +622,7 @@ body.front #page-title {
 
   /* line 156, ../sass/_page.scss */
   #footer .logo img {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 }
 /* line 8, ../sass/_navigation.scss */
@@ -640,7 +645,7 @@ body.front #page-title {
 
 /* line 12, ../sass/_navigation.scss */
 .menu-drop-down {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 /* line 15, ../sass/_navigation.scss */
 .menu-drop-down h2 {
@@ -680,7 +685,7 @@ body.front #page-title {
 }
 /* line 32, ../sass/_navigation.scss */
 .menu-drop-down > .menu-block-wrapper > ul.menu > li > a {
-  padding: 10px 15px;
+  padding: 12px 15px;
   color: #685b67;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -712,7 +717,7 @@ body.front #page-title {
   border: none;
   position: absolute;
   z-index: 1000;
-  top: 40px;
+  top: 48px;
   left: -9999em;
   background-color: white;
   border: 1px solid #dedede;
@@ -738,7 +743,7 @@ body.front #page-title {
 
 /* line 94, ../sass/_navigation.scss */
 .mobile-menu {
-  margin-top: 20px;
+  margin-top: 24px;
   text-align: left;
 }
 /* line 98, ../sass/_navigation.scss */
@@ -949,12 +954,12 @@ body.front #page-title {
 /* line 297, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > ul.menu > li ul.menu {
   display: none;
-  margin-left: 20px;
+  margin-left: 24px;
 }
 /* line 301, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > ul.menu > li ul.menu a {
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
 }
 /* line 305, ../sass/_navigation.scss */
 .sidebar .menu-list > ul.menu > li > ul.menu > li ul.menu a.active:before {
@@ -977,7 +982,7 @@ body.front #page-title {
   -o-border-radius: 6px;
   border-radius: 6px;
   color: white;
-  padding: 30px 40px;
+  padding: 36px 48px;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
 }
@@ -1010,12 +1015,12 @@ body.front #page-title {
 /* line 9, ../sass/_nodes.scss */
 .field-name-field-image,
 .field-name-field-blog-post-image {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 /* line 13, ../sass/_nodes.scss */
 .node {
-  margin-bottom: 30px;
+  margin-bottom: 36px;
 }
 
 /* line 19, ../sass/_nodes.scss */
@@ -1028,12 +1033,12 @@ body.front #page-title {
 .node-teaser p,
 .node-teaser .field-name-body,
 .node-teaser .field-name-field-blog-post-body {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 /* line 37, ../sass/_nodes.scss */
 .view-activity .cell {
-  padding-top: 30px;
+  padding-top: 36px;
   border-top: 1px solid #cd89ae;
 }
 /* line 42, ../sass/_nodes.scss */
@@ -1047,7 +1052,7 @@ body.front #page-title {
 }
 /* line 51, ../sass/_nodes.scss */
 .view-activity .row-set {
-  margin-bottom: 30px;
+  margin-bottom: 36px;
 }
 /* line 55, ../sass/_nodes.scss */
 .view-activity .row-set-featured {
@@ -1112,7 +1117,7 @@ body.front #page-title {
 }
 /* line 121, ../sass/_nodes.scss */
 .node-service header {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 /* line 125, ../sass/_nodes.scss */
 .node-service h2 {
@@ -1233,7 +1238,7 @@ html[xmlns] .slides {
 .flexslider {
   width: 940px;
   height: 395px;
-  margin: 40px auto 40px auto;
+  margin: 48px auto 48px auto;
   position: relative;
   zoom: 1;
 }
@@ -3845,7 +3850,7 @@ ul.graphic {
 }
 /* line 76, ../sass/_inline_player.scss */
 ul.graphic li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 /* line 79, ../sass/_inline_player.scss */
 ul.graphic li:last-child {
