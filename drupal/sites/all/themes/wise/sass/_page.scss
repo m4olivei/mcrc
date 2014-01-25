@@ -11,6 +11,10 @@
   margin-top: $baseLineHeight;
 }
 
+#header {
+  position: relative;
+}
+
 #logo {
   float: left;
   margin-bottom: $baseLineHeight;
@@ -122,6 +126,34 @@ body.front {
   text-align: center;
 }
 
+#disqus_thread {
+  margin-top: $baseLineHeight * 2;
+}
+
+#account {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: $altFontFamily;
+
+  a {
+    margin-left: 10px;
+    @include pro-px(13px);
+    color: $textColor;
+    vertical-align: middle;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    i {
+      color: $purple;
+      font-size: 18px;
+      padding-right: 4px;
+    }
+  }
+}
+
 //
 // Responsive styles
 //
@@ -157,8 +189,4 @@ body.front {
       margin-bottom: $baseLineHeight;
     }
   }
-}
-
-#disqus_thread {
-  margin-top: $baseLineHeight * 2;
 }

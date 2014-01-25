@@ -30,7 +30,6 @@
       position: relative;
 
       > a {
-        padding: ($baseLineHeight / 2) 15px;;
         color: $grayDark;
         @include border-radius($baseBorderRadius);
         @include pro-px(18px);
@@ -84,6 +83,40 @@
               border-bottom: none;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+#main-menu-desktop .menu-drop-down {
+
+  > .menu-block-wrapper > ul.menu {
+
+    > li {
+
+      > a {
+        padding: ($baseLineHeight / 2) 0 ($baseLineHeight / 2) 15px;
+        margin-right: 15px;
+      }
+
+      > a:focus,
+      &:hover > a,
+      &.open > a {
+        padding-right: 15px;
+        margin-right: 0;
+      }
+
+      &.last {
+
+        > a {
+          margin-right: 0;
+        }
+
+        > a:focus,
+        &:hover > a,
+        &.open > a {
+          margin-right: -15px;
         }
       }
     }

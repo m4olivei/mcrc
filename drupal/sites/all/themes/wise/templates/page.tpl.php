@@ -76,6 +76,10 @@
 
   <header id="header" class="container clearfix" role="banner">
 
+    <div id="account">
+      <?php print wise_get_member_tools(); ?>
+    </div>
+
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print $site_name; ?>" onerror="this.onerror=null; this.src='/<?php echo drupal_get_path('theme', 'wise'); ?>/logo.png';" /></a>
     <?php endif; ?>

@@ -27,6 +27,11 @@ function wise_preprocess_page(&$vars) {
   if (drupal_is_front_page()) {
     drupal_set_title(t('Life at Mountainview'));
   }
+
+  // Change the title of the user page
+  if (user_is_anonymous() && $_GET['q'] == 'user') {
+    drupal_set_title(t('Members Log in'));
+  }
 }
 
 /**

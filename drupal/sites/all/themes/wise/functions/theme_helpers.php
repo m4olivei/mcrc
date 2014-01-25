@@ -46,6 +46,10 @@ function wise_get_mobile_menu() {
   return _wise_menu_wrapper_markup($config, 'mobile-menu');
 }
 
+/**
+ * Return markup for the secondary menu.
+ * @return string
+ */
 function wise_get_secondary_navigation() {
   $config = array(
     'delta' => 'secondary-menu',
@@ -61,6 +65,26 @@ function wise_get_secondary_navigation() {
   );
 
   return _wise_menu_wrapper_markup($config, 'menu-drop-down');
+}
+
+/**
+ * Markup for the member tools.
+ */
+function wise_get_member_tools() {
+  global $user;
+
+  $output = '';
+  $name = format_username($user);
+
+  if (user_is_logged_in()) {
+    $output .= l('<i class="icon-user"></i>' . t('Welcome %user', array('%user' => $name)), 'user', array('attributes' => array('class' => array('welcome-link')), 'html' => TRUE));
+    $output .= l('<i class="icon-unlock"></i>' . t('Log out'), 'user/logout', array('attributes' => array('class' => array('login-link')), 'html' => TRUE));
+  }
+  else {
+    $output .= l('<i class="icon-lock"></i>' . t('Log in'), 'user', array('attributes' => array('class' => array('login-link')), 'html' => TRUE));
+  }
+
+  return $output;
 }
 
 /**
