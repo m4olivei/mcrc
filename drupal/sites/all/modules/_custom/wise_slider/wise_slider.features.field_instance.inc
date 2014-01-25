@@ -181,67 +181,6 @@ function wise_slider_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-slide-field_slide_video'
-  $field_instances['node-slide-field_slide_video'] = array(
-    'bundle' => 'slide',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Enter the URL of the video you wish to embed (YouTube and Vimeo are supported).',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'oembed',
-        'settings' => array(
-          'maxheight' => '',
-          'maxwidth' => 1180,
-        ),
-        'type' => 'oembed_default',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'oembed',
-        'settings' => array(
-          'maxheight' => '',
-          'maxwidth' => 1180,
-        ),
-        'type' => 'oembed_default',
-        'weight' => 3,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_slide_video',
-    'label' => 'Video',
-    'required' => 0,
-    'settings' => array(
-      'attributes' => array(
-        'class' => '',
-        'configurable_title' => 0,
-        'rel' => '',
-        'target' => 'default',
-        'title' => '',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 0,
-      'rel_remove' => 'default',
-      'title' => 'none',
-      'title_maxlength' => 128,
-      'title_value' => '',
-      'url' => 0,
-      'user_register_form' => FALSE,
-      'validate_url' => 1,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'link',
-      'settings' => array(),
-      'type' => 'link_field',
-      'weight' => 5,
-    ),
-  );
-
   // Exported field_instance: 'node-slide-field_slider'
   $field_instances['node-slide-field_slider'] = array(
     'bundle' => 'slide',
@@ -285,7 +224,6 @@ function wise_slider_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('By choosing a term from the slider vocabulary, you group like slides into a slider.');
-  t('Enter the URL of the video you wish to embed (YouTube and Vimeo are supported).');
   t('Image');
   t('Link');
   t('Slider');
@@ -293,7 +231,6 @@ function wise_slider_field_default_field_instances() {
   t('The link is used together with the image and tagline for a image slide.  Enter an internal or external path.');
   t('The tagline is displayed on image slides overlaid.');
   t('Use an image together with an optional tagline to create an image slide overlaid with your tagline text.');
-  t('Video');
 
   return $field_instances;
 }
