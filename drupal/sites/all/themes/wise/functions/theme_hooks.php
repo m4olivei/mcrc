@@ -40,7 +40,7 @@ function wise_menu_local_tasks(&$variables) {
 }
 
 /**
- * Override theme_status_messags to change the classing to the wrapper to use Twitter Bootstrap alerts.
+ * Override theme_status_messages to change the classing to the wrapper to use Twitter Bootstrap alerts.
  *
  * @param $variables
  * @return string
@@ -53,11 +53,13 @@ function wise_status_messages($variables) {
     'status' => t('Status message'),
     'error' => t('Error message'),
     'warning' => t('Warning message'),
+    'info' => t('Information message'),
   );
   $twitter_class = array(
     'status' => 'alert-success',
     'error' => 'alert-error',
     'warning' => 'alert-block',
+    'info' => 'alert-info',
   );
   foreach (drupal_get_messages($display) as $type => $messages) {
 
