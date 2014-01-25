@@ -169,6 +169,25 @@ function wise_tweaks_twitter_pull_data_alter(&$data) {
 }
 
 /**
+ * Implements hook_menu_alter().
+ */
+function wise_tweaks_menu_alter(&$items) {
+  $items['user/login']['weight'] = -20;
+  $items['user/register']['weight'] = -19;
+  $items['user/password']['weight'] = -18;
+
+  $items['user/register']['title'] = 'Register';
+  $items['user/password']['title'] = 'Reset password';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wise_tweaks_form_user_login_alter(&$form, &$form_state, $form_id) {
+  $form['pass']['#suffix'] = '<p>' . t('Don\'t have an account? !register!<br />Forgot your password? !reset!', array('!register' => l(t('Register now'), 'user/register'), '!reset' => l(t('Reset your password'), 'user/password'))) . '</p>';
+}
+
+/**
  * Preprocessor for the twitter_pull listing.  Add in the time_ago key to each tweet as
  * the twitter_pull module does for it's default theme function.
  * 
