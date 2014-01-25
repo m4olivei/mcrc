@@ -188,6 +188,14 @@ function wise_tweaks_form_user_login_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wise_tweaks_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
+  $form['picture']['#weight'] = 100;
+  $form['actions']['#weight'] = 101;
+}
+
+/**
  * Preprocessor for the twitter_pull listing.  Add in the time_ago key to each tweet as
  * the twitter_pull module does for it's default theme function.
  * 
