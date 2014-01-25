@@ -51,7 +51,9 @@ function wise_preprocess_node(&$vars) {
   $vars['date'] = format_date($node->created, 'short');
 
   $vars['submitted'] = t('Posted !datetime', array('!datetime' => $vars['date']));
-  if ($node->type == 'blog') {
+  if ($node->type == 'blog_post') {
+    $account = user_load($node->uid);
+    $vars['name'] = l(check_plain(format_username($node)), 'blog/author/' . $account->name);
     $vars['submitted'] = t('Posted on !datetime by !username', array('!datetime' => $vars['date'], '!username' => $vars['name']));
   }
 }
