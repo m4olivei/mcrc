@@ -20,17 +20,20 @@ $count = 0;
   <h3><?php print $title; ?></h3>
 <?php endif; ?>
 <div class="row-set row-set-featured">
-  <?php foreach ($featured_rows as $columns): ?>
-    <?php $count++; ?>
-    <div class="row-fluid<?php print $first ? ' row-first' : ''; ?><?php print $count == count($featured_rows) ? ' row-last' : ''; ?>">
-      <?php foreach ($columns as $column_number => $item): ?>
-        <div class="cell span<?php echo floor(12 / ($num_cols / 2)); ?>">
-          <?php print $item; ?>
-        </div>
-      <?php endforeach; ?>
-    </div>
-    <?php $first = FALSE; ?>
-  <?php endforeach; ?>
+  <div class="row-fluid">
+    <?php foreach ($featured_rows as $columns): ?>
+      <?php $count++; ?>
+      <?php $first = TRUE; ?>
+      <div class="span<?php echo floor(12 / ($num_cols / 2)); ?>">
+        <?php foreach ($columns as $column_number => $item): ?>
+          <div class="cell<?php print $first ? ' cell-first' : ''; ?>">
+            <?php print $item; ?>
+          </div>
+          <?php $first = FALSE; ?>
+        <?php endforeach; ?>
+      </div>
+    <?php endforeach; ?>
+  </div>
 </div>
 
 <div class="row-set row-set-other">

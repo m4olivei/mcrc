@@ -32,21 +32,11 @@
 //
 // Activity stream
 //
+body.front .node.view-mode-full {
+  display: none;
+}
+
 .view-activity {
-
-  .cell {
-    padding-top: $baseLineHeight * 1.5;
-    border-top: 1px solid #ddd;
-  }
-
-  .row-first .cell {
-    padding-top: 0;
-    border-top: 0;
-  }
-
-  .row-last .node {
-    margin-bottom: 0;
-  }
 
   .row-set {
     margin-bottom: $baseLineHeight;
@@ -64,6 +54,22 @@
       top: 0;
       left: 50%;
       background-color: #ddd;
+    }
+
+    .cell {
+      padding-top: $baseLineHeight * 1.5;
+      border-top: 1px solid #ddd;
+      margin-top: $baseLineHeight * 1.5;
+    }
+
+    .cell-first {
+      padding-top: 0;
+      border-top: 0;
+      margin-top: 0;
+    }
+
+    .node {
+      margin-bottom: 0;
     }
   }
 
