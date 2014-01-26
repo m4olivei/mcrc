@@ -682,3 +682,56 @@ function wise_preprocess_views_view(&$vars) {
     $vars['attachment_before'] = FALSE;
   }
 }
+
+/**
+ * Implements hook_preprocess_service_links_node_format().
+ */
+function wise_preprocess_service_links_node_format(&$vars) {
+
+  foreach ($vars['links'] as $service => $link) {
+    $vars['links'][$service]['title'] = t('Share on !service', array('!service' => $link['title']));
+
+    if (in_array($service, array('service-links-facebook', 'service-links-twitter'))) {
+      switch ($service) {
+        case 'service-links-facebook':
+          if ($vars['view_mode'] == 'full') {
+            $icon_class = 'icon-facebook';
+          }
+          else {
+            $icon_class = 'icon-facebook-sign';
+          }
+          break;
+        case 'service-links-twitter':
+          $icon_class = 'icon-twitter';
+          break;
+      }
+      $vars['links'][$service]['title'] = '<i class="' . $icon_class . '" aria-hidden="true"></i><span class="label">' . $vars['links'][$service]['title'] . '</span>';
+      $vars['links'][$service]['html'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Override theme_service_links_node_format().
+ */
+function wise_service_links_node_format($variables) {
+  $links = $variables['links'];
+  $label = $variables['label'];
+  $view_mode = $variables['view_mode'];
+
+  if ($view_mode == 'rss') {
+    $result = array();
+    foreach($links as $l) {
+      $result[] = l($l['title'], $l['href'], $l);
+    }
+
+    return '<div class="service-links service-links-' . $view_mode . '">' . implode(' ', $result) . '</div>';
+  }
+
+  if (isset($label) && !empty($label)) {
+    return '<div class="service-links service-links-' . $view_mode . '"><div class="service-label">'. t('@label', array('@label' => $label)) .' </div>'. theme('links', array('links' => $links)) .'</div>';
+  }
+  else {
+    return '<div class="service-links service-links-' . $view_mode . '">'. theme('links', array('links' => $links)) .'</div>';
+  }
+}

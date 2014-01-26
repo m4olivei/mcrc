@@ -39,3 +39,10 @@
 .texture-purple {
   background: url('../images/texture_purple.png');
 }
+
+//
+// Blog blocks
+//
+.block .view-blog-posts .views-summary {
+  @include reset-list-box;
+}
