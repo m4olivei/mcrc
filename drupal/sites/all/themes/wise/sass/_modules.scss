@@ -93,6 +93,7 @@
 .submitted {
   text-transform: uppercase;
   @include pro-px(14px);
+  @include pro-px(20px, 'line-height', 14px);
   font-weight: 700;
 }
 

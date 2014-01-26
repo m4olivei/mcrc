@@ -36,7 +36,7 @@
 
   .cell {
     padding-top: $baseLineHeight * 1.5;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid #ddd;
   }
 
   .row-first .cell {
@@ -49,11 +49,12 @@
   }
 
   .row-set {
-    margin-bottom: $baseLineHeight * 1.5;
+    margin-bottom: $baseLineHeight;
   }
 
   .row-set-featured {
     position: relative;
+    margin-bottom: $baseLineHeight * 3;
 
     &:after {
       content: '';
@@ -62,19 +63,19 @@
       position: absolute;
       top: 0;
       left: 50%;
-      background-color: $grayLighter;
+      background-color: #ddd;
     }
   }
 
   .row-set-other {
     font-size: 0.8em;
 
-    .submitted {
-      margin-bottom: 0;
-    }
-
     h2 {
       margin-top: 0;
+    }
+
+    .node {
+      margin-bottom: 0;
     }
   }
 
