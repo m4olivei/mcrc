@@ -13,19 +13,23 @@
 
 .slide-text {
   position: absolute;
-  top: $baseLineHeight * 1.5;
-  left: 80px;
+  top: $baseLineHeight;
+  left: $baseLineHeight;
   color: $white;
   margin-left: 0;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
   @include pro-px(18px);
+
+  padding: 0 22px 14px 22px;
+  background-color: rgba(0, 0, 0, 0.25);
+  @include border-radius($borderRadiusLarge);
+  max-width: 570px;
 }
 
 .slide-title {
   @include pro-px(84px, 'font-size', 18px);
   @include pro-px(92px, 'line-height', 84px);
   font-family: $altSerifFontFamily;
-  margin-bottom: $baseLineHeight * 0.5;
 }
 
 .slide-tagline {
