@@ -35,6 +35,11 @@ function wise_preprocess_page(&$vars) {
 
   // Throw a search box up in there
   $vars['search_box'] = wise_get_search_box();
+
+  // Hide the title on blog pages, it goes with the banner.
+  if (is_blog_home()) {
+    $vars['title'] = FALSE;
+  }
 }
 
 /**

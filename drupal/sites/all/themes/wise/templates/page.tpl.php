@@ -127,6 +127,9 @@
 
       <div id="content" class="<?php print wise_ns('span12', $sidebar_first, 3); ?>" role="main">
         <a id="main-content"></a>
+        <?php if (is_blog()): ?>
+          <?php print wise_get_blog_banner(); ?>
+        <?php endif; ?>
         <?php print render($page['content_top']); ?>
         <?php print render($title_prefix); ?>
         <?php if (!$is_front && $title): ?>

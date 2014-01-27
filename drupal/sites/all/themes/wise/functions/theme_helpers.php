@@ -138,3 +138,45 @@ function wise_get_search_box() {
 
   return render($search_form);
 }
+
+/**
+ * Get the blog banner.
+ */
+function wise_get_blog_banner() {
+
+  $output = '<div class="banner banner-blog">';
+  $output .= '<img src="/' . drupal_get_path('theme', 'wise') . '/images/blog_header.jpg" />';
+  if (is_blog_home()) {
+    $output .= '<h1 class="title" id="page-title">' . t('Pastor\'s Keyboard') . '</h1>';
+  }
+  else {
+    $output .= '<h1 class="title">' . t('Pastor\'s Keyboard') . '</h1>';
+  }
+  $output .= '</div>';
+
+  return $output;
+}
+
+/**
+ * Helper function to return if we are on the blog.
+ */
+function is_blog() {
+  $ret = FALSE;
+
+  if (is_blog_home()) {
+    $ret = TRUE;
+  }
+  if (($node = menu_get_object()) && $node->type == 'blog_post') {
+    $ret = TRUE;
+  }
+  if (drupal_match_path($_GET['q'], implode("\n", array('blog*')))) {
+    $ret = TRUE;
+  }
+
+  return $ret;
+}
+
+function is_blog_home() {
+
+  return $_GET['q'] == 'blog';
+}
