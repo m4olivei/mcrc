@@ -32,6 +32,9 @@ function wise_preprocess_page(&$vars) {
   if (user_is_anonymous() && $_GET['q'] == 'user') {
     drupal_set_title(t('Members Log in'));
   }
+
+  // Throw a search box up in there
+  $vars['search_box'] = wise_get_search_box();
 }
 
 /**

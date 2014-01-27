@@ -624,24 +624,58 @@ body#tinymce {
   vertical-align: bottom;
 }
 
+/* line 284, ../sass/_modules.scss */
+#secondary-navigation-wrapper .search-box {
+  float: right;
+  border-left: 1px solid #846583;
+  border-right: 1px solid #846583;
+  background-color: #754474;
+  background-image: -moz-linear-gradient(top, #662664, #8d738c);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#662664), to(#8d738c));
+  background-image: -webkit-linear-gradient(top, #662664, #8d738c);
+  background-image: -o-linear-gradient(top, #662664, #8d738c);
+  background-image: linear-gradient(to bottom, #662664, #8d738c);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF662664', endColorstr='#FF8D738C', GradientType=0);
+}
+/* line 290, ../sass/_modules.scss */
+#secondary-navigation-wrapper .search-box form {
+  margin-bottom: 0;
+}
+/* line 294, ../sass/_modules.scss */
+#secondary-navigation-wrapper .search-box input[type=text] {
+  border: 0;
+  background-color: transparent;
+  color: #fff;
+}
+/* line 300, ../sass/_modules.scss */
+#secondary-navigation-wrapper .search-box .btn {
+  background: transparent url("../images/search_icon.png") no-repeat 14px 7px;
+  width: 42px;
+  height: 34px;
+  padding: 0;
+  overflow: hidden;
+  text-indent: -9999em;
+}
+
 @media (min-width: 1200px) {
-  /* line 289, ../sass/_modules.scss */
+  /* line 315, ../sass/_modules.scss */
   .caption-left {
     margin: 0 30px 48px 0;
   }
 
-  /* line 293, ../sass/_modules.scss */
+  /* line 319, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 48px 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 300, ../sass/_modules.scss */
+  /* line 326, ../sass/_modules.scss */
   .caption-left {
     margin: 0 20px 48px 0;
   }
 
-  /* line 304, ../sass/_modules.scss */
+  /* line 330, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 48px 20px;
   }

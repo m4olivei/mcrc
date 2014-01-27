@@ -118,3 +118,23 @@ function _wise_menu_wrapper_markup($config, $wrapper_class) {
 
   return $output;
 }
+
+/**
+ * Get a custom themed search box.
+ */
+function wise_get_search_box() {
+  $search_form = drupal_get_form('search_block_form');
+
+  // Put together the textfield and button.
+  unset($search_form['search_block_form']['#theme_wrappers']);
+  $input_append = '<div class="input-append">';
+  $input_append .= drupal_render($search_form['search_block_form']);
+  $input_append .= drupal_render($search_form['actions']);
+  $input_append .= '</div>';
+
+  $search_form['combined'] = array(
+    '#markup' => $input_append,
+  );
+
+  return render($search_form);
+}

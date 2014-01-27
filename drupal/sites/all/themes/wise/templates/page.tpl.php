@@ -96,6 +96,9 @@
 
   <div id="secondary-navigation-wrapper" class="visible-desktop visible-tablet">
     <nav id="secondary-navigation" class="container" role="navigation">
+      <div class="search-box">
+        <?php print $search_box; ?>
+      </div>
       <?php print wise_get_secondary_navigation(); ?>
     </nav>
   </div>
@@ -137,6 +140,9 @@
           <ul class="action-links"><?php print render($action_links); ?></ul>
         <?php endif; ?>
         <?php print render($page['content']); ?>
+        <?php if (drupal_get_http_header('Status') == '404 Not Found'): ?>
+          <?php print $search_box; ?>
+        <?php endif; ?>
         <?php print render($page['content_bottom']); ?>
       </div><!-- /#content -->
 

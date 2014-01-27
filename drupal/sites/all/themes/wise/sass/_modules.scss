@@ -281,6 +281,32 @@ body#tinymce {
   }
 }
 
+#secondary-navigation-wrapper .search-box {
+  float: right;
+  border-left: 1px solid #846583;
+  border-right: 1px solid #846583;
+  @include gradient-vertical(#662664, #8d738c);
+
+  form {
+    margin-bottom: 0;
+  }
+
+  input[type=text] {
+    border: 0;
+    background-color: transparent;
+    color: #fff;
+  }
+
+ .btn {
+   background: transparent url('../images/search_icon.png') no-repeat 14px 7px;
+   width: 42px;
+   height: 34px;
+   padding: 0;
+   overflow: hidden;
+   text-indent: -9999em;
+ }
+}
+
 //
 // Responsive
 //
