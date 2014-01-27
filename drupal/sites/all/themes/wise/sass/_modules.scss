@@ -270,6 +270,17 @@ body#tinymce {
   }
 }
 
+.table-info {
+
+  tr td:first-child {
+    padding-left: 0;
+  }
+
+  td {
+    vertical-align: bottom;
+  }
+}
+
 //
 // Responsive
 //

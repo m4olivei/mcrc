@@ -615,24 +615,33 @@ body#tinymce {
     margin-bottom: 0;
   }
 }
+/* line 275, ../sass/_modules.scss */
+.table-info tr td:first-child {
+  padding-left: 0;
+}
+/* line 279, ../sass/_modules.scss */
+.table-info td {
+  vertical-align: bottom;
+}
+
 @media (min-width: 1200px) {
-  /* line 278, ../sass/_modules.scss */
+  /* line 289, ../sass/_modules.scss */
   .caption-left {
     margin: 0 30px 48px 0;
   }
 
-  /* line 282, ../sass/_modules.scss */
+  /* line 293, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 48px 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 289, ../sass/_modules.scss */
+  /* line 300, ../sass/_modules.scss */
   .caption-left {
     margin: 0 20px 48px 0;
   }
 
-  /* line 293, ../sass/_modules.scss */
+  /* line 304, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 48px 20px;
   }
