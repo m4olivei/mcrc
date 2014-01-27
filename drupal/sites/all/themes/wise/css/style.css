@@ -624,7 +624,7 @@ body#tinymce {
   vertical-align: bottom;
 }
 
-/* line 284, ../sass/_modules.scss */
+/* line 287, ../sass/_modules.scss */
 #secondary-navigation-wrapper .search-box {
   float: right;
   border-left: 1px solid #846583;
@@ -638,17 +638,17 @@ body#tinymce {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF662664', endColorstr='#FF8D738C', GradientType=0);
 }
-/* line 290, ../sass/_modules.scss */
+/* line 293, ../sass/_modules.scss */
 #secondary-navigation-wrapper .search-box form {
   margin-bottom: 0;
 }
-/* line 294, ../sass/_modules.scss */
+/* line 297, ../sass/_modules.scss */
 #secondary-navigation-wrapper .search-box input[type=text] {
   border: 0;
   background-color: transparent;
   color: #fff;
 }
-/* line 300, ../sass/_modules.scss */
+/* line 303, ../sass/_modules.scss */
 #secondary-navigation-wrapper .search-box .btn {
   background: transparent url("../images/search_icon.png") no-repeat 14px 7px;
   width: 42px;
@@ -658,24 +658,31 @@ body#tinymce {
   text-indent: -9999em;
 }
 
+/* line 313, ../sass/_modules.scss */
+.search-results {
+  list-style: none;
+  list-style-image: none;
+  margin-left: 0;
+}
+
 @media (min-width: 1200px) {
-  /* line 315, ../sass/_modules.scss */
+  /* line 324, ../sass/_modules.scss */
   .caption-left {
     margin: 0 30px 48px 0;
   }
 
-  /* line 319, ../sass/_modules.scss */
+  /* line 328, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 48px 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 326, ../sass/_modules.scss */
+  /* line 335, ../sass/_modules.scss */
   .caption-left {
     margin: 0 20px 48px 0;
   }
 
-  /* line 330, ../sass/_modules.scss */
+  /* line 339, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 48px 20px;
   }

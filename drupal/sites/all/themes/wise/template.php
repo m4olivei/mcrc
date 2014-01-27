@@ -74,3 +74,26 @@ function wise_preprocess_views_view_table(&$vars) {
   $vars['classes_array'][] = 'table-striped';
   $vars['classes_array'][] = 'table-hover';
 }
+
+/**
+ * Implements hook_page_alter().
+ */
+function wise_page_alter(&$page) {
+
+  // Tweak the search form on the search page to be an input-append.
+  if (isset($page['content']['system_main']['search_form']['basic'])) {
+    $search_form = &$page['content']['system_main']['search_form']['basic'];
+
+    // Put together the textfield and button.
+    unset($search_form['#attributes']);
+    unset($search_form['keys']['#theme_wrappers']);
+    $input_append = '<div class="input-append">';
+    $input_append .= drupal_render($search_form['keys']);
+    $input_append .= drupal_render($search_form['submit']);
+    $input_append .= '</div>';
+
+    $search_form['combined'] = array(
+      '#markup' => $input_append,
+    );
+  }
+}
