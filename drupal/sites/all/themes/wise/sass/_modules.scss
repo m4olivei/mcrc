@@ -166,25 +166,47 @@ body#tinymce {
 //
 // Simple Share
 //
-.service-links > ul {
-  @include reset-list-box;
+a[class*=service-links],
+a.service-links-facebook,
+a.service-links-twitter {
+  display: inline-block;
+  padding: 4px 44px 4px 12px;
+  color: #fff;
+  @include border-radius(4px);
+  @include pro-px(18px);
+  font-weight: bold;
+  line-height: 28px;
+  vertical-align: top;
+  text-decoration: none;
+  font-family: $altFontFamily;
 
-  span.label {
-    @include element-invisible;
-  }
+  border: 1px solid darken($pink, 10%);
+  @include gradient-vertical($pink, darken($pink, 10%));
 
   i {
+    padding-right: 26px;
     font-size: 28px;
-    padding-right: 8px;
+    @include text-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
   }
 
-  a {
-
-    &:hover,
-    &:focus {
-      text-decoration: none;
-    }
+  &:hover,
+  &:focus {
+    text-decoration: none;
   }
+}
+
+a.service-links-twitter {
+  border: 1px solid #36a3d0;
+  @include gradient-vertical(#40bff5, #3ab0e2);
+}
+
+a.service-links-facebook {
+  border: 1px solid #4c6bab;
+  @include gradient-vertical(#5d82d1, #5173bc);
+}
+
+.service-links > ul {
+  @include reset-list-box;
 
   li {
     display: inline;
@@ -199,41 +221,44 @@ body#tinymce {
   border-bottom: 1px solid #ddd;
   border-top: 1px solid #ddd;
 
+  li a {
+    margin: 0 15px;
+  }
+}
+
+.service-links-teaser > ul {
+  @include reset-list-box;
+
   span.label {
-    @include element-invisible-off;
+    @include element-invisible;
   }
 
-  li {
+  a[class*=service-links],
+  a.service-links-facebook,
+  a.service-links-twitter {
+    background: transparent none;
+    padding: 0;
+    color: $linkColor;
+    border: none;
 
-    a {
-      display: inline-block;
-      padding: 4px 44px 4px 12px;
-      color: #fff;
-      @include border-radius(4px);
-      @include pro-px(18px);
-      font-weight: bold;
-      line-height: 28px;
-      vertical-align: top;
-      margin: 0 15px;
-      text-decoration: none;
-
-      border: 1px solid darken($pink, 10%);
-      @include gradient-vertical($pink, darken($pink, 10%));
-
-      i {
-        padding-right: 26px;
-        @include text-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
-      }
+    i {
+      @include text-shadow(none);
+      font-size: 24px;
+      padding-right: 8px;
     }
+  }
+}
 
-    &.service-links-twitter a {
-      border: 1px solid #36a3d0;
-      @include gradient-vertical(#40bff5, #3ab0e2);
-    }
+.sidebar {
 
-    &.service-links-facebook a {
-      border: 1px solid #4c6bab;
-      @include gradient-vertical(#5d82d1, #5173bc);
+  a[class*=service-links],
+  a.service-links-facebook,
+  a.service-links-twitter {
+    @include box-sizing(border-box);
+    width: 100%;
+
+    i {
+      padding-right: 36px;
     }
   }
 }
