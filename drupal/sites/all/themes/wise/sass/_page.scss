@@ -154,6 +154,13 @@ body.front {
   }
 }
 
+#legalese {
+  text-align: center;
+  margin-top: $baseLineHeight / 2;
+  margin-bottom: $baseLineHeight * 2;
+  @include pro-px(14px);
+}
+
 //
 // Responsive styles
 //

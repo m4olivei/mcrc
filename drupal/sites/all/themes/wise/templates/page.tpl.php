@@ -173,6 +173,8 @@
 
   </footer>
 
+  <div id="legalese" class="container"><p><?php print t('Copyright © !year Mountainview Christian Reformed Church. All Rights Reserved. !privacy', array('!year' => date('Y'), '!privacy' => l(t('Privacy Policy'), 'privacy-policy'))); ?></p></div>
+
 </div><!-- /#page -->
 
 <?php print render($page['bottom']); ?>

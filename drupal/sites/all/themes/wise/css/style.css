@@ -845,25 +845,33 @@ body.front #page-title {
   padding-right: 4px;
 }
 
+/* line 157, ../sass/_page.scss */
+#legalese {
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 48px;
+  font-size: 0.875em;
+}
+
 @media (max-width: 767px) {
-  /* line 163, ../sass/_page.scss */
+  /* line 170, ../sass/_page.scss */
   #header,
   #main {
     margin-left: 30px;
     margin-right: 30px;
   }
 
-  /* line 168, ../sass/_page.scss */
+  /* line 175, ../sass/_page.scss */
   #header {
     text-align: center;
   }
 
-  /* line 172, ../sass/_page.scss */
+  /* line 179, ../sass/_page.scss */
   #logo {
     float: none;
   }
 
-  /* line 178, ../sass/_page.scss */
+  /* line 185, ../sass/_page.scss */
   body.front #page-title {
     margin-top: 0;
     padding: 15px 26px;
@@ -871,7 +879,7 @@ body.front #page-title {
     line-height: 1.44444em;
   }
 
-  /* line 188, ../sass/_page.scss */
+  /* line 195, ../sass/_page.scss */
   #footer .logo img {
     margin-bottom: 24px;
   }
