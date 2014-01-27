@@ -8,3 +8,14 @@
 body {
   -webkit-font-smoothing: antialiased;
 }
+
+body#tinymce {
+
+  td {
+    font-family: $baseFontFamily;
+    font-size: $baseFontSize;
+    line-height: $baseLineHeight;
+    color: $textColor;
+    margin: 0;
+  }
+}

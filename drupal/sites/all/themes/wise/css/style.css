@@ -272,6 +272,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* line 14, ../sass/_type.scss */
+body#tinymce td {
+  font-family: "Lora", Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #7f7f7f;
+  margin: 0;
+}
+
 /* line 8, ../sass/_forms.scss */
 html.js input.form-autocomplete {
   background: white url("../images/throbber.gif") no-repeat scroll 100% 8px;
