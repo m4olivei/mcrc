@@ -395,6 +395,11 @@ fieldset.collapsible.collapsed legend .fieldset-legend a:before {
   font-style: italic;
 }
 
+/* line 62, ../sass/_modules.scss */
+.caption p.caption-text {
+  margin-bottom: 0;
+}
+
 /* line 67, ../sass/_modules.scss */
 .caption img,
 .caption object {
@@ -405,13 +410,13 @@ fieldset.collapsible.collapsed legend .fieldset-legend a:before {
 /* line 73, ../sass/_modules.scss */
 .caption-left {
   float: left;
-  margin: 0 20px 48px 0;
+  margin: 0 20px 6px 0;
 }
 
 /* line 78, ../sass/_modules.scss */
 .caption-right {
   float: right;
-  margin: 0 0 48px 20px;
+  margin: 0 0 6px 20px;
 }
 
 /* line 83, ../sass/_modules.scss */
@@ -757,23 +762,23 @@ a.service-links-facebook {
 @media (min-width: 1200px) {
   /* line 380, ../sass/_modules.scss */
   .caption-left {
-    margin: 0 30px 48px 0;
+    margin: 0 30px 6px 0;
   }
 
   /* line 384, ../sass/_modules.scss */
   .caption-right {
-    margin: 0 0 48px 30px;
+    margin: 0 0 6px 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
   /* line 391, ../sass/_modules.scss */
   .caption-left {
-    margin: 0 20px 48px 0;
+    margin: 0 20px 6px 0;
   }
 
   /* line 395, ../sass/_modules.scss */
   .caption-right {
-    margin: 0 0 48px 20px;
+    margin: 0 0 6px 20px;
   }
 }
 /* line 10, ../sass/_page.scss */

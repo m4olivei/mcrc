@@ -60,7 +60,7 @@
 }
 
 .caption p.caption-text {
-
+  margin-bottom: 0;
 }
 
 .caption img,
@@ -72,12 +72,12 @@
 // Aligned captions
 .caption-left {
   float: left;
-  margin: 0 $gridGutterWidth $baseLineHeight * 2 0;
+  margin: 0 $gridGutterWidth $baseLineHeight / 4 0;
 }
 
 .caption-right {
   float: right;
-  margin: 0 0 $baseLineHeight * 2 $gridGutterWidth;
+  margin: 0 0 $baseLineHeight / 4 $gridGutterWidth;
 }
 
 .caption-center {
@@ -378,21 +378,21 @@ a.service-links-facebook {
 @include lg-desktop {
   // Aligned captions
   .caption-left {
-    margin: 0 $gridGutterWidth1200 $baseLineHeight * 2 0;
+    margin: 0 $gridGutterWidth1200 $baseLineHeight / 4 0;
   }
 
   .caption-right {
-    margin: 0 0 $baseLineHeight * 2 $gridGutterWidth1200;
+    margin: 0 0 $baseLineHeight / 4 $gridGutterWidth1200;
   }
 }
 
 @include tablet {
   // Aligned captions
   .caption-left {
-    margin: 0 $gridGutterWidth768 $baseLineHeight * 2 0;
+    margin: 0 $gridGutterWidth768 $baseLineHeight / 4 0;
   }
 
   .caption-right {
-    margin: 0 0 $baseLineHeight * 2 $gridGutterWidth768;
+    margin: 0 0 $baseLineHeight / 4 $gridGutterWidth768;
   }
 }
