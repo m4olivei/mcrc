@@ -15,6 +15,10 @@ function wise_theme_preprocess_block(&$vars, $hook) {
 
     $vars['classes_array'][] = 'block-menu-block-' . $menu_block_config['menu_name'];
   }
+
+  if ($block->module === 'wise_theme' && $block->delta === 'blog') {
+    $vars['classes_array'][] = 'block-wise-theme-blog';
+  }
 }
 
 /**
@@ -141,4 +145,63 @@ function wise_theme_form_alter(&$form, &$form_state, $form_id) {
   if(isset($form['#form_id']) && !in_array($form['#form_id'], $form_ids) && !isset($form['#node_edit_form'])) {
     $form['actions']['#theme_wrappers'] = array();
   }
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function wise_theme_block_info() {
+  $blocks = array();
+
+  $blocks['blog'] = array(
+    'info' => t('Pastor\'s Keyboard'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function wise_theme_block_configure($delta = '') {
+  $form = array();
+
+  switch ($delta) {
+    case 'blog':
+      $form['wise_theme_blog_description'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Description'),
+        '#default_value' => variable_get('wise_themee_description'),
+      );
+      break;
+  }
+
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function wise_theme_block_save($delta = '', $edit = array()) {
+
+  if ($delta == 'blog') {
+    variable_set('wise_theme_blog_description', $edit['wise_theme_blog_description']);
+  }
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function wise_theme_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'blog':
+      $block['subject'] = t('Pastor\'s Keyboard');
+      $block['content'] = '<div class="content"><p>' . variable_get('wise_theme_blog_description', '') . '</p>' . l(t('Visit'), 'blog', array('attributes' => array('class' => array('btn')))) . '</div>';
+      break;
+  }
+
+  return $block;
 }

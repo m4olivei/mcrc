@@ -732,36 +732,46 @@ a.service-links-facebook {
   margin-bottom: 24px;
 }
 /* line 352, ../sass/_modules.scss */
-.banner-blog .title {
+.banner-blog .content {
   position: absolute;
-  bottom: 18px;
+  bottom: 10px;
   right: 14px;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: right;
+  font-size: 1.375em;
+}
+/* line 361, ../sass/_modules.scss */
+.banner-blog .title {
   line-height: 1em;
   font-weight: bold;
   color: #fff;
   font-family: "Rokkitt", Georgia, "Times New Roman", Times, serif;
   text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.5);
-  font-size: 3.625em;
+  font-size: 2.63636em;
+}
+/* line 370, ../sass/_modules.scss */
+.banner-blog #page-title {
+  margin-bottom: 0;
 }
 
 @media (min-width: 1200px) {
-  /* line 370, ../sass/_modules.scss */
+  /* line 380, ../sass/_modules.scss */
   .caption-left {
     margin: 0 30px 48px 0;
   }
 
-  /* line 374, ../sass/_modules.scss */
+  /* line 384, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 48px 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 381, ../sass/_modules.scss */
+  /* line 391, ../sass/_modules.scss */
   .caption-left {
     margin: 0 20px 48px 0;
   }
 
-  /* line 385, ../sass/_modules.scss */
+  /* line 395, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 48px 20px;
   }
@@ -1375,6 +1385,31 @@ body.front #page-title {
   margin: 0;
   padding: 0;
   border: none;
+}
+
+/* line 50, ../sass/_blocks.scss */
+.block-wise-theme-blog {
+  background: transparent url("../images/blog_block.jpg") no-repeat 50% 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  padding: 4px 10px 10px 134px;
+}
+/* line 55, ../sass/_blocks.scss */
+.block-wise-theme-blog h2 {
+  color: #fff;
+  font-weight: bold;
+  text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.5);
+  font-family: "Rokkitt", Georgia, "Times New Roman", Times, serif;
+  font-size: 1.75em;
+  line-height: 1em;
+}
+/* line 64, ../sass/_blocks.scss */
+.block-wise-theme-blog .content {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.25em;
 }
 
 /* line 9, ../sass/_nodes.scss */
