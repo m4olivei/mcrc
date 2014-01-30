@@ -13,7 +13,7 @@ function mcrc_publications_taxonomy_default_vocabularies() {
       'name' => 'Publications',
       'machine_name' => 'publications',
       'description' => 'Classify publications for access control.',
-      'hierarchy' => 0,
+      'hierarchy' => 1,
       'module' => 'taxonomy',
       'weight' => 0,
     ),

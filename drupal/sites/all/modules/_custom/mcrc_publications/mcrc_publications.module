@@ -51,7 +51,7 @@ function mcrc_publications_permission() {
   );
 
   $vocab = taxonomy_vocabulary_machine_name_load('publications');
-  $terms = taxonomy_get_tree($vocab->vid);
+  $terms = taxonomy_get_tree($vocab->vid, 0, 1);
   foreach ($terms as $term) {
     $ret[mcrc_publications_get_permission_by_tid($term->tid)] = array(
       'title' => mcrc_publications_get_permission_by_tid($term->tid, TRUE),
@@ -73,4 +73,26 @@ function mcrc_publications_get_permission_by_tid($term, $label = FALSE) {
   $title = 'Access ' . check_plain($term->name) . ' publication type';
 
   return $label ? $title : strtolower($title);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mcrc_publications_form_publication_node_form_alter(&$form, $form_state) {
+
+  if (module_exists('auto_nodetitle') && (auto_nodetitle_get_setting($form['#node']->type) == AUTO_NODETITLE_OPTIONAL)) {
+    // Alter the form to include a JS reveal for the optional title.
+    $form['auto_title_choice'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Auto-generate a title for this publication.'),
+      '#default_value' => FALSE,
+      '#weight' => -100,
+    );
+    $form['title']['#states'] = array(
+      'visible' => array(
+        ':input[name="auto_title_choice"]' => array('checked' => FALSE),
+      ),
+    );
+    $form['title']['#description'] = t('Enter a title for this publication.  Leave the field blank to auto-generate.');
+  }
 }
