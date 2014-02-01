@@ -56,8 +56,8 @@ class MCRCServiceMigration extends MCRCMigrateBase {
     $this->addFieldMapping('title', 'title');
     $this->addFieldMapping('uid')
       ->defaultValue(1);
-    $this->addFieldMapping('created', 'date_uploaded');
-    $this->addFieldMapping('changed', 'date_uploaded');
+    $this->addFieldMapping('created', 'date_presented');
+    $this->addFieldMapping('changed', 'date_presented');
     $this->addFieldMapping('promote')
       ->defaultValue(1);
 
