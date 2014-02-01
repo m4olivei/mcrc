@@ -1,0 +1,4 @@
+[submodule "drupal/sites/all/modules/soundmanager2"]
+	path = drupal/sites/all/modules/soundmanager2
+	url = m4olivei@git.drupal.org:project/soundmanager2.git
+	branch = 7.x-2.x
