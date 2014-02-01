@@ -114,10 +114,7 @@ body.front .node.view-mode-full {
   .audio {
     float: left;
     margin-top: 6px;
-  }
-
-  &.has-audio .meta {
-    margin-left: 100px;
+    margin-right: 10px;
   }
 
   .meta {
@@ -172,6 +169,10 @@ body.front .node.view-mode-full {
 //
 // Responsive styles
 //
+@include lg-desktop {
+
+}
+
 @include mobile {
 
   .view-activity {

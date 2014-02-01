@@ -75,6 +75,7 @@ ul.graphic {
 
   li {
     margin-bottom: $baseLineHeight / 2;
+    height: 44px;
 
     &:last-child {
       margin-bottom: 0;
@@ -85,9 +86,9 @@ ul.graphic {
       position: relative;
       color: #fff;
       background-color: #9cd4c9;
-      width: 70px;
-      height: 70px;
-      @include border-radius(35px);
+      width: 44px;
+      height: 44px;
+      @include border-radius(22px);
       text-indent: -99999em;
       overflow: hidden;
 
@@ -98,9 +99,9 @@ ul.graphic {
         @include icon($play);
         display: inline-block;
         position: absolute;
-        top: 25px;
-        left: 25px;
-        font-size: 36px;
+        top: 10px;
+        left: 17px;
+        font-size: 20px;
         color: #fff;
         text-indent: 0;
       }
@@ -186,4 +187,28 @@ body #sm2-container embed {
 
  left:-9999em;
  top:-9999em;
+}
+
+//
+// Responsive
+//
+@include lg-desktop {
+  ul.graphic {
+
+    li {
+      height: 70px;
+
+      a.sm2_link {
+        width: 70px;
+        height: 70px;
+        @include border-radius(35px);
+
+        &:before {
+          top: 25px;
+          left: 25px;
+          font-size: 36px;
+        }
+      }
+    }
+  }
 }

@@ -12,7 +12,7 @@
   background-color: #bdb89a;
   @include border-radius($borderRadiusLarge);
   color: $white;
-  padding: $baseLineHeight * 1.5 $baseLineHeight * 2;
+  padding: 36px 30px;
   font-family: $altFontFamily;
   text-align: center;
 
@@ -50,7 +50,8 @@
 .block-wise-theme-blog {
   background: transparent url('../images/blog_block.jpg') no-repeat 50% 0;
   @include border-radius($borderRadiusLarge);
-  padding: 4px 10px 10px 134px;
+  padding: 4px 10px 10px 96px;
+  text-align: right;
 
   h2 {
     color: #fff;
@@ -64,5 +65,31 @@
   .content {
     font-family: $altFontFamily;
     @include pro-px(20px, 'line-height');
+  }
+}
+
+//
+// Responsive
+//
+@include lg-desktop {
+
+  .texture {
+    padding: $baseLineHeight * 1.5 $baseLineHeight * 2;
+  }
+
+  .block-wise-theme-blog {
+    padding: 4px 10px 10px 134px;
+  }
+}
+
+@include tablet {
+
+  .block-wise-theme-blog {
+    padding: 12px 10px 36px 10px;
+    background-position: 0 0;
+
+    .content p {
+      display: none;
+    }
   }
 }

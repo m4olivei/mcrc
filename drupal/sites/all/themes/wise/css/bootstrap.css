@@ -864,25 +864,20 @@ ol ul {
   margin-bottom: 0;
 }
 
-/* line 106, ../library/bootstrap/sass/bootstrap/_type.scss */
-li {
-  line-height: 24px;
-}
-
-/* line 112, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 109, ../library/bootstrap/sass/bootstrap/_type.scss */
 ul.unstyled,
 ol.unstyled {
   margin-left: 0;
   list-style: none;
 }
 
-/* line 119, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 116, ../library/bootstrap/sass/bootstrap/_type.scss */
 ul.inline,
 ol.inline {
   margin-left: 0;
   list-style: none;
 }
-/* line 122, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 119, ../library/bootstrap/sass/bootstrap/_type.scss */
 ul.inline > li,
 ol.inline > li {
   display: inline-block;
@@ -890,28 +885,28 @@ ol.inline > li {
   padding-right: 5px;
 }
 
-/* line 130, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 127, ../library/bootstrap/sass/bootstrap/_type.scss */
 dl {
   margin-bottom: 24px;
 }
 
-/* line 134, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 131, ../library/bootstrap/sass/bootstrap/_type.scss */
 dt,
 dd {
   line-height: 24px;
 }
 
-/* line 137, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 134, ../library/bootstrap/sass/bootstrap/_type.scss */
 dt {
   font-weight: bold;
 }
 
-/* line 140, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 137, ../library/bootstrap/sass/bootstrap/_type.scss */
 dd {
   margin-left: 12px;
 }
 
-/* line 144, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 141, ../library/bootstrap/sass/bootstrap/_type.scss */
 .dl-horizontal {
   *zoom: 1;
 }
@@ -925,7 +920,7 @@ dd {
 .dl-horizontal:after {
   clear: both;
 }
-/* line 146, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 143, ../library/bootstrap/sass/bootstrap/_type.scss */
 .dl-horizontal dt {
   float: left;
   width: 160px;
@@ -935,12 +930,12 @@ dd {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-/* line 153, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 150, ../library/bootstrap/sass/bootstrap/_type.scss */
 .dl-horizontal dd {
   margin-left: 180px;
 }
 
-/* line 162, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 159, ../library/bootstrap/sass/bootstrap/_type.scss */
 hr {
   margin: 24px 0;
   border: 0;
@@ -948,26 +943,26 @@ hr {
   border-bottom: 1px solid white;
 }
 
-/* line 172, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 169, ../library/bootstrap/sass/bootstrap/_type.scss */
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
   border-bottom: 1px dotted #b4b4b4;
 }
 
-/* line 176, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 173, ../library/bootstrap/sass/bootstrap/_type.scss */
 abbr.initialism {
   font-size: 90%;
   text-transform: uppercase;
 }
 
-/* line 182, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 179, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote {
   padding: 0 0 0 25px;
   margin: 0 0 24px;
   border-left: 5px solid #b5487f;
 }
-/* line 187, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 184, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote p {
   margin-bottom: 0;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -975,7 +970,7 @@ blockquote p {
   line-height: 1.18182em;
   font-weight: 700;
 }
-/* line 194, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 191, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote small {
   text-transform: uppercase;
   font-size: 13.6px;
@@ -985,11 +980,11 @@ blockquote small {
   line-height: 24px;
   color: #b4b4b4;
 }
-/* line 202, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 199, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote small:before {
   content: '\2014 \00A0';
 }
-/* line 208, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 205, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote.pull-right {
   float: right;
   padding-right: 15px;
@@ -997,21 +992,21 @@ blockquote.pull-right {
   border-right: 5px solid #cd89ae;
   border-left: 0;
 }
-/* line 215, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 212, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote.pull-right p,
 blockquote.pull-right small {
   text-align: right;
 }
-/* line 219, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 216, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote.pull-right small:before {
   content: '';
 }
-/* line 222, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 219, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote.pull-right small:after {
   content: '\00A0 \2014';
 }
 
-/* line 233, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 230, ../library/bootstrap/sass/bootstrap/_type.scss */
 q:before,
 q:after,
 blockquote:before,
@@ -1019,7 +1014,7 @@ blockquote:after {
   content: "";
 }
 
-/* line 238, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 235, ../library/bootstrap/sass/bootstrap/_type.scss */
 address {
   display: block;
   margin-bottom: 24px;

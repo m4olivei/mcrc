@@ -260,9 +260,10 @@ a.service-links-facebook {
   a.service-links-twitter {
     @include box-sizing(border-box);
     width: 100%;
+    padding: 4px 12px;
 
     i {
-      padding-right: 36px;
+      padding-right: 14px;
     }
   }
 }
@@ -384,6 +385,18 @@ a.service-links-facebook {
   .caption-right {
     margin: 0 0 $baseLineHeight / 4 $gridGutterWidth1200;
   }
+
+  .sidebar {
+
+    a[class*=service-links],
+    a.service-links-facebook,
+    a.service-links-twitter {
+
+      i {
+        padding-right: 36px;
+      }
+    }
+  }
 }
 
 @include tablet {
@@ -394,5 +407,19 @@ a.service-links-facebook {
 
   .caption-right {
     margin: 0 0 $baseLineHeight / 4 $gridGutterWidth768;
+  }
+
+  .sidebar {
+
+    a[class*=service-links],
+    a.service-links-facebook,
+    a.service-links-twitter {
+      padding: 4px 10px;
+      @include pro-px(14px);
+
+      i {
+        padding-right: 4px;
+      }
+    }
   }
 }

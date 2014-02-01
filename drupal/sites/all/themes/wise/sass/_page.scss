@@ -92,6 +92,7 @@ body.front {
   color: $white;
   padding-top: $baseLineHeight * 2;
   @include pro-px(14px);
+  @include pro-px(20px, 'line-height', 14px);
 
   .logo img {
     margin-bottom: $baseLineHeight / 2;
@@ -164,6 +165,14 @@ body.front {
 //
 // Responsive styles
 //
+@include tablet {
+
+  #footer {
+    @include pro-px(12px);
+    @include pro-px(18px, 'line-height', 12px);
+  }
+}
+
 @include mobile {
 
   #header,
