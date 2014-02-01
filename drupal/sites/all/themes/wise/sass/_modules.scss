@@ -422,4 +422,11 @@ a.service-links-facebook {
       }
     }
   }
+
+  .banner-blog {
+
+    .content {
+      @include pro-px(18px);
+    }
+  }
 }

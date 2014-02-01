@@ -173,12 +173,54 @@ body.front .node.view-mode-full {
 
 }
 
+@media (max-width: 599px) {
+
+  .view-service-list {
+
+    th.views-field-field-service-date {
+      @include border-top-right-radius($baseBorderRadius);
+      @include border-bottom-right-radius($baseBorderRadius);
+    }
+
+    .views-field-field-service-pastor,
+    .views-field-field-service-date-1 {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 379px) {
+
+  .view-service-list {
+
+    th.views-field-title {
+      @include border-top-right-radius($baseBorderRadius);
+      @include border-bottom-right-radius($baseBorderRadius);
+    }
+
+    .views-field-field-service-date {
+      display: none;
+    }
+  }
+}
+
 @include mobile {
 
   .view-activity {
 
-    .cell {
-      border-top: 0;
+    .row-set-featured {
+      margin-bottom: 0;
+
+      .cell {
+        border-top: 0;
+        margin-top: 0;
+        padding-top: 0;
+        margin-bottom: $baseLineHeight * 1.75;
+      }
+    }
+
+    .row-set-other {
+      font-size: 1em;
     }
 
     // Adjust the grid

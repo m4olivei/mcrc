@@ -786,77 +786,73 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   color: #b4b4b4;
 }
 
-/* line 66, ../library/bootstrap/sass/bootstrap/_type.scss */
-h1,
-h2,
-h3 {
-  line-height: 60px;
-}
-
-/* line 68, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 64, ../library/bootstrap/sass/bootstrap/_type.scss */
 h1 {
   font-size: 44px;
+  line-height: 48px;
 }
 
 /* line 69, ../library/bootstrap/sass/bootstrap/_type.scss */
 h2 {
   font-size: 36px;
+  line-height: 40px;
 }
 
-/* line 70, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 74, ../library/bootstrap/sass/bootstrap/_type.scss */
 h3 {
   font-size: 28px;
+  line-height: 32px;
 }
 
-/* line 71, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 79, ../library/bootstrap/sass/bootstrap/_type.scss */
 h4 {
   font-size: 20px;
 }
 
-/* line 72, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 80, ../library/bootstrap/sass/bootstrap/_type.scss */
 h5 {
   font-size: 16px;
 }
 
-/* line 73, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 81, ../library/bootstrap/sass/bootstrap/_type.scss */
 h6 {
   font-size: 13.6px;
 }
 
-/* line 75, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 83, ../library/bootstrap/sass/bootstrap/_type.scss */
 h1 small {
   font-size: 28px;
 }
 
-/* line 76, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 84, ../library/bootstrap/sass/bootstrap/_type.scss */
 h2 small {
   font-size: 20px;
 }
 
-/* line 77, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 85, ../library/bootstrap/sass/bootstrap/_type.scss */
 h3 small {
   font-size: 16px;
 }
 
-/* line 78, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 86, ../library/bootstrap/sass/bootstrap/_type.scss */
 h4 small {
   font-size: 16px;
 }
 
-/* line 84, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 92, ../library/bootstrap/sass/bootstrap/_type.scss */
 .page-header {
   padding-bottom: 11px;
   margin: 24px 0 36px;
   border-bottom: 1px solid #cd89ae;
 }
 
-/* line 96, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 104, ../library/bootstrap/sass/bootstrap/_type.scss */
 ul, ol {
   padding: 0;
   margin: 0 0 12px 25px;
 }
 
-/* line 103, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 111, ../library/bootstrap/sass/bootstrap/_type.scss */
 ul ul,
 ul ol,
 ol ol,
@@ -864,20 +860,20 @@ ol ul {
   margin-bottom: 0;
 }
 
-/* line 109, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 117, ../library/bootstrap/sass/bootstrap/_type.scss */
 ul.unstyled,
 ol.unstyled {
   margin-left: 0;
   list-style: none;
 }
 
-/* line 116, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 124, ../library/bootstrap/sass/bootstrap/_type.scss */
 ul.inline,
 ol.inline {
   margin-left: 0;
   list-style: none;
 }
-/* line 119, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 127, ../library/bootstrap/sass/bootstrap/_type.scss */
 ul.inline > li,
 ol.inline > li {
   display: inline-block;
@@ -885,28 +881,28 @@ ol.inline > li {
   padding-right: 5px;
 }
 
-/* line 127, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 135, ../library/bootstrap/sass/bootstrap/_type.scss */
 dl {
   margin-bottom: 24px;
 }
 
-/* line 131, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 139, ../library/bootstrap/sass/bootstrap/_type.scss */
 dt,
 dd {
   line-height: 24px;
 }
 
-/* line 134, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 142, ../library/bootstrap/sass/bootstrap/_type.scss */
 dt {
   font-weight: bold;
 }
 
-/* line 137, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 145, ../library/bootstrap/sass/bootstrap/_type.scss */
 dd {
   margin-left: 12px;
 }
 
-/* line 141, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 149, ../library/bootstrap/sass/bootstrap/_type.scss */
 .dl-horizontal {
   *zoom: 1;
 }
@@ -920,7 +916,7 @@ dd {
 .dl-horizontal:after {
   clear: both;
 }
-/* line 143, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 151, ../library/bootstrap/sass/bootstrap/_type.scss */
 .dl-horizontal dt {
   float: left;
   width: 160px;
@@ -930,12 +926,12 @@ dd {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-/* line 150, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 158, ../library/bootstrap/sass/bootstrap/_type.scss */
 .dl-horizontal dd {
   margin-left: 180px;
 }
 
-/* line 159, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 167, ../library/bootstrap/sass/bootstrap/_type.scss */
 hr {
   margin: 24px 0;
   border: 0;
@@ -943,26 +939,26 @@ hr {
   border-bottom: 1px solid white;
 }
 
-/* line 169, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 177, ../library/bootstrap/sass/bootstrap/_type.scss */
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
   border-bottom: 1px dotted #b4b4b4;
 }
 
-/* line 173, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 181, ../library/bootstrap/sass/bootstrap/_type.scss */
 abbr.initialism {
   font-size: 90%;
   text-transform: uppercase;
 }
 
-/* line 179, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 187, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote {
   padding: 0 0 0 25px;
   margin: 0 0 24px;
   border-left: 5px solid #b5487f;
 }
-/* line 184, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 192, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote p {
   margin-bottom: 0;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -970,7 +966,7 @@ blockquote p {
   line-height: 1.18182em;
   font-weight: 700;
 }
-/* line 191, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 199, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote small {
   text-transform: uppercase;
   font-size: 13.6px;
@@ -980,11 +976,11 @@ blockquote small {
   line-height: 24px;
   color: #b4b4b4;
 }
-/* line 199, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 207, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote small:before {
   content: '\2014 \00A0';
 }
-/* line 205, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 213, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote.pull-right {
   float: right;
   padding-right: 15px;
@@ -992,21 +988,21 @@ blockquote.pull-right {
   border-right: 5px solid #cd89ae;
   border-left: 0;
 }
-/* line 212, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 220, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote.pull-right p,
 blockquote.pull-right small {
   text-align: right;
 }
-/* line 216, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 224, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote.pull-right small:before {
   content: '';
 }
-/* line 219, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 227, ../library/bootstrap/sass/bootstrap/_type.scss */
 blockquote.pull-right small:after {
   content: '\00A0 \2014';
 }
 
-/* line 230, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 238, ../library/bootstrap/sass/bootstrap/_type.scss */
 q:before,
 q:after,
 blockquote:before,
@@ -1014,7 +1010,7 @@ blockquote:after {
   content: "";
 }
 
-/* line 235, ../library/bootstrap/sass/bootstrap/_type.scss */
+/* line 243, ../library/bootstrap/sass/bootstrap/_type.scss */
 address {
   display: block;
   margin-bottom: 24px;
