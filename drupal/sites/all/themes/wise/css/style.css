@@ -4439,7 +4439,11 @@ ul.graphic li a.sm2_playing:before {
   font-size: 34px;
 }
 
-/* line 132, ../sass/_inline_player.scss */
+/* line 130, ../sass/_inline_player.scss */
+.table ul.graphic li {
+  height: auto;
+}
+/* line 133, ../sass/_inline_player.scss */
 .table ul.graphic li a.sm2_link {
   width: 22px;
   height: 22px;
@@ -4449,35 +4453,35 @@ ul.graphic li a.sm2_playing:before {
   -moz-border-radius: 11px;
   border-radius: 11px;
 }
-/* line 139, ../sass/_inline_player.scss */
+/* line 140, ../sass/_inline_player.scss */
 .table ul.graphic li a.sm2_link:before {
   font-size: 9px;
   top: -1px;
   left: 8px;
 }
-/* line 145, ../sass/_inline_player.scss */
+/* line 146, ../sass/_inline_player.scss */
 .table ul.graphic li a.sm2_link:hover {
   background-color: #411840;
 }
-/* line 152, ../sass/_inline_player.scss */
+/* line 153, ../sass/_inline_player.scss */
 .table ul.graphic li a.sm2_playing:before {
   left: 7px;
 }
 
-/* line 167, ../sass/_inline_player.scss */
+/* line 168, ../sass/_inline_player.scss */
 .table-hover tbody tr:hover td ul.graphic li a.sm2_link,
 .table-hover tbody tr:hover th ul.graphic li a.sm2_link {
   background-color: white;
   color: #662664;
 }
-/* line 171, ../sass/_inline_player.scss */
+/* line 172, ../sass/_inline_player.scss */
 .table-hover tbody tr:hover td ul.graphic li a.sm2_link, .table-hover tbody tr:hover td ul.graphic li a.sm2_link:before,
 .table-hover tbody tr:hover th ul.graphic li a.sm2_link,
 .table-hover tbody tr:hover th ul.graphic li a.sm2_link:before {
   color: #662664;
 }
 
-/* line 182, ../sass/_inline_player.scss */
+/* line 183, ../sass/_inline_player.scss */
 body #sm2-container object,
 body #sm2-container embed {
   /*
@@ -4489,11 +4493,11 @@ body #sm2-container embed {
 }
 
 @media (min-width: 1200px) {
-  /* line 198, ../sass/_inline_player.scss */
+  /* line 199, ../sass/_inline_player.scss */
   ul.graphic li {
     height: 70px;
   }
-  /* line 201, ../sass/_inline_player.scss */
+  /* line 202, ../sass/_inline_player.scss */
   ul.graphic li a.sm2_link {
     width: 70px;
     height: 70px;
@@ -4501,7 +4505,7 @@ body #sm2-container embed {
     -moz-border-radius: 35px;
     border-radius: 35px;
   }
-  /* line 206, ../sass/_inline_player.scss */
+  /* line 207, ../sass/_inline_player.scss */
   ul.graphic li a.sm2_link:before {
     top: 25px;
     left: 25px;
