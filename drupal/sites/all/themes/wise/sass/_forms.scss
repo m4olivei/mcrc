@@ -5,6 +5,14 @@
 
 @import 'base';
 
+label {
+  font-weight: bold;
+}
+
+label.checkbox {
+  font-weight: normal;
+}
+
 html.js input.form-autocomplete {
   background:  #fff url('../images/throbber.gif') no-repeat scroll 100% 8px;
 }
@@ -56,7 +64,21 @@ fieldset.collapsible {
   }
 }
 
+.form-required {
+  color: $errorText;
+}
+
 .form-type-file input[type=file] {
   line-height: 1em;
   margin-bottom: 12px;
+}
+
+.control-group.form-type-checkboxes {
+  margin-bottom: $baseLineHeight;
+}
+
+.help-block {
+  @include pro-px(14px);
+  @include pro-px(20px, 'line-height', 12px);
+  margin-top: -8px;
 }

@@ -373,6 +373,35 @@ a.service-links-facebook {
   }
 }
 
+.recaptcha_get_another_captcha,
+div.recaptcha_only_if_image,
+div.recaptcha_only_if_audio,
+.recaptcha_help {
+  display: inline;
+}
+
+.captcha {
+
+  h2 {
+    margin-bottom: $baseLineHeight;
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: none;
+  }
+
+  i {
+    font-size: 22px;
+    padding-right: 8px;
+  }
+
+  input[type=text] {
+    margin-right: 8px;
+    margin-bottom: 0;
+  }
+}
+
 //
 // Responsive
 //

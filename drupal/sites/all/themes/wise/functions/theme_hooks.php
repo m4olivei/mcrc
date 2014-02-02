@@ -735,3 +735,55 @@ function wise_service_links_node_format($variables) {
     return '<div class="service-links service-links-' . $view_mode . '">'. theme('links', array('links' => $links)) .'</div>';
   }
 }
+
+/**
+ * Overrides theme_recaptcha_custom_widget().
+ */
+function wise_recaptcha_custom_widget() {
+  $recaptcha_only_if_incorrect_sol = t('Incorrect please try again');
+  $recaptcha_only_if_image_enter = t('Type the text:');
+  $recaptcha_only_if_audio_enter = t('Enter the words you hear:');
+  $recaptcha_get_another_captcha = t('Get another CAPTCHA');
+  $recaptcha_only_if_image = t('Get an audio CAPTCHA');
+  $recaptcha_only_if_audio = t('Get an image CAPTCHA');
+  $help = t('Help');
+  return <<<EOT
+    <div class="control-group">
+      <div id="recaptcha_image"></div>
+    </div>
+    <div class="recaptcha_only_if_incorrect_sol alert alert-error" style="color:red">$recaptcha_only_if_incorrect_sol</div>
+    <div class="control-group">
+      <label for="recaptcha_response_field" class="recaptcha_only_if_image">$recaptcha_only_if_image_enter</label>
+      <label for="recaptcha_response_field" class="recaptcha_only_if_audio">$recaptcha_only_if_audio_enter</label>
+      <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" />
+      <div class="recaptcha_get_another_captcha">
+        <a href="javascript:Recaptcha.reload()"><i class="icon-repeat"></i><span class="element-invisible">$recaptcha_get_another_captcha</span></a>
+      </div>
+      <div class="recaptcha_only_if_image">
+        <a href="javascript:Recaptcha.switch_type('audio')"><i class="icon-volume-up"></i><span class="element-invisible">$recaptcha_only_if_image</span></a>
+      </div>
+      <div class="recaptcha_only_if_audio">
+        <a href="javascript:Recaptcha.switch_type('image')"><i class="icon-picture"></i><span class="element-invisible">$recaptcha_only_if_audio</span></a>
+      </div>
+      <div class="recaptcha_help">
+        <a href="javascript:Recaptcha.showhelp()"><i class="icon-question-sign"></i><span class="element-invisible">$help</span></a>
+      </div>
+    </div>
+EOT;
+}
+
+/**
+ * Theme function for a CAPTCHA element.
+ *
+ * Render it in a fieldset if a description of the CAPTCHA
+ * is available. Render it as is otherwise.
+ */
+function wise_captcha($variables) {
+  $element = $variables['element'];
+  if (!empty($element['#description']) && isset($element['captcha_widgets'])) {
+    return '<div class="captcha"><h2>' . t('Prove you\'re not a robot') . '</h2>' . drupal_render_children($element) . '<p class="help-block">' . $element['#description'] . '</p></div>';
+  }
+  else {
+    return '<div class="captcha"><h2>' . t('Prove you\'re not a robot') . '</h2>' . drupal_render_children($element) . '</div>';
+  }
+}
