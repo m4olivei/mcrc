@@ -47,7 +47,7 @@
 
       $('.view-filters', context).placeholderize();
       // Special case
-      $.convertLabelToPlaceholder($('.views-widget-filter-date_filter label'), $('.views-widget-filter-date_filter input'));
+      $.convertLabelToPlaceholder($('.views-widget-filter-date_filter label[for=edit-date]'), $('.views-widget-filter-date_filter input'));
     }
 
     // Return public interface

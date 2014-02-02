@@ -35,7 +35,7 @@
         , id      = $label.attr('for')
         , $input  = (id) ? $('#' + id) : null;
 
-      if ($input) {
+      if ($input.length) {
         $.convertLabelToPlaceholder($label, $input);
       }
     });
