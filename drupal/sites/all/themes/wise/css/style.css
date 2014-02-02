@@ -1408,28 +1408,32 @@ body.front #page-title {
   display: none;
 }
 /* line 23, ../sass/_blocks.scss */
+.texture a {
+  color: #fff;
+}
+/* line 27, ../sass/_blocks.scss */
 .texture h2 {
   font-size: 1.5em;
   line-height: 1.33333em;
   color: white;
   margin: 0;
 }
-/* line 30, ../sass/_blocks.scss */
+/* line 34, ../sass/_blocks.scss */
 .texture p:last-child {
   margin-bottom: 0;
 }
 
-/* line 35, ../sass/_blocks.scss */
+/* line 39, ../sass/_blocks.scss */
 .texture-gray {
   background: #837781 url("../images/texture_dark_gray.png");
 }
 
-/* line 39, ../sass/_blocks.scss */
+/* line 43, ../sass/_blocks.scss */
 .texture-purple {
   background: url("../images/texture_purple.png");
 }
 
-/* line 46, ../sass/_blocks.scss */
+/* line 50, ../sass/_blocks.scss */
 .block .view-blog-posts .views-summary {
   list-style: none;
   list-style-image: none;
@@ -1438,7 +1442,7 @@ body.front #page-title {
   border: none;
 }
 
-/* line 50, ../sass/_blocks.scss */
+/* line 54, ../sass/_blocks.scss */
 .block-wise-theme-blog {
   background: transparent url("../images/blog_block.jpg") no-repeat 50% 0;
   -webkit-border-radius: 6px;
@@ -1450,7 +1454,7 @@ body.front #page-title {
   text-align: right;
   max-width: 164px;
 }
-/* line 57, ../sass/_blocks.scss */
+/* line 61, ../sass/_blocks.scss */
 .block-wise-theme-blog h2 {
   color: #fff;
   font-weight: bold;
@@ -1459,30 +1463,30 @@ body.front #page-title {
   font-size: 1.75em;
   line-height: 1em;
 }
-/* line 66, ../sass/_blocks.scss */
+/* line 70, ../sass/_blocks.scss */
 .block-wise-theme-blog .content {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.25em;
 }
 
 @media (min-width: 1200px) {
-  /* line 77, ../sass/_blocks.scss */
+  /* line 81, ../sass/_blocks.scss */
   .texture {
     padding: 36px 48px;
   }
 
-  /* line 81, ../sass/_blocks.scss */
+  /* line 85, ../sass/_blocks.scss */
   .block-wise-theme-blog {
     padding: 4px 10px 10px 134px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 88, ../sass/_blocks.scss */
+  /* line 92, ../sass/_blocks.scss */
   .block-wise-theme-blog {
     padding: 12px 10px 36px 10px;
     background-position: 0 0;
   }
-  /* line 92, ../sass/_blocks.scss */
+  /* line 96, ../sass/_blocks.scss */
   .block-wise-theme-blog .content p {
     display: none;
   }

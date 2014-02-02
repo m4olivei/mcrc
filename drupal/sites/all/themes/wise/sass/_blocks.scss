@@ -20,6 +20,10 @@
     display: none;
   }
 
+  a {
+    color: #fff;
+  }
+
   h2 {
     @include pro-px(24px);
     @include pro-px(32px, 'line-height', 24px);
