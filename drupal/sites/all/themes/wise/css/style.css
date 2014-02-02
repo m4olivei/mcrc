@@ -4434,9 +4434,9 @@ ul.graphic li a.sm2_playing {
 /* line 118, ../sass/_inline_player.scss */
 ul.graphic li a.sm2_playing:before {
   content: "\f04c";
-  left: 21px;
-  top: 25px;
-  font-size: 34px;
+  top: 10px;
+  left: 14px;
+  font-size: 20px;
 }
 
 /* line 130, ../sass/_inline_player.scss */
@@ -4510,5 +4510,11 @@ body #sm2-container embed {
     top: 25px;
     left: 25px;
     font-size: 36px;
+  }
+  /* line 216, ../sass/_inline_player.scss */
+  ul.graphic li a.sm2_playing:before {
+    top: 25px;
+    left: 22px;
+    font-size: 34px;
   }
 }

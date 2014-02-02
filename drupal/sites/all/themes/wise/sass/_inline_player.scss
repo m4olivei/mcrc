@@ -117,9 +117,9 @@ ul.graphic {
 
       &:before {
         content: $pause;
-        left: 21px;
-        top: 25px;
-        font-size: 34px;
+        top: 10px;
+        left: 14px;
+        font-size: 20px;
       }
     }
   }
@@ -208,6 +208,15 @@ body #sm2-container embed {
           top: 25px;
           left: 25px;
           font-size: 36px;
+        }
+      }
+
+      a.sm2_playing {
+
+        &:before {
+          top: 25px;
+          left: 22px;
+          font-size: 34px;
         }
       }
     }
