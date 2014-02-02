@@ -1448,8 +1448,9 @@ body.front #page-title {
   border-radius: 6px;
   padding: 4px 10px 10px 96px;
   text-align: right;
+  max-width: 164px;
 }
-/* line 56, ../sass/_blocks.scss */
+/* line 57, ../sass/_blocks.scss */
 .block-wise-theme-blog h2 {
   color: #fff;
   font-weight: bold;
@@ -1458,30 +1459,30 @@ body.front #page-title {
   font-size: 1.75em;
   line-height: 1em;
 }
-/* line 65, ../sass/_blocks.scss */
+/* line 66, ../sass/_blocks.scss */
 .block-wise-theme-blog .content {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.25em;
 }
 
 @media (min-width: 1200px) {
-  /* line 76, ../sass/_blocks.scss */
+  /* line 77, ../sass/_blocks.scss */
   .texture {
     padding: 36px 48px;
   }
 
-  /* line 80, ../sass/_blocks.scss */
+  /* line 81, ../sass/_blocks.scss */
   .block-wise-theme-blog {
     padding: 4px 10px 10px 134px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 87, ../sass/_blocks.scss */
+  /* line 88, ../sass/_blocks.scss */
   .block-wise-theme-blog {
     padding: 12px 10px 36px 10px;
     background-position: 0 0;
   }
-  /* line 91, ../sass/_blocks.scss */
+  /* line 92, ../sass/_blocks.scss */
   .block-wise-theme-blog .content p {
     display: none;
   }
