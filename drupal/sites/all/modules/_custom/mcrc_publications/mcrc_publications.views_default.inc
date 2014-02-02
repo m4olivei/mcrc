@@ -502,7 +502,7 @@ function mcrc_publications_views_default_views() {
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'access bulletin publication type';
+  $handler->display->display_options['access']['perm'] = 'access weekly bulletin publication type';
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
@@ -566,7 +566,7 @@ function mcrc_publications_views_default_views() {
   $handler = $view->new_display('attachment', 'Newsletter', 'attachment_1');
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'access newsletter publication type';
+  $handler->display->display_options['access']['perm'] = 'access weekly newsletter publication type';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
