@@ -235,13 +235,13 @@ body {
 
 /* line 22, ../library/bootstrap/sass/bootstrap/_scaffolding.scss */
 a {
-  color: #662664;
+  color: #6d2a6a;
   text-decoration: none;
 }
 
 /* line 26, ../library/bootstrap/sass/bootstrap/_scaffolding.scss */
 a:hover {
-  color: #2e112d;
+  color: #361534;
   text-decoration: underline;
 }
 
@@ -2362,7 +2362,7 @@ table {
 /* line 193, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
-  background-color: #662664;
+  background-color: #6d2a6a;
 }
 /* line 196, ../library/bootstrap/sass/bootstrap/_tables.scss */
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover td a,
@@ -2953,7 +2953,7 @@ input[type="submit"].btn.btn-mini {
 .btn-link {
   border-color: transparent;
   cursor: pointer;
-  color: #662664;
+  color: #6d2a6a;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -2963,7 +2963,7 @@ input[type="submit"].btn.btn-mini {
 
 /* line 220, ../library/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-link:hover {
-  color: #2e112d;
+  color: #361534;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -3132,7 +3132,7 @@ input[type="submit"].btn.btn-mini {
 .nav-list > .active > a:hover {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #662664;
+  background-color: #6d2a6a;
 }
 
 /* line 77, ../library/bootstrap/sass/bootstrap/_navs.scss */
@@ -3240,7 +3240,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover {
   color: white;
-  background-color: #662664;
+  background-color: #6d2a6a;
 }
 
 /* line 165, ../library/bootstrap/sass/bootstrap/_navs.scss */
@@ -3324,15 +3324,15 @@ input[type="submit"].btn.btn-mini {
 
 /* line 214, ../library/bootstrap/sass/bootstrap/_navs.scss */
 .nav .dropdown-toggle .caret {
-  border-top-color: #662664;
-  border-bottom-color: #662664;
+  border-top-color: #6d2a6a;
+  border-bottom-color: #6d2a6a;
   margin-top: 6px;
 }
 
 /* line 219, ../library/bootstrap/sass/bootstrap/_navs.scss */
 .nav .dropdown-toggle:hover .caret {
-  border-top-color: #2e112d;
-  border-bottom-color: #2e112d;
+  border-top-color: #361534;
+  border-bottom-color: #361534;
 }
 
 /* move down carets for tabs */
