@@ -16,6 +16,17 @@ foreach (glob($functions_dir . '/*.php') as $filename) {
 }
 
 /**
+ * Implements hook_preprocess_html().
+ */
+function wise_preprocess_html(&$vars) {
+
+  if (drupal_is_front_page()) {
+    $vars['head_title_array']['title'] = t('Home');
+    $vars['head_title'] = implode(' | ', $vars['head_title_array']);
+  }
+}
+
+/**
  * Implements hook_preprocess_page().
  */
 function wise_preprocess_page(&$vars) {
