@@ -31,6 +31,10 @@
   line-height: $baseLineHeight;
 }
 
+.alert p:last-child {
+  margin-bottom: 0;
+}
+
 
 // Alternate styles
 // -------------------------

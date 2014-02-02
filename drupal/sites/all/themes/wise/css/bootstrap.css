@@ -3007,19 +3007,24 @@ input[type="submit"].btn.btn-mini {
   line-height: 24px;
 }
 
-/* line 38, ../library/bootstrap/sass/bootstrap/_alerts.scss */
+/* line 34, ../library/bootstrap/sass/bootstrap/_alerts.scss */
+.alert p:last-child {
+  margin-bottom: 0;
+}
+
+/* line 42, ../library/bootstrap/sass/bootstrap/_alerts.scss */
 .alert-success {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   color: #468847;
 }
 
-/* line 43, ../library/bootstrap/sass/bootstrap/_alerts.scss */
+/* line 47, ../library/bootstrap/sass/bootstrap/_alerts.scss */
 .alert-success h4 {
   color: #468847;
 }
 
-/* line 47, ../library/bootstrap/sass/bootstrap/_alerts.scss */
+/* line 51, ../library/bootstrap/sass/bootstrap/_alerts.scss */
 .alert-danger,
 .alert-error {
   background-color: #f2dede;
@@ -3027,37 +3032,37 @@ input[type="submit"].btn.btn-mini {
   color: #b94a48;
 }
 
-/* line 53, ../library/bootstrap/sass/bootstrap/_alerts.scss */
+/* line 57, ../library/bootstrap/sass/bootstrap/_alerts.scss */
 .alert-danger h4,
 .alert-error h4 {
   color: #b94a48;
 }
 
-/* line 56, ../library/bootstrap/sass/bootstrap/_alerts.scss */
+/* line 60, ../library/bootstrap/sass/bootstrap/_alerts.scss */
 .alert-info {
   background-color: #d9edf7;
   border-color: #bce8f1;
   color: #3a87ad;
 }
 
-/* line 61, ../library/bootstrap/sass/bootstrap/_alerts.scss */
+/* line 65, ../library/bootstrap/sass/bootstrap/_alerts.scss */
 .alert-info h4 {
   color: #3a87ad;
 }
 
-/* line 69, ../library/bootstrap/sass/bootstrap/_alerts.scss */
+/* line 73, ../library/bootstrap/sass/bootstrap/_alerts.scss */
 .alert-block {
   padding-top: 14px;
   padding-bottom: 14px;
 }
 
-/* line 74, ../library/bootstrap/sass/bootstrap/_alerts.scss */
+/* line 78, ../library/bootstrap/sass/bootstrap/_alerts.scss */
 .alert-block > p,
 .alert-block > ul {
   margin-bottom: 0;
 }
 
-/* line 77, ../library/bootstrap/sass/bootstrap/_alerts.scss */
+/* line 81, ../library/bootstrap/sass/bootstrap/_alerts.scss */
 .alert-block p + p {
   margin-top: 5px;
 }
