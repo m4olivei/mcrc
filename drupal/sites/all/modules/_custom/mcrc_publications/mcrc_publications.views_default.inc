@@ -171,7 +171,7 @@ function mcrc_publications_views_default_views() {
     12 => 0,
   );
   $handler->display->display_options['filters']['field_publication_type_tid']['vocabulary'] = 'publications';
-  $handler->display->display_options['path'] = 'neighbourhood-lists';
+  $handler->display->display_options['path'] = 'members/neighbourhood-lists';
   $handler->display->display_options['menu']['title'] = 'Most Recent';
   $handler->display->display_options['menu']['weight'] = '-10';
   $handler->display->display_options['menu']['name'] = 'menu-secondary-menu';
@@ -345,7 +345,7 @@ function mcrc_publications_views_default_views() {
     12 => 0,
   );
   $handler->display->display_options['filters']['field_publication_type_tid']['vocabulary'] = 'publications';
-  $handler->display->display_options['path'] = 'policy-documents';
+  $handler->display->display_options['path'] = 'members/policy-documents';
   $handler->display->display_options['menu']['title'] = 'Most Recent';
   $handler->display->display_options['menu']['weight'] = '-10';
   $handler->display->display_options['menu']['name'] = 'menu-secondary-menu';
