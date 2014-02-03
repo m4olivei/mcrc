@@ -1,0 +1,5 @@
+name = MCRC Members
+description = Glue code for the MCRC members feature.
+core = 7.x
+version = 7.x-1.0
+package = Mountainview CRC

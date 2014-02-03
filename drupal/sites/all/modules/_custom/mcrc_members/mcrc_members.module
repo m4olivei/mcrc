@@ -1,0 +1,98 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function mcrc_members_menu() {
+  $items = array();
+
+  $items['admin/config/people/mcrc-members'] = array(
+    'title' => 'MCRC members',
+    'description' => 'MCRC members area configuration settings',
+    'access arguments' => array('administer site configuration'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mcrc_members_configuration_form'),
+  );
+
+  $items['members'] = array(
+    'title' => 'Members',
+    'access arguments' => array('view members area'),
+    'page callback' => 'mcrc_members',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function mcrc_members_permission() {
+
+  return array(
+    'view members area' => array(
+      'title' => t('View members area'),
+    ),
+  );
+}
+
+/**
+ * Configuration settings form callback.
+ */
+function mcrc_members_configuration_form() {
+  $form = array();
+
+  $form['mcrc_members_nid'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Node id of members area page'),
+    '#required' => TRUE,
+    '#description' => t('Enter the node id of the page you\'d like to serve as the members area landing page.  This page will have additional access checks applied to it and will only be available to users with the permission <em>View members area</em>.'),
+    '#size' => 4,
+    '#default_value' => variable_get('mcrc_members_nid'),
+  );
+
+  return system_settings_form($form);
+}
+
+/**
+ * Implements hook_node_access().
+ */
+function mcrc_members_node_access($node, $op, $account) {
+
+  if ($op == 'view' && ($members_nid = variable_get('mcrc_members_nid')) && $node->nid == $members_nid) {
+
+    if (!user_access('view members area', $account)) {
+      return NODE_ACCESS_DENY;
+    }
+  }
+}
+
+/**
+ * Page callback for /members.
+ */
+function mcrc_members() {
+
+  if ($members_nid = variable_get('mcrc_members_nid')) {
+    $node = node_load($members_nid);
+    return node_page_view($node);
+  }
+  else {
+    return '';
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ * When we call node_page_view() on our members callback, the template_prepocess_node
+ * function marks the 'page' variable as FALSE.  We want it to be TRUE so the node is rendered
+ * as a true full page view.
+ */
+function mcrc_members_preprocess_node(&$vars) {
+  $node = $vars['node'];
+
+  if (($members_nid = variable_get('mcrc_members_nid')) && $node->nid == $members_nid) {
+    $vars['page'] = $vars['view_mode'] == 'full';
+  }
+}
