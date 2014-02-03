@@ -780,10 +780,24 @@ EOT;
  */
 function wise_captcha($variables) {
   $element = $variables['element'];
-  if (!empty($element['#description']) && isset($element['captcha_widgets'])) {
-    return '<div class="captcha"><h3>' . t('Prove you\'re not a robot') . '</h3>' . drupal_render_children($element) . '<p class="help-block">' . $element['#description'] . '</p></div>';
+
+  // Check if we just have hidden inputs, b/c if so, only output the inputs themselves and nothing else.
+  $all_hidden = TRUE;
+  foreach (element_children($element) as $key) {
+    if (!(isset($element[$key]['#type']) && $element[$key]['#type'] == 'hidden')) {
+      $all_hidden = FALSE;
+      break;
+    }
+  }
+  if ($all_hidden) {
+    return drupal_render_children($element);
   }
   else {
-    return '<div class="captcha"><h3>' . t('Prove you\'re not a robot') . '</h3>' . drupal_render_children($element) . '</div>';
+    if (!empty($element['#description']) && isset($element['captcha_widgets'])) {
+      return '<div class="captcha"><h3>' . t('Prove you\'re not a robot') . '</h3>' . drupal_render_children($element) . '<p class="help-block">' . $element['#description'] . '</p></div>';
+    }
+    else {
+      return '<div class="captcha"><h3>' . t('Prove you\'re not a robot') . '</h3>' . drupal_render_children($element) . '</div>';
+    }
   }
 }
