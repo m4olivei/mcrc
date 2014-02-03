@@ -76,14 +76,11 @@ function mcrc_publications_views_default_views() {
   $handler->display->display_options['fields']['field_publication_file']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_publication_file']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_publication_file']['type'] = 'file_url_plain';
-  /* Sort criterion: Content: Type (field_publication_type) */
-  $handler->display->display_options['sorts']['field_publication_type_tid']['id'] = 'field_publication_type_tid';
-  $handler->display->display_options['sorts']['field_publication_type_tid']['table'] = 'field_data_field_publication_type';
-  $handler->display->display_options['sorts']['field_publication_type_tid']['field'] = 'field_publication_type_tid';
-  /* Sort criterion: Content: Title */
-  $handler->display->display_options['sorts']['title']['id'] = 'title';
-  $handler->display->display_options['sorts']['title']['table'] = 'node';
-  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Sort criterion: Content: Date (field_publication_date) */
+  $handler->display->display_options['sorts']['field_publication_date_value']['id'] = 'field_publication_date_value';
+  $handler->display->display_options['sorts']['field_publication_date_value']['table'] = 'field_data_field_publication_date';
+  $handler->display->display_options['sorts']['field_publication_date_value']['field'] = 'field_publication_date_value';
+  $handler->display->display_options['sorts']['field_publication_date_value']['order'] = 'DESC';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -301,7 +298,7 @@ function mcrc_publications_views_default_views() {
 
 <hr />
 
-<small>Please note that all information contained within these publications is in full compliance with Mountainview CRC\'s <a href="#">Privacy Policy</a>.  If you have any questions or comments about the contents of these publications, please contact <a href="#">Mountainview\'s Administrative Assistant.</a></small>';
+<small>Please note that all information contained within these publications is in full compliance with Mountainview CRC\'s <a href="/privacy-policy">Privacy Policy</a>.  If you have any questions or comments about the contents of these publications, please contact <a href="mailto:office@mountainviewcrc.org">Mountainview\'s Administrative Assistant.</a></small>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -697,7 +694,7 @@ function mcrc_publications_views_default_views() {
 
 <hr />
 
-<small>Please note that all information contained within these publications is in full compliance with Mountainview CRC\'s <a href="#">Privacy Policy</a>.  If you have any questions or comments about the contents of these publications, please contact <a href="#">Mountainview\'s Administrative Assistant.</a></small>';
+<small>Please note that all information contained within these publications is in full compliance with Mountainview CRC\'s <a href="/privacy-policy">Privacy Policy</a>.  If you have any questions or comments about the contents of these publications, please contact <a href="mailto:office@mountainviewcrc.org">Mountainview\'s Administrative Assistant.</a></small>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
