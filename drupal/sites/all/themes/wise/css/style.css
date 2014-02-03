@@ -795,38 +795,39 @@ div.recaptcha_only_if_audio,
   display: inline;
 }
 
-/* line 385, ../sass/_modules.scss */
-.captcha h2 {
+/* line 386, ../sass/_modules.scss */
+.captcha h2,
+.captcha h3 {
   margin-bottom: 24px;
 }
-/* line 390, ../sass/_modules.scss */
+/* line 391, ../sass/_modules.scss */
 .captcha a:hover,
 .captcha a:focus {
   text-decoration: none;
 }
-/* line 394, ../sass/_modules.scss */
+/* line 395, ../sass/_modules.scss */
 .captcha i {
   font-size: 22px;
   padding-right: 8px;
 }
-/* line 399, ../sass/_modules.scss */
+/* line 400, ../sass/_modules.scss */
 .captcha input[type=text] {
   margin-right: 8px;
   margin-bottom: 0;
 }
 
 @media (min-width: 1200px) {
-  /* line 410, ../sass/_modules.scss */
+  /* line 411, ../sass/_modules.scss */
   .caption-left {
     margin: 0 30px 6px 0;
   }
 
-  /* line 414, ../sass/_modules.scss */
+  /* line 415, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 6px 30px;
   }
 
-  /* line 424, ../sass/_modules.scss */
+  /* line 425, ../sass/_modules.scss */
   .sidebar a[class*=service-links] i,
   .sidebar a.service-links-facebook i,
   .sidebar a.service-links-twitter i {
@@ -834,31 +835,31 @@ div.recaptcha_only_if_audio,
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 433, ../sass/_modules.scss */
+  /* line 434, ../sass/_modules.scss */
   .caption-left {
     margin: 0 20px 6px 0;
   }
 
-  /* line 437, ../sass/_modules.scss */
+  /* line 438, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 6px 20px;
   }
 
-  /* line 445, ../sass/_modules.scss */
+  /* line 446, ../sass/_modules.scss */
   .sidebar a[class*=service-links],
   .sidebar a.service-links-facebook,
   .sidebar a.service-links-twitter {
     padding: 4px 10px;
     font-size: 0.875em;
   }
-  /* line 449, ../sass/_modules.scss */
+  /* line 450, ../sass/_modules.scss */
   .sidebar a[class*=service-links] i,
   .sidebar a.service-links-facebook i,
   .sidebar a.service-links-twitter i {
     padding-right: 4px;
   }
 
-  /* line 457, ../sass/_modules.scss */
+  /* line 458, ../sass/_modules.scss */
   .banner-blog .content {
     font-size: 1.125em;
   }

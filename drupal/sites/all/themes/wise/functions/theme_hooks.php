@@ -781,9 +781,9 @@ EOT;
 function wise_captcha($variables) {
   $element = $variables['element'];
   if (!empty($element['#description']) && isset($element['captcha_widgets'])) {
-    return '<div class="captcha"><h2>' . t('Prove you\'re not a robot') . '</h2>' . drupal_render_children($element) . '<p class="help-block">' . $element['#description'] . '</p></div>';
+    return '<div class="captcha"><h3>' . t('Prove you\'re not a robot') . '</h3>' . drupal_render_children($element) . '<p class="help-block">' . $element['#description'] . '</p></div>';
   }
   else {
-    return '<div class="captcha"><h2>' . t('Prove you\'re not a robot') . '</h2>' . drupal_render_children($element) . '</div>';
+    return '<div class="captcha"><h3>' . t('Prove you\'re not a robot') . '</h3>' . drupal_render_children($element) . '</div>';
   }
 }
