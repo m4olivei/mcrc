@@ -31,7 +31,9 @@
   line-height: $baseLineHeight;
 }
 
-.alert p:last-child {
+.alert p:last-child,
+.alert ul,
+.alert ol {
   margin-bottom: 0;
 }
 
