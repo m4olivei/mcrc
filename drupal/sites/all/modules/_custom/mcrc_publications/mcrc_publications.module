@@ -85,7 +85,7 @@ function mcrc_publications_form_publication_node_form_alter(&$form, $form_state)
     $form['auto_title_choice'] = array(
       '#type' => 'checkbox',
       '#title' => t('Auto-generate a title for this publication.'),
-      '#default_value' => FALSE,
+      '#default_value' => TRUE,
       '#weight' => -100,
     );
     $form['title']['#states'] = array(
