@@ -70,7 +70,11 @@ fieldset.collapsible {
 
 .form-type-file input[type=file] {
   line-height: 1em;
-  margin-bottom: 12px;
+  margin-bottom: $baseLineHeight / 2;
+}
+
+.form-textarea-wrapper {
+  margin-bottom: $baseLineHeight;
 }
 
 .control-group.form-type-checkboxes {

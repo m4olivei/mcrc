@@ -348,11 +348,16 @@ fieldset.collapsible.collapsed legend .fieldset-legend a:before {
 }
 
 /* line 76, ../sass/_forms.scss */
-.control-group.form-type-checkboxes {
+.form-textarea-wrapper {
   margin-bottom: 24px;
 }
 
 /* line 80, ../sass/_forms.scss */
+.control-group.form-type-checkboxes {
+  margin-bottom: 24px;
+}
+
+/* line 84, ../sass/_forms.scss */
 .help-block {
   font-size: 0.875em;
   line-height: 1.66667em;
