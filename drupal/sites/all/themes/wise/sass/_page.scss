@@ -166,6 +166,10 @@ body.front {
   @include pro-px(14px);
 }
 
+.page-publications.logged-in .region-sidebar-first .block-menu-block-main-menu {
+  display: none;
+}
+
 //
 // Responsive styles
 //
