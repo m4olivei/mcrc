@@ -2089,28 +2089,32 @@ html[xmlns] .slides {
 .region-content-bottom .flexslider article {
   margin-bottom: 0;
 }
+/* line 291, ../sass/_flexslider.scss */
+.region-content-bottom .view-wise-slider {
+  width: auto;
+}
 
 @media screen and (max-width: 860px) {
-  /* line 297, ../sass/_flexslider.scss */
+  /* line 301, ../sass/_flexslider.scss */
   .flex-direction-nav .flex-prev {
     opacity: 1;
     left: 0;
   }
 
-  /* line 302, ../sass/_flexslider.scss */
+  /* line 306, ../sass/_flexslider.scss */
   .flex-direction-nav .flex-next {
     opacity: 1;
     right: 0;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 310, ../sass/_flexslider.scss */
+  /* line 314, ../sass/_flexslider.scss */
   .flexslider {
     width: 724px;
     height: 304px;
   }
 
-  /* line 315, ../sass/_flexslider.scss */
+  /* line 319, ../sass/_flexslider.scss */
   .slide-text {
     left: 60px;
     width: 476px;
