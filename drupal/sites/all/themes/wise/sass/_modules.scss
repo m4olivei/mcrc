@@ -403,6 +403,22 @@ div.recaptcha_only_if_audio,
   }
 }
 
+.alignleft,
+.alignright {
+  margin-bottom: 5px;
+  max-width: 60%;
+}
+
+.alignleft {
+  float: left;
+  margin-right: $gridGutterWidth;
+}
+
+.alignright {
+  float: right;
+  margin-left: $gridGutterWidth;
+}
+
 //
 // Responsive
 //

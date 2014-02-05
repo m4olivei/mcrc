@@ -821,18 +821,37 @@ div.recaptcha_only_if_audio,
   margin-bottom: 0;
 }
 
+/* line 407, ../sass/_modules.scss */
+.alignleft,
+.alignright {
+  margin-bottom: 5px;
+  max-width: 60%;
+}
+
+/* line 412, ../sass/_modules.scss */
+.alignleft {
+  float: left;
+  margin-right: 20px;
+}
+
+/* line 417, ../sass/_modules.scss */
+.alignright {
+  float: right;
+  margin-left: 20px;
+}
+
 @media (min-width: 1200px) {
-  /* line 411, ../sass/_modules.scss */
+  /* line 427, ../sass/_modules.scss */
   .caption-left {
     margin: 0 30px 6px 0;
   }
 
-  /* line 415, ../sass/_modules.scss */
+  /* line 431, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 6px 30px;
   }
 
-  /* line 425, ../sass/_modules.scss */
+  /* line 441, ../sass/_modules.scss */
   .sidebar a[class*=service-links] i,
   .sidebar a.service-links-facebook i,
   .sidebar a.service-links-twitter i {
@@ -840,31 +859,31 @@ div.recaptcha_only_if_audio,
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 434, ../sass/_modules.scss */
+  /* line 450, ../sass/_modules.scss */
   .caption-left {
     margin: 0 20px 6px 0;
   }
 
-  /* line 438, ../sass/_modules.scss */
+  /* line 454, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 6px 20px;
   }
 
-  /* line 446, ../sass/_modules.scss */
+  /* line 462, ../sass/_modules.scss */
   .sidebar a[class*=service-links],
   .sidebar a.service-links-facebook,
   .sidebar a.service-links-twitter {
     padding: 4px 10px;
     font-size: 0.875em;
   }
-  /* line 450, ../sass/_modules.scss */
+  /* line 466, ../sass/_modules.scss */
   .sidebar a[class*=service-links] i,
   .sidebar a.service-links-facebook i,
   .sidebar a.service-links-twitter i {
     padding-right: 4px;
   }
 
-  /* line 458, ../sass/_modules.scss */
+  /* line 474, ../sass/_modules.scss */
   .banner-blog .content {
     font-size: 1.125em;
   }
