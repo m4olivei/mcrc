@@ -273,6 +273,23 @@ html[xmlns] .slides {
 }
 
 //
+// Slider in the content bottom region
+//
+.region-content-bottom {
+
+  .flexslider {
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    article {
+      margin-bottom: 0;
+    }
+  }
+}
+
+//
 // Responsive styles
 //
 @media screen and (max-width: 860px) {
