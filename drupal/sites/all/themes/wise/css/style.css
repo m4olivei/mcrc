@@ -845,18 +845,92 @@ div.recaptcha_only_if_audio,
   margin-left: 20px;
 }
 
+/* line 429, ../sass/_modules.scss */
+.password-strength {
+  font-size: 15px;
+  width: 17em;
+  float: right;
+  /* LTR */
+  margin-top: 2px;
+}
+
+/* line 436, ../sass/_modules.scss */
+.password-strength-title {
+  display: inline;
+}
+
+/* line 440, ../sass/_modules.scss */
+.password-strength-text {
+  float: right;
+  /* LTR */
+  font-weight: bold;
+}
+
+/* line 445, ../sass/_modules.scss */
+.password-indicator {
+  background-color: #c4c4c4;
+  height: 0.3em;
+  width: 100%;
+}
+
+/* line 451, ../sass/_modules.scss */
+.password-indicator div {
+  height: 100%;
+  width: 0%;
+  background-color: #46a546;
+}
+
+/* line 457, ../sass/_modules.scss */
+div.password-confirm {
+  float: right;
+  /* LTR */
+  visibility: hidden;
+  width: 17em;
+}
+
+/* line 463, ../sass/_modules.scss */
+div.form-item div.password-suggestions {
+  padding: 0.2em 0.5em;
+  margin: 0.7em 0;
+  width: 38.5em;
+  border: 1px solid #B4B4B4;
+}
+
+/* line 470, ../sass/_modules.scss */
+div.password-suggestions ul {
+  margin-bottom: 0;
+}
+
+/* line 475, ../sass/_modules.scss */
+.confirm-parent,
+.password-parent {
+  clear: left;
+  /* LTR */
+  margin: 0;
+  width: 500px;
+}
+
+/* line 481, ../sass/_modules.scss */
+.form-type-password-confirm {
+  margin-bottom: 0;
+}
+/* line 484, ../sass/_modules.scss */
+.form-type-password-confirm .control-group {
+  margin-bottom: 0;
+}
+
 @media (min-width: 1200px) {
-  /* line 431, ../sass/_modules.scss */
+  /* line 494, ../sass/_modules.scss */
   .caption-left {
     margin: 0 30px 6px 0;
   }
 
-  /* line 435, ../sass/_modules.scss */
+  /* line 498, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 6px 30px;
   }
 
-  /* line 445, ../sass/_modules.scss */
+  /* line 508, ../sass/_modules.scss */
   .sidebar a[class*=service-links] i,
   .sidebar a.service-links-facebook i,
   .sidebar a.service-links-twitter i {
@@ -864,33 +938,47 @@ div.recaptcha_only_if_audio,
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 454, ../sass/_modules.scss */
+  /* line 517, ../sass/_modules.scss */
   .caption-left {
     margin: 0 20px 6px 0;
   }
 
-  /* line 458, ../sass/_modules.scss */
+  /* line 521, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 6px 20px;
   }
 
-  /* line 466, ../sass/_modules.scss */
+  /* line 529, ../sass/_modules.scss */
   .sidebar a[class*=service-links],
   .sidebar a.service-links-facebook,
   .sidebar a.service-links-twitter {
     padding: 4px 10px;
     font-size: 0.875em;
   }
-  /* line 470, ../sass/_modules.scss */
+  /* line 533, ../sass/_modules.scss */
   .sidebar a[class*=service-links] i,
   .sidebar a.service-links-facebook i,
   .sidebar a.service-links-twitter i {
     padding-right: 4px;
   }
 
-  /* line 478, ../sass/_modules.scss */
+  /* line 541, ../sass/_modules.scss */
   .banner-blog .content {
     font-size: 1.125em;
+  }
+}
+@media (max-width: 767px) {
+  /* line 548, ../sass/_modules.scss */
+  .password-strength {
+    float: none;
+    margin-bottom: 12px;
+    width: 80%;
+  }
+
+  /* line 555, ../sass/_modules.scss */
+  .confirm-parent,
+  .password-parent {
+    width: auto;
   }
 }
 /* line 10, ../sass/_page.scss */

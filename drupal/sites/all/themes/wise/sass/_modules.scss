@@ -95,7 +95,7 @@
 }
 
 .node-page .featured-image {
-  margin-bottom: $baseLineHeight * 1.5; 
+  margin-bottom: $baseLineHeight * 1.5;
 }
 
 .submitted {
@@ -424,6 +424,69 @@ div.recaptcha_only_if_audio,
 }
 
 //
+// Password strength indicator.
+//
+.password-strength {
+  font-size: 15px;
+  width: 17em;
+  float: right;  /* LTR */
+  margin-top: 2px;
+}
+
+.password-strength-title {
+  display: inline;
+}
+
+.password-strength-text {
+  float: right; /* LTR */
+  font-weight: bold;
+}
+
+.password-indicator {
+  background-color: #c4c4c4;
+  height: 0.3em;
+  width: 100%;
+}
+
+.password-indicator div {
+  height: 100%;
+  width: 0%;
+  background-color: $green;
+}
+
+div.password-confirm {
+  float: right;  /* LTR */
+  visibility: hidden;
+  width: 17em;
+}
+
+div.form-item div.password-suggestions {
+  padding: 0.2em 0.5em;
+  margin: 0.7em 0;
+  width: 38.5em;
+  border: 1px solid #B4B4B4;
+}
+
+div.password-suggestions ul {
+  margin-bottom: 0;
+}
+
+.confirm-parent,
+.password-parent {
+  clear: left; /* LTR */
+  margin: 0;
+  width: 500px;
+}
+
+.form-type-password-confirm {
+  margin-bottom: 0;
+
+  .control-group {
+    margin-bottom: 0;
+  }
+}
+
+//
 // Responsive
 //
 @include lg-desktop {
@@ -478,5 +541,18 @@ div.recaptcha_only_if_audio,
     .content {
       @include pro-px(18px);
     }
+  }
+}
+
+@include mobile {
+  .password-strength {
+    float: none;
+    margin-bottom: $baseLineHeight / 2;
+    width: 80%;
+  }
+
+  .confirm-parent,
+  .password-parent {
+    width: auto;
   }
 }
