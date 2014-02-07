@@ -94,6 +94,10 @@
   margin-bottom: $baseLineHeight / 2;
 }
 
+.node-page .featured-image {
+  margin-bottom: $baseLineHeight * 1.5; 
+}
+
 .submitted {
   text-transform: uppercase;
   @include pro-px(14px);
