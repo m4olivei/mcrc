@@ -74,6 +74,24 @@
 }
 
 //
+// Sundays
+//
+.block.sundays {
+  background: #333 url('../images/sundays.png') no-repeat 50% 100%;
+  @include border-radius($borderRadiusLarge);
+  padding: 10px 10px 170px 10px;
+  text-align: center;
+  color: $white;
+  font-family: $altFontFamily;
+
+  h2 {
+    @include pro-px(28px);
+    line-height: 1em;
+    color: $white;
+  }
+}
+
+//
 // Responsive
 //
 @include lg-desktop {
@@ -84,6 +102,10 @@
 
   .block-wise-theme-blog {
     padding: 4px 10px 10px 134px;
+  }
+
+  .block.sundays {
+    padding: 10px 40px 178px 40px;
   }
 }
 
@@ -96,5 +118,9 @@
     .content p {
       display: none;
     }
+  }
+
+  .block.sundays {
+    padding: 10px 10px 184px 10px;
   }
 }

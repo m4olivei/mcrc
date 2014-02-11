@@ -1652,26 +1652,56 @@ body.front #page-title {
   line-height: 1.25em;
 }
 
+/* line 79, ../sass/_blocks.scss */
+.block.sundays {
+  background: #333333 url("../images/sundays.png") no-repeat 50% 100%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  padding: 10px 10px 170px 10px;
+  text-align: center;
+  color: white;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* line 87, ../sass/_blocks.scss */
+.block.sundays h2 {
+  font-size: 1.75em;
+  line-height: 1em;
+  color: white;
+}
+
 @media (min-width: 1200px) {
-  /* line 81, ../sass/_blocks.scss */
+  /* line 99, ../sass/_blocks.scss */
   .texture {
     padding: 36px 48px;
   }
 
-  /* line 85, ../sass/_blocks.scss */
+  /* line 103, ../sass/_blocks.scss */
   .block-wise-theme-blog {
     padding: 4px 10px 10px 134px;
   }
+
+  /* line 107, ../sass/_blocks.scss */
+  .block.sundays {
+    padding: 10px 40px 178px 40px;
+  }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 92, ../sass/_blocks.scss */
+  /* line 114, ../sass/_blocks.scss */
   .block-wise-theme-blog {
     padding: 12px 10px 36px 10px;
     background-position: 0 0;
   }
-  /* line 96, ../sass/_blocks.scss */
+  /* line 118, ../sass/_blocks.scss */
   .block-wise-theme-blog .content p {
     display: none;
+  }
+
+  /* line 123, ../sass/_blocks.scss */
+  .block.sundays {
+    padding: 10px 10px 184px 10px;
   }
 }
 /* line 9, ../sass/_nodes.scss */
