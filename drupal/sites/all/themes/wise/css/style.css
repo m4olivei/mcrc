@@ -1616,7 +1616,17 @@ body.front #page-title {
   background: url("../images/texture_purple.png");
 }
 
-/* line 50, ../sass/_blocks.scss */
+/* line 47, ../sass/_blocks.scss */
+.texture-teal {
+  background: url("../images/texture_triangle_teal.png");
+}
+
+/* line 52, ../sass/_blocks.scss */
+.block.ltm {
+  padding: 36px 20px;
+}
+
+/* line 59, ../sass/_blocks.scss */
 .block .view-blog-posts .views-summary {
   list-style: none;
   list-style-image: none;
@@ -1625,7 +1635,7 @@ body.front #page-title {
   border: none;
 }
 
-/* line 54, ../sass/_blocks.scss */
+/* line 63, ../sass/_blocks.scss */
 .block-wise-theme-blog {
   background: transparent url("../images/blog_block.jpg") no-repeat 50% 0;
   -webkit-border-radius: 6px;
@@ -1637,7 +1647,7 @@ body.front #page-title {
   text-align: right;
   max-width: 164px;
 }
-/* line 61, ../sass/_blocks.scss */
+/* line 70, ../sass/_blocks.scss */
 .block-wise-theme-blog h2 {
   color: #fff;
   font-weight: bold;
@@ -1646,13 +1656,13 @@ body.front #page-title {
   font-size: 1.75em;
   line-height: 1em;
 }
-/* line 70, ../sass/_blocks.scss */
+/* line 79, ../sass/_blocks.scss */
 .block-wise-theme-blog .content {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.25em;
 }
 
-/* line 79, ../sass/_blocks.scss */
+/* line 88, ../sass/_blocks.scss */
 .block.sundays {
   background: #333333 url("../images/sundays.png") no-repeat 50% 100%;
   -webkit-border-radius: 6px;
@@ -1665,7 +1675,7 @@ body.front #page-title {
   color: white;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-/* line 87, ../sass/_blocks.scss */
+/* line 96, ../sass/_blocks.scss */
 .block.sundays h2 {
   font-size: 1.75em;
   line-height: 1em;
@@ -1673,33 +1683,33 @@ body.front #page-title {
 }
 
 @media (min-width: 1200px) {
-  /* line 99, ../sass/_blocks.scss */
+  /* line 108, ../sass/_blocks.scss */
   .texture {
     padding: 36px 48px;
   }
 
-  /* line 103, ../sass/_blocks.scss */
+  /* line 112, ../sass/_blocks.scss */
   .block-wise-theme-blog {
     padding: 4px 10px 10px 134px;
   }
 
-  /* line 107, ../sass/_blocks.scss */
+  /* line 116, ../sass/_blocks.scss */
   .block.sundays {
     padding: 10px 40px 178px 40px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 114, ../sass/_blocks.scss */
+  /* line 123, ../sass/_blocks.scss */
   .block-wise-theme-blog {
     padding: 12px 10px 36px 10px;
     background-position: 0 0;
   }
-  /* line 118, ../sass/_blocks.scss */
+  /* line 127, ../sass/_blocks.scss */
   .block-wise-theme-blog .content p {
     display: none;
   }
 
-  /* line 123, ../sass/_blocks.scss */
+  /* line 132, ../sass/_blocks.scss */
   .block.sundays {
     padding: 10px 10px 184px 10px;
   }
