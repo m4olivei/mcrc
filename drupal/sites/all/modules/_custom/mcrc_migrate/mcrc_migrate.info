@@ -12,3 +12,4 @@ files[] = mcrc_migrate_service.inc
 files[] = mcrc_migrate_user.inc
 files[] = mcrc_migrate_publications.inc
 files[] = mcrc_migrate_blog.inc
+files[] = mcrc_migrate_service_itunes.inc

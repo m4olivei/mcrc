@@ -17,6 +17,7 @@ function mcrc_migrate_migrate_api() {
       'MCRCUser' => array('class_name' => 'MCRCUserMigration'),
       'MCRCPublications' => array('class_name' => 'MCRCPublicationsMigration'),
       'MCRCBlog' => array('class_name' => 'MCRCBlogMigration'),
+      'MCRCServiceItunes' => array('class_name' => 'MCRCServiceItunesMigration'),
     ),
   );
 }
