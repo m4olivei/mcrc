@@ -741,20 +741,18 @@ function wise_service_links_node_format($variables) {
  */
 function wise_recaptcha_custom_widget() {
   $recaptcha_only_if_incorrect_sol = t('Incorrect please try again');
-  $recaptcha_only_if_image_enter = t('Type the text:');
-  $recaptcha_only_if_audio_enter = t('Enter the words you hear:');
+  $recaptcha_only_if_image_enter = t('Type the text <span class="form-required" title="This field is required.">*</span>');
+  $recaptcha_only_if_audio_enter = t('Enter the words you hear <span class="form-required" title="This field is required.">*</span>');
   $recaptcha_get_another_captcha = t('Get another CAPTCHA');
   $recaptcha_only_if_image = t('Get an audio CAPTCHA');
   $recaptcha_only_if_audio = t('Get an image CAPTCHA');
   $help = t('Help');
   return <<<EOT
-    <div class="control-group">
-      <div id="recaptcha_image"></div>
-    </div>
     <div class="recaptcha_only_if_incorrect_sol alert alert-error" style="color:red">$recaptcha_only_if_incorrect_sol</div>
     <div class="control-group">
       <label for="recaptcha_response_field" class="recaptcha_only_if_image">$recaptcha_only_if_image_enter</label>
       <label for="recaptcha_response_field" class="recaptcha_only_if_audio">$recaptcha_only_if_audio_enter</label>
+      <div id="recaptcha_image"></div>
       <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" />
       <div class="recaptcha_get_another_captcha">
         <a href="javascript:Recaptcha.reload()"><i class="icon-repeat"></i><span class="element-invisible">$recaptcha_get_another_captcha</span></a>

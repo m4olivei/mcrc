@@ -377,6 +377,9 @@ a.service-links-facebook {
   }
 }
 
+//
+// reCAPTCHA
+//
 .recaptcha_get_another_captcha,
 div.recaptcha_only_if_image,
 div.recaptcha_only_if_audio,
@@ -386,9 +389,10 @@ div.recaptcha_only_if_audio,
 
 .captcha {
 
+  // Make these style like a label.
   h2,
   h3 {
-    margin-bottom: $baseLineHeight;
+    @include element-invisible;
   }
 
   a:hover,
@@ -403,7 +407,25 @@ div.recaptcha_only_if_audio,
 
   input[type=text] {
     margin-right: 8px;
-    margin-bottom: 0;
+    margin-bottom: $baseLineHeight / 2;
+  }
+}
+
+#recaptcha_image {
+  margin-bottom: 5px;
+  width: auto !important;
+  height: auto !important;
+
+  br {
+    display: none;
+  }
+
+  embed {
+    @include element-invisible;
+  }
+
+  span {
+    display: block;
   }
 }
 
