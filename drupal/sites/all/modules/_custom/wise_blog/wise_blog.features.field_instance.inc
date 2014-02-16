@@ -156,7 +156,7 @@ function wise_blog_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_blog_post_image',
     'label' => 'Image',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
@@ -179,6 +179,7 @@ function wise_blog_field_default_field_instances() {
             'imce' => 0,
             'reference' => 0,
             'remote' => 0,
+            'upload' => 'upload',
           ),
           'source_attach' => array(
             'absolute' => 0,
