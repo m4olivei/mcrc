@@ -564,6 +564,10 @@ function mcrc_publications_views_default_views() {
       'label' => '',
     ),
   );
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
   /* Contextual filter: User: For which new publications would you like to receive a notification e-mail? (field_notifications) */
   $handler->display->display_options['arguments']['field_notifications_value']['id'] = 'field_notifications_value';
   $handler->display->display_options['arguments']['field_notifications_value']['table'] = 'field_data_field_notifications';
@@ -579,6 +583,13 @@ function mcrc_publications_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: User: Roles */
+  $handler->display->display_options['filters']['rid']['id'] = 'rid';
+  $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
+  $handler->display->display_options['filters']['rid']['field'] = 'rid';
+  $handler->display->display_options['filters']['rid']['value'] = array(
+    13 => '13',
+  );
   $export['publication_notification_user_group'] = $view;
 
   $view = new view();
