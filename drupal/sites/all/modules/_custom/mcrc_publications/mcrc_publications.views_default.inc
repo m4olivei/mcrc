@@ -583,13 +583,6 @@ function mcrc_publications_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: User: Roles */
-  $handler->display->display_options['filters']['rid']['id'] = 'rid';
-  $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
-  $handler->display->display_options['filters']['rid']['field'] = 'rid';
-  $handler->display->display_options['filters']['rid']['value'] = array(
-    13 => '13',
-  );
   $export['publication_notification_user_group'] = $view;
 
   $view = new view();
