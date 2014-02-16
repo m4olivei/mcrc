@@ -86,9 +86,6 @@ function wise_preprocess_node(&$vars) {
     case 'blog_post':
       $vars['badge'] = '<span class="badge badge-blog">' . t('Pastor\'s Keyboard') . '</span>';
       break;
-    case 'post':
-      $vars['badge'] = '<span class="badge badge-post">' . t('Post') . '</span>';
-      break;
   }
 }
 

@@ -38,10 +38,6 @@ body.front .node.view-mode-full {
 
 .view-activity {
 
-  .row-set {
-    margin-bottom: $baseLineHeight;
-  }
-
   .row-set-featured {
     position: relative;
     margin-bottom: $baseLineHeight * 3;
@@ -79,10 +75,6 @@ body.front .node.view-mode-full {
 
     h2 {
       margin-top: 0;
-    }
-
-    .node {
-      margin-bottom: 0;
     }
 
     .node-service {
