@@ -697,7 +697,7 @@ function wise_preprocess_views_view(&$vars) {
         $fragment = 'church-family';
         break;
     }
-    $vars['more'] = l(t('View More'), 'publications/archive', array('attributes' => array('class' => array('btn')), 'fragment' => $fragment));
+    $vars['more'] = '<div class="more-link">' . l(t('View More'), 'publications/archive', array('attributes' => array('class' => array('btn')), 'fragment' => $fragment)) . '</div>';
   }
 }
 
