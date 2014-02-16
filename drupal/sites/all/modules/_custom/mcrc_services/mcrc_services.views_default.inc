@@ -253,7 +253,7 @@ function mcrc_services_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'Listen to past services held at Mountainview CRC!  Directly below you\'ll see our latest service.  Below the latest service is a listing of past services.  Enjoy browsing through more than 4 years of recorded services at Mountainview CRC!';
+  $handler->display->display_options['header']['area']['content'] = 'Listen to Sunday’s messages! Directly below you\'ll see our most recent message. Below the most recent message is a listing of previous messages. May you be blessed by browsing through more than 4 years of recorded messages at Mountainview CRC!';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['path'] = 'resources/listen-to-the-message';
 
