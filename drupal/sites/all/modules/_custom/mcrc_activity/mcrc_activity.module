@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MCRC Activity feature.
+ */
+
+include_once 'mcrc_activity.features.inc';
