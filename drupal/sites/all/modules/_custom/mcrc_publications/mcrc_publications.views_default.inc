@@ -669,7 +669,7 @@ function mcrc_publications_views_default_views() {
   );
 
   /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
+  $handler = $view->new_display('page', 'Page', 'bulletin');
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access weekly bulletin publication type';
@@ -733,7 +733,10 @@ function mcrc_publications_views_default_views() {
   $handler->display->display_options['tab_options']['name'] = 'menu-secondary-menu';
 
   /* Display: Newsletter */
-  $handler = $view->new_display('attachment', 'Newsletter', 'attachment_1');
+  $handler = $view->new_display('attachment', 'Newsletter', 'newsletter');
+  $handler->display->display_options['defaults']['link_display'] = FALSE;
+  $handler->display->display_options['link_display'] = 'custom_url';
+  $handler->display->display_options['link_url'] = 'publications/archive#weekly-newsletter';
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access weekly newsletter publication type';
@@ -765,14 +768,14 @@ function mcrc_publications_views_default_views() {
   );
   $handler->display->display_options['filters']['field_publication_type_tid']['vocabulary'] = 'publications';
   $handler->display->display_options['displays'] = array(
-    'page' => 'page',
+    'bulletin' => 'bulletin',
     'default' => 0,
   );
   $handler->display->display_options['attachment_position'] = 'after';
   $handler->display->display_options['inherit_exposed_filters'] = TRUE;
 
   /* Display: Church Family */
-  $handler = $view->new_display('attachment', 'Church Family', 'attachment_2');
+  $handler = $view->new_display('attachment', 'Church Family', 'church_family');
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access church family publication type';
@@ -804,7 +807,7 @@ function mcrc_publications_views_default_views() {
   );
   $handler->display->display_options['filters']['field_publication_type_tid']['vocabulary'] = 'publications';
   $handler->display->display_options['displays'] = array(
-    'page' => 'page',
+    'bulletin' => 'bulletin',
     'default' => 0,
   );
   $handler->display->display_options['attachment_position'] = 'after';
@@ -909,7 +912,7 @@ function mcrc_publications_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'Please note that the Newsletter, Church Family and other publications are available to members only.  Please <a href="/user?destination=publications">Login</a> or <a href="/register?destination=publications">Register</a> to view protected publications.
 
-<h2>[field_publication_type]</h2>';
+<h2 id="bulletin">[field_publication_type]</h2>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
@@ -968,6 +971,14 @@ function mcrc_publications_views_default_views() {
   $handler->display->display_options['access']['perm'] = 'access weekly newsletter publication type';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<h2 id="newsletter">[field_publication_type]</h2>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -1006,6 +1017,14 @@ function mcrc_publications_views_default_views() {
   $handler->display->display_options['access']['perm'] = 'access church family publication type';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<h2 id="church-family">[field_publication_type]</h2>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */

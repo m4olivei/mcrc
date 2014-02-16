@@ -83,15 +83,6 @@ function wise_preprocess_node(&$vars) {
 }
 
 /**
- * Implements hook_preprocess_views_view_table().
- */
-function wise_preprocess_views_view_table(&$vars) {
-  $vars['classes_array'][] = 'table';
-  $vars['classes_array'][] = 'table-striped';
-  $vars['classes_array'][] = 'table-hover';
-}
-
-/**
  * Implements hook_page_alter().
  */
 function wise_page_alter(&$page) {

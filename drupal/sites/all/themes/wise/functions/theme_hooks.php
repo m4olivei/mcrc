@@ -681,6 +681,33 @@ function wise_preprocess_views_view(&$vars) {
   if ($view->name == 'service_list' && $view->current_display == 'page' && !empty($view->exposed_input)) {
     $vars['attachment_before'] = FALSE;
   }
+
+  // More link tweaks to the publication view.
+  if ($view->name == 'publications') {
+
+    switch($view->current_display) {
+
+      case 'bulletin':
+        $fragment = 'bulletin';
+        break;
+      case 'newsletter':
+        $fragment = 'newsletter';
+        break;
+      case 'church_family':
+        $fragment = 'church-family';
+        break;
+    }
+    $vars['more'] = l(t('View More'), 'publications/archive', array('attributes' => array('class' => array('btn')), 'fragment' => $fragment));
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view_table().
+ */
+function wise_preprocess_views_view_table(&$vars) {
+  $vars['classes_array'][] = 'table';
+  $vars['classes_array'][] = 'table-striped';
+  $vars['classes_array'][] = 'table-hover';
 }
 
 /**
