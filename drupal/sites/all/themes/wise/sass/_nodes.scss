@@ -75,6 +75,7 @@ body.front .node.view-mode-full {
 
   .row-set-other {
     font-size: 0.8em;
+    line-height: 1.5em;
 
     h2 {
       margin-top: 0;
@@ -82,6 +83,17 @@ body.front .node.view-mode-full {
 
     .node {
       margin-bottom: 0;
+    }
+
+    .node-service {
+
+      &.node-teaser {
+        padding: 15px;
+      }
+
+      header {
+        margin-bottom: 0;
+      }
     }
   }
 

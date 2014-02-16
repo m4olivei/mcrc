@@ -70,7 +70,8 @@
 
 /* two different list types */
 
-ul.graphic {
+ul.graphic,
+.view-activity .row-set-other ul.graphic {
   @include reset-list-box;
 
   li {
@@ -91,6 +92,7 @@ ul.graphic {
       @include border-radius(22px);
       text-indent: -99999em;
       overflow: hidden;
+      line-height: $baseLineHeight;
 
       @include transition-property(background-color);
       @include transition(background-color 0.15s linear);
