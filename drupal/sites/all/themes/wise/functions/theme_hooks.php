@@ -732,7 +732,7 @@ function wise_preprocess_service_links_node_format(&$vars) {
           $icon_class = 'icon-twitter';
           break;
       }
-      $vars['links'][$service]['title'] = '<i class="' . $icon_class . '" aria-hidden="true"></i><span class="label">' . $vars['links'][$service]['title'] . '</span>';
+      $vars['links'][$service]['title'] = '<i class="' . $icon_class . '" aria-hidden="true"></i><span>' . $vars['links'][$service]['title'] . '</span>';
       $vars['links'][$service]['html'] = TRUE;
     }
   }
