@@ -255,6 +255,14 @@ function mcrc_services_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'Listen to Sunday’s messages! Directly below you\'ll see our most recent message. Below the most recent message is a listing of previous messages. May you be blessed by browsing through more than 4 years of recorded messages at Mountainview CRC!';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'There are no results for the given search criteria.';
+  $handler->display->display_options['empty']['area']['format'] = 'wysiwyg';
   $handler->display->display_options['path'] = 'resources/listen-to-the-message';
 
   /* Display: Attachment */
