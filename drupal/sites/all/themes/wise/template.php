@@ -80,6 +80,16 @@ function wise_preprocess_node(&$vars) {
     $vars['name'] = l(check_plain(format_username($node)), 'blog/author/' . $account->name);
     $vars['submitted'] = t('Posted on !datetime by !username', array('!datetime' => $vars['date'], '!username' => $vars['name']));
   }
+
+  // Badges
+  switch ($node->type) {
+    case 'blog_post':
+      $vars['badge'] = '<span class="badge badge-blog">' . t('Pastor\'s Keyboard') . '</span>';
+      break;
+    case 'post':
+      $vars['badge'] = '<span class="badge badge-post">' . t('Post') . '</span>';
+      break;
+  }
 }
 
 /**

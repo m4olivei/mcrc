@@ -205,3 +205,10 @@ function wise_theme_block_view($delta = '') {
 
   return $block;
 }
+
+/**
+ * Implements hook_wysiwyg_editor_settings_alter().
+ */
+function wise_theme_wysiwyg_editor_settings_alter(&$settings) {
+  $settings['extended_valid_elements'] .= ((!empty($settings['extended_valid_elements']) ? ',' : '') . 'iframe[*],i[*]');
+}

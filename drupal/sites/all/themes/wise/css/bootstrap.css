@@ -4383,6 +4383,208 @@ input[type="submit"].btn.btn-mini {
   cursor: default;
 }
 
+/* line 8, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label,
+.badge {
+  display: inline-block;
+  padding: 2px 4px;
+  font-size: 13.536px;
+  font-weight: normal;
+  line-height: 14px;
+  color: white;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #b4b4b4;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 22, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 25, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -o-border-radius: 9px;
+  border-radius: 9px;
+}
+
+/* line 34, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label:empty,
+.badge:empty {
+  display: none;
+}
+
+/* line 42, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+a.label:hover, a.badge:hover {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* line 53, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-important {
+  background-color: #b94a48;
+}
+
+/* line 54, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-important[href] {
+  background-color: #953b39;
+}
+
+/* line 56, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-warning {
+  background-color: #f89406;
+}
+
+/* line 57, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-warning[href] {
+  background-color: #c67605;
+}
+
+/* line 59, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-success {
+  background-color: #468847;
+}
+
+/* line 60, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-success[href] {
+  background-color: #356635;
+}
+
+/* line 62, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-info {
+  background-color: #3a87ad;
+}
+
+/* line 63, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-info[href] {
+  background-color: #2d6987;
+}
+
+/* line 65, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-inverse {
+  background-color: #685b67;
+}
+
+/* line 66, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-inverse[href] {
+  background-color: #4d434c;
+}
+
+/* line 68, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-blog {
+  background-color: #b5487f;
+}
+
+/* line 69, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-blog[href] {
+  background-color: #913965;
+}
+
+/* line 71, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-post {
+  background-color: #6d2a6a;
+}
+
+/* line 72, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.label-post[href] {
+  background-color: #4d434c;
+}
+
+/* line 53, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-important {
+  background-color: #b94a48;
+}
+
+/* line 54, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-important[href] {
+  background-color: #953b39;
+}
+
+/* line 56, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-warning {
+  background-color: #f89406;
+}
+
+/* line 57, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-warning[href] {
+  background-color: #c67605;
+}
+
+/* line 59, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-success {
+  background-color: #468847;
+}
+
+/* line 60, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-success[href] {
+  background-color: #356635;
+}
+
+/* line 62, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-info {
+  background-color: #3a87ad;
+}
+
+/* line 63, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-info[href] {
+  background-color: #2d6987;
+}
+
+/* line 65, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-inverse {
+  background-color: #685b67;
+}
+
+/* line 66, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-inverse[href] {
+  background-color: #4d434c;
+}
+
+/* line 68, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-blog {
+  background-color: #b5487f;
+}
+
+/* line 69, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-blog[href] {
+  background-color: #913965;
+}
+
+/* line 71, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-post {
+  background-color: #6d2a6a;
+}
+
+/* line 72, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.badge-post[href] {
+  background-color: #4d434c;
+}
+
+/* line 78, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.btn .label,
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+
+/* line 85, ../library/bootstrap/sass/bootstrap/_labels-badges.scss */
+.btn-mini .label,
+.btn-mini .badge {
+  top: 0;
+}
+
 /* line 6, ../library/bootstrap/sass/bootstrap/_hero-unit.scss */
 .hero-unit {
   padding: 60px;
