@@ -656,7 +656,7 @@ a.service-links-facebook {
   border: none;
 }
 /* line 241, ../sass/_modules.scss */
-.service-links-teaser > ul span.label {
+.service-links-teaser > ul span {
   position: absolute !important;
   height: 1px;
   width: 1px;

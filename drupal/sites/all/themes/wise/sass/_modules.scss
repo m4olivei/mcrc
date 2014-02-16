@@ -238,7 +238,7 @@ a.service-links-facebook {
 .service-links-teaser > ul {
   @include reset-list-box;
 
-  span.label {
+  span {
     @include element-invisible;
   }
 
