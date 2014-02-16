@@ -73,6 +73,30 @@ function wise_slider_views_default_views() {
   /* Display: Homepage */
   $handler = $view->new_display('block', 'Homepage', 'block');
   $handler->display->display_options['block_description'] = 'Homepage Slider';
+
+  /* Display: Facilities */
+  $handler = $view->new_display('block', 'Facilities', 'block_1');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Slider (field_slider) */
+  $handler->display->display_options['filters']['field_slider_tid']['id'] = 'field_slider_tid';
+  $handler->display->display_options['filters']['field_slider_tid']['table'] = 'field_data_field_slider';
+  $handler->display->display_options['filters']['field_slider_tid']['field'] = 'field_slider_tid';
+  $handler->display->display_options['filters']['field_slider_tid']['value'] = array(
+    0 => '308',
+  );
+  $handler->display->display_options['filters']['field_slider_tid']['vocabulary'] = 'slider';
+  $handler->display->display_options['block_description'] = 'Facilities';
   $export['wise_slider'] = $view;
 
   return $export;
