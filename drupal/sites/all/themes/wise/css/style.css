@@ -1827,7 +1827,7 @@ body.front .node.view-mode-full {
 }
 /* line 94, ../sass/_nodes.scss */
 .view-activity .row-set-other .node-service header {
-  margin-bottom: 0;
+  margin-bottom: 12px;
 }
 /* line 101, ../sass/_nodes.scss */
 .view-activity .row-fluid .span6 {
