@@ -649,6 +649,7 @@ function mcrc_publications_views_default_views() {
   $handler->display->display_options['fields']['field_publication_file']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_publication_file']['alter']['path'] = '[field_publication_file] ';
   $handler->display->display_options['fields']['field_publication_file']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_publication_file']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['field_publication_file']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_publication_file']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_publication_file']['type'] = 'file_url_plain';
