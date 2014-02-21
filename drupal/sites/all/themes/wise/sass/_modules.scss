@@ -567,6 +567,31 @@ div.password-suggestions ul {
   }
 }
 
+@media (max-width: 599px) {
+
+  .banner-blog {
+
+    .content {
+      position: static;
+      text-align: left;
+      font-size: 1em;
+    }
+
+    .title {
+      @include pro-px(44px);
+      @include pro-px(48px, 'line-height', 44px);
+      font-weight: normal;
+      color: $textColor;
+      font-family: inherit;
+      text-shadow: none;
+    }
+
+    #page-title {
+      margin-top: $baseLineHeight / 2;
+    }
+  }
+}
+
 @include mobile {
   .password-strength {
     float: none;

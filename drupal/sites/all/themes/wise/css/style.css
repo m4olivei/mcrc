@@ -997,15 +997,36 @@ div.password-suggestions ul {
     font-size: 1.125em;
   }
 }
+@media (max-width: 599px) {
+  /* line 574, ../sass/_modules.scss */
+  .banner-blog .content {
+    position: static;
+    text-align: left;
+    font-size: 1em;
+  }
+  /* line 580, ../sass/_modules.scss */
+  .banner-blog .title {
+    font-size: 2.75em;
+    line-height: 1.09091em;
+    font-weight: normal;
+    color: #7f7f7f;
+    font-family: inherit;
+    text-shadow: none;
+  }
+  /* line 589, ../sass/_modules.scss */
+  .banner-blog #page-title {
+    margin-top: 12px;
+  }
+}
 @media (max-width: 767px) {
-  /* line 571, ../sass/_modules.scss */
+  /* line 596, ../sass/_modules.scss */
   .password-strength {
     float: none;
     margin-bottom: 12px;
     width: 80%;
   }
 
-  /* line 578, ../sass/_modules.scss */
+  /* line 603, ../sass/_modules.scss */
   .confirm-parent,
   .password-parent {
     width: auto;
