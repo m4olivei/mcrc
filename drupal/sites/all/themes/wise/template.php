@@ -87,6 +87,9 @@ function wise_preprocess_node(&$vars) {
       $vars['badge'] = '<span class="badge badge-blog">' . t('Pastor\'s Keyboard') . '</span>';
       break;
   }
+  if (preg_match('~^blog~', $_GET['q'])) {
+    $vars['badge'] = '';
+  }
 }
 
 /**
