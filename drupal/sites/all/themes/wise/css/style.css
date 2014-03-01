@@ -1092,7 +1092,12 @@ div.password-suggestions ul {
   text-decoration: underline;
 }
 
-/* line 61, ../sass/_page.scss */
+/* line 58, ../sass/_page.scss */
+#content {
+  position: relative;
+}
+
+/* line 65, ../sass/_page.scss */
 #content img,
 #tinymce img {
   -webkit-border-radius: 6px;
@@ -1102,17 +1107,17 @@ div.password-suggestions ul {
   border-radius: 6px;
 }
 
-/* line 66, ../sass/_page.scss */
+/* line 70, ../sass/_page.scss */
 #page-title {
   margin-bottom: 24px;
   margin-top: 0;
 }
 
-/* line 73, ../sass/_page.scss */
+/* line 77, ../sass/_page.scss */
 body.front .title-wrapper {
   text-align: center;
 }
-/* line 77, ../sass/_page.scss */
+/* line 81, ../sass/_page.scss */
 body.front #page-title {
   color: #fff;
   background-color: #cbc288;
@@ -1129,28 +1134,28 @@ body.front #page-title {
   border-bottom-left-radius: 6px;
 }
 
-/* line 90, ../sass/_page.scss */
+/* line 94, ../sass/_page.scss */
 #footer {
   background-color: #6d2a6a;
   color: white;
   font-size: 0.875em;
   line-height: 1.42857em;
 }
-/* line 96, ../sass/_page.scss */
+/* line 100, ../sass/_page.scss */
 #footer .logo img {
   margin-bottom: 12px;
 }
-/* line 100, ../sass/_page.scss */
+/* line 104, ../sass/_page.scss */
 #footer a {
   color: #cf88ab;
 }
-/* line 104, ../sass/_page.scss */
+/* line 108, ../sass/_page.scss */
 #footer .container {
   padding-top: 48px;
   min-height: 218px;
   background: transparent url("../images/church_line_art.png") no-repeat 100% 100%;
 }
-/* line 112, ../sass/_page.scss */
+/* line 116, ../sass/_page.scss */
 #footer .menu-list > ul.menu {
   list-style: none;
   list-style-image: none;
@@ -1158,13 +1163,13 @@ body.front #page-title {
   padding: 0;
   border: none;
 }
-/* line 115, ../sass/_page.scss */
+/* line 119, ../sass/_page.scss */
 #footer .menu-list > ul.menu > li {
   float: left;
   width: 20%;
   text-align: center;
 }
-/* line 120, ../sass/_page.scss */
+/* line 124, ../sass/_page.scss */
 #footer .menu-list > ul.menu > li > a {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
@@ -1172,91 +1177,91 @@ body.front #page-title {
   font-size: 1.375em;
 }
 
-/* line 131, ../sass/_page.scss */
+/* line 135, ../sass/_page.scss */
 #footer-left {
   text-align: center;
 }
 
-/* line 135, ../sass/_page.scss */
+/* line 139, ../sass/_page.scss */
 #disqus_thread {
   margin-top: 48px;
 }
 
-/* line 139, ../sass/_page.scss */
+/* line 143, ../sass/_page.scss */
 #account {
   position: absolute;
   top: 0;
   right: 0;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-/* line 145, ../sass/_page.scss */
+/* line 149, ../sass/_page.scss */
 #account a {
   margin-left: 10px;
   font-size: 0.8125em;
   color: #7f7f7f;
   vertical-align: middle;
 }
-/* line 151, ../sass/_page.scss */
+/* line 155, ../sass/_page.scss */
 #account a:hover {
   text-decoration: none;
 }
-/* line 155, ../sass/_page.scss */
+/* line 159, ../sass/_page.scss */
 #account a i {
   color: #6d2a6a;
   font-size: 18px;
   padding-right: 4px;
 }
 
-/* line 163, ../sass/_page.scss */
+/* line 167, ../sass/_page.scss */
 #legalese {
   text-align: center;
   margin-top: 12px;
   font-size: 0.875em;
 }
 
-/* line 169, ../sass/_page.scss */
+/* line 173, ../sass/_page.scss */
 .page-publications.logged-in .region-sidebar-first .block-menu-block-main-menu {
   display: none;
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 178, ../sass/_page.scss */
+  /* line 182, ../sass/_page.scss */
   #footer {
     font-size: 0.75em;
     line-height: 1.5em;
   }
 }
 @media (max-width: 767px) {
-  /* line 187, ../sass/_page.scss */
+  /* line 191, ../sass/_page.scss */
   #header,
   #main {
     margin-left: 30px;
     margin-right: 30px;
   }
 
-  /* line 192, ../sass/_page.scss */
+  /* line 196, ../sass/_page.scss */
   #header {
     text-align: center;
   }
 
-  /* line 196, ../sass/_page.scss */
+  /* line 200, ../sass/_page.scss */
   #logo {
     float: none;
   }
 
-  /* line 200, ../sass/_page.scss */
+  /* line 204, ../sass/_page.scss */
   #account {
     position: static;
     margin-bottom: 6px;
     text-align: right;
   }
 
-  /* line 206, ../sass/_page.scss */
+  /* line 210, ../sass/_page.scss */
   #page {
     margin-top: 6px;
   }
 
-  /* line 212, ../sass/_page.scss */
+  /* line 216, ../sass/_page.scss */
   body.front #page-title {
     margin-top: 0;
     padding: 15px 26px;
@@ -1264,7 +1269,7 @@ body.front #page-title {
     line-height: 1.44444em;
   }
 
-  /* line 222, ../sass/_page.scss */
+  /* line 226, ../sass/_page.scss */
   #footer .logo img {
     margin-bottom: 24px;
   }

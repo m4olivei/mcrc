@@ -242,18 +242,13 @@ function mcrc_services_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Unfiltered text */
-  $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
-  $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
-  $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
-  $handler->display->display_options['header']['area_text_custom']['label'] = 'RSS Link';
-  $handler->display->display_options['header']['area_text_custom']['empty'] = TRUE;
-  $handler->display->display_options['header']['area_text_custom']['content'] = '<a href="/resources/listen-to-the-message/rss.xml" class="rss rss-messages" target="_blank"><i class="icon-rss"></i></a>';
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'Listen to Sunday’s messages! Directly below you\'ll see our most recent message. Below the most recent message is a listing of previous messages. May you be blessed by browsing through more than 4 years of recorded messages at Mountainview CRC!';
+  $handler->display->display_options['header']['area']['content'] = '<p>Listen to Sunday’s messages! Directly below you\'ll see our most recent message. Below the most recent message is a listing of previous messages. May you be blessed by browsing through more than 4 years of recorded messages at Mountainview CRC!</p>
+<p>Be notified of new messages as soon as they are available.  Subscribe on iTunes or via RSS using the links below:</p>
+<p><a href="https://itunes.apple.com/ca/podcast/mountainview-crcs-podcast/id721420722?mt=2&uo=4" target="itunes_store"><img src="/sites/all/themes/wise/images/subscribe_on_itunes.svg" style="vertical-align: top; margin-right: 20px;" alt="Subscribe on iTunes" /></a><a href="/resources/listen-to-the-message/rss.xml" class="rss" target="_blank"><i class="icon-rss"></i></a></p>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
