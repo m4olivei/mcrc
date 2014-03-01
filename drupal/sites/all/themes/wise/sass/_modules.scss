@@ -295,7 +295,7 @@ a.service-links-facebook {
   .service-links > ul {
 
     li {
-      margin-bottom: $baseLineHeight * 0.5; 
+      margin-bottom: $baseLineHeight * 0.5;
 
       &.last {
         margin-bottom: 0;
@@ -601,5 +601,16 @@ div.password-suggestions ul {
   .confirm-parent,
   .password-parent {
     width: auto;
+  }
+
+  .alignleft,
+  .alignright {
+    max-width: 100%;
+    float: none;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: $baseLineHeight;
+    display: block;
   }
 }
