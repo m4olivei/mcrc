@@ -1273,6 +1273,23 @@ body.front #page-title {
   #footer .logo img {
     margin-bottom: 24px;
   }
+
+  /* line 235, ../sass/_page.scss */
+  body.page-node-4 .table-info tbody tr, body.page-node-4 .table-info tbody td, body.page-node-4 .table-info tbody th {
+    display: block;
+  }
+  /* line 239, ../sass/_page.scss */
+  body.page-node-4 .table-info tbody td {
+    padding: 0;
+  }
+  /* line 242, ../sass/_page.scss */
+  body.page-node-4 .table-info tbody td.space {
+    display: none;
+  }
+  /* line 247, ../sass/_page.scss */
+  body.page-node-4 .table-info tbody tr {
+    margin-bottom: 24px;
+  }
 }
 /* line 8, ../sass/_navigation.scss */
 .block-menu-block h2 {

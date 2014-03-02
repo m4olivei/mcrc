@@ -227,4 +227,26 @@ body.front {
       margin-bottom: $baseLineHeight;
     }
   }
+
+  body.page-node-4 .table-info {
+
+    tbody {
+
+      tr, td, th {
+        display: block;
+      }
+
+      td {
+        padding: 0;
+
+        &.space {
+          display: none; 
+        }
+      }
+
+      tr {
+        margin-bottom: $baseLineHeight;
+      }
+    }
+  }
 }
