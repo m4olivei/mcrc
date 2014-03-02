@@ -5,6 +5,24 @@
  */
 
 /**
+ * Implements hook_menu().
+ */
+function wise_og_menu() {
+  $items = array();
+
+  $items['admin/config/services/wise-og'] = array(
+    'title' => 'Open Graph Settings',
+    'description' => 'Set the Facebook publisher id for open graph meta tags.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('wise_og_settings'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'wise_og.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
  * Implements hook_preprocess_node().
  */
 function wise_og_preprocess_node(&$vars) {
@@ -42,10 +60,12 @@ function wise_og_add_node_og_meta($node, $content) {
   drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:site_name" content="' . check_plain(variable_get('site_name', 'Drupal')) . '" />' . "\n"), 'og:site_name');
 
   // Publisher and type
-  if (in_array($node->type, array('blog', 'article'))) {
+  // @todo setting for node types this should apply to
+  if (in_array($node->type, array('blog', 'article', 'blog_post'))) {
     drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:type" content="article" />' . "\n"), 'og:type');
-    // @todo add a setting for Facebook publisher.
-    // drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="article:publisher" content="https://www.facebook.com/broadbentinst" />' . "\n"), 'article:publisher');
+    if ($publisher_id = variable_get('wise_og_publisher_id', '')) {
+      drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="article:publisher" content="https://www.facebook.com/' . check_plain($publisher_id) . '" />' . "\n"), 'article:publisher');
+    }
   }
   else {
     drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:type" content="website" />' . "\n"), 'og:type');
@@ -81,5 +101,10 @@ function wise_og_add_node_og_meta($node, $content) {
   // URL
   $uri = entity_uri('node', $node);
   $uri['options']['absolute'] = TRUE;
-  drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:url" content="' . check_plain(url($uri['path'], $uri['options'])) . '" />' . "\n"), 'og:url');
+  if (drupal_is_front_page()) {
+    drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:url" content="' . check_plain(url('<front>', $uri['options'])) . '" />' . "\n"), 'og:url');
+  }
+  else {
+    drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:url" content="' . check_plain(url($uri['path'], $uri['options'])) . '" />' . "\n"), 'og:url');
+  }
 }
