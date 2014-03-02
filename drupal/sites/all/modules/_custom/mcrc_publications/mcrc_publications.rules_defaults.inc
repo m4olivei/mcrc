@@ -12,7 +12,6 @@ function mcrc_publications_default_rules_configuration() {
   $items['mcrc_publications_church_family_notification'] = entity_import('rules_config', '{ "mcrc_publications_church_family_notification" : {
       "LABEL" : "Church family notification",
       "PLUGIN" : "reaction rule",
-      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "MCRC" ],
       "REQUIRES" : [ "rules", "views_bulk_operations" ],
@@ -47,7 +46,6 @@ function mcrc_publications_default_rules_configuration() {
   $items['mcrc_publications_weekly_bulletin_notification'] = entity_import('rules_config', '{ "mcrc_publications_weekly_bulletin_notification" : {
       "LABEL" : "Weekly bulletin notification",
       "PLUGIN" : "reaction rule",
-      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "MCRC" ],
       "REQUIRES" : [ "rules", "views_bulk_operations" ],
@@ -82,7 +80,6 @@ function mcrc_publications_default_rules_configuration() {
   $items['rules_weekly_newsletter_notification'] = entity_import('rules_config', '{ "rules_weekly_newsletter_notification" : {
       "LABEL" : "Weekly newsletter notification",
       "PLUGIN" : "reaction rule",
-      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "MCRC" ],
       "REQUIRES" : [ "rules", "views_bulk_operations" ],
