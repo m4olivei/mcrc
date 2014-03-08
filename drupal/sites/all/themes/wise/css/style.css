@@ -953,18 +953,45 @@ div.password-suggestions ul {
   margin-bottom: 24px;
 }
 
+/* line 515, ../sass/_modules.scss */
+.download-link {
+  float: left;
+  padding-right: 12px;
+}
+/* line 519, ../sass/_modules.scss */
+.download-link i {
+  font-size: 24px;
+}
+/* line 524, ../sass/_modules.scss */
+.download-link:hover, .download-link:focus {
+  text-decoration: none;
+}
+/* line 528, ../sass/_modules.scss */
+.view-mode-full .download-link {
+  float: none;
+}
+/* line 531, ../sass/_modules.scss */
+.view-mode-full .download-link span.element-invisible {
+  position: static !important;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: auto;
+  padding-left: 8px;
+}
+
 @media (min-width: 1200px) {
-  /* line 520, ../sass/_modules.scss */
+  /* line 543, ../sass/_modules.scss */
   .caption-left {
     margin: 0 30px 6px 0;
   }
 
-  /* line 524, ../sass/_modules.scss */
+  /* line 547, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 6px 30px;
   }
 
-  /* line 534, ../sass/_modules.scss */
+  /* line 557, ../sass/_modules.scss */
   .sidebar a[class*=service-links] i,
   .sidebar a.service-links-facebook i,
   .sidebar a.service-links-twitter i {
@@ -972,43 +999,43 @@ div.password-suggestions ul {
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 543, ../sass/_modules.scss */
+  /* line 566, ../sass/_modules.scss */
   .caption-left {
     margin: 0 20px 6px 0;
   }
 
-  /* line 547, ../sass/_modules.scss */
+  /* line 570, ../sass/_modules.scss */
   .caption-right {
     margin: 0 0 6px 20px;
   }
 
-  /* line 555, ../sass/_modules.scss */
+  /* line 578, ../sass/_modules.scss */
   .sidebar a[class*=service-links],
   .sidebar a.service-links-facebook,
   .sidebar a.service-links-twitter {
     padding: 4px 10px;
     font-size: 0.875em;
   }
-  /* line 559, ../sass/_modules.scss */
+  /* line 582, ../sass/_modules.scss */
   .sidebar a[class*=service-links] i,
   .sidebar a.service-links-facebook i,
   .sidebar a.service-links-twitter i {
     padding-right: 4px;
   }
 
-  /* line 567, ../sass/_modules.scss */
+  /* line 590, ../sass/_modules.scss */
   .banner-blog .content {
     font-size: 1.125em;
   }
 }
 @media (max-width: 599px) {
-  /* line 577, ../sass/_modules.scss */
+  /* line 600, ../sass/_modules.scss */
   .banner-blog .content {
     position: static;
     text-align: left;
     font-size: 1em;
   }
-  /* line 583, ../sass/_modules.scss */
+  /* line 606, ../sass/_modules.scss */
   .banner-blog .title {
     font-size: 2.75em;
     line-height: 1.09091em;
@@ -1017,26 +1044,26 @@ div.password-suggestions ul {
     font-family: inherit;
     text-shadow: none;
   }
-  /* line 592, ../sass/_modules.scss */
+  /* line 615, ../sass/_modules.scss */
   .banner-blog #page-title {
     margin-top: 12px;
   }
 }
 @media (max-width: 767px) {
-  /* line 599, ../sass/_modules.scss */
+  /* line 622, ../sass/_modules.scss */
   .password-strength {
     float: none;
     margin-bottom: 12px;
     width: 80%;
   }
 
-  /* line 606, ../sass/_modules.scss */
+  /* line 629, ../sass/_modules.scss */
   .confirm-parent,
   .password-parent {
     width: auto;
   }
 
-  /* line 611, ../sass/_modules.scss */
+  /* line 634, ../sass/_modules.scss */
   .alignleft,
   .alignright {
     max-width: 100%;

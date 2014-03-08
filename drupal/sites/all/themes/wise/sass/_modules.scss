@@ -512,6 +512,29 @@ div.password-suggestions ul {
   margin-bottom: $baseLineHeight;
 }
 
+.download-link {
+  float: left;
+  padding-right: 12px;
+
+  i {
+    font-size: 24px;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  .view-mode-full & {
+    float: none;
+
+    span.element-invisible {
+      @include element-invisible-off;
+      padding-left: 8px;
+    }
+  }
+}
+
 //
 // Responsive
 //

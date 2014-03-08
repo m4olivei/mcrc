@@ -50,8 +50,14 @@
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
+      hide($content['service_links']);
       print render($content);
     ?>
+
+    <div class="download-service-links clearfix">
+      <?php print l('<i class="icon-cloud-download"></i><span class="element-invisible">' . t('Download MP3') . '</span>', file_create_url($node->field_service_audio[LANGUAGE_NONE][0]['uri']), array('html' => TRUE, 'attributes' => array('class' => array('download-link'), 'title' => t('Download MP3')))); ?>
+      <?php print render($content['service_links']); ?>
+    </div>
 
     <?php print render($content['links']); ?>
 
