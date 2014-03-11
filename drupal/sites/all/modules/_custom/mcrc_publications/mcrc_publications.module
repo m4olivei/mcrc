@@ -70,6 +70,9 @@ function mcrc_publications_get_permission_by_tid($term, $label = FALSE) {
     $term = taxonomy_term_load($term);
   }
 
+  $parents = taxonomy_get_parents_all($term->tid);
+  $term = array_pop($parents);
+
   $title = 'Access ' . check_plain($term->name) . ' publication type';
 
   return $label ? $title : strtolower($title);
