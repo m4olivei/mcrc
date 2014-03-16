@@ -19,5 +19,14 @@ function wise_og_settings() {
     '#required' => TRUE,
   );
 
+  $default_image = variable_get('wise_og_default_image', '');
+  $form['wise_og_default_image'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Default image'),
+    '#description' => t('Default image to use anytime there is not another image available for use.'),
+    '#default_value' => $default_image,
+    '#required' => FALSE,
+  );
+
   return system_settings_form($form);
 }

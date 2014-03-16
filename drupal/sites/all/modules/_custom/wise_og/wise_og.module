@@ -75,6 +75,9 @@ function wise_og_add_node_og_meta($node, $content) {
   if (!empty($content['field_image'])) {
     drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:image" content="' . image_style_url($content['field_image'][0]['#image_style'], $content['field_image'][0]['#item']['uri']) . '" />' . "\n"), 'og:image');
   }
+  else if ($default_image = variable_get('wise_og_default_image', '')) {
+    drupal_add_html_head(array('#type' => 'markup', '#markup' => '<meta property="og:image" content="' . url($default_image, array('absolute' => TRUE)) . '" />' . "\n"), 'og:image');
+  }
 
   // Description - use the teaser text as configured for the teaser view mode
   if (!empty($node->body)) {
