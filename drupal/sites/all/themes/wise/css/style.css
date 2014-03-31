@@ -364,6 +364,35 @@ fieldset.collapsible.collapsed legend .fieldset-legend a:before {
   margin-top: -8px;
 }
 
+/* line 91, ../sass/_forms.scss */
+.form-radios .controls > .radio:first-child,
+.form-checkboxes .controls > .checkbox:first-child {
+  padding-top: 0;
+}
+
+/* line 96, ../sass/_forms.scss */
+.form-radios > .control-group:first-child .radio,
+.form-checkboxes > .control-group:first-child .checkbox {
+  padding-top: 5px;
+}
+
+/* line 101, ../sass/_forms.scss */
+.form-type-radio,
+.form-type-checkbox {
+  margin-bottom: 0;
+}
+/* line 104, ../sass/_forms.scss */
+.form-type-radio .control-label,
+.form-type-checkbox .control-label {
+  margin-bottom: 0;
+}
+
+/* line 111, ../sass/_forms.scss */
+.webform-datepicker select {
+  width: auto;
+  margin-right: 8px;
+}
+
 /* line 10, ../sass/_modules.scss */
 .region-slider {
   background: #dcd9c8 url("../images/texture_beige_bg.jpg") repeat 50% 0;

@@ -43,7 +43,7 @@
         if ($this.find('ul').length > 0) {
           $this.addClass('has-children');
           $this.find('ul').addClass('closed').attr('aria-hidden', true);
-          anchor.before('<a href="#" class="nav-toggle"><span class="toggle-status">Show</span> ' + anchor.html() + ' Submenu</a>');
+          anchor.before('<a href="#" class="nav-toggle"><span class="element-invisible"><span class="toggle-status">Show</span> ' + anchor.html() + ' Submenu</span><i class="icon-toggle"></i></a>');
         }
       });
 

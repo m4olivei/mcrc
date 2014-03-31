@@ -86,3 +86,30 @@ fieldset.collapsible {
   @include pro-px(20px, 'line-height', 12px);
   margin-top: -8px;
 }
+
+.form-radios .controls > .radio:first-child,
+.form-checkboxes .controls > .checkbox:first-child {
+  padding-top: 0;
+}
+
+.form-radios > .control-group:first-child .radio,
+.form-checkboxes > .control-group:first-child .checkbox {
+  padding-top: 5px;
+}
+
+.form-type-radio,
+.form-type-checkbox {
+  margin-bottom: 0;
+
+  .control-label {
+    margin-bottom: 0;
+  }
+}
+
+.webform-datepicker {
+
+  select {
+    width: auto;
+    margin-right: 8px;
+  }
+}
