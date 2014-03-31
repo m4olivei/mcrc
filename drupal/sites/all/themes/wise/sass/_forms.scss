@@ -113,3 +113,7 @@ fieldset.collapsible {
     margin-right: 8px;
   }
 }
+
+.select-or-other .form-type-textfield {
+  margin-top: -1 * ($baseLineHeight / 2);
+}

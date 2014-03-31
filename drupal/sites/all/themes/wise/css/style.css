@@ -393,6 +393,11 @@ fieldset.collapsible.collapsed legend .fieldset-legend a:before {
   margin-right: 8px;
 }
 
+/* line 117, ../sass/_forms.scss */
+.select-or-other .form-type-textfield {
+  margin-top: -12px;
+}
+
 /* line 10, ../sass/_modules.scss */
 .region-slider {
   background: #dcd9c8 url("../images/texture_beige_bg.jpg") repeat 50% 0;
