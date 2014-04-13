@@ -16,11 +16,6 @@ class MCRCServiceItunesMigration extends XMLMigration {
     // Human-friendly description of migration process
     $this->description = t('Migrate services as service nodes from the new iTunes feed.');
 
-    // Declare dependencies for our migration - other migrations
-    // which should run first. In this case, terms assigned to our nodes
-    // should be migrated before the nodes themselves.
-    $this->dependencies = array('MCRCPastorTerm');
-
     // Create a map object for tracking the relationships between source rows
     // and their resulting Drupal objects. Pass the machine name
     // (MCRCService) of this migration to use in generating map and message tables.
