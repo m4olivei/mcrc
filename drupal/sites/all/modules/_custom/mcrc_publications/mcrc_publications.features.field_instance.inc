@@ -41,9 +41,9 @@ function mcrc_publications_field_default_field_instances() {
     'label' => 'Date',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'blank',
+      'default_value' => 'strtotime',
       'default_value2' => 'same',
-      'default_value_code' => '',
+      'default_value_code' => '+1 Sunday 10:00AM',
       'default_value_code2' => '',
       'user_register_form' => FALSE,
     ),
