@@ -66,6 +66,7 @@ function mcrc_activity_views_default_views() {
     'blog_post' => 'blog_post',
     'post' => 'post',
     'service' => 'service',
+    'webform' => 'webform',
   );
 
   /* Display: Page */
