@@ -1,13 +1,3 @@
-          '#ajax' => isset($element['#ajax']) ? $element['#ajax'] : NULL,
-        );
-        if (!empty($element['#disabled']) || (!empty($element['#disabled_options']) && in_array($key, $element['#disabled_options']))) {
-          $element[$key]['#disabled'] = TRUE;
-        }
-          '#ajax' => isset($element['#ajax']) ? $element['#ajax'] : NULL,
-        );
-        if (!empty($element['#disabled']) || (!empty($element['#disabled_options']) && in_array($key, $element['#disabled_options']))) {
-          $element[$key]['#disabled'] = TRUE;
-        }
 <?php
  /**
  * @file
