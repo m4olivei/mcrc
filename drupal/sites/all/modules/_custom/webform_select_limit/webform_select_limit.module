@@ -1,0 +1,75 @@
+<?php
+/**
+ * @file
+ * Allow a third pipe separated option for Select Options Webform components that set's a limit
+ * on the number of submissions for that option.
+ */
+
+/**
+ * Implements hook_webform_component_render_alter().
+ *
+ * @see _webform_select_options_from_text().
+ */
+function webform_select_limit_webform_component_render_alter(&$element, $component) {
+
+  if ($component['type'] == 'select') {
+
+    // So what we want to do is loop over $component['extra']['items'], look for any with a limit in them
+    // If they have a limit, we want to check the limit against the number of submissions so far.
+    // If the submission count for that option is under, continue by simply stripping the limit out of the title.
+    // If the submission count is exceeded, continue by disabling the option and setting the label to "Sorry.  [option text string] has been filled."
+    // I included the patch from https://drupal.org/node/284917#comment-2628216 to allow for #disabled_options property on the
+    // element.
+    if (isset($element['#options']) && is_array($element['#options'])) {
+      foreach ($element['#options'] as $key => $option) {
+
+        if (preg_match('/^([^|]+)\|(.*)$/', $option, $matches)) {
+
+          // Found an option with a limit set.
+          // Check the limit
+          $limit = (int)$matches[2];
+
+          // Remove the limit from the label
+          $label = $matches[1];
+
+          // Determine if we are past the limit
+          if (webform_select_limit_is_past_limit($component, $key, $limit)) {
+
+            // Set disabled
+            $element['#disabled_options'][] = $key;
+
+            // Change the label
+            $label = t('Sorry !label has been filled.', array('!label' => $label));
+          }
+
+          // Set the label correctly
+          $element['#options'][$key] = $label;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Helper function to see if the given $value has been submitted greater than or equal to the
+ * $limit
+ *
+ * @param array $component
+ *   Webform component array.  Describes a component including the 'nid' and 'cid' which are used by this
+ *   function and are required.
+ * @param mixed $value
+ *   Value of the component that we are checking submission numbers for.
+ * @param int $limit
+ *   Allowed number of submissions with $value for the node identified by $component['nid']
+ * @return bool
+ */
+function webform_select_limit_is_past_limit($component, $value, $limit) {
+
+  // Find the count of submissions to this node, with this option value
+  $query = db_query('SELECT COUNT(*) FROM {webform_submitted_data} WHERE nid = :nid AND cid = :cid AND data = :data', array(':nid' => $component['nid'], ':cid' => $component['cid'], ':data' => $value));
+  $num = $query->fetchField();
+
+  if ($num >= $limit) {
+    return TRUE;
+  }
+}

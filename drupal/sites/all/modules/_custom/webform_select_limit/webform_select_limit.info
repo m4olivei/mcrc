@@ -1,0 +1,7 @@
+name = Webform Select Limit
+description = Allow a third pipe separated option for Select Options Webform components that set's a limit on the number of submissions for that option.
+core = 7.x
+version = 7.x-1.0
+package = Other
+
+dependencies[] = webform
