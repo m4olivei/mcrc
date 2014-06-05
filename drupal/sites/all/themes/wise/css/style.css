@@ -398,6 +398,16 @@ fieldset.collapsible.collapsed legend .fieldset-legend a:before {
   margin-top: -12px;
 }
 
+/* line 123, ../sass/_forms.scss */
+.node-webform.view-mode-full input.form-text {
+  display: block;
+  width: 100%;
+  min-height: 34px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /* line 10, ../sass/_modules.scss */
 .region-slider {
   background: #dcd9c8 url("../images/texture_beige_bg.jpg") repeat 50% 0;
@@ -2403,7 +2413,7 @@ html[xmlns] .slides {
     width: 476px;
   }
 }
-/*
+/*!
  *  Font Awesome 3.2.1
  *  the iconic font designed for Bootstrap
  *  ------------------------------------------------------------------------------

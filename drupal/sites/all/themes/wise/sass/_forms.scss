@@ -117,3 +117,10 @@ fieldset.collapsible {
 .select-or-other .form-type-textfield {
   margin-top: -1 * ($baseLineHeight / 2);
 }
+
+.node-webform.view-mode-full {
+
+  input.form-text {
+    @include input-block-level;
+  }
+}
