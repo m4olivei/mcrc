@@ -1,0 +1,55 @@
+Index: includes/form.inc
+===================================================================
+RCS file: /cvs/drupal/drupal/includes/form.inc,v
+retrieving revision 1.432
+diff -u -p -r1.432 form.inc
+--- includes/form.inc	12 Feb 2010 15:11:29 -0000	1.432
++++ includes/form.inc	21 Feb 2010 22:03:45 -0000
+@@ -1875,7 +1875,16 @@ function form_select_options($element, $
+       else {
+         $selected = '';
+       }
+-      $options .= '<option value="' . check_plain($key) . '"' . $selected . '>' . check_plain($choice) . '</option>';
++      // @todo See http://drupal.org/node/426056 about server-side enforcement
++      //   of #disabled. Until then, if an option is already selected, do not
++      //   disable it.
++      if (empty($selected) && !empty($element['#disabled_options']) && in_array($key, $element['#disabled_options'])) {
++        $disabled = ' disabled="disabled"';
++      }
++      else {
++        $disabled = '';
++      }
++      $options .= '<option value="' . check_plain($key) . '"' . $selected . $disabled . '>' . check_plain($choice) . '</option>';
+     }
+   }
+   return $options;
+@@ -2197,6 +2206,9 @@ function form_process_radios($element) {
+           '#id' => drupal_html_id('edit-' . implode('-', $parents_for_id)),
+           '#ajax' => isset($element['#ajax']) ? $element['#ajax'] : NULL,
+         );
++        if (!empty($element['#disabled']) || (!empty($element['#disabled_options']) && in_array($key, $element['#disabled_options']))) {
++          $element[$key]['#disabled'] = TRUE;
++        }
+       }
+     }
+   }
+@@ -2403,6 +2415,9 @@ function form_process_checkboxes($elemen
+           '#attributes' => $element['#attributes'],
+           '#ajax' => isset($element['#ajax']) ? $element['#ajax'] : NULL,
+         );
++        if (!empty($element['#disabled']) || (!empty($element['#disabled_options']) && in_array($key, $element['#disabled_options']))) {
++          $element[$key]['#disabled'] = TRUE;
++        }
+       }
+     }
+   }
+@@ -2570,6 +2585,9 @@ function form_process_tableselect($eleme
+             '#ajax' => isset($element['#ajax']) ? $element['#ajax'] : NULL,
+           );
+         }
++        if (!empty($element['#disabled']) || (!empty($element['#disabled_options']) && in_array($key, $element['#disabled_options']))) {
++          $element[$key]['#disabled'] = TRUE;
++        }
+       }
+     }
+   }
