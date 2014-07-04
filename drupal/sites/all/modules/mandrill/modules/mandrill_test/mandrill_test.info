@@ -1,11 +1,11 @@
-name = Mandrill Reports
-description = "Providing reporting on activity through Mandrill."
+name = Mandrill Test
+description = "Used to test Mandrill API hooks."
 core = 7.x
 package = MailChimp
 
 dependencies[] = mandrill
 
-files[] = tests/mandrill_reports.test
+files[] = tests/mandrill_hooks.test
 
 ; Information added by Drupal.org packaging script on 2014-05-30
 version = "7.x-2.0"
