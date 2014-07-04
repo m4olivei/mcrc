@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Webform Scheduler module install/schema hooks.
@@ -21,13 +22,13 @@ function webform_scheduler_schema() {
         'unsigned' => TRUE,
         'not null' => TRUE,
       ),
-      'begin' => array(
+      'begin_date' => array(
         'description' => 'Timestamp of when the webform is scheduled to begin.',
         'type' => 'int',
         'not null' => TRUE,
         'default' => 0,
       ),
-      'end' => array(
+      'end_date' => array(
         'description' => 'Timestamp of when the webform is scheduled to end.',
         'type' => 'int',
         'not null' => TRUE,
@@ -91,4 +92,27 @@ function webform_scheduler_update_7002() {
   db_update('webform_scheduler')
     ->expression('restriction_method', 'restriction_method + :incr', array(':incr' => 1))
     ->execute();
+}
+
+/**
+ * Module installation error when on PostgreSQL due to use of reserved keyword.
+ */
+function webform_scheduler_update_7003() {
+  db_change_field('webform_scheduler', 'begin', 'begin_date',
+    array(
+      'description' => 'Timestamp of when the webform is scheduled to begin.',
+      'type' => 'int',
+      'not null' => TRUE,
+      'default' => 0,
+     )
+  );
+
+  db_change_field('webform_scheduler', 'end', 'end_date',
+    array(
+      'description' => 'Timestamp of when the webform is scheduled to end.',
+      'type' => 'int',
+      'not null' => TRUE,
+      'default' => 0,
+    )
+  );
 }
