@@ -12,9 +12,7 @@ The idea for this module comes from Dave Cohen, and is described in detail in hi
 
 Enable the module as you would any other Drupal 7.x module.
 
-Recommended: change the weight of this module to be higher than system.module.  This is so our form_alter hooks act last.  Usually setting the weight to 1 is sufficient.  The SQL command to accomplish this is:
-
-  update system set weight=1 where name='simple_pass_reset';
+On install, this module will adjust its own weight to 1 (instead of 0).  This is so our form_alter hooks act after system.module's.  If for any reason your system.module (or, any module that alters the password form) has a weight higher than 0, you may want to manually change the weight of this module to be even higher.
 
 Recommended: Under Administration >> Configuration >> People >> Settings >> Password recovery, change the link emailed to the user to the following:
 

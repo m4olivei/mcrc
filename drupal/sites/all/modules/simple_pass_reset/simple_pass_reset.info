@@ -3,9 +3,9 @@ description = When resetting a password, skip the unnecessary and confusing one-
 core = 7.x
 files[] = simple_pass_reset.module
 
-; Information added by Drupal.org packaging script on 2013-12-07
-version = "7.x-1.3"
+; Information added by Drupal.org packaging script on 2014-04-17
+version = "7.x-1.4"
 core = "7.x"
 project = "simple_pass_reset"
-datestamp = "1386430407"
+datestamp = "1397763556"
 

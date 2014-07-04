@@ -73,33 +73,53 @@ function simple_pass_reset_pass_reset_page($uid, $timestamp, $hashed_pass, $opti
  * Implements hook_form_FORM_ID_alter().
  */
 function simple_pass_reset_form_user_profile_form_alter(&$form, &$form_state) {
+
+  // Don't alter the normal profile edit form, but only the password reset form.
   if (arg(0) == 'user' && arg(1) == 'reset' && !user_is_logged_in()) {
-    // This is not the normal profile edit form, but actually the password reset form.
 
     // Our submit handler will log the use in after form submit.
     $form['#submit'][] = 'simple_pass_reset_pass_reset_submit';
 
-    // Require a new password.
-    $form['account']['pass']['#required'] = TRUE;
+    $form['actions']['submit']['#value'] = t('Save and log in as !username', array(
+                                               '!username' => format_username($form['#user']),
+                                             ));
 
-    if (arg(5) == 'brief') {
-      drupal_set_title(t('Reset password'));
-      // The user is most interested in getting a working password, don't show their picture, timezone, etc.
-      foreach (element_children($form) as $key) {
-        if (in_array($form[$key]['#type'], array('hidden', 'actions'))) {
-          // Do not alter these elements.
-        }
-        else {
-          // Hide other elements.
-          $form[$key]['#access'] = FALSE;
-        }
+    // Links provided by bakery.module will not work because we are not yet logged in.
+    if (!empty($form['bakery'])) {
+      $form['bakery']['#access'] = FALSE;
+
+      // Normally bakery.module would make the following change to the user_pass_reset form.
+      if (!variable_get('bakery_is_master', FALSE)) {
+        // Set a submit handler for the psuedo-reset form.
+        $form['#submit'] = array('_bakery_reset_submit');
       }
-      // Except don't hide these.
-      $form['account']['#access'] = TRUE;
-      $form['actions']['#access'] = TRUE;
+    }
 
-      // But seriously do hide these.
-      $form['account']['mail']['#access'] = FALSE;
+    // Some third-party modules (like bakery) might hide account elements.
+    if (!isset($form['account']['#access']) || $form['account']['#access']) {
+      // Require a new password.
+      $form['account']['pass']['#required'] = TRUE;
+
+
+      if (arg(5) == 'brief') {
+        drupal_set_title(t('Reset password'));
+        // The user is most interested in getting a working password, don't show their picture, timezone, etc.
+        foreach (element_children($form) as $key) {
+          if (in_array($form[$key]['#type'], array('hidden', 'actions'))) {
+            // Do not alter these elements.
+          }
+          else {
+            // Hide other elements.
+            $form[$key]['#access'] = FALSE;
+          }
+        }
+        // Except don't hide these.
+        $form['account']['#access'] = TRUE;
+        $form['actions']['#access'] = TRUE;
+
+        // But seriously do hide these.
+        $form['account']['mail']['#access'] = FALSE;
+      }
     }
 
     // This is to avoid a PHP Notice in user_profile_form_submit().
@@ -114,6 +134,11 @@ function simple_pass_reset_form_user_profile_form_alter(&$form, &$form_state) {
  */
 function simple_pass_reset_pass_reset_submit($form, &$form_state) {
   if (!user_is_logged_in()) { // Sanity check.
+    // Remove roles that were disabled in the form. Normally user_module will array_filter() these out for us.  But remember_me and possibly other modules have bugs that might prevent user.module from doing that.
+    if (!empty($form_state['user']->roles)) {
+      $form_state['user']->roles = array_filter($form_state['user']->roles);
+    }
+
     // This logic copied from user_pass_reset().
     $account = $form_state['user'];
     $GLOBALS['user'] = $form_state['user'];
