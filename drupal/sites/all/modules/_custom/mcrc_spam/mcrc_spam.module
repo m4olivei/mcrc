@@ -1,0 +1,28 @@
+<?php
+/**
+ * @file
+ * Drupal hooks and such.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ * Add a validation function to the form to check that the first and last name set are different.
+ */
+function mcrc_spam_form_user_register_form_alter(&$form, &$form_state, $form_id) {
+
+  $form['#validate'][] = 'mcrc_spam_user_register_form_validate';
+}
+
+/**
+ * Validation function for user_register_form that checks to ensure that the first and last name are unique.
+ */
+function mcrc_spam_user_register_form_validate($form, &$form_state) {
+  $values = $form_state['values'];
+
+  if (!empty($values['field_first_name'][LANGUAGE_NONE][0]['value']) && !empty($values['field_last_name'][LANGUAGE_NONE][0]['value'])) {
+
+    if (trim($values['field_first_name'][LANGUAGE_NONE][0]['value']) == trim($values['field_last_name'][LANGUAGE_NONE][0]['value'])) {
+      form_set_error('field_last_name', t('Please enter a unique name for your last name, something different than your first name.'));
+    }
+  }
+}
