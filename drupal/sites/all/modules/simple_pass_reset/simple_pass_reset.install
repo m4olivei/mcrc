@@ -13,3 +13,13 @@ function simple_pass_reset_install() {
    ->condition('name', 'simple_pass_reset', '=')
    ->execute();
 }
+
+/**
+ * Update our modules weight higer than system.module.
+ */
+function simple_pass_reset_update_7100() {
+ db_update('system')
+   ->fields(array('weight' => 1))
+   ->condition('name', 'simple_pass_reset', '=')
+   ->execute();
+}
