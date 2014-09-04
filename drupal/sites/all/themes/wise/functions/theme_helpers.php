@@ -81,7 +81,7 @@ function wise_get_member_tools() {
     $output .= l('<i class="icon-unlock"></i>' . t('Log out'), 'user/logout', array('attributes' => array('class' => array('login-link')), 'html' => TRUE));
   }
   else {
-    $output .= l('<i class="icon-lock"></i>' . t('Log in'), 'user', array('attributes' => array('class' => array('login-link')), 'html' => TRUE));
+    $output .= l('<i class="icon-lock"></i>' . t('Log in / Register'), 'user', array('attributes' => array('class' => array('login-link')), 'html' => TRUE));
   }
 
   return $output;
