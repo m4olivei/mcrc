@@ -28,7 +28,7 @@
     function _init_fitvids(context, settings) {
       // Run fit vids on the main content area to ensure videos fit the area and adjust for responsive
       if ($.fn.fitVids && (typeof $.fn.fitVids == 'function')) {
-        $('#content', context).fitVids();
+        $('#content', context).fitVids({customSelector: "iframe[src*='ustream.tv']"});
       }
     }
 
