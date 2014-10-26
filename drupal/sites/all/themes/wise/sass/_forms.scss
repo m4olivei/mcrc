@@ -83,8 +83,9 @@ fieldset.collapsible {
 
 .help-block {
   @include pro-px(14px);
-  @include pro-px(20px, 'line-height', 12px);
-  margin-top: -8px;
+  @include pro-px(16px, 'line-height', 12px);
+  margin-top: 0px;
+  clear: left;
 }
 
 .form-radios .controls > .radio:first-child,
