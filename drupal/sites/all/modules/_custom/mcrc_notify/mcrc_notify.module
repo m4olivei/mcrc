@@ -98,3 +98,27 @@ function mcrc_notify_form_user_register_form_alter(&$form, &$form_state, $form_i
     $form['notify_agree']['#type'] = 'container';
   }
 }
+
+/**
+ * Implements hook_mail_alter().
+ * Alter the subject and message body of notify_mail() messages.
+ */
+function mcrc_notify_mail_alter(&$message) {
+  $params = $message['params'];
+  $username = format_username($params['user']);
+  $sitename = variable_get('site_name', 'Drupal');
+
+  $message['subject'] = t('New content at !sitename', array(
+    '!sitename' => $sitename,
+  ));
+
+  $message['body'][0] = t('Hello !user! The following new content has been recently posted to the !sitename website.', array(
+    '!user' => $username,
+    '!sitename' => $sitename,
+  ));
+
+  $message['body'][2] = str_replace('Recent nodes', 'Recent content', $message['body'][2]);
+
+  // Remove unneeded lines
+  unset($message['body'][1]);
+}
