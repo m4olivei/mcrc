@@ -113,3 +113,10 @@ function _mcrc_publications_subscription($account) {
 function mcrc_publications_update_7102() {
   rules_config_delete(array(8, 9, 10));
 }
+
+/**
+ * Delete the field_notifications field.
+ */
+function mcrc_publications_update_7103() {
+  field_delete_field('field_notifications');
+}
