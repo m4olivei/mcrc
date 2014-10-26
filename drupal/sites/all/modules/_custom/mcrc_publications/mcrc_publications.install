@@ -1,0 +1,107 @@
+<?php
+/**
+ * Install hooks and stuff.
+ */
+
+/**
+ * Enable notify and mcrc_notify modules.
+ */
+function mcrc_publications_update_7100() {
+  module_enable(array('notify', 'mcrc_notify'));
+}
+
+/**
+ * Migrate the values of field_notifications to what notify module wants.
+ */
+function mcrc_publications_update_7101() {
+  // Load up all the users, loop through them all, ascertain the value of
+  // field_notifications and subscribe them to Publications notifications with
+  // notify module if they are subscribed to anything.
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'user');
+
+  $result = $query->execute();
+  if (isset($result['user'])) {
+    $accounts = user_load_multiple(array_keys($result['user']));
+    // Notify module default values
+    $node = variable_get('notify_def_node', 1);
+    $comment = variable_get('notify_def_comment', 0);
+    $teasers = variable_get('notify_def_teasers', 0);
+
+    foreach ($accounts as $account) {
+      if (!empty($account->field_notifications[LANGUAGE_NONE][0]['value']) && $account->field_notifications[LANGUAGE_NONE][0]['value']) {
+        // Subscribe this account to receive notifications
+        _mcrc_publications_subscribe($account, $node, $comment, $teasers);
+
+        // Setup custom subscriptions to be set for publications
+        _mcrc_publications_subscription($account);
+      }
+    }
+  }
+}
+
+/**
+ * Helper function to subscribe a user for notifications.
+ * @see notify_user_settings_form_submit()
+ *
+ * @param $account
+ * @param $node
+ * @param $comment
+ * @param $teasers
+ * @throws Exception
+ */
+function _mcrc_publications_subscribe($account, $node, $comment, $teasers) {
+  db_insert('notify')
+    ->fields(array(
+      'uid' => $account->uid,
+      'status' => 1,
+      'node' => $node,
+      'comment' => $comment,
+      'teasers' => $teasers,
+      'attempts' => 0,
+    ))
+    ->execute();
+}
+
+/**
+ * Helper function to subscribe the given user to recieve notifications of new
+ * publications.
+ * @see notify_user_settings_form_submit()
+ *
+ * @param $account
+ * @throws Exception
+ */
+function _mcrc_publications_subscription($account) {
+  // Remember that this is a custom subscriber.
+  $subscriber = _notify_user_has_subscriptions($account->uid);
+  if (!$subscriber) {
+    db_insert('notify_subscriptions')
+      ->fields(array(
+        'uid' => $account->uid,
+        'type' => 'magic custom subscription',
+      ))
+      ->execute();
+  }
+
+  foreach (array('publication' => 1) as $key => $value) {
+    $id = db_query('SELECT id FROM {notify_subscriptions} WHERE (uid = :uid) AND (type = :key)', array(':uid' => $account->uid, ':key' => $key))->fetchObject();
+    if ($id) {
+      $id = $id->id;
+      if (!$value) {
+        db_delete('notify_subscriptions')
+          ->condition('id', $id)
+          ->execute();
+      }
+    }
+    else {
+      if ($value) {
+        db_insert('notify_subscriptions')
+          ->fields(array(
+            'uid' => $account->uid,
+            'type' => $key,
+          ))
+          ->execute();
+      }
+    }
+  }
+}
