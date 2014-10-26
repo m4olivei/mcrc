@@ -94,7 +94,6 @@ function mcrc_notify_module_implements_alter(&$implementations, $hook) {
  * Implements hook_form_FORM_ID_alter().
  */
 function mcrc_notify_form_user_register_form_alter(&$form, &$form_state, $form_id) {
-  dsm($form);
   if (isset($form['notify_agree'])) {
     $form['notify_agree']['#type'] = 'container';
   }
