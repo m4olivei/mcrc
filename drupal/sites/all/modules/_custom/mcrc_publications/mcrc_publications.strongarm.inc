@@ -95,5 +95,40 @@ function mcrc_publications_strongarm() {
   $strongarm->value = 0;
   $export['node_submitted_publication'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'rh_module_publication';
+  $strongarm->value = 'rh_node';
+  $export['rh_module_publication'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'rh_node_action_publication';
+  $strongarm->value = '3';
+  $export['rh_node_action_publication'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'rh_node_override_publication';
+  $strongarm->value = 0;
+  $export['rh_node_override_publication'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'rh_node_redirect_publication';
+  $strongarm->value = '[node:field_publication_file]';
+  $export['rh_node_redirect_publication'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'rh_node_redirect_response_publication';
+  $strongarm->value = '301';
+  $export['rh_node_redirect_response_publication'] = $strongarm;
+
   return $export;
 }

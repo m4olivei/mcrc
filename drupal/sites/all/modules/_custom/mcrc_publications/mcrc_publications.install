@@ -120,3 +120,10 @@ function mcrc_publications_update_7102() {
 function mcrc_publications_update_7103() {
   field_delete_field('field_notifications');
 }
+
+/**
+ * Enable the rabbit_hole module.
+ */
+function mcrc_publications_update_7104() {
+  module_enable(array('rabbit_hole', 'rh_node'));
+}
