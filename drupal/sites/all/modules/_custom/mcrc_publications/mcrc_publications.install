@@ -105,3 +105,11 @@ function _mcrc_publications_subscription($account) {
     }
   }
 }
+
+/**
+ * Delete the rules that were used for sending email notifications in the old
+ * system.
+ */
+function mcrc_publications_update_7102() {
+  rules_config_delete(array(8, 9, 10));
+}
