@@ -117,8 +117,8 @@ function mcrc_notify_mail_alter(&$message) {
     '!sitename' => $sitename,
   ));
 
-  $message['body'][2] = str_replace('Recent nodes', 'Recent content', $message['body'][2]);
+  // Replace the second line with something more relevant for our users.
+  $message['body'][1] = t('Please note that the Weekly Newsletter and Church Family News are for members only.  You may be required to login when clicking on those links below.');
 
-  // Remove unneeded lines
-  unset($message['body'][1]);
+  $message['body'][2] = str_replace('Recent nodes', 'Recent content', $message['body'][2]);
 }
