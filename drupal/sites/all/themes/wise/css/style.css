@@ -387,18 +387,23 @@ fieldset.collapsible.collapsed legend .fieldset-legend a:before {
   margin-bottom: 0;
 }
 
-/* line 112, ../sass/_forms.scss */
+/* line 110, ../sass/_forms.scss */
+.form-item-notify-decision {
+  margin-bottom: 24px;
+}
+
+/* line 116, ../sass/_forms.scss */
 .webform-datepicker select {
   width: auto;
   margin-right: 8px;
 }
 
-/* line 118, ../sass/_forms.scss */
+/* line 122, ../sass/_forms.scss */
 .select-or-other .form-type-textfield {
   margin-top: -12px;
 }
 
-/* line 124, ../sass/_forms.scss */
+/* line 128, ../sass/_forms.scss */
 .node-webform.view-mode-full input.form-text {
   display: block;
   width: 100%;

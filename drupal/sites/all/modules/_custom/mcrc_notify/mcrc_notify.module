@@ -74,3 +74,28 @@ function mcrc_notify_notify_user_settings_form_validate($form, &$form_state) {
   // Default the How much to include value to 'Title only'
   form_set_value($form['notify_page_detailed']['teasers'], 0, $form_state);
 }
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function mcrc_notify_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'form_alter') {
+    // Move mcrc_notify_form_alter() to the end of the list. module_implements()
+    // iterates through $implementations with a foreach loop which PHP iterates
+    // in the order that the items were added, so to move an item to the end of
+    // the array, we remove it and then add it.
+    $group = $implementations['mcrc_notify'];
+    unset($implementations['mcrc_notify']);
+    $implementations['mcrc_notify'] = $group;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mcrc_notify_form_user_register_form_alter(&$form, &$form_state, $form_id) {
+  dsm($form);
+  if (isset($form['notify_agree'])) {
+    $form['notify_agree']['#type'] = 'container';
+  }
+}
