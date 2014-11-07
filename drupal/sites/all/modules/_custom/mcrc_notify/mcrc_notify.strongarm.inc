@@ -21,14 +21,14 @@ function mcrc_notify_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'notify_batchsize';
-  $strongarm->value = '50';
+  $strongarm->value = '20';
   $export['notify_batchsize'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'notify_cron_next';
-  $strongarm->value = 82800;
+  $strongarm->value = 0;
   $export['notify_cron_next'] = $strongarm;
 
   $strongarm = new stdClass();

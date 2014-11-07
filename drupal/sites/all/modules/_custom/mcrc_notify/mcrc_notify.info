@@ -1,12 +1,12 @@
 name = MCRC Notify
 description = Customizations to the notify module
 core = 7.x
-package = MCRC
+package = Mountainview CRC
 version = 7.x-1.0
 project = mcrc_notify
 dependencies[] = ctools
-dependencies[] = strongarm
 dependencies[] = notify
+dependencies[] = strongarm
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[variable][] = notify_attempts
