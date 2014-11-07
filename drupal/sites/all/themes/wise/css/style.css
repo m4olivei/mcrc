@@ -359,45 +359,51 @@ fieldset.collapsible.collapsed legend .fieldset-legend a:before {
 /* line 84, ../sass/_forms.scss */
 .help-block {
   font-size: 0.875em;
-  line-height: 1.66667em;
-  margin-top: -8px;
+  line-height: 1.33333em;
+  margin-top: 0px;
+  clear: left;
 }
 
-/* line 90, ../sass/_forms.scss */
+/* line 91, ../sass/_forms.scss */
 .form-radios .controls > .radio:first-child,
 .form-checkboxes .controls > .checkbox:first-child {
   padding-top: 0;
 }
 
-/* line 95, ../sass/_forms.scss */
+/* line 96, ../sass/_forms.scss */
 .form-radios > .control-group:first-child .radio,
 .form-checkboxes > .control-group:first-child .checkbox {
   padding-top: 5px;
 }
 
-/* line 100, ../sass/_forms.scss */
+/* line 101, ../sass/_forms.scss */
 .form-type-radio,
 .form-type-checkbox {
   margin-bottom: 0;
 }
-/* line 104, ../sass/_forms.scss */
+/* line 105, ../sass/_forms.scss */
 .form-type-radio .control-label,
 .form-type-checkbox .control-label {
   margin-bottom: 0;
 }
 
-/* line 111, ../sass/_forms.scss */
+/* line 110, ../sass/_forms.scss */
+.form-item-notify-decision {
+  margin-bottom: 24px;
+}
+
+/* line 116, ../sass/_forms.scss */
 .webform-datepicker select {
   width: auto;
   margin-right: 8px;
 }
 
-/* line 117, ../sass/_forms.scss */
+/* line 122, ../sass/_forms.scss */
 .select-or-other .form-type-textfield {
   margin-top: -12px;
 }
 
-/* line 123, ../sass/_forms.scss */
+/* line 128, ../sass/_forms.scss */
 .node-webform.view-mode-full input.form-text {
   display: block;
   width: 100%;

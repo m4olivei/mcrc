@@ -1,0 +1,124 @@
+<?php
+/**
+ * @file
+ * Code for the MCRC Notify feature.
+ */
+
+// Features include
+include_once 'mcrc_notify.features.inc';
+
+/**
+ * Implements hook_menu_alter().
+ */
+function mcrc_notify_menu_alter(&$items) {
+
+  if (isset($items['user/%user/notify']['title'])) {
+    $items['user/%user/notify']['title'] = t('Notifications');
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mcrc_notify_form_notify_user_settings_form_alter(&$form, &$form_state, $form_id) {
+
+  // Cleanup
+  if (isset($form['notify_page_master']['status'])) {
+    $form['notify_page_master']['status']['#description'] = preg_replace('~^&nbsp;~', '', $form['notify_page_master']['status']['#description']);
+  }
+
+  // Hide the Detailed fieldset, we're going to decide these values for the user
+  if (isset($form['notify_page_detailed'])) {
+    $form['notify_page_detailed']['#access'] = user_access('administer site configuration');
+    if (!user_access('administer site configuration')) {
+      $form['#validate'][] = 'mcrc_notify_notify_user_settings_form_validate';
+    }
+  }
+
+  // Add descriptions to aid the user.
+  if (isset($form['notify_page_nodetype']['notify_node_type_publication'])) {
+    $form['notify_page_nodetype']['notify_node_type_publication']['#description'] = t('Receive notification of new publications every week.  Publications include the Weekly Newsletter, Weekly Bulitin and Church Family News.');
+  }
+  if (isset($form['notify_page_nodetype']['notify_node_type_service'])) {
+    $form['notify_page_nodetype']['notify_node_type_service']['#description'] = t('Receive notification of weekly service details.  Service\'s posted to the website include details such as the Paster, Passage and the posted audio for the message.');
+  }
+  if (isset($form['notify_page_nodetype']['notify_node_type_blog_post'])) {
+    $form['notify_page_nodetype']['notify_node_type_blog_post']['#description'] = t('Receive notification whenever a new blog post is posted.');
+  }
+
+  // For the Subscriptions fieldset to be open, other misc adjustments.
+  $form['notify_page_master']['#title'] = t('Notification status');
+  $form['notify_page_master']['status']['#title'] = t('Would you like to recieve notifications of new content?');
+  $form['notify_page_master']['status']['#options'][0] = t('No thanks');
+  $form['notify_page_master']['status']['#options'][1] = t('Yes please!');
+  $form['notify_page_master']['status']['#description'] = t('Controls whether or not you recieve email notifications when new content is posted to the site.  If you would like to recieve notifications, be sure to indicate which content you\'d like to be notified of below.');
+  if (isset($form['notify_page_nodetype'])) {
+    $form['notify_page_nodetype']['#collapsed'] = FALSE;
+    $form['notify_page_nodetype']['#collapsible'] = FALSE;
+  }
+  if (isset($form['notify_page_detailed'])) {
+    $form['notify_page_detailed']['#collapsed'] = FALSE;
+    $form['notify_page_detailed']['#collapsible'] = FALSE;
+  }
+  $form['notify_page_nodetype']['#description'] = '<p>' . t('Tick the content for which you\'s like to receive email notification when new content is posted to the website.') . '</p>';
+}
+
+/**
+ * Validation function to set some defaults for regular users.
+ */
+function mcrc_notify_notify_user_settings_form_validate($form, &$form_state) {
+
+  // Make the value of 'Notify new content' follow the master switch
+  form_set_value($form['notify_page_detailed']['node'], $form_state['values']['status'], $form_state);
+
+  // Default the How much to include value to 'Title only'
+  form_set_value($form['notify_page_detailed']['teasers'], 0, $form_state);
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function mcrc_notify_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'form_alter' && isset($implementations['mcrc_notify'])) {
+    // Move mcrc_notify_form_alter() to the end of the list. module_implements()
+    // iterates through $implementations with a foreach loop which PHP iterates
+    // in the order that the items were added, so to move an item to the end of
+    // the array, we remove it and then add it.
+    $group = $implementations['mcrc_notify'];
+    unset($implementations['mcrc_notify']);
+    $implementations['mcrc_notify'] = $group;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mcrc_notify_form_user_register_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['notify_agree'])) {
+    $form['notify_agree']['#type'] = 'container';
+  }
+}
+
+/**
+ * Implements hook_mail_alter().
+ * Alter the subject and message body of notify_mail() messages.
+ */
+function mcrc_notify_mail_alter(&$message) {
+  $params = $message['params'];
+  $username = format_username($params['user']);
+  $sitename = variable_get('site_name', 'Drupal');
+
+  $message['subject'] = t('New content at !sitename', array(
+    '!sitename' => $sitename,
+  ));
+
+  $message['body'][0] = t('Hello !user! The following new content has been recently posted to the !sitename website.', array(
+    '!user' => $username,
+    '!sitename' => $sitename,
+  ));
+
+  // Replace the second line with something more relevant for our users.
+  $message['body'][1] = t('Please note that the Weekly Newsletter and Church Family News are for members only.  You may be required to login when clicking on those links below.');
+
+  $message['body'][2] = str_replace('Recent nodes', 'Recent content', $message['body'][2]);
+}
