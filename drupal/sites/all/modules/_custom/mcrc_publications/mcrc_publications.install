@@ -127,3 +127,10 @@ function mcrc_publications_update_7103() {
 function mcrc_publications_update_7104() {
   module_enable(array('rabbit_hole', 'rh_node'));
 }
+
+/**
+ * Set the notify permission for the Authenticated role.
+ */
+function mcrc_publications_update_7105() {
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access notify'));
+}
