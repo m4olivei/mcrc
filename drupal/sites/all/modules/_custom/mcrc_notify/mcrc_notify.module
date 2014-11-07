@@ -104,21 +104,24 @@ function mcrc_notify_form_user_register_form_alter(&$form, &$form_state, $form_i
  * Alter the subject and message body of notify_mail() messages.
  */
 function mcrc_notify_mail_alter(&$message) {
-  $params = $message['params'];
-  $username = format_username($params['user']);
-  $sitename = variable_get('site_name', 'Drupal');
 
-  $message['subject'] = t('New content at !sitename', array(
-    '!sitename' => $sitename,
-  ));
+  if ($message['id'] == 'notify_send') {
+    $params = $message['params'];
+    $username = format_username($params['user']);
+    $sitename = variable_get('site_name', 'Drupal');
 
-  $message['body'][0] = t('Hello !user! The following new content has been recently posted to the !sitename website.', array(
-    '!user' => $username,
-    '!sitename' => $sitename,
-  ));
+    $message['subject'] = t('New content at !sitename', array(
+      '!sitename' => $sitename,
+    ));
 
-  // Replace the second line with something more relevant for our users.
-  $message['body'][1] = t('Please note that the Weekly Newsletter and Church Family News are for members only.  You may be required to login when clicking on those links below.');
+    $message['body'][0] = t('Hello !user! The following new content has been recently posted to the !sitename website.', array(
+      '!user' => $username,
+      '!sitename' => $sitename,
+    ));
 
-  $message['body'][2] = str_replace('Recent nodes', 'Recent content', $message['body'][2]);
+    // Replace the second line with something more relevant for our users.
+    $message['body'][1] = t('Please note that the Weekly Newsletter and Church Family News are for members only.  You may be required to login when clicking on those links below.');
+
+    $message['body'][2] = str_replace('Recent nodes', 'Recent content', $message['body'][2]);
+  }
 }
