@@ -15,6 +15,7 @@
     var method = response.method || ajax.method;
     var targetList = response.targetList || '';
     var effect = ajax.getEffect(response);
+    var pager_selector = response.options.pager_selector ? response.options.pager_selector : '.pager-load-more';
 
     // We don't know what response.data contains: it might be a string of text
     // without HTML, so don't rely on jQuery correctly iterpreting
@@ -49,19 +50,23 @@
     // jquery selector to replace the content with.
     // Provide sensible defaults for unordered list, ordered list and table
     // view styles.
-    var content_query = targetList && !response.options.content ? '.view-content ' + targetList : response.options.content || '.view-content';
+    var content_query = targetList && !response.options.content ? '> .view-content ' + targetList : response.options.content || '> .view-content';
 
     // If we're using any effects. Hide the new content before adding it to the DOM.
     if (effect.showEffect != 'show') {
       new_content.find(content_query).children().hide();
     }
 
+    // Update the pager
+    // Find both for the wrapper as the newly loaded content the direct child
+    // .item-list in case of nested pagers
+    wrapper.find(pager_selector).replaceWith(new_content.find(pager_selector));
+
     // Add the new content to the page.
-    wrapper.find('.pager a').remove();
-    wrapper.find('.pager').replaceWith(new_content.find('.pager'));
     wrapper.find(content_query)[method](new_content.find(content_query).children());
 
     // Re-class the loaded content.
+    // @todo this is faulty in many ways.  first of which is that user may have configured view to not have these classes at all.
     wrapper.find(content_query).children()
       .removeClass('views-row-first views-row-last views-row-odd views-row-even')
       .filter(':first')
@@ -85,50 +90,50 @@
     wrapper.trigger('views_load_more.new_content', new_content.clone());
 
     // Attach all JavaScript behaviors to the new content
-    // Remove the Jquery once classes
-    wrapper.removeClass(function() {
-      var i,
-        remove = '',
-        classes = this.className.split(' ');
-      for (i = 0; i < classes.length; i++) {
-        if (/-processed$/.test(classes[i])) {
-          if (remove != '') {
-            remove += ' ';
-          }
-          remove += classes[i];
-        }
-      }
-      return remove;
-    });
-    var settings = response.settings || ajax.settings || Drupal.settings;
+    // Remove the Jquery once Class, TODO: There needs to be a better
+    // way of doing this, look at .removeOnce() :-/
+    var classes = wrapper.attr('class');
+    var onceClass = classes.match(/jquery-once-[0-9]*-[a-z]*/);
+    wrapper.removeClass(onceClass[0]);
+    settings = response.settings || ajax.settings || Drupal.settings;
     Drupal.attachBehaviors(wrapper, settings);
-  }
+  };
 
   /**
    * Attaches the AJAX behavior to Views Load More waypoint support.
    */
   Drupal.behaviors.ViewsLoadMore = {
     attach: function (context, settings) {
-      if (settings && settings.viewsLoadMore && settings.views.ajaxViews) {
-        opts = {
+      var default_opts = {
           offset: '100%'
         };
+
+      if (settings && settings.viewsLoadMore && settings.views && settings.views.ajaxViews) {
         $.each(settings.viewsLoadMore, function(i, setting) {
-          var view = '.view-id-' + setting.view_name + '.view-display-id-' + setting.view_display_id + ' .pager-next a';
+          var view = '.view-id-' + setting.view_name + '.view-display-id-' + setting.view_display_id + ' .pager-next a',
+            opts = {};
+
+          $.extend(opts, default_opts, settings.viewsLoadMore[i].opts);
+
+          $(view).waypoint('destroy');
           $(view).waypoint(function(event, direction) {
-            $(view).waypoint('remove');
             $(view).click();
           }, opts);
         });
       }
     },
     detach: function (context, settings, trigger) {
-      if (settings && Drupal.settings.viewsLoadMore && settings.views.ajaxViews) {
+      if (settings && settings.viewsLoadMore && settings.views && settings.views.ajaxViews) {
         $.each(settings.viewsLoadMore, function(i, setting) {
-          var view = '.view-id-' + setting.view_name + '.view-display-id-' + setting.view_display_id + ' .pager-next a';
-          $(view, context).waypoint('destroy');
+          var view = '.view-id-' + setting.view_name + '.view-display-id-' + setting.view_display_id;
+          if ($(context).is(view)) {
+            $('.pager-next a', view).waypoint('destroy');
+          }
+          else {
+            $(view, context).waypoint('destroy');
+          }
         });
       }
     }
-     };
+  };
 })(jQuery);
