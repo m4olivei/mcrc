@@ -1,0 +1,12 @@
+diff --git a/notify.module b/notify.module
+index 8c13592..e20d742 100644
+--- a/notify.module
++++ b/notify.module
+@@ -1258,6 +1258,7 @@ function _notify_select_content() {
+     $q->condition('n.created', $send_start, '<=');
+   }
+   $q->orderBy('n.created', 'asc');
++  $q->addTag('notify_res_nodes');
+   $res_nodes = $q->execute();
+ 
+   // Get published nodes in unpublished queue
