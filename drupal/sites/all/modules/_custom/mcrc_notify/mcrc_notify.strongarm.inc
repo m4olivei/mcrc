@@ -13,6 +13,17 @@ function mcrc_notify_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'mcrc_notify_publication_types';
+  $strongarm->value = array(
+    292 => '292',
+    290 => '290',
+    291 => '291',
+  );
+  $export['mcrc_notify_publication_types'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'notify_attempts';
   $strongarm->value = '5';
   $export['notify_attempts'] = $strongarm;
@@ -23,13 +34,6 @@ function mcrc_notify_strongarm() {
   $strongarm->name = 'notify_batchsize';
   $strongarm->value = '20';
   $export['notify_batchsize'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'notify_cron_next';
-  $strongarm->value = 0;
-  $export['notify_cron_next'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

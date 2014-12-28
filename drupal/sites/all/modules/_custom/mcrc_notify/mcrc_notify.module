@@ -8,6 +8,47 @@
 include_once 'mcrc_notify.features.inc';
 
 /**
+ * Implements hook_menu().
+ */
+function mcrc_notify_menu() {
+  $items['admin/config/people/mcrc-notify'] = array(
+    'title' => 'MCRC Notification Settings',
+    'description' => 'Extended settings for notify module.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mcrc_notify_admin_settings'),
+    'access arguments' => array('administer notify'),
+  );
+
+  return $items;
+}
+
+/**
+ * MCRC Notify admin settings form.
+ */
+function mcrc_notify_admin_settings() {
+
+  $options = array();
+  if ($vocabulary = taxonomy_vocabulary_machine_name_load('publications')) {
+    if ($terms = taxonomy_get_tree($vocabulary->vid)) {
+      foreach ($terms as $term) {
+        $options[$term->tid] = str_repeat('-', $term->depth) . $term->name;
+      }
+    }
+  }
+
+  $form['mcrc_notify_publication_types'] = array(
+    '#type' => 'select',
+    '#multiple' => TRUE,
+    '#title' => t('Publication types'),
+    '#description' => t('Only send notifications about the following publications types'),
+    '#options' => $options,
+    '#default_value' => variable_get('mcrc_notify_publication_types', array()),
+  );
+
+  return system_settings_form($form);
+}
+
+/**
  * Implements hook_menu_alter().
  */
 function mcrc_notify_menu_alter(&$items) {
@@ -123,5 +164,16 @@ function mcrc_notify_mail_alter(&$message) {
     $message['body'][1] = t('Please note that the Weekly Newsletter and Church Family News are for members only.  You may be required to login when clicking on those links below.');
 
     $message['body'][2] = str_replace('Recent nodes', 'Recent content', $message['body'][2]);
+  }
+}
+
+/**
+ * Implements hook_query_TAG_alter().
+ * Limit the nodes to notify users about by publication type.
+ */
+function mcrc_notify_query_notify_res_nodes_alter(QueryAlterableInterface $query) {
+  if ($terms = variable_get('mcrc_notify_publication_types', array())) {
+    $query->leftJoin('field_data_field_publication_type', 't', 't.entity_type = \'node\' AND t.deleted = 0 AND n.nid = t.entity_id');
+    $query->condition('t.field_publication_type_tid', $terms);
   }
 }
