@@ -11,3 +11,13 @@
 function mcrc_migrate_update_7001() {
   variable_set('notify_send_last', REQUEST_TIME);
 }
+
+/**
+ * Avoid notify module from sending a bunch of notifications about publications
+ * updated via migrate module by setting it's var to notify about any
+ * publications past today (which is when we are updating all the things).
+ */
+function mcrc_migrate_update_7002() {
+  variable_set('notify_send_last', REQUEST_TIME);
+  variable_set('notify_send_start', REQUEST_TIME);
+}
