@@ -9,3 +9,10 @@ core = "7.x"
 project = "shortcutperrole"
 datestamp = "1348084490"
 
+
+; Information added by Drupal.org packaging script on 2014-12-09
+version = "7.x-1.2"
+core = "7.x"
+project = "shortcutperrole"
+datestamp = "1418122749"
+
