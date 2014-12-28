@@ -90,7 +90,7 @@ class MCRCPublicationsMigration extends MCRCMigrateBase {
       ->defaultValue('tid');
     $this->addFieldMapping('field_publication_file', 'filename');
     $this->addFieldMapping('field_publication_file:file_replace')
-      ->defaultValue(MigrateFile::FILE_EXISTS_REUSE);
+      ->defaultValue(FILE_EXISTS_RENAME);
     $this->addFieldMapping('field_publication_file:preserve_files')
       ->defaultValue(TRUE);
   }
@@ -116,7 +116,7 @@ class MCRCPublicationsMigration extends MCRCMigrateBase {
     }
 
     // Form the full path to the file
-    $row->filename = 'http://mountainviewcrc.org' . $this->path_mappings[$row->publicationID] . $row->filename;
+    $row->filename = 'http://legacy.mountainviewcrc.org' . $this->path_mappings[$row->publicationID] . $row->filename;
 
     // Convert the publicationID to the new tid
     $row->publicationID = $this->term_mapping[$row->publicationID];
