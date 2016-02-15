@@ -13,7 +13,7 @@
       speed = 200;
       ele = jQuery(ele).parents(".select-or-other")[0];
     }
-    var $other_element = jQuery(ele).find(".select-or-other-other").parents("div.form-item").first();
+    var $other_element = jQuery(ele).find(".select-or-other-other").parents("div.control-group").first();
     var $other_input = $other_element.find('input');
     if (jQuery(ele).find(".select-or-other-select option:selected[value=select_or_other], .select-or-other-select:checked[value=select_or_other]").length) {
       $.fn.prop ? $other_input.prop('required', true) : $other_input.attr('required', true)
@@ -30,7 +30,7 @@
       {
         // Special case, when the page is loaded, also apply 'display: none' in case it is
         // nested inside an element also hidden by jquery - such as a collapsed fieldset.
-        jQuery(ele).find(".select-or-other-other").parents("div.form-item").first().css("display", "none");
+        jQuery(ele).find(".select-or-other-other").parents("div.control-group").first().css("display", "none");
       }
     }
   }
