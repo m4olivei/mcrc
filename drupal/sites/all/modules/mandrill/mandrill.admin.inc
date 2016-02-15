@@ -26,7 +26,14 @@ function mandrill_admin_settings($form, &$form_state) {
     '#default_value' => $key,
   );
 
-  if ($key) {
+  $library = libraries_detect('mandrill');
+
+  if (!$library['installed']) {
+    drupal_set_message(t('The Mandrill PHP library is not installed. Please see installation directions in README.txt'),
+      'warning');
+  }
+
+  if ($key && $library['installed']) {
     $mailsystem_config_keys = mailsystem_get();
     $in_use = FALSE;
     $usage_rows = array();
@@ -84,7 +91,6 @@ function mandrill_admin_settings($form, &$form_state) {
     $subaccounts = mandrill_get_subaccounts();
     $sub_acct_options = array('' => '-- Select --');
     if (count($subaccounts)) {
-      $sub_acct_options = array('' => '-- Select --');
       foreach ($subaccounts as $acct) {
         if ($acct['status'] == 'active') {
           $sub_acct_options[$acct['id']] = $acct['name'] . ' (' . $acct['reputation'] . ')';
@@ -281,13 +287,14 @@ function mandrill_test_form_submit($form, &$form_state) {
   $params['include_attachment'] = $form_state['values']['include_attachment'];
   $mailsystem = mailsystem_get();
   // Check for empty mailsystem config for Mandrill:
-  if (empty($mailsystem['mandrill_test'])) {
+  $primary_config = empty($mailsystem['mandrill_test']) ? 'mandrill' : 'mandrill_test';
+  if (empty($mailsystem[$primary_config])) {
     drupal_set_message(t('Automatically setting Mandrill tests to go through Mandrill API: MandrillMailSystem was not previously configured in Mail System.'));
     mailsystem_set(array('mandrill_test' => 'MandrillMailSystem'));
   }
   // Check for wrong mailsystem config for Mandrill, if not empty, and issue a
   // warning:
-  elseif ($mailsystem['mandrill_test'] != 'MandrillMailSystem') {
+  elseif ($mailsystem[$primary_config] != 'MandrillMailSystem') {
     drupal_set_message(
       t('Mail System is configured to send Mandrill Test messages through %system, not Mandrill. To send tests through Mandrill, go to !link and change the setting.',
         array(

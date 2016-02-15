@@ -24,6 +24,11 @@ class MandrillMailSystem implements MailSystemInterface {
     if (is_array($message['body'])) {
       $message['body'] = implode("\n\n", $message['body']);
     }
+    // Apply input format to body.
+    $format = variable_get('mandrill_filter_format', '');
+    if (!empty($format)) {
+      $message['body'] = check_markup($message['body'], $format);
+    }
     return $message;
   }
 
@@ -63,12 +68,6 @@ class MandrillMailSystem implements MailSystemInterface {
       }
     }
 
-    // Apply input format to body.
-    $format = variable_get('mandrill_filter_format', '');
-    if (!empty($format)) {
-      $message['body'] = check_markup($message['body'], $format);
-    }
-
     // Extract an array of recipients.
     $to = mandrill_get_to($message['to']);
 
@@ -76,6 +75,9 @@ class MandrillMailSystem implements MailSystemInterface {
     // Mandrill needs the from address to be configured separately.
     // Note that only Reply-To and X-* headers are allowed.
     $headers = isset($message['headers']) ? $message['headers'] : array();
+    if (isset($message['params']['mandrill']['header'])) {
+      $headers = $message['params']['mandrill']['header'] + $headers;
+    }
     if (!empty($message['from']) && empty($headers['Reply-To'])) {
       $headers['Reply-To'] = $message['from'];
     }
@@ -106,14 +108,31 @@ class MandrillMailSystem implements MailSystemInterface {
     // array as well.
     if (isset($message['params']['attachments']) && !empty($message['params']['attachments'])) {
       foreach ($message['params']['attachments'] as $attachment) {
-        $attachment_path = drupal_realpath($attachment['uri']);
-        if (is_file($attachment_path)) {
-          $struct = $this->getAttachmentStruct($attachment_path);
-          // Allow for customised filenames.
-          if (!empty($attachment['filename'])) {
-            $struct['name'] = $attachment['filename'];
+       if (isset($attachment['uri']) || isset($attachment['filepath'])) {
+         if (isset($attachment['uri'])) {
+           $attachment_path = $attachment['uri'];
+         }
+         else {
+           $attachment_path = $attachment['filepath'];
+         }
+         $attachment_path = drupal_realpath($attachment_path);
+          if (is_file($attachment_path)) {
+            $struct = $this->getAttachmentStruct($attachment_path);
+            // Allow for customised filenames.
+            if (!empty($attachment['filename'])) {
+              $struct['name'] = $attachment['filename'];
+            }
+            $attachments[] = $struct;
           }
-          $attachments[] = $struct;
+        }
+        // Support attachments that are directly included without a file in the
+        // filesystem.
+        elseif (isset($attachment['filecontent'])) {
+          $attachments[] = array(
+            'type' => $attachment['filemime'],
+            'name' => $attachment['filename'],
+            'content' => chunk_split(base64_encode($attachment['filecontent']), 76, "\n"),
+          );
         }
       }
       // Remove the file objects from $message['params']['attachments'].
@@ -127,13 +146,14 @@ class MandrillMailSystem implements MailSystemInterface {
     // Get metadata.
     $metadata = isset($message['metadata']) ? $message['metadata'] : array();
 
-    $from = mandrill_from();
-    $mandrill_message = array(
+    $from = mandrill_from($message['from']);
+    $overrides = isset($message['params']['mandrill']['overrides']) ? $message['params']['mandrill']['overrides'] : array();
+    $mandrill_message = $overrides + array(
       'html' => $message['body'],
       'text' => $plain_text,
       'subject' => $message['subject'],
       'from_email' => $from['email'],
-      'from_name' => $from['name'],
+      'from_name' => isset($message['params']['mandrill']['from_name']) ? $message['params']['mandrill']['from_name'] : $from['name'],
       'to' => $to,
       'headers' => $headers,
       'track_opens' => variable_get('mandrill_track_opens', TRUE),

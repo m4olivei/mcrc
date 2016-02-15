@@ -1,23 +1,35 @@
 ## SUMMARY
 
 Integrates Drupal's mail system with Mandrill transactional emails, a service
-by the folks behind MailChimp. Learn more about Mandrill and how to sign up on
+by the folks behind MailChimp. Learn more about Mandrill and how to sign up at
 [their website](http://mandrill.com). (Or don't, but then this module isn't
 terribly useful...)
 
+## REQUIREMENTS
+
+* mailsystem module (https://drupal.org/project/mailsystem)
+* Mandrill PHP library (https://bitbucket.org/mailchimp/mandrill-api-php/get/1.0.52.zip)
+
+## INSTALLATION
+* You need to have a Mandrill API Key.
+* The Mandrill library must be downloaded into your libraries folder. It's
+  available at https://bitbucket.org/mailchimp/mandrill-api-php/get/1.0.52.zip
+  or by using the included example drush make file.
+  Proper libraries structure:
+    - libraries/
+      - mandrill/
+        - docs/
+        - src/
+          - Mandrill.php
+          - Mandrill/
+        - LICENSE
+        - composer.json
+
 ## INSTALLATION NOTES
 
-* If you previously installed version 1.3, you will get the following error
-  message when enabling the mandrill_template module:
-
-    DatabaseSchemaObjectExistsException:
-    Table <em class="placeholder">mandrill_template_map</em> already exists.
-
-  This is ugly but irrelevant, everything should function normally.
-
-* If you are upgrading from one of many previous versions, You may also find
-  an extra Mail System class in the Mail System configuration called "Mandrill
-  module class". It's harmless, but feel free to delete it.
+* If you are upgrading from one of many previous versions, You may find an extra
+  Mail System class in the Mailsystem configuration called "Mandrill module
+  class". It's harmless, but feel free to delete it.
 
 ## CONFIGURATION
 
@@ -101,6 +113,24 @@ If you want to send multiple module/key pairs through the same Template, you
 can make Mandrill the default mail system and make that Template Map the
 default template, or you can clone the Template Map for each module/key pair
 and assign them individually.
+
+To send values from Drupal to Mandrill that will be used to substitute the
+template regions you should implement hook_mail_alter() and add your values in
+the 'mandrill_template_content' key in the $message array as an array with two
+keys: name and content.
+
+For example, for sending the value 'foo value' for the region 'foo' you
+can use this code:
+
+/**
+ * Implements hook_mail_alter();
+ */
+function mymodule_mail_alter(&$message) {
+  $message['mandrill_template_content'][] = array(
+    'name' => 'foo',
+    'content' => 'foo value',
+  );
+}
 
 You should also consider enabling the css-inline feature in your Mandrill
 account under Settings -> Sending Options. For more info, see
