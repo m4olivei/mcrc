@@ -8,3 +8,7 @@ projects[drupal][patch][] = https://www.drupal.org/node/284917#comment-10091946
 
 ; Patch notify tag to add tag a query to se can alter it.
 projects[notify][patch][] = "patches/notify-query_tag.patch"
+
+; Patch views module to fix a PHP notice
+; @see https://www.drupal.org/node/2481401#comment-10752682
+projects[views][patch][] = "https://www.drupal.org/files/issues/check_if_exposed_input_exists-2481401-14_0.patch"
