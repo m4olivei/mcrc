@@ -55,7 +55,9 @@
     ?>
 
     <div class="download-service-links clearfix">
-      <?php print l('<i class="icon-cloud-download"></i><span class="element-invisible">' . t('Download MP3') . '</span>', file_create_url($node->field_service_audio[LANGUAGE_NONE][0]['uri']), array('html' => TRUE, 'attributes' => array('class' => array('download-link'), 'title' => t('Download MP3')))); ?>
+      <?php if (isset($node->field_service_audio[LANGUAGE_NONE][0]['uri'])): ?>
+        <?php print l('<i class="icon-cloud-download"></i><span class="element-invisible">' . t('Download MP3') . '</span>', file_create_url($node->field_service_audio[LANGUAGE_NONE][0]['uri']), array('html' => TRUE, 'attributes' => array('class' => array('download-link'), 'title' => t('Download MP3')))); ?>
+      <?php endif; ?>
       <?php print render($content['service_links']); ?>
     </div>
 
