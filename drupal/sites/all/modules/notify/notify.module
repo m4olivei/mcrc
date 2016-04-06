@@ -555,6 +555,7 @@ function _notify_select_content() {
     $q->condition('n.created', $send_start, '<=');
   }
   $q->orderBy('n.created', 'asc');
+  $q->addTag('notify_res_nodes');
   $res_nodes = $q->execute();
 
   // Get published nodes in unpublished queue

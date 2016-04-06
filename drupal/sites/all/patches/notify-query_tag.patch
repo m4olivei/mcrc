@@ -1,8 +1,8 @@
 diff --git a/notify.module b/notify.module
-index 8c13592..e20d742 100644
+index 7fa95ab..e29f632 100644
 --- a/notify.module
 +++ b/notify.module
-@@ -1258,6 +1258,7 @@ function _notify_select_content() {
+@@ -555,6 +555,7 @@ function _notify_select_content() {
      $q->condition('n.created', $send_start, '<=');
    }
    $q->orderBy('n.created', 'asc');
