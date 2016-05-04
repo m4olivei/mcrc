@@ -1,0 +1,221 @@
+<?php
+
+/**
+ * @file
+ * Sparkpost integration.
+ */
+
+define('SPARKPOST_EMAIL_REGEX', '/^\s*(.+?)\s*<\s*([^>]+)\s*>$/');
+
+/**
+ * Implements hook_menu().
+ */
+function sparkpost_menu() {
+  $items = array();
+  $items['admin/config/services/sparkpost'] = array(
+    'title' => 'Sparkpost',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('sparkpost_admin_settings'),
+    'access arguments' => array('administer sparkpost'),
+    'description' => 'Send emails through the Sparkpost transactional email service.',
+    'file' => 'sparkpost.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['admin/config/services/sparkpost/settings'] = array(
+    'title' => 'Settings',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => 0,
+  );
+  $items['admin/config/services/sparkpost/test'] = array(
+    'title' => 'Send test email',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('sparkpost_test_form'),
+    'access callback' => 'sparkpost_test_access',
+    'description' => 'Send a test email using the Sparkpost API.',
+    'file' => 'sparkpost.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 1,
+  );
+
+  return $items;
+}
+
+/**
+ * Access callback for sending test email.
+ *
+ * @return bool
+ *   True if current user has access to send test messages
+ */
+function sparkpost_test_access() {
+  $a = user_access('administer sparkpost');
+  $b = variable_get('sparkpost_api_key');
+  return $a & !empty($b);
+}
+
+/**
+ * Implements hook_permission().
+ */
+function sparkpost_permission() {
+  return array(
+    'administer sparkpost' => array(
+      'title' => t('Administer Sparkpost'),
+      'description' => t('Perform administration tasks for the Sparkpost email service.'),
+      "restrict access" => TRUE,
+    ),
+  );
+}
+
+/**
+ * Implements hook_mail().
+ */
+function sparkpost_mail($key, &$message, $params) {
+  if ($key == 'test') {
+    $message['subject'] = $params['subject'];
+    $message['body'] = $params['body'];
+    if ($params['include_attachment']) {
+      $message['attachments'][] = drupal_realpath('misc/druplicon.png');
+      $message['body'] .= '  ' . t('The Drupal icon is included as an attachment to test the attachment functionality.');
+    }
+  }
+}
+
+/**
+ * Returns an array containing the from information for a Sparkpost message.
+ *
+ * @return array
+ *   array(
+ *     'email' => 'admin@example.com',
+ *     'name' => 'My Site',
+ *   )
+ */
+function sparkpost_from() {
+  $default_from = variable_get('site_mail', ini_get('sendmail_from'));
+  $email = variable_get('sparkpost_from', $default_from);
+  $name = variable_get('sparkpost_from_name', variable_get('site_name'));
+  return array(
+    'email' => $email,
+    'name' => $name,
+  );
+}
+
+/**
+ * Helper to generate an array of recipients.
+ *
+ * @param mixed $to
+ *   a comma delimited list of email addresses in 1 of 2 forms:
+ *   user@domain.com
+ *   any number of names <user@domain.com>
+ *
+ * @return array
+ *   array of email addresses
+ */
+function sparkpost_get_to($to) {
+  $recipients = array();
+  $to_array = explode(',', $to);
+  foreach ($to_array as $email) {
+    if (preg_match(SPARKPOST_EMAIL_REGEX, $email, $matches)) {
+      $recipients[] = array('address' => array(
+        'name' => $matches[1],
+        'email' => $matches[2],
+      ));
+    }
+    else {
+      $recipients[] = array('address' => array('email' => $email));
+    }
+  }
+
+  return $recipients;
+}
+
+/**
+ * Get list of cc recipients.
+ *
+ * @param string $cc
+ *   Comma separated list of Cc recipients.
+ * @param array $to
+ *   List of recipients created by sparkpost_get_to().
+ *
+ * @return array
+ *   List of recipients to merged with sparkpost_get_to() results.
+ */
+function sparkpost_get_cc($cc, array $to) {
+  $recipients = array();
+
+  // Explode recipient list.
+  $cc_array = explode(',', $cc);
+
+  // Prepare header_to value.
+  $header_to = implode(',', array_map(function ($recipient) { return $recipient['address']['email']; }, $to));
+
+  foreach ($cc_array as $email) {
+    if (preg_match(SPARKPOST_EMAIL_REGEX, $email, $matches)) {
+      $email = $matches[2];
+    }
+    $recipients[] = array(
+      'address' => array(
+        'email' => $email,
+        'header_to' => $header_to,
+      ),
+    );
+  }
+
+  return $recipients;
+}
+
+/**
+ * Sand mail using Guzzle and Sparkpost.
+ *
+ * @param $message
+ *   Message array.
+ *
+ * @return bool
+ */
+function sparkpost_mailsend($message) {
+  $httpAdapter = new \Ivory\HttpAdapter\Guzzle6HttpAdapter(new \GuzzleHttp\Client());
+  $sparky = new \SparkPost\SparkPost($httpAdapter, ['key' => variable_get('sparkpost_api_key')]);
+  try {
+    // Build your email and send it!
+    $results = $sparky->transmission->send($message);
+    return TRUE;
+  }
+  catch (\SparkPost\APIResponseException $e) {
+    // API Response Exception.
+    $message_arguments = array(
+      '@code' => $e->getAPICode(),
+      '%message' => $e->getAPIMessage(),
+      '%description' => $e->getAPIDescription(),
+      '!sparkpost_message' => print_r($message, TRUE),
+    );
+    watchdog('sparkpost', 'Message could not be sent: %message (Code: @code) %description<pre>!sparkpost_message</pre>', $message_arguments, WATCHDOG_ERROR);
+  }
+  catch (Exception $e) {
+    // Undefined exception.
+    watchdog_exception('sparkpost', $e);
+  }
+  return FALSE;
+}
+
+/**
+ * Limit headers to SparkPost whitelist.
+ *
+ * @param array $headers
+ *   Array of headers.
+ *
+ * @return array
+ *   Array of headers.
+ */
+function sparkpost_allowed_headers($headers = array()) {
+  foreach ($headers as $header => $value) {
+    if (strpos($header, 'X-') === 0) {
+      continue;
+    }
+    elseif (in_array($header, array('Return-Path', 'Cc'))) {
+      // Only Return-Path and Cc are supported.
+      // Bcc recipients will be added to recipient list automatically and
+      // removed from here.
+      continue;
+    }
+    unset($headers[$header]);
+  }
+  return $headers;
+}

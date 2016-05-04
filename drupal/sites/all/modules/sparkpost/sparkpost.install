@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the sparkpost module.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function sparkpost_requirements($phase) {
+  $requirements = array();
+  // Ensure translations don't break at install time.
+  $t = get_t();
+
+  if ($phase == 'runtime') {
+    $requirements['sparkpost'] = array(
+      'title' => $t('Sparkpost'),
+      'value' => class_exists('\SparkPost\SparkPost') ? $t('Yes') : $t('No'),
+      'description' => $t('Sparkpost composer package'),
+      'severity' => class_exists('\SparkPost\SparkPost') ? REQUIREMENT_OK : REQUIREMENT_ERROR,
+    );
+  }
+
+  return $requirements;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function sparkpost_uninstall() {
+  // Delete other variables:
+  variable_del('sparkpost_api_key');
+  variable_del('sparkpost_filter_format');
+  variable_del('sparkpost_from');
+  variable_del('sparkpost_from_name');
+}
+
+/**
+ * Implements hook_enable().
+ */
+function sparkpost_enable() {
+  mailsystem_set(array('sparkpost_test' => 'SparkpostMailSystem'));
+}
+
+/**
+ * Implements hook_disable().
+ */
+function sparkpost_disable() {
+  // Tell mailsystem to remove sparkpost and restore to defaults:
+  mailsystem_clear(array('sparkpost_test' => 'SparkpostMailSystem'));
+  watchdog('sparkpost', 'Sparkpost has been disabled.');
+}
