@@ -2850,7 +2850,16 @@ function form_select_options($element, $choices = NULL) {
       else {
         $selected = '';
       }
-      $options .= '<option value="' . check_plain($key) . '"' . $selected . '>' . check_plain($choice) . '</option>';
+      // @todo See http://drupal.org/node/426056 about server-side enforcement
+      //   of #disabled. Until then, if an option is already selected, do not
+      //   disable it.
+      if (empty($selected) && !empty($element['#disabled_options']) && in_array($key, $element['#disabled_options'])) {
+        $disabled = ' disabled="disabled"';
+      }
+      else {
+        $disabled = '';
+      }
+      $options .= '<option value="' . check_plain($key) . '"' . $selected . $disabled . '>' . check_plain($choice) . '</option>';
     }
   }
   return $options;
@@ -3202,6 +3211,9 @@ function form_process_radios($element) {
         '#ajax' => isset($element['#ajax']) ? $element['#ajax'] : NULL,
         '#weight' => $weight,
       );
+      if (!empty($element['#disabled']) || (!empty($element['#disabled_options']) && in_array($key, $element['#disabled_options']))) {
+        $element[$key]['#disabled'] = TRUE;
+      }
     }
   }
   return $element;
@@ -3340,6 +3352,9 @@ function form_process_checkboxes($element) {
         '#ajax' => isset($element['#ajax']) ? $element['#ajax'] : NULL,
         '#weight' => $weight,
       );
+      if (!empty($element['#disabled']) || (!empty($element['#disabled_options']) && in_array($key, $element['#disabled_options']))) {
+        $element[$key]['#disabled'] = TRUE;
+      }
     }
   }
   return $element;
@@ -3561,6 +3576,9 @@ function form_process_tableselect($element) {
             '#id' => drupal_html_id('edit-' . implode('-', $parents_for_id)),
             '#ajax' => isset($element['#ajax']) ? $element['#ajax'] : NULL,
           );
+        }
+        if (!empty($element['#disabled']) || (!empty($element['#disabled_options']) && in_array($key, $element['#disabled_options']))) {
+          $element[$key]['#disabled'] = TRUE;
         }
         if (isset($element['#options'][$key]['#weight'])) {
           $element[$key]['#weight'] = $element['#options'][$key]['#weight'];
