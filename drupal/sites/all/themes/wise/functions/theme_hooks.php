@@ -696,6 +696,9 @@ function wise_preprocess_views_view(&$vars) {
       case 'church_family':
         $fragment = 'church-family';
         break;
+      case 'sermon_insert':
+        $fragment = 'sermon-insert';
+        break;
     }
     $vars['more'] = '<div class="more-link">' . l(t('View More'), 'publications/archive', array('attributes' => array('class' => array('btn')), 'fragment' => $fragment)) . '</div>';
   }
