@@ -34,6 +34,10 @@ function sparkpost_uninstall() {
   variable_del('sparkpost_filter_format');
   variable_del('sparkpost_from');
   variable_del('sparkpost_from_name');
+  variable_del('sparkpost_send_async');
+  variable_del('sparkpost_skip_cron');
+  variable_del('sparkpost_debug');
+  variable_del('sparkpost_timeout');
 }
 
 /**
@@ -50,4 +54,11 @@ function sparkpost_disable() {
   // Tell mailsystem to remove sparkpost and restore to defaults:
   mailsystem_clear(array('sparkpost_test' => 'SparkpostMailSystem'));
   watchdog('sparkpost', 'Sparkpost has been disabled.');
+}
+
+/**
+ * Rebuild registry.
+ */
+function sparkpost_update_7000() {
+  registry_rebuild();
 }

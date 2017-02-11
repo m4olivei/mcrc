@@ -75,11 +75,18 @@ function sparkpost_admin_settings($form, &$form_state) {
       '#title' => t('Email options'),
     );
 
+    $form['email_options']['sparkpost_debug'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Debug'),
+      '#description' => t('If selected, exceptions will be sent over to watchdog.'),
+      '#default_value' => variable_get('sparkpost_debug', TRUE),
+    );
+
     $from = sparkpost_from();
     $form['email_options']['sparkpost_from'] = array(
       '#title' => t('From address'),
       '#type' => 'textfield',
-      '#description' => t('The sender email address. If this address has not been verified, messages will be queued and not sent until it is. This address will appear in the "from" field, and any emails sent through Sparkpost with a "from" address will have that address moved to the Reply-To field.'),
+      '#description' => t('The sender email address. If this address has not been verified, messages will not be sent. This address will appear in the "from" field, and any emails sent through Sparkpost with a "from" address will have that address moved to the Reply-To field.'),
       '#default_value' => $from['email'],
     );
     $form['email_options']['sparkpost_from_name'] = array(
@@ -99,6 +106,32 @@ function sparkpost_admin_settings($form, &$form_state) {
       '#description' => t('If selected, the input format to apply to the message body before sending to the Sparkpost API.'),
       '#options' => $options,
       '#default_value' => array(variable_get('sparkpost_filter_format', 'full_html')),
+    );
+    $form['email_options']['sparkpost_send_async'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Send asynchronous'),
+      '#default_value' => variable_get('sparkpost_send_async', FALSE),
+      '#description' => t('If selected, the mails will not be sent right away, but queued and possibly sent with cron or drush.'),
+    );
+    $form['email_options']['sparkpost_skip_cron'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Skip queue on cron'),
+      '#default_value' => variable_get('sparkpost_skip_cron', FALSE),
+      '#description' => t('If selected, the mail queue will not be processed by cron runs. Use this only if you manually run the queue with drush (for example).'),
+      '#states' => array(
+        'visible' => array(
+          ':input[name="sparkpost_send_async"]' => array(
+            'checked' => TRUE,
+          ),
+        ),
+      ),
+    );
+    $form['email_options']['sparkpost_timeout'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Timeout'),
+      '#default_value' => variable_get('sparkpost_timeout', 10),
+      '#element_validate' => array('element_validate_integer_positive'),
+      '#description' => t('Set custom timeout (in seconds).'),
     );
   }
   return system_settings_form($form);
@@ -166,7 +199,7 @@ function sparkpost_test_form_submit($form, &$form_state) {
   $test_address = $form_state['values']['sparkpost_test_address'];
   global $language;
   $params['subject'] = t('Drupal Sparkpost test email');
-  $params['body'] = $form_state['values']['sparkpost_test_body'];
+  $params['body'] = array($form_state['values']['sparkpost_test_body']);
   $params['include_attachment'] = $form_state['values']['include_attachment'];
   $mailsystem = mailsystem_get();
   // Check for empty mailsystem config for Sparkpost:
@@ -179,14 +212,11 @@ function sparkpost_test_form_submit($form, &$form_state) {
   // warning:
   elseif ($mailsystem[$primary_config] != 'SparkpostMailSystem') {
     drupal_set_message(
-      t('Mail System is configured to send Sparkpost Test messages through %system, not Sparkpost. To send tests through Sparkpost, go to !link and change the setting.',
+      t('Mail System is configured to send Sparkpost Test messages through %system, not SparkpostMailSystem. To send tests through SparkpostMailSystem, go to !link and change the setting.',
         array(
           '%system' => $mailsystem['sparkpost_test'],
-          '!link' => l(t('Sparkpost'), 'https://sparkpostapp.com/templates'))),
+          '!link' => l(t('Mail System settings form'), 'admin/config/system/mailsystem'))),
       'warning');
-    // Hack because we are apparently formatting the body differently than
-    // default drupal messages.
-    $params['body'] = array('0' => $params['body']);
   }
   $result = drupal_mail('sparkpost', 'test', $test_address, $language, $params);
   if (isset($result['result']) && $result['result'] == 'true') {

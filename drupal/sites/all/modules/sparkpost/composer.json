@@ -15,7 +15,7 @@
     "issues": "http://drupal.org/project/issues/sparkpost"
   },
   "require": {
-    "sparkpost/php-sparkpost": "^1.0.3",
+    "sparkpost/sparkpost": "^1.0.3",
     "guzzlehttp/guzzle": "~6.0"
   }
 }

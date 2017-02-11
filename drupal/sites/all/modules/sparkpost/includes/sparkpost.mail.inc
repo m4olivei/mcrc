@@ -141,12 +141,26 @@ class SparkpostMailSystem implements MailSystemInterface {
       'campaign' => substr($message['id'], 0, 64),
       'attachments' => $attachments,
       'customHeaders' => $headers,
+      // See #2793291 - Allow marking email as transactional to not have
+      // Unsubscribe links in email client.
+      'transactional' => TRUE,
     );
 
     // Allow other modules to alter the Sparkpost message.
     drupal_alter('sparkpost_mail', $sparkpost_message, $message);
 
-    return sparkpost_mailsend($sparkpost_message);
+    $message_wrapper = new SparkpostMessageWrapper($sparkpost_message, $message);
+
+    // Check if we are sending async or not.
+    if (variable_get('sparkpost_send_async', FALSE)) {
+      // If we are sending async, add it to the queue, and return success.
+      /** @var DrupalQueueInterface $queue */
+      $queue = DrupalQueue::get(SPARKPOST_QUEUE_NAME);
+      $queue->createItem($message_wrapper);
+      return TRUE;
+    }
+
+    return sparkpost_mailsend($message_wrapper);
   }
 
   /**

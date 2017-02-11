@@ -6,6 +6,7 @@
  */
 
 define('SPARKPOST_EMAIL_REGEX', '/^\s*(.+?)\s*<\s*([^>]+)\s*>$/');
+define('SPARKPOST_QUEUE_NAME', 'sparkpost_mail_queue');
 
 /**
  * Implements hook_menu().
@@ -74,7 +75,7 @@ function sparkpost_mail($key, &$message, $params) {
     $message['body'] = $params['body'];
     if ($params['include_attachment']) {
       $message['attachments'][] = drupal_realpath('misc/druplicon.png');
-      $message['body'] .= '  ' . t('The Drupal icon is included as an attachment to test the attachment functionality.');
+      $message['body'][] = t('The Drupal icon is included as an attachment to test the attachment functionality.');
     }
   }
 }
@@ -165,34 +166,60 @@ function sparkpost_get_cc($cc, array $to) {
 /**
  * Sand mail using Guzzle and Sparkpost.
  *
- * @param $message
+ * @param SparkpostMessageWrapperInterface $message_wrapper
  *   Message array.
  *
  * @return bool
  */
-function sparkpost_mailsend($message) {
-  $httpAdapter = new \Ivory\HttpAdapter\Guzzle6HttpAdapter(new \GuzzleHttp\Client());
-  $sparky = new \SparkPost\SparkPost($httpAdapter, ['key' => variable_get('sparkpost_api_key')]);
+function sparkpost_mailsend(SparkpostMessageWrapperInterface $message_wrapper) {
   try {
+    if (!class_exists('\Ivory\HttpAdapter\Guzzle6HttpAdapter') || !class_exists('\GuzzleHttp\Client') || !class_exists('\SparkPost\SparkPost')) {
+      throw new Exception('Missing Composer dependencies, check admin/config/system/composer-manager/packages');
+    }
+
+    $httpAdapter = new \Ivory\HttpAdapter\Guzzle6HttpAdapter(new \GuzzleHttp\Client());
+    $sparky = new \SparkPost\SparkPost($httpAdapter, ['key' => variable_get('sparkpost_api_key')]);
+
+    // Set custom timeout value.
+    $config = $sparky->httpAdapter->getConfiguration();
+    $config->setTimeout(variable_get('sparkpost_timeout', 10));
+    $sparky->httpAdapter->setConfiguration($config);
+
     // Build your email and send it!
-    $results = $sparky->transmission->send($message);
+    $results = $sparky->transmission->send($message_wrapper->getSparkpostMessage());
+
+    // Add results array to message wrapper.
+    $message_wrapper->setResult($results);
+
+    // Let other modules do something on success.
+    module_invoke_all('sparkpost_mailsend_success', $message_wrapper);
+
     return TRUE;
   }
   catch (\SparkPost\APIResponseException $e) {
-    // API Response Exception.
-    $message_arguments = array(
-      '@code' => $e->getAPICode(),
-      '%message' => $e->getAPIMessage(),
-      '%description' => $e->getAPIDescription(),
-      '!sparkpost_message' => print_r($message, TRUE),
-    );
-    watchdog('sparkpost', 'Message could not be sent: %message (Code: @code) %description<pre>!sparkpost_message</pre>', $message_arguments, WATCHDOG_ERROR);
+    $message_wrapper->setApiResponseException($e);
   }
   catch (Exception $e) {
     // Undefined exception.
     watchdog_exception('sparkpost', $e);
   }
+
+  // Let other modules do something on error.
+  module_invoke_all('sparkpost_mailsend_error', $message_wrapper);
+
   return FALSE;
+}
+
+/**
+ * Implements hook_cron_queue_info().
+ */
+function sparkpost_cron_queue_info() {
+  $queues[SPARKPOST_QUEUE_NAME] = array(
+    'worker callback' => 'sparkpost_mailsend',
+    'time' => 60,
+    'skip on cron' => variable_get('sparkpost_skip_cron', FALSE),
+  );
+  return $queues;
 }
 
 /**
@@ -218,4 +245,30 @@ function sparkpost_allowed_headers($headers = array()) {
     unset($headers[$header]);
   }
   return $headers;
+}
+
+/**
+ * Implements hook_sparkpost_mailsend_error().
+ */
+function sparkpost_sparkpost_mailsend_error(SparkpostMessageWrapper $message_wrapper) {
+  $e = $message_wrapper->getApiResponseException();
+  if ($e instanceof \SparkPost\APIResponseException) {
+    $message_arguments = array(
+      '%message' => $e->getMessage(),
+      '@code' => $e->getCode(),
+      '@api_code' => $e->getAPICode(),
+      '%api_message' => $e->getAPIMessage(),
+      '%api_description' => $e->getAPIDescription(),
+    );
+    // Log error to watchdog.
+    watchdog('sparkpost', 'Message could not be sent: @code: %message;  @api_code: %api_message %api_description', $message_arguments, WATCHDOG_ERROR);
+
+    // In addition, if debug is on, dump message_wrapper as well.
+    if (variable_get('sparkpost_debug', TRUE)) {
+      $message_arguments = array(
+        '!message_wrapper' => print_r($message_wrapper, TRUE),
+      );
+      watchdog('sparkpost', 'Debug: <pre>!message_wrapper</pre>', $message_arguments, WATCHDOG_DEBUG);
+    }
+  }
 }

@@ -9,10 +9,14 @@ dependencies[] = mailsystem (>=2.x)
 dependencies[] = composer_manager
 
 files[] = includes/sparkpost.mail.inc
+files[] = includes/sparkpost.message_wrapper.inc
+files[] = includes/sparkpost.message_wrapper_interface.inc
 
-; Information added by Drupal.org packaging script on 2016-04-29
-version = "7.x-1.0-alpha4"
+files[] = tests/sparkpost.test
+
+; Information added by Drupal.org packaging script on 2016-10-18
+version = "7.x-1.3"
 core = "7.x"
 project = "sparkpost"
-datestamp = "1461935670"
+datestamp = "1476779640"
 

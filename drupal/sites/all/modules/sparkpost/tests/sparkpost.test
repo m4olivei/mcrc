@@ -1,0 +1,119 @@
+<?php
+
+/**
+ * @file
+ * Test class for the Sparkpost module.
+ */
+
+class SparkpostTestCase extends DrupalWebTestCase {
+
+  /**
+   * Regular user.
+   *
+   * @var false|object
+   */
+  protected $user;
+
+  /**
+   * Admin user.
+   *
+   * @var false|object
+   */
+  protected $admin;
+
+  /**
+   * Returns info displayed in the test interface.
+   *
+   * @return array
+   *   Formatted as specified by simpletest.
+   */
+  public static function getInfo() {
+    // Note: getInfo() strings are not translated with t().
+    return array(
+      'name' => 'Sparkpost Tests',
+      'description' => 'Test core Sparkpost functionality.',
+      'group' => 'Sparkpost',
+    );
+  }
+
+  /**
+   * Setup.
+   */
+  protected function setUp() {
+    parent::setUp('sparkpost');
+    $this->user = $this->drupalCreateUser(array(
+      'access content',
+    ));
+    $this->admin = $this->drupalCreateUser(array(
+      'access content',
+      'administer site configuration',
+      'administer sparkpost',
+    ));
+  }
+
+  /**
+   * Access admin pages.
+   */
+  public function testAdminAccess() {
+    $this->drupalLogout();
+    $this->drupalLogin($this->user);
+
+    // Try access sparkpost admin form.
+    $this->drupalGet('admin/config/services/sparkpost');
+    $this->assertResponse(403);
+
+    // Login as admin.
+    $this->drupalLogout();
+    $this->drupalLogin($this->admin);
+
+    // Try access sparkpost admin form.
+    $this->drupalGet('admin/config/services/sparkpost');
+    $this->assertResponse(200);
+
+    // Try access test form.
+    $this->drupalGet('admin/config/services/sparkpost/test');
+    $this->assertResponse(403);
+
+    // Set dummy access key.
+    variable_set('sparkpost_api_key', 'API_KEY');
+
+    // Try access test form.
+    $this->drupalGet('admin/config/services/sparkpost/test');
+    $this->assertResponse(200);
+  }
+
+  /**
+   * Test that queue is not processed on cron, if indicated by settings.
+   */
+  public function testSkipQueueOnCron() {
+    variable_set('sparkpost_skip_cron', FALSE);
+    variable_set('sparkpost_send_async', TRUE);
+    /** @var DrupalQueueInterface $queue */
+    $queue = DrupalQueue::get(SPARKPOST_QUEUE_NAME);
+    // Create a dummy item.
+    $queue->createItem($this->createDummyMessage());
+    $this->assertEqual($queue->numberOfItems(), 1);
+    // Run cron.
+    $this->cronRun();
+    // Should have processed the item.
+    $this->assertEqual($queue->numberOfItems(), 0);
+    variable_set('sparkpost_skip_cron', TRUE);
+    $queue->createItem($this->createDummyMessage());
+    $this->assertEqual($queue->numberOfItems(), 1);
+    // Run cron.
+    $this->cronRun();
+    // Should not have processed the item.
+    $this->assertEqual($queue->numberOfItems(), 1);
+  }
+
+  /**
+   * Helper to create a dummy message.
+   *
+   * @return SparkpostMessageWrapperInterface
+   *   The message wrapper
+   */
+  private function createDummyMessage() {
+    return new SparkpostMessageWrapper(array(), array());
+  }
+
+}

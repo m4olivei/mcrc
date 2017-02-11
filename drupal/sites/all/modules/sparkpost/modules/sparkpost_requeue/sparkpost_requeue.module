@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Sparkpost requeue module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function sparkpost_requeue_menu() {
+  $items = array();
+  $items['admin/config/services/sparkpost/sparkpost_requeue'] = array(
+    'title' => 'Administer sparkpost requeue',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('sparkpost_requeue_admin_settings'),
+    'description' => 'Automatically retry failed sparkpost messages',
+    'access arguments' => array('administer sparkpost'),
+    'file' => 'sparkpost_requeue.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_sparkpost_message_failed().
+ */
+function sparkpost_requeue_sparkpost_mailsend_error(SparkpostMessageWrapperInterface $message_wrapper) {
+  // Check if this message has been bouncing around for way too long.
+  $limit = variable_get('sparkpost_requeue_max_retries', 10);
+  $minimum_time = variable_get('sparkpost_requeue_minimum_time', 300);
+  if (!$message_wrapper instanceof SparkpostQueuedMessageWrapper) {
+    // We want to wrap it in our own class.
+    $message_wrapper = new SparkpostQueuedMessageWrapper($message_wrapper);
+  }
+
+  if ($message_wrapper->getRetryCount() >= $limit) {
+    // Log the problem.
+    watchdog('sparkpost_requeue', 'Message has been requeued a total of @number times. Message will be discarded.', array(
+      '@number' => $message_wrapper->getRetryCount(),
+    ));
+    return;
+  }
+
+  // Check if it's not too soon for retrying.
+  if (time() - $message_wrapper->getLastRetry() < $minimum_time) {
+    throw new Exception('Too soon to retry');
+  }
+
+  // Set a log message about what we are doing.
+  watchdog('sparkpost_requeue', 'Caught a failed message. Will requeue it for sending later. Current count is @count', array(
+    '@count' => $message_wrapper->getRetryCount(),
+  ));
+  // Increment a counter about how many times we have tried to send this
+  // message.
+  $message_wrapper->incrementRetryCount();
+
+  // Set last retry timestamp.
+  $message_wrapper->setLastRetry(time());
+
+  // Then just put it in the queue.
+  $queue = DrupalQueue::get(SPARKPOST_QUEUE_NAME);
+  $queue->createItem($message_wrapper);
+}

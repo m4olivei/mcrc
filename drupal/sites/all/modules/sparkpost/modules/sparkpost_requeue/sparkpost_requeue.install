@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Clean-up after module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function sparkpost_requeue_uninstall() {
+  variable_del('sparkpost_requeue_max_retries');
+  variable_del('sparkpost_requeue_minimum_time');
+}
