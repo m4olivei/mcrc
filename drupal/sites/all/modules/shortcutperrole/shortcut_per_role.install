@@ -8,6 +8,6 @@
 /**
  * Implements hook_uninstall()
  */
-function shortcutperrole_uninstall() {
-  variable_del('shortcutperrole');
-}
+function shortcut_per_role_uninstall() {
+  variable_del('shortcut_per_role');
+} 
